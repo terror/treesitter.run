@@ -27,7 +27,3 @@ fmt:
 [group: 'test']
 test:
   bun run test
-
-[group: 'test']
-verify-parsers:
-  bun run verify:parsers

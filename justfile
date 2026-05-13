@@ -13,10 +13,6 @@ default:
 build:
   cargo build
 
-[group: 'build']
-build-wasm *args:
-  cargo run {{ args }}
-
 [group: 'check']
 check:
  cargo check
@@ -52,7 +48,7 @@ install-dev-deps:
 
 [group: 'dev']
 run *args:
-  cargo run -- {{ args }}
+  cargo run {{ args }}
 
 [group: 'test']
 test:

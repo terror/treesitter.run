@@ -85,6 +85,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '{\n  "message": "hello, world"\n}',
     extension: json(),
   },
+  just: {
+    name: 'just',
+    displayName: 'Just',
+    wasmPath: 'tree-sitter-just.wasm',
+    sampleCode: 'default:\n  echo "hello, world"',
+    extension: [],
+  },
   php: {
     name: 'php',
     displayName: 'PHP',

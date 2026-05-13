@@ -56,7 +56,7 @@ impl Compiler {
   fn copy_runtime(&self, progress: &ProgressBar) -> Result {
     let output = self.runtime_output();
 
-    let output_display = self.display_path(&output.as_path());
+    let output_display = self.display_path(output.as_path());
 
     Self::start_step(progress, "copy", &output_display);
 
@@ -90,15 +90,23 @@ impl Compiler {
   }
 
   fn node_modules(&self) -> PathBuf {
-    self.www_directory().join("node_modules")
+    self.root.join("www").join("node_modules")
   }
 
   fn prepare_parser(
     parser: &ParserConfig,
     checkout_directory: &Path,
   ) -> Result<PathBuf> {
+    let repository = parser.repository.trim_end_matches('/');
+
+    let name = repository
+      .rsplit('/')
+      .next()
+      .filter(|name| !name.is_empty())
+      .context("repository URL does not contain a name")?;
+
     let directory =
-      checkout_directory.join(repository_name(&parser.repository)?);
+      checkout_directory.join(name.strip_suffix(".git").unwrap_or(name));
 
     run(
       Command::new("git")
@@ -129,12 +137,15 @@ impl Compiler {
         .arg(&parser.revision),
     )?;
 
-    let revision = read(
-      Command::new("git")
-        .arg("-C")
-        .arg(&directory)
-        .arg("rev-parse")
-        .arg("HEAD"),
+    let revision = String::from_utf8(
+      run(
+        Command::new("git")
+          .arg("-C")
+          .arg(&directory)
+          .arg("rev-parse")
+          .arg("HEAD"),
+      )?
+      .stdout,
     )?;
 
     if revision.trim() != parser.revision {
@@ -264,7 +275,7 @@ impl Compiler {
       Command::new("bun")
         .arg("--eval")
         .arg(VERIFY_SCRIPT)
-        .current_dir(self.www_directory())
+        .current_dir(self.root.join("www"))
         .env("TREE_SITTER_PUBLIC_DIR", self.public_directory())
         .env("TREE_SITTER_PARSERS", parser_names),
     )?;
@@ -272,9 +283,5 @@ impl Compiler {
     Self::finish_step(progress, "verified", "parsers");
 
     Ok(())
-  }
-
-  fn www_directory(&self) -> PathBuf {
-    self.root.join("www")
   }
 }

@@ -122,7 +122,7 @@ impl Compiler {
   }
 
   fn public_directory(&self) -> PathBuf {
-    self.resolve(&self.options.public_directory.as_path())
+    self.resolve(self.options.public_directory.as_path())
   }
 
   fn resolve(&self, path: &Path) -> PathBuf {

@@ -1,3 +1,7 @@
+mod arguments;
+mod compiler;
+mod manifest;
+
 use {
   anyhow::{Context, bail, ensure},
   arguments::Arguments,
@@ -13,11 +17,9 @@ use {
   tempfile::Builder,
 };
 
-mod arguments;
-mod compiler;
-mod manifest;
-
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
+
+type Result<T = (), E = anyhow::Error> = std::result::Result<T, E>;
 
 struct PreparedCommand<'a> {
   command: &'a mut Command,
@@ -71,8 +73,6 @@ fn read(command: &mut Command) -> Result<String> {
 
   Ok(String::from_utf8(output.stdout)?)
 }
-
-type Result<T = (), E = anyhow::Error> = std::result::Result<T, E>;
 
 fn main() -> Result {
   let options = Arguments::parse();

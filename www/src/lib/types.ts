@@ -8,6 +8,7 @@ export type Language =
   | 'java'
   | 'javascript'
   | 'json'
+  | 'just'
   | 'php'
   | 'python'
   | 'rust';

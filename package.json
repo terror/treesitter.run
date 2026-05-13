@@ -5,13 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "bun run verify:parsers && tsc && vite build",
-    "build:parsers": "./bin/build-parsers",
     "dev": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "postinstall": "./bin/postinstall",
-    "preview": "vite preview",
-    "test": "bun test src",
-    "verify:parsers": "./bin/build-parsers --verify-only"
+    "postinstall": "./bin/postinstall"
   },
   "dependencies": {
     "@codemirror/lang-cpp": "^6.0.2",

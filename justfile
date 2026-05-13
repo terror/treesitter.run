@@ -9,12 +9,12 @@ default:
   just --list
 
 [group: 'build']
-compile:
-  bun run build:parsers
-
-[group: 'build']
 build:
   bun run build
+
+[group: 'build']
+build-wasm *args:
+  cargo run --quiet --locked --manifest-path crates/compiler/Cargo.toml {{ args }}
 
 [group: 'dev']
 dev:

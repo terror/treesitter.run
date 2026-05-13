@@ -7,7 +7,7 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { EditorPane } from './components/editor-pane';
 import { TreePane } from './components/tree-pane';
@@ -24,6 +24,8 @@ const STACKED_LAYOUT_QUERY = '(max-width: 767px)';
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
   const { parser, language, loading, error } = useTreeSitter(settings.language);
+  const ready = Boolean(parser && language);
+  const [loaded, setLoaded] = useState<boolean>(false);
 
   const stackedLayout = useMediaQuery(STACKED_LAYOUT_QUERY);
   const panelDirection = stackedLayout ? 'vertical' : 'horizontal';
@@ -73,11 +75,17 @@ const App = () => {
     highlight,
   });
 
+  useEffect(() => {
+    if (ready) {
+      setLoaded(true);
+    }
+  }, [ready]);
+
   if (error) {
     return <div className='p-4'>error: {error}</div>;
   }
 
-  if (loading && !parser) {
+  if (!loaded && !ready) {
     return (
       <div className='flex h-screen items-center justify-center'>
         <Loader2 className='text-muted-foreground h-8 w-8 animate-spin' />

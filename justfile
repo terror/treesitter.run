@@ -14,7 +14,7 @@ build:
 
 [group: 'build']
 build-wasm *args:
-  cargo run --quiet --locked --manifest-path crates/compiler/Cargo.toml {{ args }}
+  cargo run --quiet --locked --package compiler -- {{ args }}
 
 [group: 'dev']
 dev:

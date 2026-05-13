@@ -34,7 +34,7 @@ export const EditorPane = ({
           value={language}
           onValueChange={(value) => onLanguageChange(value as Language)}
         >
-          <SelectTrigger className='h-7 w-36 bg-white text-sm'>
+          <SelectTrigger className='focus-visible:border-input h-7 w-36 cursor-pointer bg-white text-sm focus-visible:ring-0'>
             <SelectValue placeholder='Select language' />
           </SelectTrigger>
           <SelectContent>

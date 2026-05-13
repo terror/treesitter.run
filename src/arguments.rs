@@ -5,7 +5,7 @@ use super::*;
 pub(crate) struct Arguments {
   #[arg(long, default_value = "manifest.toml")]
   pub(crate) manifest: PathBuf,
-  #[arg(long, default_value = "public")]
+  #[arg(long, default_value = "www/public")]
   pub(crate) public_directory: PathBuf,
   #[arg(long)]
   pub(crate) runtime_wasm: Option<PathBuf>,

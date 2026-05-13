@@ -59,6 +59,10 @@ impl Compiler {
       .to_string()
   }
 
+  fn node_modules(&self) -> PathBuf {
+    self.www_directory().join("node_modules")
+  }
+
   fn prepare_parser(
     parser: &ParserConfig,
     checkout_directory: &Path,
@@ -155,8 +159,7 @@ impl Compiler {
     self.options.runtime_wasm.as_ref().map_or_else(
       || {
         self
-          .root
-          .join("node_modules")
+          .node_modules()
           .join("web-tree-sitter")
           .join("tree-sitter.wasm")
       },
@@ -167,15 +170,11 @@ impl Compiler {
   fn tree_sitter(&self) -> PathBuf {
     self.options.tree_sitter.as_ref().map_or_else(
       || {
-        self
-          .root
-          .join("node_modules")
-          .join(".bin")
-          .join(if cfg!(windows) {
-            "tree-sitter.cmd"
-          } else {
-            "tree-sitter"
-          })
+        self.node_modules().join(".bin").join(if cfg!(windows) {
+          "tree-sitter.cmd"
+        } else {
+          "tree-sitter"
+        })
       },
       |path| self.resolve(path),
     )
@@ -194,10 +193,15 @@ impl Compiler {
       Command::new("bun")
         .arg("--eval")
         .arg(VERIFY_SCRIPT)
+        .current_dir(self.www_directory())
         .env("TREE_SITTER_PUBLIC_DIR", self.public_directory())
         .env("TREE_SITTER_PARSERS", parser_names),
     )?;
 
     Ok(())
+  }
+
+  fn www_directory(&self) -> PathBuf {
+    self.root.join("www")
   }
 }

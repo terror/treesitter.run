@@ -6,7 +6,11 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test": "bun test"
   },
   "dependencies": {
     "@codemirror/lang-cpp": "^6.0.2",

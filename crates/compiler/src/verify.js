@@ -1,5 +1,10 @@
 import path from 'node:path';
-import { Parser, Language, LANGUAGE_VERSION, MIN_COMPATIBLE_VERSION } from 'web-tree-sitter';
+import {
+  LANGUAGE_VERSION,
+  Language,
+  MIN_COMPATIBLE_VERSION,
+  Parser,
+} from 'web-tree-sitter';
 
 const publicDirectory = process.env.TREE_SITTER_PUBLIC_DIR;
 const names = process.env.TREE_SITTER_PARSERS.split('\n').filter(Boolean);
@@ -14,10 +19,17 @@ const parser = new Parser();
 
 try {
   for (const name of names) {
-    const language = await Language.load(path.join(publicDirectory, `tree-sitter-${name}.wasm`));
+    const language = await Language.load(
+      path.join(publicDirectory, `tree-sitter-${name}.wasm`)
+    );
 
-    if (language.abiVersion < MIN_COMPATIBLE_VERSION || language.abiVersion > LANGUAGE_VERSION) {
-      throw new Error(`${name} ABI ${language.abiVersion} is outside ${MIN_COMPATIBLE_VERSION}-${LANGUAGE_VERSION}`);
+    if (
+      language.abiVersion < MIN_COMPATIBLE_VERSION ||
+      language.abiVersion > LANGUAGE_VERSION
+    ) {
+      throw new Error(
+        `${name} ABI ${language.abiVersion} is outside ${MIN_COMPATIBLE_VERSION}-${LANGUAGE_VERSION}`
+      );
     }
 
     parser.setLanguage(language);

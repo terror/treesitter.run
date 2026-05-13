@@ -8,10 +8,18 @@ pub(crate) struct Compiler {
 }
 
 impl Compiler {
-  fn build_parser(&self, parser: &ParserConfig, source: &Path) -> Result {
+  fn build_parser(
+    &self,
+    parser: &ParserConfig,
+    progress: &ProgressBar,
+    source: &Path,
+  ) -> Result {
     let output = self
       .public_directory()
       .join(format!("tree-sitter-{}.wasm", parser.name));
+    let output_display = self.display_path(&output);
+
+    Self::start_step(progress, "build", &parser.name);
 
     run(
       Command::new(self.tree_sitter())
@@ -22,18 +30,21 @@ impl Compiler {
         .arg(source),
     )?;
 
-    println!("built {}", self.display_path(&output));
+    Self::finish_step(progress, "built", &output_display);
 
     Ok(())
   }
 
-  fn build_parsers(&self) -> Result {
+  fn build_parsers(&self, progress: &ProgressBar) -> Result {
     let checkout_directory =
       Builder::new().prefix("treesitter-run-parsers-").tempdir()?;
 
     for parser in &self.manifest.parsers {
+      Self::start_step(progress, "fetch", &parser.name);
+
       self.build_parser(
         parser,
+        progress,
         &Self::prepare_parser(parser, checkout_directory.path())?,
       )?;
     }
@@ -41,12 +52,17 @@ impl Compiler {
     Ok(())
   }
 
-  fn copy_runtime(&self) -> Result {
+  fn copy_runtime(&self, progress: &ProgressBar) -> Result {
+    let output = self.runtime_output();
+    let output_display = self.display_path(&output);
+
+    Self::start_step(progress, "copy", &output_display);
+
     fs::create_dir_all(self.public_directory())?;
 
-    fs::copy(self.runtime_wasm(), self.runtime_output())?;
+    fs::copy(self.runtime_wasm(), output)?;
 
-    println!("copied {}", self.display_path(&self.runtime_output()));
+    Self::finish_step(progress, "copied", &output_display);
 
     Ok(())
   }
@@ -57,6 +73,19 @@ impl Compiler {
       .unwrap_or(path)
       .display()
       .to_string()
+  }
+
+  fn finish_step(progress: &ProgressBar, status: &str, message: &str) {
+    progress.inc(1);
+
+    let message =
+      format!("{} {}", style(status).for_stderr().green().bold(), message);
+
+    if progress.is_hidden() {
+      eprintln!("{message}");
+    } else {
+      progress.println(message);
+    }
   }
 
   fn node_modules(&self) -> PathBuf {
@@ -125,6 +154,30 @@ impl Compiler {
     Ok(source)
   }
 
+  fn progress_bar(&self) -> Result<ProgressBar> {
+    let progress = ProgressBar::new(self.progress_len()?);
+    let style = ProgressStyle::with_template(
+      "[{bar:32.cyan/blue}] {pos:>2}/{len:2} {msg}",
+    )?
+    .progress_chars("=>-");
+
+    progress.set_style(style);
+
+    Ok(progress)
+  }
+
+  fn progress_len(&self) -> Result<u64> {
+    let parser_count = if self.options.verify_only {
+      0
+    } else {
+      u64::try_from(self.manifest.parsers.len())?
+    };
+
+    let verify_count = u64::from(!self.options.skip_verify);
+
+    Ok(1 + parser_count + verify_count)
+  }
+
   fn public_directory(&self) -> PathBuf {
     self.resolve(self.options.public_directory.as_path())
   }
@@ -138,15 +191,21 @@ impl Compiler {
   }
 
   pub(crate) fn run(&self) -> Result {
-    self.copy_runtime()?;
+    let progress = self.progress_bar()?;
+
+    self.copy_runtime(&progress)?;
 
     if !self.options.verify_only {
-      self.build_parsers()?;
+      self.build_parsers(&progress)?;
     }
 
     if !self.options.skip_verify {
-      self.verify_parsers()?;
+      self.verify_parsers(&progress)?;
     }
+
+    progress.finish_with_message(
+      style("done").for_stderr().green().bold().to_string(),
+    );
 
     Ok(())
   }
@@ -167,6 +226,14 @@ impl Compiler {
     )
   }
 
+  fn start_step(progress: &ProgressBar, status: &str, message: &str) {
+    progress.set_message(format!(
+      "{} {}",
+      style(status).for_stderr().cyan().bold(),
+      message
+    ));
+  }
+
   fn tree_sitter(&self) -> PathBuf {
     self.options.tree_sitter.as_ref().map_or_else(
       || {
@@ -180,7 +247,7 @@ impl Compiler {
     )
   }
 
-  fn verify_parsers(&self) -> Result {
+  fn verify_parsers(&self, progress: &ProgressBar) -> Result {
     let parser_names = self
       .manifest
       .parsers
@@ -188,6 +255,8 @@ impl Compiler {
       .map(|parser| parser.name.as_str())
       .collect::<Vec<_>>()
       .join("\n");
+
+    Self::start_step(progress, "verify", "parsers");
 
     run(
       Command::new("bun")
@@ -197,6 +266,8 @@ impl Compiler {
         .env("TREE_SITTER_PUBLIC_DIR", self.public_directory())
         .env("TREE_SITTER_PARSERS", parser_names),
     )?;
+
+    Self::finish_step(progress, "verified", "parsers");
 
     Ok(())
   }

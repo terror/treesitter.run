@@ -3,6 +3,8 @@ use {
   arguments::Arguments,
   clap::Parser,
   compiler::Compiler,
+  console::style,
+  indicatif::{ProgressBar, ProgressStyle},
   manifest::{Manifest, ParserConfig},
   serde::Deserialize,
   std::{
@@ -50,28 +52,44 @@ fn repository_name(repository: &str) -> Result<String> {
   Ok(name.strip_suffix(".git").unwrap_or(name).to_string())
 }
 
-fn run(command: &mut Command) -> Result {
-  let command = PreparedCommand::new(command);
-
-  let status = command.command.status()?;
-
-  if !status.success() {
-    bail!("{} exited with {}", command.display, status);
-  }
-
-  Ok(())
-}
-
-fn read(command: &mut Command) -> Result<String> {
+fn output(command: &mut Command) -> Result<std::process::Output> {
   let command = PreparedCommand::new(command);
 
   let output = command.command.output()?;
 
   if !output.status.success() {
-    bail!("{} exited with {}", command.display, output.status);
+    let mut message =
+      format!("{} exited with {}", command.display, output.status);
+
+    for (label, output) in [
+      ("stdout", output.stdout.as_slice()),
+      ("stderr", output.stderr.as_slice()),
+    ] {
+      let output = String::from_utf8_lossy(output);
+      let output = output.trim();
+
+      if !output.is_empty() {
+        message.push_str("\n\n");
+        message.push_str(label);
+        message.push_str(":\n");
+        message.push_str(output);
+      }
+    }
+
+    bail!("{message}");
   }
 
-  Ok(String::from_utf8(output.stdout)?)
+  Ok(output)
+}
+
+fn run(command: &mut Command) -> Result {
+  output(command)?;
+
+  Ok(())
+}
+
+fn read(command: &mut Command) -> Result<String> {
+  Ok(String::from_utf8(output(command)?.stdout)?)
 }
 
 fn main() -> Result {

@@ -1,21 +1,21 @@
 use {
   anyhow::{Context, bail, ensure},
-  clap::Parser,
-  manifest::{Manifest, ParserConfig},
   arguments::Arguments,
+  clap::Parser,
   compiler::Compiler,
+  manifest::{Manifest, ParserConfig},
   serde::Deserialize,
   std::{
-    env, fs,
+    env, fs, iter,
     path::{Path, PathBuf},
     process::Command,
   },
   tempfile::Builder,
 };
 
-mod manifest;
 mod arguments;
 mod compiler;
+mod manifest;
 
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
 
@@ -26,7 +26,7 @@ struct PreparedCommand<'a> {
 
 impl<'a> PreparedCommand<'a> {
   fn new(command: &'a mut Command) -> Self {
-    let display = std::iter::once(command.get_program())
+    let display = iter::once(command.get_program())
       .chain(command.get_args())
       .map(|argument| argument.to_string_lossy())
       .collect::<Vec<_>>()
@@ -51,9 +51,7 @@ fn repository_name(repository: &str) -> Result<String> {
 fn run(command: &mut Command) -> Result {
   let command = PreparedCommand::new(command);
 
-  let status = command
-    .command
-    .status()?;
+  let status = command.command.status()?;
 
   if !status.success() {
     bail!("{} exited with {}", command.display, status);
@@ -65,9 +63,7 @@ fn run(command: &mut Command) -> Result {
 fn read(command: &mut Command) -> Result<String> {
   let command = PreparedCommand::new(command);
 
-  let output = command
-    .command
-    .output()?;
+  let output = command.command.output()?;
 
   if !output.status.success() {
     bail!("{} exited with {}", command.display, output.status);
@@ -83,17 +79,14 @@ fn main() -> Result {
 
   let root = env::current_dir()?;
 
-  let manifest = Manifest::load(&root.join(&options.manifest))?;
-
-  Compiler {
-    manifest,
+  let compiler = Compiler {
+    manifest: Manifest::load(&root.join(&options.manifest))?,
     options,
     root,
-  }
-  .run()
+  };
+
+  compiler.run()
 }
-
-
 
 #[cfg(test)]
 mod tests {

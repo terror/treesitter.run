@@ -28,14 +28,14 @@ impl Compiler {
   }
 
   fn build_parsers(&self) -> Result {
-    let checkout_directory = Builder::new()
-      .prefix("treesitter-run-parsers-")
-      .tempdir()?;
+    let checkout_directory =
+      Builder::new().prefix("treesitter-run-parsers-").tempdir()?;
 
     for parser in &self.manifest.parsers {
-      let source = Self::prepare_parser(parser, checkout_directory.path())?;
-
-      self.build_parser(parser, &source)?;
+      self.build_parser(
+        parser,
+        &Self::prepare_parser(parser, checkout_directory.path())?,
+      )?;
     }
 
     Ok(())

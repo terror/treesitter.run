@@ -13,11 +13,12 @@ interface UseTreeSitter {
 export function useTreeSitter(languageName: Language): UseTreeSitter {
   const [error, setError] = useState<string | undefined>(undefined);
   const [initializing, setInitializing] = useState<boolean>(true);
+  const [loadingLanguage, setLoadingLanguage] = useState<boolean>(false);
+  const [parser, setParser] = useState<Parser | undefined>(undefined);
+
   const [loadedLanguages, setLoadedLanguages] = useState<
     Partial<Record<Language, TSLanguage>>
   >({});
-  const [loadingLanguage, setLoadingLanguage] = useState<boolean>(false);
-  const [parser, setParser] = useState<Parser | undefined>(undefined);
 
   useEffect(() => {
     let canceled = false;

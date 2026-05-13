@@ -13,11 +13,11 @@ import { EditorPane } from './components/editor-pane';
 import { TreePane } from './components/tree-pane';
 import { useEditorExtensions } from './hooks/use-editor-extensions';
 import { useMediaQuery } from './hooks/use-media-query';
-import { usePersistedDoc } from './hooks/use-persisted-doc';
+import { usePersistedState } from './hooks/use-persisted-state';
 import { useSyntaxTree } from './hooks/use-syntax-tree';
 import { useTreeSitter } from './hooks/use-tree-sitter';
 
-const EDITOR_STORAGE_KEY = 'treesitter.run:editor-code';
+const EDITOR_STORAGE_KEY = 'treesitter.run:editor-state';
 const PANEL_LAYOUT_STORAGE_KEY = 'treesitter.run:panel-layout';
 const STACKED_LAYOUT_QUERY = '(max-width: 767px)';
 
@@ -28,9 +28,18 @@ const App = () => {
   const stackedLayout = useMediaQuery(STACKED_LAYOUT_QUERY);
   const panelDirection = stackedLayout ? 'vertical' : 'horizontal';
 
-  const [doc, setDoc] = usePersistedDoc(
+  const [editorState, setEditorState] = usePersistedState<{ code: string }>(
     EDITOR_STORAGE_KEY,
-    languageConfig[settings.language].sampleCode
+    { code: languageConfig[settings.language].sampleCode }
+  );
+
+  const doc = editorState.code;
+
+  const setDoc = useCallback(
+    (code: string) => {
+      setEditorState({ code });
+    },
+    [setEditorState]
   );
 
   const { root, expandedNodes, toggleExpand } = useSyntaxTree({

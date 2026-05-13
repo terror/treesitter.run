@@ -415,7 +415,7 @@ const App = () => {
       <div className='flex items-center gap-x-2 px-4 py-4'>
         <TentTree className='h-4 w-4' />
         <a href='/' className='font-semibold'>
-          treesitter.space
+          treesitter.run
         </a>
       </div>
 

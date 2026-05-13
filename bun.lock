@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "treesitter.space",
+      "name": "treesitter.run",
       "dependencies": {
         "@codemirror/lang-cpp": "^6.0.2",
         "@codemirror/lang-css": "^6.3.1",

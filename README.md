@@ -2,4 +2,4 @@
 
 **treesitter.run** is a web playground for tree-sitter.
 
-<img width="1604" alt="Screenshot 2025-03-05 at 11 58 03 PM" src="https://github.com/user-attachments/assets/35af52d9-7f81-4525-b676-cd723055f256" />
+<img width="1634" height="1088" alt="Screenshot 2026-05-13 at 2 26 14 PM" src="https://github.com/user-attachments/assets/f31d11cf-1ef8-4949-bafb-254d8ff4f3f6" />

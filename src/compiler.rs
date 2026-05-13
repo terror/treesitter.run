@@ -17,6 +17,7 @@ impl Compiler {
     let output = self
       .public_directory()
       .join(format!("tree-sitter-{}.wasm", parser.name));
+
     let output_display = self.display_path(&output);
 
     Self::start_step(progress, "build", &parser.name);
@@ -54,12 +55,12 @@ impl Compiler {
 
   fn copy_runtime(&self, progress: &ProgressBar) -> Result {
     let output = self.runtime_output();
-    let output_display = self.display_path(&output);
+
+    let output_display = self.display_path(&output.as_path());
 
     Self::start_step(progress, "copy", &output_display);
 
     fs::create_dir_all(self.public_directory())?;
-
     fs::copy(self.runtime_wasm(), output)?;
 
     Self::finish_step(progress, "copied", &output_display);
@@ -156,12 +157,13 @@ impl Compiler {
 
   fn progress_bar(&self) -> Result<ProgressBar> {
     let progress = ProgressBar::new(self.progress_len()?);
-    let style = ProgressStyle::with_template(
-      "[{bar:32.cyan/blue}] {pos:>2}/{len:2} {msg}",
-    )?
-    .progress_chars("=>-");
 
-    progress.set_style(style);
+    progress.set_style(
+      ProgressStyle::with_template(
+        "[{bar:32.cyan/blue}] {pos:>2}/{len:2} {msg}",
+      )?
+      .progress_chars("=>-"),
+    );
 
     Ok(progress)
   }

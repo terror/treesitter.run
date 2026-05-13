@@ -13,6 +13,7 @@ use {
     process::{Command, Output},
   },
   tempfile::Builder,
+  toml_edit::{DocumentMut, value},
 };
 
 mod arguments;
@@ -62,7 +63,7 @@ fn main() -> Result {
 
   let root = env::current_dir()?;
 
-  let compiler = Compiler {
+  let mut compiler = Compiler {
     manifest: Manifest::load(&root.join(&options.manifest))?,
     options,
     root,

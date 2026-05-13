@@ -1,50 +1,50 @@
 [[parser]]
 name = "cpp"
 repository = "https://github.com/tree-sitter/tree-sitter-cpp"
-revision = "f41e1a044c8a84ea9fa8577fdd2eab92ec96de02"
+revision = "8b5b49eb196bec7040441bee33b2c9a4838d6967"
 
 [[parser]]
 name = "css"
 repository = "https://github.com/tree-sitter/tree-sitter-css"
-revision = "c0d581e32d183a536731ed6c3a72758b27e20411"
+revision = "dda5cfc5722c429eaba1c910ca32c2c0c5bb1a3f"
 
 [[parser]]
 name = "go"
 repository = "https://github.com/tree-sitter/tree-sitter-go"
-revision = "3c3775faa968158a8b4ac190a7fda867fd5fb748"
+revision = "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"
 
 [[parser]]
 name = "html"
 repository = "https://github.com/tree-sitter/tree-sitter-html"
-revision = "5a5ca8551a179998360b4a4ca2c0f366a35acc03"
+revision = "73a3947324f6efddf9e17c0ea58d454843590cc0"
 
 [[parser]]
 name = "java"
 repository = "https://github.com/tree-sitter/tree-sitter-java"
-revision = "94703d5a6bed02b98e438d7cad1136c01a60ba2c"
+revision = "e10607b45ff745f5f876bfa3e94fbcc6b44bdc11"
 
 [[parser]]
 name = "javascript"
 repository = "https://github.com/tree-sitter/tree-sitter-javascript"
-revision = "3a837b6f3658ca3618f2022f8707e29739c91364"
+revision = "58404d8cf191d69f2674a8fd507bd5776f46cb11"
 
 [[parser]]
 name = "json"
 repository = "https://github.com/tree-sitter/tree-sitter-json"
-revision = "ee35a6ebefcef0c5c416c0d1ccec7370cfca5a24"
+revision = "001c28d7a29832b06b0e831ec77845553c89b56d"
 
 [[parser]]
 name = "php"
 path = "php"
 repository = "https://github.com/tree-sitter/tree-sitter-php"
-revision = "f7cf7348737d8cff1b13407a0bfedce02ee7b046"
+revision = "3f2465c217d0a966d41e584b42d75522f2a3149e"
 
 [[parser]]
 name = "python"
 repository = "https://github.com/tree-sitter/tree-sitter-python"
-revision = "bffb65a8cfe4e46290331dfef0dbf0ef3679de11"
+revision = "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"
 
 [[parser]]
 name = "rust"
 repository = "https://github.com/tree-sitter/tree-sitter-rust"
-revision = "cad8a206f2e4194676b9699f26f6560d07130d3f"
+revision = "77a3747266f4d621d0757825e6b11edcbf991ca5"

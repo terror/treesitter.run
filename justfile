@@ -12,17 +12,14 @@ default:
 build:
   bun run build
 
-[group: 'format']
-fmt:
-  prettier --write .
-
-[group: 'release']
-deploy:
-  bun run build && bunx gh-pages -d dist
-
-[group: 'local']
+[group: 'dev']
 dev:
   bun run dev
 
+[group: 'format']
+fmt:
+  bunx prettier --write .
+
+[group: 'test']
 test:
   bun test

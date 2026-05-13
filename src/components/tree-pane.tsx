@@ -1,0 +1,51 @@
+import type { SyntaxNode } from '@/lib/types';
+import { Text } from '@codemirror/state';
+import { Loader2 } from 'lucide-react';
+import { useMemo } from 'react';
+
+import { TreeNode } from './tree-node';
+
+interface TreePaneProps {
+  root: SyntaxNode | undefined;
+  code: string;
+  loading: boolean;
+  expandedNodes: Set<SyntaxNode>;
+  toggleExpand: (node: SyntaxNode) => void;
+  onHighlightChange: (range: { from: number; to: number } | undefined) => void;
+}
+
+export const TreePane = ({
+  root,
+  code,
+  loading,
+  expandedNodes,
+  toggleExpand,
+  onHighlightChange,
+}: TreePaneProps) => {
+  const doc = useMemo(() => Text.of(code.split('\n')), [code]);
+
+  return (
+    <div className='h-full overflow-auto'>
+      {loading ? (
+        <div className='flex h-full items-center justify-center'>
+          <Loader2 className='text-muted-foreground h-8 w-8 animate-spin' />
+        </div>
+      ) : root ? (
+        <div className='p-2'>
+          <TreeNode
+            node={root}
+            level={0}
+            doc={doc}
+            expandedNodes={expandedNodes}
+            toggleExpand={toggleExpand}
+            onHighlightChange={onHighlightChange}
+          />
+        </div>
+      ) : (
+        <p className='p-4 text-center text-gray-500'>
+          No parsed tree available
+        </p>
+      )}
+    </div>
+  );
+};

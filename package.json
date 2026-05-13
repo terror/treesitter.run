@@ -6,8 +6,7 @@
   "scripts": {
     "build": "bun run verify:parsers && tsc && vite build",
     "dev": "vite",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "postinstall": "./bin/postinstall"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@codemirror/lang-cpp": "^6.0.2",

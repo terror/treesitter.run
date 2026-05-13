@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-mkdir -p public
-
-cp node_modules/web-tree-sitter/tree-sitter.wasm public/tree-sitter.wasm
-
-echo "Copied public/tree-sitter.wasm"

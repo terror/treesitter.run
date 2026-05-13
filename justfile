@@ -9,6 +9,10 @@ default:
   just --list
 
 [group: 'build']
+compile:
+  bun run build:parsers
+
+[group: 'build']
 build:
   bun run build
 
@@ -22,4 +26,8 @@ fmt:
 
 [group: 'test']
 test:
-  bun test
+  bun run test
+
+[group: 'test']
+verify-parsers:
+  bun run verify:parsers

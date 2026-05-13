@@ -15,10 +15,8 @@ impl Compiler {
     source: &Path,
   ) -> Result {
     let output = self
-      .public_directory()
+      .resolve(self.options.public_directory.as_path())
       .join(format!("tree-sitter-{}.wasm", parser.name));
-
-    let output_display = self.display_path(&output);
 
     Self::start_step(progress, "build", &parser.name);
 
@@ -31,7 +29,7 @@ impl Compiler {
         .arg(source),
     )?;
 
-    Self::finish_step(progress, "built", &output_display);
+    Self::finish_step(progress, "built", &self.display_path(&output));
 
     Ok(())
   }
@@ -60,7 +58,7 @@ impl Compiler {
 
     Self::start_step(progress, "copy", &output_display);
 
-    fs::create_dir_all(self.public_directory())?;
+    fs::create_dir_all(self.resolve(self.options.public_directory.as_path()))?;
     fs::copy(self.runtime_wasm(), output)?;
 
     Self::finish_step(progress, "copied", &output_display);
@@ -89,8 +87,45 @@ impl Compiler {
     }
   }
 
-  fn node_modules(&self) -> PathBuf {
-    self.root.join("www").join("node_modules")
+  fn latest_revision(parser: &ParserConfig) -> Result<String> {
+    let output = String::from_utf8(
+      run(
+        Command::new("git")
+          .arg("ls-remote")
+          .arg("--exit-code")
+          .arg(&parser.repository)
+          .arg("HEAD"),
+      )?
+      .stdout,
+    )?;
+
+    Self::parse_latest_revision(&output).with_context(|| {
+      format!("failed to resolve latest revision for {}", parser.name)
+    })
+  }
+
+  fn parse_latest_revision(output: &str) -> Result<String> {
+    let line = output
+      .lines()
+      .find(|line| !line.trim().is_empty())
+      .context("git ls-remote returned no HEAD")?;
+
+    let mut fields = line.split_whitespace();
+
+    let revision = fields
+      .next()
+      .context("git ls-remote HEAD output did not contain a revision")?;
+
+    let reference = fields
+      .next()
+      .context("git ls-remote HEAD output did not contain a reference")?;
+
+    ensure!(
+      reference == "HEAD",
+      "git ls-remote HEAD resolved {reference}, expected HEAD"
+    );
+
+    Ok(revision.to_string())
   }
 
   fn prepare_parser(
@@ -180,19 +215,15 @@ impl Compiler {
   }
 
   fn progress_len(&self) -> Result<u64> {
-    let parser_count = if self.options.verify_only {
+    let parser_steps = if self.options.verify_only {
       0
     } else {
-      u64::try_from(self.manifest.parsers.len())?
+      2 * u64::try_from(self.manifest.parsers.len())?
     };
 
     let verify_count = u64::from(!self.options.skip_verify);
 
-    Ok(1 + parser_count + verify_count)
-  }
-
-  fn public_directory(&self) -> PathBuf {
-    self.resolve(self.options.public_directory.as_path())
+    Ok(1 + parser_steps + verify_count)
   }
 
   fn resolve(&self, path: &Path) -> PathBuf {
@@ -203,12 +234,13 @@ impl Compiler {
     }
   }
 
-  pub(crate) fn run(&self) -> Result {
+  pub(crate) fn run(&mut self) -> Result {
     let progress = self.progress_bar()?;
 
     self.copy_runtime(&progress)?;
 
     if !self.options.verify_only {
+      self.update_parsers(&progress)?;
       self.build_parsers(&progress)?;
     }
 
@@ -224,14 +256,18 @@ impl Compiler {
   }
 
   fn runtime_output(&self) -> PathBuf {
-    self.public_directory().join("tree-sitter.wasm")
+    self
+      .resolve(self.options.public_directory.as_path())
+      .join("tree-sitter.wasm")
   }
 
   fn runtime_wasm(&self) -> PathBuf {
     self.options.runtime_wasm.as_ref().map_or_else(
       || {
         self
-          .node_modules()
+          .root
+          .join("www")
+          .join("node_modules")
           .join("web-tree-sitter")
           .join("tree-sitter.wasm")
       },
@@ -250,14 +286,47 @@ impl Compiler {
   fn tree_sitter(&self) -> PathBuf {
     self.options.tree_sitter.as_ref().map_or_else(
       || {
-        self.node_modules().join(".bin").join(if cfg!(windows) {
-          "tree-sitter.cmd"
-        } else {
-          "tree-sitter"
-        })
+        self
+          .root
+          .join("www")
+          .join("node_modules")
+          .join(".bin")
+          .join(if cfg!(windows) {
+            "tree-sitter.cmd"
+          } else {
+            "tree-sitter"
+          })
       },
       |path| self.resolve(path),
     )
+  }
+
+  fn update_parsers(&mut self, progress: &ProgressBar) -> Result {
+    let mut revisions = Vec::new();
+
+    for parser in &self.manifest.parsers {
+      Self::start_step(progress, "update", &parser.name);
+
+      let revision = Self::latest_revision(parser)?;
+
+      Self::finish_step(
+        progress,
+        "updated",
+        &format!(
+          "{} {}",
+          parser.name,
+          revision.chars().take(12).collect::<String>()
+        ),
+      );
+
+      revisions.push(revision);
+    }
+
+    let manifest = self.resolve(self.options.manifest.as_path());
+
+    self.manifest.update_revisions(&manifest, &revisions)?;
+
+    Ok(())
   }
 
   fn verify_parsers(&self, progress: &ProgressBar) -> Result {
@@ -276,12 +345,28 @@ impl Compiler {
         .arg("--eval")
         .arg(VERIFY_SCRIPT)
         .current_dir(self.root.join("www"))
-        .env("TREE_SITTER_PUBLIC_DIR", self.public_directory())
+        .env(
+          "TREE_SITTER_PUBLIC_DIR",
+          self.resolve(self.options.public_directory.as_path()),
+        )
         .env("TREE_SITTER_PARSERS", parser_names),
     )?;
 
     Self::finish_step(progress, "verified", "parsers");
 
     Ok(())
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn parse_latest_revision() {
+    assert_eq!(
+      Compiler::parse_latest_revision("foo\tHEAD\n").unwrap(),
+      "foo"
+    );
   }
 }

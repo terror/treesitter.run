@@ -33,3 +33,7 @@ indicatif = { version = "0.18.4", default-features = false, features = ["unicode
 serde = { version = "1.0.228", features = ["derive"] }
 tempfile = "3.27.0"
 toml = "1.1.2"
+toml_edit = "0.25.11"
+
+[dev-dependencies]
+indoc = "2.0.7"

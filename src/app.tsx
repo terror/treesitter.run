@@ -9,6 +9,7 @@ import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
+import { AboutDialog } from './components/about-dialog';
 import { EditorPane } from './components/editor-pane';
 import { TreePane } from './components/tree-pane';
 import { useEditorExtensions } from './hooks/use-editor-extensions';
@@ -100,6 +101,9 @@ const App = () => {
         <a href='/' className='font-semibold'>
           treesitter.run
         </a>
+        <div className='ml-auto'>
+          <AboutDialog />
+        </div>
       </div>
 
       <div className='flex-1 overflow-hidden p-4'>

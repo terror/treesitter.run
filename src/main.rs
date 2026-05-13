@@ -1,7 +1,3 @@
-mod arguments;
-mod compiler;
-mod manifest;
-
 use {
   anyhow::{Context, bail, ensure},
   arguments::Arguments,
@@ -16,6 +12,10 @@ use {
   },
   tempfile::Builder,
 };
+
+mod arguments;
+mod compiler;
+mod manifest;
 
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
 

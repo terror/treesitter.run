@@ -15,7 +15,7 @@ build:
 
 [group: 'build']
 build-wasm *args:
-  cargo run --quiet --locked --package compiler -- {{ args }}
+  cargo run {{ args }}
 
 [group: 'dev']
 run *args:

@@ -9,9 +9,11 @@ use {
   runnable::Runnable,
   serde::{Deserialize, Serialize},
   std::{
-    env, fs, iter,
+    env, fs,
+    io::{self, IsTerminal},
+    iter,
     path::{Path, PathBuf},
-    process::{Command, Output},
+    process::{Command, ExitCode, Output},
   },
   tempfile::Builder,
 };
@@ -25,7 +27,7 @@ const VERIFY_SCRIPT: &str = include_str!("verify.js");
 
 type Result<T = (), E = anyhow::Error> = std::result::Result<T, E>;
 
-fn main() -> Result {
+fn run() -> Result {
   let options = Arguments::parse();
 
   let root = env::current_dir()?;
@@ -37,4 +39,27 @@ fn main() -> Result {
   };
 
   compiler.run()
+}
+
+fn main() -> ExitCode {
+  if let Err(error) = run() {
+    if io::stderr().is_terminal() {
+      eprintln!("\x1b[1;31merror\x1b[0m: \x1b[1m{error}\x1b[0m");
+    } else {
+      eprintln!("error: {error}");
+    }
+
+    let causes = error.chain().skip(1).count();
+
+    for (i, source) in error.chain().skip(1).enumerate() {
+      eprintln!(
+        "       {}─ {source}",
+        if i < causes - 1 { '├' } else { '└' }
+      );
+    }
+
+    ExitCode::FAILURE
+  } else {
+    ExitCode::SUCCESS
+  }
 }

@@ -86,3 +86,8 @@ name = "xml"
 path = "xml"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-xml"
 revision = "5000ae8f22d11fbe93939b05c1e37cf21117162d"
+
+[[parser]]
+name = "sql"
+repository = "https://github.com/wippyai/tree-sitter-sql"
+revision = "f7491fe853198c1ea81d743244ad9c2aa3eab157"

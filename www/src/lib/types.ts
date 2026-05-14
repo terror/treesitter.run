@@ -17,7 +17,8 @@ export type Language =
   | 'typescript'
   | 'yaml'
   | 'toml'
-  | 'xml';
+  | 'xml'
+  | 'sql';
 
 export interface LanguageConfig {
   name: Language;

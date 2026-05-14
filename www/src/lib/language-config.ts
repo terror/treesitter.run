@@ -8,6 +8,7 @@ import { json } from '@codemirror/lang-json';
 import { php } from '@codemirror/lang-php';
 import { python } from '@codemirror/lang-python';
 import { rust } from '@codemirror/lang-rust';
+import { sql } from '@codemirror/lang-sql';
 import { xml } from '@codemirror/lang-xml';
 
 import { Language, LanguageConfig } from './types';
@@ -174,5 +175,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '  <text>hello, world</text>\n' +
       '</message>',
     extension: xml(),
+  },
+  sql: {
+    name: 'sql',
+    displayName: 'SQL',
+    wasmPath: 'tree-sitter-sql.wasm',
+    sampleCode: 'select foo\nfrom bar\nwhere baz = 1;',
+    extension: sql(),
   },
 };

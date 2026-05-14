@@ -122,6 +122,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'console.log("hello, world");',
     extension: javascript(),
   },
+  jsdoc: {
+    name: 'jsdoc',
+    displayName: 'JSDoc',
+    wasmPath: 'tree-sitter-jsdoc.wasm',
+    sampleCode: '/**\n * @param {string} foo\n * @returns {string}\n */',
+    extension: [],
+  },
   json: {
     name: 'json',
     displayName: 'JSON',

@@ -12,6 +12,7 @@ export type Language =
   | 'html'
   | 'java'
   | 'javascript'
+  | 'jsdoc'
   | 'json'
   | 'just'
   | 'php'

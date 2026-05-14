@@ -5,25 +5,33 @@ import { Text } from '@codemirror/state';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 interface TreeNodeProps {
-  node: SyntaxNode;
-  level: number;
   doc: Text;
   expandedNodes: Set<SyntaxNode>;
-  toggleExpand: (node: SyntaxNode) => void;
+  forceExpanded: boolean;
+  level: number;
+  node: SyntaxNode;
   onHighlightChange: (range?: { from: number; to: number }) => void;
+  searchMatches: Set<SyntaxNode>;
+  toggleExpand: (node: SyntaxNode) => void;
+  visibleNodes: Set<SyntaxNode>;
 }
 
 export const TreeNode: React.FC<TreeNodeProps> = ({
-  node,
-  level,
   doc,
   expandedNodes,
-  toggleExpand,
+  forceExpanded,
+  level,
+  node,
   onHighlightChange,
+  searchMatches,
+  toggleExpand,
+  visibleNodes,
 }) => {
-  const hasChildren = node.childCount > 0;
-  const isExpanded = expandedNodes.has(node);
+  const children = node.children.filter((child) => visibleNodes.has(child));
   const errorKind = parseErrorKind(node);
+  const hasChildren = children.length > 0;
+  const isExpanded = forceExpanded || expandedNodes.has(node);
+  const searchMatch = searchMatches.has(node);
 
   const handleMouseEnter = () => {
     const from = positionToOffset(node.startPosition, doc);
@@ -39,6 +47,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
       <div
         className={cn(
           'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50',
+          searchMatch && 'bg-yellow-50 text-yellow-900 hover:bg-yellow-100',
           errorKind === 'error' &&
             'border-red-500 bg-red-50 text-red-800 hover:bg-red-100',
           errorKind === 'missing' &&
@@ -74,13 +83,16 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
       </div>
       {isExpanded &&
         hasChildren &&
-        node.children.map((child, index) => (
+        children.map((child, index) => (
           <TreeNode
             key={child.id ?? index}
             node={child}
             level={level + 1}
             doc={doc}
             expandedNodes={expandedNodes}
+            visibleNodes={visibleNodes}
+            searchMatches={searchMatches}
+            forceExpanded={forceExpanded}
             toggleExpand={toggleExpand}
             onHighlightChange={onHighlightChange}
           />

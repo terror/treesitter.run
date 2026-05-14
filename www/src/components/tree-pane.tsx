@@ -39,10 +39,13 @@ export const TreePane = ({
   onHighlightChange,
 }: TreePaneProps) => {
   const doc = useMemo(() => Text.of(code.split('\n')), [code]);
+
   const [search, setSearch] = useState<string>('');
+
   const [filters, setFilters] = useState<TreeNodeFilters>(
     defaultTreeNodeFilters
   );
+
   const visibleTree = useMemo(() => {
     if (!root) {
       return undefined;

@@ -85,6 +85,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'defmodule Foo do\n  def bar do\n    IO.puts("baz")\n  end\nend',
     extension: [],
   },
+  gleam: {
+    name: 'gleam',
+    displayName: 'Gleam',
+    wasmPath: 'tree-sitter-gleam.wasm',
+    sampleCode: 'pub fn main() {\n  "foo"\n}',
+    extension: [],
+  },
   go: {
     name: 'go',
     displayName: 'Go',

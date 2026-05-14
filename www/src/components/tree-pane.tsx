@@ -1,4 +1,6 @@
+import { usePersistedState } from '@/hooks/use-persisted-state';
 import {
+  type TreeNodeFilters,
   collectVisibleTreeNodes,
   defaultTreeNodeFilters,
 } from '@/lib/tree-filter';
@@ -8,6 +10,7 @@ import { Loader2, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import { ParserMetadataDialog } from './parser-metadata-dialog';
+import { TreeFilterDialog } from './tree-filter-dialog';
 import { TreeNode } from './tree-node';
 
 interface TreePaneProps {
@@ -19,6 +22,12 @@ interface TreePaneProps {
   toggleExpand: (node: SyntaxNode) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
 }
+
+const treeNodeFilterKeys = Object.keys(
+  defaultTreeNodeFilters
+) as (keyof TreeNodeFilters)[];
+
+const TREE_FILTER_STORAGE_KEY = 'treesitter.run:tree-filters';
 
 export const TreePane = ({
   root,
@@ -33,6 +42,19 @@ export const TreePane = ({
 
   const [search, setSearch] = useState<string>('');
 
+  const [filters, setFilters] = usePersistedState<TreeNodeFilters>(
+    TREE_FILTER_STORAGE_KEY,
+    defaultTreeNodeFilters
+  );
+
+  const activeFilterCount = useMemo(
+    () =>
+      treeNodeFilterKeys.filter(
+        (key) => filters[key] !== defaultTreeNodeFilters[key]
+      ).length,
+    [filters]
+  );
+
   const visibleTree = useMemo(() => {
     if (!root) {
       return undefined;
@@ -40,12 +62,14 @@ export const TreePane = ({
 
     return collectVisibleTreeNodes({
       root,
-      filters: defaultTreeNodeFilters,
+      filters,
       search,
     });
-  }, [root, search]);
+  }, [filters, root, search]);
 
-  const forceExpanded = Boolean(visibleTree?.searchActive);
+  const forceExpanded = Boolean(
+    visibleTree?.searchActive || activeFilterCount > 0
+  );
 
   const rootVisible = Boolean(root && visibleTree?.visibleNodes.has(root));
 
@@ -62,6 +86,11 @@ export const TreePane = ({
             className='border-input h-7 w-full rounded-md border bg-white pr-2 pl-7 font-mono text-xs outline-none'
           />
         </div>
+        <TreeFilterDialog
+          filters={filters}
+          activeFilterCount={activeFilterCount}
+          onFiltersChange={setFilters}
+        />
 
         <div className='ml-auto shrink-0'>
           <ParserMetadataDialog language={language} />

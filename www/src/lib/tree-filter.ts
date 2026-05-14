@@ -1,3 +1,4 @@
+import { parseErrorKind } from './parse-errors';
 import type { SyntaxNode } from './types';
 
 interface CollectVisibleTreeNodesOptions {
@@ -10,6 +11,8 @@ export interface TreeNodeFilters {
   named: boolean;
   anonymous: boolean;
   extra: boolean;
+  error: boolean;
+  missing: boolean;
 }
 
 export interface VisibleTreeNodes {
@@ -22,6 +25,8 @@ export const defaultTreeNodeFilters: TreeNodeFilters = {
   named: true,
   anonymous: true,
   extra: true,
+  error: true,
+  missing: true,
 };
 
 /**
@@ -35,7 +40,7 @@ export const defaultTreeNodeFilters: TreeNodeFilters = {
  *
  * @param options - Inputs used to derive visible tree state.
  * @param options.root - Root syntax node to traverse.
- * @param options.filters - Current enabled state for named, anonymous, and extra nodes.
+ * @param options.filters - Current enabled state for node visibility filters.
  * @param options.search - Raw search text entered by the user.
  * @returns Sets of visible nodes and direct search matches, plus whether search is active.
  */
@@ -81,21 +86,32 @@ export const collectVisibleTreeNodes = ({
 };
 
 /**
- * Determines whether a syntax node is enabled by the current node-type
+ * Determines whether a syntax node is enabled by the current visibility
  * filters.
  *
- * Extra nodes are treated as their own category, even when tree-sitter also
- * reports them as named. Non-extra named nodes are matched against the named
- * filter, and every remaining node is treated as anonymous.
+ * Error and missing nodes are treated as parse-state filters first. Extra nodes
+ * are treated as their own category, even when tree-sitter also reports them as
+ * named. Non-extra named nodes are matched against the named filter, and every
+ * remaining node is treated as anonymous.
  *
  * @param node - Syntax node to classify.
- * @param filters - Current enabled state for named, anonymous, and extra nodes.
+ * @param filters - Current enabled state for named, anonymous, extra, error, and missing nodes.
  * @returns Whether the node should be considered visible before search is applied.
  */
 export const treeNodeMatchesFilters = (
   node: SyntaxNode,
   filters: TreeNodeFilters
 ): boolean => {
+  const errorKind = parseErrorKind(node);
+
+  if (errorKind === 'error') {
+    return filters.error;
+  }
+
+  if (errorKind === 'missing') {
+    return filters.missing;
+  }
+
   if (node.isExtra) {
     return filters.extra;
   }

@@ -134,6 +134,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-typescript"
 revision = "75b3874edb2dc714fb1fd77a32013d0f8699989f"
 
 [[parser]]
+name = "verilog"
+repository = "https://github.com/tree-sitter/tree-sitter-verilog"
+revision = "227d277b6a1a5e2bf818d6206935722a7503de08"
+
+[[parser]]
 name = "xml"
 path = "xml"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-xml"

@@ -216,6 +216,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'console.log(message.text);',
     extension: javascript({ typescript: true }),
   },
+  verilog: {
+    name: 'verilog',
+    displayName: 'Verilog',
+    wasmPath: 'tree-sitter-verilog.wasm',
+    sampleCode:
+      'module foo(input bar, output baz);\n  assign baz = bar;\nendmodule',
+    extension: [],
+  },
   yaml: {
     name: 'yaml',
     displayName: 'YAML',

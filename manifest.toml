@@ -214,3 +214,8 @@ revision = "5000ae8f22d11fbe93939b05c1e37cf21117162d"
 name = "yaml"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
 revision = "4463985dfccc640f3d6991e3396a2047610cf5f8"
+
+[[parser]]
+name = "zig"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-zig"
+revision = "6479aa13f32f701c383083d8b28360ebd682fb7d"

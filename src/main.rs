@@ -27,6 +27,20 @@ const VERIFY_SCRIPT: &str = include_str!("verify.js");
 
 type Result<T = (), E = anyhow::Error> = std::result::Result<T, E>;
 
+fn run() -> Result {
+  let options = Arguments::parse();
+
+  let root = env::current_dir()?;
+
+  let mut compiler = Compiler {
+    manifest: Manifest::load(&root.join(&options.manifest))?,
+    options,
+    root,
+  };
+
+  compiler.run()
+}
+
 fn main() -> ExitCode {
   if let Err(error) = run() {
     if io::stderr().is_terminal() {
@@ -48,18 +62,4 @@ fn main() -> ExitCode {
   } else {
     ExitCode::SUCCESS
   }
-}
-
-fn run() -> Result {
-  let options = Arguments::parse();
-
-  let root = env::current_dir()?;
-
-  let mut compiler = Compiler {
-    manifest: Manifest::load(&root.join(&options.manifest))?,
-    options,
-    root,
-  };
-
-  compiler.run()
 }

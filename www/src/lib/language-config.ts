@@ -165,6 +165,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'local function foo(bar)\n  print(bar)\nend\n\nfoo("baz")',
     extension: [],
   },
+  make: {
+    name: 'make',
+    displayName: 'Make',
+    wasmPath: 'tree-sitter-make.wasm',
+    sampleCode: 'foo:\n\techo bar',
+    extension: [],
+  },
   markdown: {
     name: 'markdown',
     displayName: 'Markdown',

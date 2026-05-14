@@ -18,6 +18,7 @@ export type Language =
   | 'julia'
   | 'just'
   | 'lua'
+  | 'make'
   | 'markdown'
   | 'ocaml'
   | 'php'

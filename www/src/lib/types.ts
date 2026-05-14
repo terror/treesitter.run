@@ -20,6 +20,7 @@ export type Language =
   | 'php'
   | 'python'
   | 'regex'
+  | 'ruby'
   | 'rust'
   | 'typescript'
   | 'yaml'

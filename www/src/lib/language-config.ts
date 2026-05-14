@@ -178,6 +178,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '^(foo|bar)+$',
     extension: [],
   },
+  ruby: {
+    name: 'ruby',
+    displayName: 'Ruby',
+    wasmPath: 'tree-sitter-ruby.wasm',
+    sampleCode: 'def foo(bar)\n  puts bar\nend\n\nfoo("baz")',
+    extension: [],
+  },
   rust: {
     name: 'rust',
     displayName: 'Rust',

@@ -27,6 +27,7 @@ export type Language =
   | 'nix'
   | 'ocaml'
   | 'php'
+  | 'powershell'
   | 'python'
   | 'query'
   | 'r'

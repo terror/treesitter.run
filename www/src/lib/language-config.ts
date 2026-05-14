@@ -229,6 +229,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '<?php\n\necho "hello, world\\n";\n',
     extension: php(),
   },
+  powershell: {
+    name: 'powershell',
+    displayName: 'PowerShell',
+    wasmPath: 'tree-sitter-powershell.wasm',
+    sampleCode: 'function Foo {\n  Write-Output "bar"\n}\n\nFoo',
+    extension: [],
+  },
   python: {
     name: 'python',
     displayName: 'Python',

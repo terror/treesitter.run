@@ -8,6 +8,7 @@ export type Language =
   | 'cpp'
   | 'css'
   | 'go'
+  | 'haskell'
   | 'html'
   | 'java'
   | 'javascript'

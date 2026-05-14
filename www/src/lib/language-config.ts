@@ -83,6 +83,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '}',
     extension: go(),
   },
+  haskell: {
+    name: 'haskell',
+    displayName: 'Haskell',
+    wasmPath: 'tree-sitter-haskell.wasm',
+    sampleCode: 'module Main where\n\nmain :: IO ()\nmain = putStrLn "foo"',
+    extension: [],
+  },
   html: {
     name: 'html',
     displayName: 'HTML',

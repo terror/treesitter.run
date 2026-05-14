@@ -24,6 +24,7 @@ export type Language =
   | 'rust'
   | 'scala'
   | 'typescript'
+  | 'verilog'
   | 'yaml'
   | 'toml'
   | 'xml'

@@ -192,6 +192,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'fn main() {\n  println!("hello, world");\n}',
     extension: rust(),
   },
+  scala: {
+    name: 'scala',
+    displayName: 'Scala',
+    wasmPath: 'tree-sitter-scala.wasm',
+    sampleCode:
+      'object Foo {\n  def main(args: Array[String]): Unit = {\n    println("bar")\n  }\n}',
+    extension: [],
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

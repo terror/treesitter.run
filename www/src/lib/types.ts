@@ -22,6 +22,7 @@ export type Language =
   | 'regex'
   | 'ruby'
   | 'rust'
+  | 'scala'
   | 'typescript'
   | 'yaml'
   | 'toml'

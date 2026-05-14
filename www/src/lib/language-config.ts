@@ -8,6 +8,7 @@ import { json } from '@codemirror/lang-json';
 import { php } from '@codemirror/lang-php';
 import { python } from '@codemirror/lang-python';
 import { rust } from '@codemirror/lang-rust';
+import { xml } from '@codemirror/lang-xml';
 
 import { Language, LanguageConfig } from './types';
 
@@ -162,5 +163,16 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-toml.wasm',
     sampleCode: 'message = "hello, world"\nitems = ["foo", "bar"]',
     extension: [],
+  },
+  xml: {
+    name: 'xml',
+    displayName: 'XML',
+    wasmPath: 'tree-sitter-xml.wasm',
+    sampleCode:
+      '<?xml version="1.0"?>\n' +
+      '<message>\n' +
+      '  <text>hello, world</text>\n' +
+      '</message>',
+    extension: xml(),
   },
 };

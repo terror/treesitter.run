@@ -14,6 +14,13 @@ import { xml } from '@codemirror/lang-xml';
 import { Language, LanguageConfig } from './types';
 
 export const languageConfig: Record<Language, LanguageConfig> = {
+  agda: {
+    name: 'agda',
+    displayName: 'Agda',
+    wasmPath: 'tree-sitter-agda.wasm',
+    sampleCode: 'module Foo where\n\ndata Bar : Set where\n  baz : Bar',
+    extension: [],
+  },
   bash: {
     name: 'bash',
     displayName: 'Bash',

@@ -1,6 +1,7 @@
 import { Extension } from '@codemirror/state';
 
 export type Language =
+  | 'agda'
   | 'bash'
   | 'c'
   | 'cpp'

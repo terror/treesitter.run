@@ -1,4 +1,9 @@
 [[parser]]
+name = "agda"
+repository = "https://github.com/tree-sitter/tree-sitter-agda"
+revision = "e8d47a6987effe34d5595baf321d82d3519a8527"
+
+[[parser]]
 name = "bash"
 repository = "https://github.com/tree-sitter/tree-sitter-bash"
 revision = "a06c2e4415e9bc0346c6b86d401879ffb44058f7"

@@ -85,6 +85,11 @@ repository = "https://github.com/tree-sitter-grammars/tree-sitter-lua"
 revision = "10fe0054734eec83049514ea2e718b2a56acd0c9"
 
 [[parser]]
+name = "make"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-make"
+revision = "70613f3d812cbabbd7f38d104d60a409c4008b43"
+
+[[parser]]
 name = "markdown"
 path = "tree-sitter-markdown"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"

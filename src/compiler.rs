@@ -132,16 +132,7 @@ impl Compiler {
     parser: &ParserConfig,
     checkout_directory: &Path,
   ) -> Result<PathBuf> {
-    let repository = parser.repository.trim_end_matches('/');
-
-    let name = repository
-      .rsplit('/')
-      .next()
-      .filter(|name| !name.is_empty())
-      .context("repository URL does not contain a name")?;
-
-    let directory =
-      checkout_directory.join(name.strip_suffix(".git").unwrap_or(name));
+    let directory = checkout_directory.join(&parser.name);
 
     run(
       Command::new("git")

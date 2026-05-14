@@ -59,9 +59,11 @@ export const TreePane = ({
   }, [filters, root, search]);
 
   const filtersActive = !filters.named || !filters.anonymous || !filters.extra;
+
   const forceExpanded = Boolean(
     visibleTree && (visibleTree.searchActive || filtersActive)
   );
+
   const rootVisible = Boolean(root && visibleTree?.visibleNodes.has(root));
 
   const setFilter = (filter: TreeNodeFilter, checked: boolean) => {

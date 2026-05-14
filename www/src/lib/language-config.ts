@@ -91,6 +91,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '}',
     extension: go(),
   },
+  graphql: {
+    name: 'graphql',
+    displayName: 'GraphQL',
+    wasmPath: 'tree-sitter-graphql.wasm',
+    sampleCode: 'query Foo {\n  bar {\n    baz\n  }\n}',
+    extension: [],
+  },
   haskell: {
     name: 'haskell',
     displayName: 'Haskell',

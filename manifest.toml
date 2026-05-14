@@ -39,6 +39,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-go"
 revision = "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"
 
 [[parser]]
+name = "graphql"
+repository = "https://github.com/joowani/tree-sitter-graphql"
+revision = "df5b88d1d24dcfc02e64919d2d20491359abe4c8"
+
+[[parser]]
 name = "haskell"
 repository = "https://github.com/tree-sitter/tree-sitter-haskell"
 revision = "0975ef72fc3c47b530309ca93937d7d143523628"

@@ -28,6 +28,7 @@ export type Language =
   | 'php'
   | 'python'
   | 'query'
+  | 'r'
   | 'regex'
   | 'ruby'
   | 'rust'

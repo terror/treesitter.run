@@ -236,6 +236,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '(function_item\n  name: (identifier) @function)',
     extension: [],
   },
+  r: {
+    name: 'r',
+    displayName: 'R',
+    wasmPath: 'tree-sitter-r.wasm',
+    sampleCode: 'foo <- function(bar) {\n  print(bar)\n}\n\nfoo("baz")',
+    extension: [],
+  },
   regex: {
     name: 'regex',
     displayName: 'Regex',

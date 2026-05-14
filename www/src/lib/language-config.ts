@@ -156,4 +156,11 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'message: hello, world\nitems:\n  - foo\n  - bar',
     extension: [],
   },
+  toml: {
+    name: 'toml',
+    displayName: 'TOML',
+    wasmPath: 'tree-sitter-toml.wasm',
+    sampleCode: 'message = "hello, world"\nitems = ["foo", "bar"]',
+    extension: [],
+  },
 };

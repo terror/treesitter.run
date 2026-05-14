@@ -75,3 +75,8 @@ revision = "75b3874edb2dc714fb1fd77a32013d0f8699989f"
 name = "yaml"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
 revision = "4463985dfccc640f3d6991e3396a2047610cf5f8"
+
+[[parser]]
+name = "toml"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-toml"
+revision = "64b56832c2cffe41758f28e05c756a3a98d16f41"

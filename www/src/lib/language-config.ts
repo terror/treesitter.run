@@ -41,6 +41,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '}',
     extension: cpp(),
   },
+  'c-sharp': {
+    name: 'c-sharp',
+    displayName: 'C#',
+    wasmPath: 'tree-sitter-c-sharp.wasm',
+    sampleCode:
+      'using System;\n\nclass Foo {\n  static void Main() {\n    Console.WriteLine("bar");\n  }\n}',
+    extension: [],
+  },
   cpp: {
     name: 'cpp',
     displayName: 'C++',

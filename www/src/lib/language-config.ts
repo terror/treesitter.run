@@ -363,4 +363,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '}',
     extension: javascript({ jsx: true, typescript: true }),
   },
+  zig: {
+    name: 'zig',
+    displayName: 'Zig',
+    wasmPath: 'tree-sitter-zig.wasm',
+    sampleCode:
+      'const std = @import("std");\n\npub fn main() void {\n  std.debug.print("foo\\n", .{});\n}',
+    extension: [],
+  },
 };

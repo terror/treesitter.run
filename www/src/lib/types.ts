@@ -42,7 +42,8 @@ export type Language =
   | 'toml'
   | 'xml'
   | 'sql'
-  | 'tsx';
+  | 'tsx'
+  | 'zig';
 
 export interface LanguageConfig {
   name: Language;

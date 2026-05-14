@@ -9,6 +9,7 @@ export type Language =
   | 'css'
   | 'dockerfile'
   | 'go'
+  | 'graphql'
   | 'haskell'
   | 'hcl'
   | 'html'

@@ -1,26 +1,27 @@
 use super::*;
 
-#[derive(Debug, Deserialize, Eq, PartialEq)]
+#[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub(crate) struct ParserConfig {
   pub(crate) name: String,
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub(crate) path: Option<PathBuf>,
   pub(crate) repository: String,
   pub(crate) revision: String,
 }
 
-#[derive(Debug, Deserialize, Eq, PartialEq)]
+#[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[serde(transparent)]
 pub(crate) struct Manifest {
-  #[serde(rename = "parser")]
   pub(crate) parsers: Vec<ParserConfig>,
 }
 
 impl Manifest {
   pub(crate) fn load(path: &Path) -> Result<Self> {
-    let manifest = toml::from_str::<Self>(&fs::read_to_string(path)?)?;
+    let manifest = serde_json::from_str::<Self>(&fs::read_to_string(path)?)?;
 
     ensure!(
       !manifest.parsers.is_empty(),
-      "{} must contain at least one [[parser]] table",
+      "{} must contain at least one parser",
       path.display()
     );
 
@@ -39,32 +40,11 @@ impl Manifest {
       self.parsers.len()
     );
 
-    let mut document = fs::read_to_string(path)?.parse::<DocumentMut>()?;
-
-    let parsers = document
-      .get_mut("parser")
-      .and_then(|item| item.as_array_of_tables_mut())
-      .with_context(|| {
-        format!("{} must contain [[parser]] tables", path.display())
-      })?;
-
-    ensure!(
-      parsers.len() == revisions.len(),
-      "{} contains {} [[parser]] tables but manifest has {} parsers",
-      path.display(),
-      parsers.len(),
-      revisions.len()
-    );
-
     for (parser, revision) in self.parsers.iter_mut().zip(revisions) {
       parser.revision.clone_from(revision);
     }
 
-    for (parser, revision) in parsers.iter_mut().zip(revisions) {
-      parser["revision"] = value(revision.as_str());
-    }
-
-    fs::write(path, document.to_string())?;
+    fs::write(path, format!("{}\n", serde_json::to_string_pretty(self)?))?;
 
     Ok(())
   }
@@ -81,22 +61,27 @@ mod tests {
       .tempdir()
       .unwrap();
 
-    let path = tempdir.path().join("manifest.toml");
+    let path = tempdir.path().join("manifest.json");
 
     fs::write(
       &path,
-      indoc! {r#"
-        [[parser]]
-        name = "foo"
-        repository = "bar"
-        revision = "baz"
-
-        [[parser]]
-        name = "qux"
-        path = "foo"
-        repository = "bar"
-        revision = "baz"
-      "#},
+      indoc! {
+        r#"
+        [
+          {
+            "name": "foo",
+            "repository": "bar",
+            "revision": "baz"
+          },
+          {
+            "name": "qux",
+            "path": "foo",
+            "repository": "bar",
+            "revision": "baz"
+          }
+        ]
+        "#
+      },
     )
     .unwrap();
 
@@ -128,18 +113,23 @@ mod tests {
 
     assert_eq!(
       fs::read_to_string(path).unwrap(),
-      indoc! {r#"
-        [[parser]]
-        name = "foo"
-        repository = "bar"
-        revision = "foo"
-
-        [[parser]]
-        name = "qux"
-        path = "foo"
-        repository = "bar"
-        revision = "bar"
-      "#}
+      indoc! {
+        r#"
+        [
+          {
+            "name": "foo",
+            "repository": "bar",
+            "revision": "foo"
+          },
+          {
+            "name": "qux",
+            "path": "foo",
+            "repository": "bar",
+            "revision": "bar"
+          }
+        ]
+        "#
+      }
     );
   }
 }

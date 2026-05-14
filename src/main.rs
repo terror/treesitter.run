@@ -6,14 +6,13 @@ use {
   console::style,
   indicatif::{ProgressBar, ProgressStyle},
   manifest::{Manifest, ParserConfig},
-  serde::Deserialize,
+  serde::{Deserialize, Serialize},
   std::{
     env, fs, iter,
     path::{Path, PathBuf},
     process::{Command, Output},
   },
   tempfile::Builder,
-  toml_edit::{DocumentMut, value},
 };
 
 mod arguments;

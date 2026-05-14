@@ -1,12 +1,9 @@
+import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { Diagnostic } from '@codemirror/lint';
 import { lintGutter, linter } from '@codemirror/lint';
 import type { Extension } from '@codemirror/state';
 
-import type { ParseErrorRange } from './parse-errors';
-
-export const parseErrorExtension = (
-  parseErrors: ParseErrorRange[]
-): Extension => [
+export const errorExtension = (parseErrors: ParseErrorRange[]): Extension => [
   linter(
     () =>
       parseErrors.map(

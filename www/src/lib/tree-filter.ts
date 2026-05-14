@@ -57,7 +57,15 @@ export const collectVisibleTreeNodes = ({
   const searchMatches = new Set<SyntaxNode>();
 
   const walk = (node: SyntaxNode): boolean => {
-    const visibleChildren = node.children.map(walk).some(Boolean);
+    const errorKind = parseErrorKind(node);
+
+    const parseStateFilterDisabled =
+      (errorKind === 'error' && !filters.error) ||
+      (errorKind === 'missing' && !filters.missing);
+
+    const visibleChildren = parseStateFilterDisabled
+      ? false
+      : node.children.map(walk).some(Boolean);
 
     const matchingNode =
       treeNodeMatchesFilters(node, filters) &&

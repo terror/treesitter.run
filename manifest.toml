@@ -54,3 +54,9 @@ revision = "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"
 name = "rust"
 repository = "https://github.com/tree-sitter/tree-sitter-rust"
 revision = "77a3747266f4d621d0757825e6b11edcbf991ca5"
+
+[[parser]]
+name = "typescript"
+path = "typescript"
+repository = "https://github.com/tree-sitter/tree-sitter-typescript"
+revision = "75b3874edb2dc714fb1fd77a32013d0f8699989f"

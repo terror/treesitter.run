@@ -75,6 +75,11 @@ repository = "https://github.com/terror/just-lsp"
 revision = "25d4bea4bed38f0807f4080ff41dde23dab954df"
 
 [[parser]]
+name = "lua"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-lua"
+revision = "10fe0054734eec83049514ea2e718b2a56acd0c9"
+
+[[parser]]
 name = "markdown"
 path = "tree-sitter-markdown"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"

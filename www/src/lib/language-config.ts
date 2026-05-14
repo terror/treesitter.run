@@ -151,6 +151,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'default:\n  echo "hello, world"',
     extension: [],
   },
+  lua: {
+    name: 'lua',
+    displayName: 'Lua',
+    wasmPath: 'tree-sitter-lua.wasm',
+    sampleCode: 'local function foo(bar)\n  print(bar)\nend\n\nfoo("baz")',
+    extension: [],
+  },
   markdown: {
     name: 'markdown',
     displayName: 'Markdown',

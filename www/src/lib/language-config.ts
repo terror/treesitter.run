@@ -91,6 +91,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'module Main where\n\nmain :: IO ()\nmain = putStrLn "foo"',
     extension: [],
   },
+  hcl: {
+    name: 'hcl',
+    displayName: 'HCL',
+    wasmPath: 'tree-sitter-hcl.wasm',
+    sampleCode: 'resource "foo" "bar" {\n  name = "baz"\n}',
+    extension: [],
+  },
   html: {
     name: 'html',
     displayName: 'HTML',

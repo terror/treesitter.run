@@ -7,9 +7,11 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 
 import { AboutDialog } from './components/about-dialog';
+import { CommandMenu } from './components/command-menu';
 import { EditorPane } from './components/editor-pane';
 import { TreePane } from './components/tree-pane';
 import { useEditorExtensions } from './hooks/use-editor-extensions';
@@ -18,18 +20,24 @@ import { usePersistedState } from './hooks/use-persisted-state';
 import { useSyntaxTree } from './hooks/use-syntax-tree';
 import { useTreeSitter } from './hooks/use-tree-sitter';
 
+const DEFAULT_PANEL_LAYOUT = [50, 50];
 const EDITOR_STORAGE_KEY = 'treesitter.run:editor-state';
+const PANEL_LAYOUT_STORAGE_DIRECTIONS = ['horizontal', 'vertical'] as const;
 const PANEL_LAYOUT_STORAGE_KEY = 'treesitter.run:panel-layout';
 const STACKED_LAYOUT_QUERY = '(max-width: 767px)';
 
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
   const { parser, language, loading, error } = useTreeSitter(settings.language);
+
   const ready = Boolean(parser && language);
-  const [loaded, setLoaded] = useState<boolean>(false);
 
   const stackedLayout = useMediaQuery(STACKED_LAYOUT_QUERY);
   const panelDirection = stackedLayout ? 'vertical' : 'horizontal';
+  const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);
+
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [panelLayoutVersion, setPanelLayoutVersion] = useState(0);
 
   const [editorState, setEditorState] = usePersistedState<{ code: string }>(
     EDITOR_STORAGE_KEY,
@@ -71,6 +79,17 @@ const App = () => {
     [setDoc, updateSettings]
   );
 
+  const handleResetPaneLayout = useCallback(() => {
+    for (const direction of PANEL_LAYOUT_STORAGE_DIRECTIONS) {
+      window.localStorage.removeItem(
+        `react-resizable-panels:${PANEL_LAYOUT_STORAGE_KEY}:${direction}`
+      );
+    }
+
+    setPanelLayoutVersion((panelLayoutVersion) => panelLayoutVersion + 1);
+    panelGroupRef.current?.setLayout(DEFAULT_PANEL_LAYOUT);
+  }, []);
+
   const extensions = useEditorExtensions({
     language: settings.language,
     highlight,
@@ -97,6 +116,8 @@ const App = () => {
 
   return (
     <div className='flex h-screen max-w-full flex-col'>
+      <CommandMenu onResetPaneLayout={handleResetPaneLayout} />
+
       <div className='flex items-center gap-x-2 px-4 py-4'>
         <TentTree className='h-4 w-4' />
         <a href='/' className='font-semibold'>
@@ -109,18 +130,19 @@ const App = () => {
 
       <div className='flex-1 overflow-hidden p-4'>
         <ResizablePanelGroup
-          key={panelDirection}
           autoSaveId={`${PANEL_LAYOUT_STORAGE_KEY}:${panelDirection}`}
-          direction={panelDirection}
           className='h-full rounded border'
+          direction={panelDirection}
+          key={`${panelDirection}:${panelLayoutVersion}`}
+          ref={panelGroupRef}
         >
           <ResizablePanel id='editor-panel' defaultSize={50} minSize={30}>
             <EditorPane
-              value={doc}
-              onChange={setDoc}
               extensions={extensions}
               language={settings.language}
+              onChange={setDoc}
               onLanguageChange={handleLanguageChange}
+              value={doc}
             />
           </ResizablePanel>
 
@@ -128,13 +150,13 @@ const App = () => {
 
           <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
             <TreePane
-              root={root}
               code={doc}
+              expandedNodes={expandedNodes}
               language={settings.language}
               loading={loading || !language}
-              expandedNodes={expandedNodes}
-              toggleExpand={toggleExpand}
               onHighlightChange={handleHighlightChange}
+              root={root}
+              toggleExpand={toggleExpand}
             />
           </ResizablePanel>
         </ResizablePanelGroup>

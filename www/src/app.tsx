@@ -20,21 +20,23 @@ import { usePersistedState } from './hooks/use-persisted-state';
 import { useSyntaxTree } from './hooks/use-syntax-tree';
 import { useTreeSitter } from './hooks/use-tree-sitter';
 
-const EDITOR_STORAGE_KEY = 'treesitter.run:editor-state';
-const PANEL_LAYOUT_STORAGE_KEY = 'treesitter.run:panel-layout';
-const PANEL_LAYOUT_STORAGE_DIRECTIONS = ['horizontal', 'vertical'] as const;
 const DEFAULT_PANEL_LAYOUT = [50, 50];
+const EDITOR_STORAGE_KEY = 'treesitter.run:editor-state';
+const PANEL_LAYOUT_STORAGE_DIRECTIONS = ['horizontal', 'vertical'] as const;
+const PANEL_LAYOUT_STORAGE_KEY = 'treesitter.run:panel-layout';
 const STACKED_LAYOUT_QUERY = '(max-width: 767px)';
 
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
   const { parser, language, loading, error } = useTreeSitter(settings.language);
+
   const ready = Boolean(parser && language);
-  const [loaded, setLoaded] = useState<boolean>(false);
 
   const stackedLayout = useMediaQuery(STACKED_LAYOUT_QUERY);
   const panelDirection = stackedLayout ? 'vertical' : 'horizontal';
   const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);
+
+  const [loaded, setLoaded] = useState<boolean>(false);
   const [panelLayoutVersion, setPanelLayoutVersion] = useState(0);
 
   const [editorState, setEditorState] = usePersistedState<{ code: string }>(
@@ -128,19 +130,19 @@ const App = () => {
 
       <div className='flex-1 overflow-hidden p-4'>
         <ResizablePanelGroup
-          ref={panelGroupRef}
-          key={`${panelDirection}:${panelLayoutVersion}`}
           autoSaveId={`${PANEL_LAYOUT_STORAGE_KEY}:${panelDirection}`}
-          direction={panelDirection}
           className='h-full rounded border'
+          direction={panelDirection}
+          key={`${panelDirection}:${panelLayoutVersion}`}
+          ref={panelGroupRef}
         >
           <ResizablePanel id='editor-panel' defaultSize={50} minSize={30}>
             <EditorPane
-              value={doc}
-              onChange={setDoc}
               extensions={extensions}
               language={settings.language}
+              onChange={setDoc}
               onLanguageChange={handleLanguageChange}
+              value={doc}
             />
           </ResizablePanel>
 
@@ -148,13 +150,13 @@ const App = () => {
 
           <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
             <TreePane
-              root={root}
               code={doc}
+              expandedNodes={expandedNodes}
               language={settings.language}
               loading={loading || !language}
-              expandedNodes={expandedNodes}
-              toggleExpand={toggleExpand}
               onHighlightChange={handleHighlightChange}
+              root={root}
+              toggleExpand={toggleExpand}
             />
           </ResizablePanel>
         </ResizablePanelGroup>

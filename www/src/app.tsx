@@ -45,7 +45,7 @@ const App = () => {
     [setEditorState]
   );
 
-  const { root, expandedNodes, toggleExpand } = useSyntaxTree({
+  const { root, parseErrors, expandedNodes, toggleExpand } = useSyntaxTree({
     parser,
     language,
     code: doc,
@@ -74,6 +74,7 @@ const App = () => {
   const extensions = useEditorExtensions({
     language: settings.language,
     highlight,
+    parseErrors,
   });
 
   useEffect(() => {

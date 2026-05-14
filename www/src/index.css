@@ -129,6 +129,13 @@
   border-radius: 2px;
 }
 
+.editor-host .cm-lintRange-error.cm-parse-error,
+.editor-host .cm-lintRange-error.cm-parse-missing {
+  background-color: rgba(239, 68, 68, 0.1);
+  outline: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 2px;
+}
+
 .editor-host .cm-editor {
   height: 100%;
   display: flex;

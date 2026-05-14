@@ -59,6 +59,9 @@ export interface SyntaxNode {
   id?: number;
   type: string;
   text: string;
+  isError: boolean;
+  isMissing: boolean;
+  hasError: boolean;
   startPosition: { row: number; column: number };
   endPosition: { row: number; column: number };
   childCount: number;

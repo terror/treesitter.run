@@ -1,6 +1,8 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { highlightExtension } from '@/lib/cm-highlight-extension';
+import { parseErrorExtension } from '@/lib/cm-parse-error-extension';
 import { languageConfig } from '@/lib/language-config';
+import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { Language } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
@@ -10,11 +12,13 @@ import { useMemo } from 'react';
 interface UseEditorExtensionsOptions {
   language: Language;
   highlight: { from: number; to: number } | undefined;
+  parseErrors: ParseErrorRange[];
 }
 
 export function useEditorExtensions({
   language,
   highlight,
+  parseErrors,
 }: UseEditorExtensionsOptions): Extension[] {
   const { settings } = useEditorSettings();
 
@@ -22,6 +26,7 @@ export function useEditorExtensions({
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
       languageConfig[language].extension,
+      parseErrorExtension(parseErrors),
       highlightExtension(highlight),
     ];
 
@@ -39,6 +44,7 @@ export function useEditorExtensions({
     settings.keybindings,
     settings.lineWrapping,
     language,
+    parseErrors,
     highlight,
   ]);
 }

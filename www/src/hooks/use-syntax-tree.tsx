@@ -1,5 +1,7 @@
+import { type ParseErrorRange, collectParseErrors } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { parse } from '@/lib/utils';
+import { Text } from '@codemirror/state';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Parser, Language as TSLanguage } from 'web-tree-sitter';
 
@@ -11,6 +13,7 @@ interface UseSyntaxTreeOptions {
 
 interface UseSyntaxTree {
   root: SyntaxNode | undefined;
+  parseErrors: ParseErrorRange[];
   expandedNodes: Set<SyntaxNode>;
   toggleExpand: (node: SyntaxNode) => void;
 }
@@ -29,6 +32,14 @@ export function useSyntaxTree({
 
     return (tree?.rootNode as unknown as SyntaxNode) ?? undefined;
   }, [parser, language, code]);
+
+  const parseErrors = useMemo(() => {
+    if (!root) {
+      return [];
+    }
+
+    return collectParseErrors(root, Text.of(code.split('\n')));
+  }, [root, code]);
 
   const [expandedNodes, setExpandedNodes] = useState<Set<SyntaxNode>>(
     () => new Set()
@@ -66,5 +77,5 @@ export function useSyntaxTree({
     });
   }, []);
 
-  return { root, expandedNodes, toggleExpand };
+  return { root, parseErrors, expandedNodes, toggleExpand };
 }

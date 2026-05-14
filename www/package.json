@@ -26,6 +26,7 @@
     "@codemirror/lang-rust": "^6.0.1",
     "@codemirror/lang-sql": "^6.8.0",
     "@codemirror/lang-xml": "^6.1.0",
+    "@codemirror/lint": "^6.8.4",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-scroll-area": "^1.2.3",

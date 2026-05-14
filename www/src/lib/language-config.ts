@@ -149,4 +149,11 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'console.log(message.text);',
     extension: javascript({ typescript: true }),
   },
+  yaml: {
+    name: 'yaml',
+    displayName: 'YAML',
+    wasmPath: 'tree-sitter-yaml.wasm',
+    sampleCode: 'message: hello, world\nitems:\n  - foo\n  - bar',
+    extension: [],
+  },
 };

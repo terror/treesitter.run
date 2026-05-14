@@ -14,7 +14,8 @@ export type Language =
   | 'php'
   | 'python'
   | 'rust'
-  | 'typescript';
+  | 'typescript'
+  | 'yaml';
 
 export interface LanguageConfig {
   name: Language;

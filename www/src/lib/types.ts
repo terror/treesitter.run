@@ -10,6 +10,7 @@ export type Language =
   | 'dart'
   | 'dockerfile'
   | 'elixir'
+  | 'embedded-template'
   | 'gleam'
   | 'go'
   | 'graphql'

@@ -92,6 +92,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'defmodule Foo do\n  def bar do\n    IO.puts("baz")\n  end\nend',
     extension: [],
   },
+  'embedded-template': {
+    name: 'embedded-template',
+    displayName: 'Embedded Template',
+    wasmPath: 'tree-sitter-embedded-template.wasm',
+    sampleCode: '<p><%= foo %></p>',
+    extension: [],
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

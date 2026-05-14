@@ -44,6 +44,11 @@ repository = "https://github.com/elixir-lang/tree-sitter-elixir"
 revision = "7937d3b4d65fa574163cfa59394515d3c1cf16f4"
 
 [[parser]]
+name = "embedded-template"
+repository = "https://github.com/tree-sitter/tree-sitter-embedded-template"
+revision = "3499d85f0a0d937c507a4a65368f2f63772786e1"
+
+[[parser]]
 name = "gleam"
 repository = "https://github.com/gleam-lang/tree-sitter-gleam"
 revision = "4e4643c2215c2b2343d9ec179c798818c132c9cc"

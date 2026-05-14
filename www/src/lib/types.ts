@@ -14,6 +14,7 @@ export type Language =
   | 'javascript'
   | 'jsdoc'
   | 'json'
+  | 'julia'
   | 'just'
   | 'php'
   | 'python'

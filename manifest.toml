@@ -64,6 +64,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-json"
 revision = "001c28d7a29832b06b0e831ec77845553c89b56d"
 
 [[parser]]
+name = "julia"
+repository = "https://github.com/tree-sitter/tree-sitter-julia"
+revision = "e0f9dcd180fdcfcfa8d79a3531e11d99e79321d3"
+
+[[parser]]
 name = "just"
 path = "vendor/tree-sitter-just"
 repository = "https://github.com/terror/just-lsp"

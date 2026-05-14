@@ -7,6 +7,7 @@ export type Language =
   | 'c-sharp'
   | 'cpp'
   | 'css'
+  | 'dockerfile'
   | 'go'
   | 'haskell'
   | 'hcl'

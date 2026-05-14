@@ -29,6 +29,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-css"
 revision = "dda5cfc5722c429eaba1c910ca32c2c0c5bb1a3f"
 
 [[parser]]
+name = "dockerfile"
+repository = "https://github.com/camdencheek/tree-sitter-dockerfile"
+revision = "971acdd908568b4531b0ba28a445bf0bb720aba5"
+
+[[parser]]
 name = "go"
 repository = "https://github.com/tree-sitter/tree-sitter-go"
 revision = "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"

@@ -7,6 +7,7 @@ export type Language =
   | 'c-sharp'
   | 'cpp'
   | 'css'
+  | 'dart'
   | 'dockerfile'
   | 'elixir'
   | 'gleam'

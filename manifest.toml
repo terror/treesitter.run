@@ -29,6 +29,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-css"
 revision = "dda5cfc5722c429eaba1c910ca32c2c0c5bb1a3f"
 
 [[parser]]
+name = "dart"
+repository = "https://github.com/usernobody14/tree-sitter-dart"
+revision = "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"
+
+[[parser]]
 name = "dockerfile"
 repository = "https://github.com/camdencheek/tree-sitter-dockerfile"
 revision = "971acdd908568b4531b0ba28a445bf0bb720aba5"

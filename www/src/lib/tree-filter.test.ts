@@ -112,4 +112,26 @@ describe('tree filters', () => {
     );
     expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
   });
+
+  it('filters error subtrees without keeping error nodes as ancestors', () => {
+    const child = node({ type: 'identifier' });
+    const error = node({ type: 'ERROR', children: [child] });
+    const root = node({ type: 'root', children: [error] });
+
+    const { visibleNodes } = collectVisibleTreeNodes({
+      root,
+      filters: {
+        named: true,
+        anonymous: true,
+        extra: true,
+        error: false,
+        missing: true,
+      },
+      search: '',
+    });
+
+    expect(visibleNodes.has(root)).toBe(true);
+    expect(visibleNodes.has(error)).toBe(false);
+    expect(visibleNodes.has(child)).toBe(false);
+  });
 });

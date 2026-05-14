@@ -1,9 +1,5 @@
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { languageConfig } from '@/lib/language-config';
 import { commitUrl, parserMetadata } from '@/lib/parser-metadata';
 import type { Language } from '@/lib/types';
@@ -37,20 +33,18 @@ export const ParserMetadataDialog = ({
 
       <DialogContent className='sm:max-w-[520px]'>
         <div className='grid gap-1'>
-          <div className='text-muted-foreground text-xs font-medium'>
-            Asset
-          </div>
+          <div className='text-muted-foreground text-xs font-medium'>Asset</div>
           <div className='font-mono text-xs'>{config.wasmPath}</div>
         </div>
 
-        {metadata.sourcePath && <div className='grid gap-1'>
-          <div className='text-muted-foreground text-xs font-medium'>
-          Path
+        {metadata.sourcePath && (
+          <div className='grid gap-1'>
+            <div className='text-muted-foreground text-xs font-medium'>
+              Path
+            </div>
+            <div className='font-mono text-xs'>{metadata.sourcePath}</div>
           </div>
-          <div className='font-mono text-xs'>
-            {metadata.sourcePath}
-          </div>
-        </div>}
+        )}
 
         <div className='grid gap-4 text-sm'>
           <div className='grid gap-1'>

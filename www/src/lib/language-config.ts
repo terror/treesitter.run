@@ -171,6 +171,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'print("hello, world")',
     extension: python(),
   },
+  regex: {
+    name: 'regex',
+    displayName: 'Regex',
+    wasmPath: 'tree-sitter-regex.wasm',
+    sampleCode: '^(foo|bar)+$',
+    extension: [],
+  },
   rust: {
     name: 'rust',
     displayName: 'Rust',

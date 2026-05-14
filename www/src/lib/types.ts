@@ -19,6 +19,7 @@ export type Language =
   | 'ocaml'
   | 'php'
   | 'python'
+  | 'regex'
   | 'rust'
   | 'typescript'
   | 'yaml'

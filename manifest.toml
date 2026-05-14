@@ -92,6 +92,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-python"
 revision = "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"
 
 [[parser]]
+name = "regex"
+repository = "https://github.com/tree-sitter/tree-sitter-regex"
+revision = "b2ac15e27fce703d2f37a79ccd94a5c0cbe9720b"
+
+[[parser]]
 name = "rust"
 repository = "https://github.com/tree-sitter/tree-sitter-rust"
 revision = "77a3747266f4d621d0757825e6b11edcbf991ca5"

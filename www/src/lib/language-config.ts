@@ -77,6 +77,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'FROM alpine\nRUN echo foo',
     extension: [],
   },
+  elixir: {
+    name: 'elixir',
+    displayName: 'Elixir',
+    wasmPath: 'tree-sitter-elixir.wasm',
+    sampleCode:
+      'defmodule Foo do\n  def bar do\n    IO.puts("baz")\n  end\nend',
+    extension: [],
+  },
   go: {
     name: 'go',
     displayName: 'Go',

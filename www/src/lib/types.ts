@@ -8,6 +8,7 @@ export type Language =
   | 'cpp'
   | 'css'
   | 'dockerfile'
+  | 'elixir'
   | 'go'
   | 'graphql'
   | 'haskell'

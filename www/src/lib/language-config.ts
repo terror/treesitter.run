@@ -70,6 +70,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'body::before {\n  content: "hello, world";\n}',
     extension: css(),
   },
+  dockerfile: {
+    name: 'dockerfile',
+    displayName: 'Dockerfile',
+    wasmPath: 'tree-sitter-dockerfile.wasm',
+    sampleCode: 'FROM alpine\nRUN echo foo',
+    extension: [],
+  },
   go: {
     name: 'go',
     displayName: 'Go',

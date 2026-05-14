@@ -183,4 +183,18 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'select foo\nfrom bar\nwhere baz = 1;',
     extension: sql(),
   },
+  tsx: {
+    name: 'tsx',
+    displayName: 'TSX',
+    wasmPath: 'tree-sitter-tsx.wasm',
+    sampleCode:
+      'type Props = {\n' +
+      '  text: string;\n' +
+      '};\n' +
+      '\n' +
+      'export function Message({ text }: Props) {\n' +
+      '  return <span>{text}</span>;\n' +
+      '}',
+    extension: javascript({ jsx: true, typescript: true }),
+  },
 };

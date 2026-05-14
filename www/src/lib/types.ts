@@ -18,7 +18,8 @@ export type Language =
   | 'yaml'
   | 'toml'
   | 'xml'
-  | 'sql';
+  | 'sql'
+  | 'tsx';
 
 export interface LanguageConfig {
   name: Language;

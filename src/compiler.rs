@@ -20,14 +20,13 @@ impl Compiler {
 
     Self::start_step(progress, "build", &parser.name);
 
-    run(
-      Command::new(self.tree_sitter())
-        .arg("build")
-        .arg("--wasm")
-        .arg("--output")
-        .arg(&output)
-        .arg(source),
-    )?;
+    Command::new(self.tree_sitter())
+      .arg("build")
+      .arg("--wasm")
+      .arg("--output")
+      .arg(&output)
+      .arg(source)
+      .run()?;
 
     Self::finish_step(progress, "built", &self.display_path(&output));
 
@@ -89,14 +88,13 @@ impl Compiler {
 
   fn latest_revision(parser: &ParserConfig) -> Result<String> {
     let output = String::from_utf8(
-      run(
-        Command::new("git")
-          .arg("ls-remote")
-          .arg("--exit-code")
-          .arg(&parser.repository)
-          .arg("HEAD"),
-      )?
-      .stdout,
+      Command::new("git")
+        .arg("ls-remote")
+        .arg("--exit-code")
+        .arg(&parser.repository)
+        .arg("HEAD")
+        .run()?
+        .stdout,
     )?;
 
     Self::parse_latest_revision(&output).with_context(|| {
@@ -134,44 +132,40 @@ impl Compiler {
   ) -> Result<PathBuf> {
     let directory = checkout_directory.join(&parser.name);
 
-    run(
-      Command::new("git")
-        .arg("clone")
-        .arg("--filter=blob:none")
-        .arg("--no-checkout")
-        .arg(&parser.repository)
-        .arg(&directory),
-    )?;
+    Command::new("git")
+      .arg("clone")
+      .arg("--filter=blob:none")
+      .arg("--no-checkout")
+      .arg(&parser.repository)
+      .arg(&directory)
+      .run()?;
 
-    run(
-      Command::new("git")
-        .arg("-C")
-        .arg(&directory)
-        .arg("fetch")
-        .arg("--depth")
-        .arg("1")
-        .arg("origin")
-        .arg(&parser.revision),
-    )?;
+    Command::new("git")
+      .arg("-C")
+      .arg(&directory)
+      .arg("fetch")
+      .arg("--depth")
+      .arg("1")
+      .arg("origin")
+      .arg(&parser.revision)
+      .run()?;
 
-    run(
-      Command::new("git")
-        .arg("-C")
-        .arg(&directory)
-        .arg("checkout")
-        .arg("--detach")
-        .arg(&parser.revision),
-    )?;
+    Command::new("git")
+      .arg("-C")
+      .arg(&directory)
+      .arg("checkout")
+      .arg("--detach")
+      .arg(&parser.revision)
+      .run()?;
 
     let revision = String::from_utf8(
-      run(
-        Command::new("git")
-          .arg("-C")
-          .arg(&directory)
-          .arg("rev-parse")
-          .arg("HEAD"),
-      )?
-      .stdout,
+      Command::new("git")
+        .arg("-C")
+        .arg(&directory)
+        .arg("rev-parse")
+        .arg("HEAD")
+        .run()?
+        .stdout,
     )?;
 
     if revision.trim() != parser.revision {
@@ -331,17 +325,16 @@ impl Compiler {
 
     Self::start_step(progress, "verify", "parsers");
 
-    run(
-      Command::new("bun")
-        .arg("--eval")
-        .arg(VERIFY_SCRIPT)
-        .current_dir(self.root.join("www"))
-        .env(
-          "TREE_SITTER_PUBLIC_DIR",
-          self.resolve(self.options.public_directory.as_path()),
-        )
-        .env("TREE_SITTER_PARSERS", parser_names),
-    )?;
+    Command::new("bun")
+      .arg("--eval")
+      .arg(VERIFY_SCRIPT)
+      .current_dir(self.root.join("www"))
+      .env(
+        "TREE_SITTER_PUBLIC_DIR",
+        self.resolve(self.options.public_directory.as_path()),
+      )
+      .env("TREE_SITTER_PARSERS", parser_names)
+      .run()?;
 
     Self::finish_step(progress, "verified", "parsers");
 

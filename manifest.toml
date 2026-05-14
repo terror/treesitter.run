@@ -75,6 +75,12 @@ repository = "https://github.com/terror/just-lsp"
 revision = "25d4bea4bed38f0807f4080ff41dde23dab954df"
 
 [[parser]]
+name = "markdown"
+path = "tree-sitter-markdown"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
+revision = "c3570720f7f7bbad22fe96603f106276618e0cf5"
+
+[[parser]]
 name = "ocaml"
 path = "grammars/ocaml"
 repository = "https://github.com/tree-sitter/tree-sitter-ocaml"

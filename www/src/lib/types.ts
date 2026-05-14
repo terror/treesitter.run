@@ -9,6 +9,7 @@ export type Language =
   | 'css'
   | 'dockerfile'
   | 'elixir'
+  | 'gleam'
   | 'go'
   | 'graphql'
   | 'haskell'

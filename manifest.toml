@@ -39,6 +39,11 @@ repository = "https://github.com/elixir-lang/tree-sitter-elixir"
 revision = "7937d3b4d65fa574163cfa59394515d3c1cf16f4"
 
 [[parser]]
+name = "gleam"
+repository = "https://github.com/gleam-lang/tree-sitter-gleam"
+revision = "4e4643c2215c2b2343d9ec179c798818c132c9cc"
+
+[[parser]]
 name = "go"
 repository = "https://github.com/tree-sitter/tree-sitter-go"
 revision = "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"

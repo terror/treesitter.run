@@ -12,6 +12,13 @@ import { rust } from '@codemirror/lang-rust';
 import { Language, LanguageConfig } from './types';
 
 export const languageConfig: Record<Language, LanguageConfig> = {
+  bash: {
+    name: 'bash',
+    displayName: 'Bash',
+    wasmPath: 'tree-sitter-bash.wasm',
+    sampleCode: 'for name in foo bar; do\n  echo "hello, $name"\ndone',
+    extension: [],
+  },
   c: {
     name: 'c',
     displayName: 'C',

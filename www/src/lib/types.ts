@@ -1,6 +1,7 @@
 import { Extension } from '@codemirror/state';
 
 export type Language =
+  | 'bash'
   | 'c'
   | 'cpp'
   | 'css'

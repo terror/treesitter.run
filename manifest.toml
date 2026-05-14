@@ -1,4 +1,9 @@
 [[parser]]
+name = "bash"
+repository = "https://github.com/tree-sitter/tree-sitter-bash"
+revision = "a06c2e4415e9bc0346c6b86d401879ffb44058f7"
+
+[[parser]]
 name = "c"
 repository = "https://github.com/tree-sitter/tree-sitter-c"
 revision = "b780e47fc780ddc8da13afa35a3f4ed5c157823d"

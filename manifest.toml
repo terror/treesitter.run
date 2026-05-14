@@ -116,6 +116,11 @@ repository = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
 revision = "c3570720f7f7bbad22fe96603f106276618e0cf5"
 
 [[parser]]
+name = "nix"
+repository = "https://github.com/nix-community/tree-sitter-nix"
+revision = "69fbfb02896cdd27cb7ff3cd61f7f3f6bde4f017"
+
+[[parser]]
 name = "ocaml"
 path = "grammars/ocaml"
 repository = "https://github.com/tree-sitter/tree-sitter-ocaml"

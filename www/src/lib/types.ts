@@ -24,6 +24,7 @@ export type Language =
   | 'lua'
   | 'make'
   | 'markdown'
+  | 'nix'
   | 'ocaml'
   | 'php'
   | 'python'

@@ -208,6 +208,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '# Foo\n\nbar baz',
     extension: markdown(),
   },
+  nix: {
+    name: 'nix',
+    displayName: 'Nix',
+    wasmPath: 'tree-sitter-nix.wasm',
+    sampleCode: '{ foo = "bar"; }',
+    extension: [],
+  },
   ocaml: {
     name: 'ocaml',
     displayName: 'OCaml',

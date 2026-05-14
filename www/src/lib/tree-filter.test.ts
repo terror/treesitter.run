@@ -11,6 +11,8 @@ const node = ({
   type = 'foo',
   isNamed = true,
   isExtra = false,
+  isError = false,
+  isMissing = false,
   children = [],
 }: Partial<SyntaxNode>): SyntaxNode => ({
   id: 0,
@@ -18,8 +20,8 @@ const node = ({
   text: '',
   isNamed,
   isExtra,
-  isError: false,
-  isMissing: false,
+  isError,
+  isMissing,
   hasError: false,
   startPosition: { row: 0, column: 0 },
   endPosition: { row: 0, column: 0 },
@@ -39,6 +41,8 @@ describe('tree filters', () => {
         named: false,
         anonymous: true,
         extra: false,
+        error: true,
+        missing: true,
       },
       search: '',
     });
@@ -75,6 +79,8 @@ describe('tree filters', () => {
       named: true,
       anonymous: false,
       extra: false,
+      error: true,
+      missing: true,
     };
 
     expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
@@ -84,5 +90,26 @@ describe('tree filters', () => {
     expect(
       treeNodeMatchesFilters(node({ isNamed: true, isExtra: true }), filters)
     ).toBe(false);
+  });
+
+  it('matches error and missing filters before node kind filters', () => {
+    const filters = {
+      named: true,
+      anonymous: true,
+      extra: true,
+      error: false,
+      missing: false,
+    };
+
+    expect(treeNodeMatchesFilters(node({ isError: true }), filters)).toBe(
+      false
+    );
+    expect(treeNodeMatchesFilters(node({ type: 'ERROR' }), filters)).toBe(
+      false
+    );
+    expect(treeNodeMatchesFilters(node({ isMissing: true }), filters)).toBe(
+      false
+    );
+    expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
   });
 });

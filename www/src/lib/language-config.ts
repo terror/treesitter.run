@@ -70,6 +70,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'body::before {\n  content: "hello, world";\n}',
     extension: css(),
   },
+  dart: {
+    name: 'dart',
+    displayName: 'Dart',
+    wasmPath: 'tree-sitter-dart.wasm',
+    sampleCode: "void main() {\n  print('foo');\n}",
+    extension: [],
+  },
   dockerfile: {
     name: 'dockerfile',
     displayName: 'Dockerfile',

@@ -150,6 +150,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'default:\n  echo "hello, world"',
     extension: [],
   },
+  ocaml: {
+    name: 'ocaml',
+    displayName: 'OCaml',
+    wasmPath: 'tree-sitter-ocaml.wasm',
+    sampleCode: 'let foo bar =\n  print_endline bar\n\nlet () = foo "baz"',
+    extension: [],
+  },
   php: {
     name: 'php',
     displayName: 'PHP',

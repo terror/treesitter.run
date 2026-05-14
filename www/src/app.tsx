@@ -130,6 +130,7 @@ const App = () => {
             <TreePane
               root={root}
               code={doc}
+              language={settings.language}
               loading={loading || !language}
               expandedNodes={expandedNodes}
               toggleExpand={toggleExpand}

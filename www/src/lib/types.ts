@@ -55,6 +55,12 @@ export interface LanguageConfig {
   extension: Extension;
 }
 
+export interface ParserMetadata {
+  repository: string;
+  revision: string;
+  sourcePath?: string;
+}
+
 export interface SyntaxNode {
   id?: number;
   type: string;

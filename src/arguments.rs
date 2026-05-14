@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, Parser)]
 #[command(name = "compiler")]
 pub(crate) struct Arguments {
-  #[arg(long, default_value = "manifest.toml")]
+  #[arg(long, default_value = "manifest.json")]
   pub(crate) manifest: PathBuf,
   #[arg(long, default_value = "www/public")]
   pub(crate) public_directory: PathBuf,

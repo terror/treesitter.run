@@ -1,5 +1,6 @@
+import { parseErrorKind, parseErrorLabel } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
-import { positionToOffset } from '@/lib/utils';
+import { cn, positionToOffset } from '@/lib/utils';
 import { Text } from '@codemirror/state';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
@@ -22,6 +23,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
 }) => {
   const hasChildren = node.childCount > 0;
   const isExpanded = expandedNodes.has(node);
+  const errorKind = parseErrorKind(node);
 
   const handleMouseEnter = () => {
     const from = positionToOffset(node.startPosition, doc);
@@ -35,7 +37,13 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   return (
     <>
       <div
-        className='tree-node flex cursor-pointer items-center py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50'
+        className={cn(
+          'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50',
+          errorKind === 'error' &&
+            'border-red-500 bg-red-50 text-red-800 hover:bg-red-100',
+          errorKind === 'missing' &&
+            'border-amber-500 bg-amber-50 text-amber-800 hover:bg-amber-100'
+        )}
         style={{ paddingLeft: `${level * 16 + 4}px` }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => onHighlightChange(undefined)}
@@ -52,8 +60,14 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
             <span className='w-4'></span>
           )}
         </span>
-        <span>{node.type}</span>
-        <span className='ml-2 text-xs text-gray-500'>
+        <span>{parseErrorLabel(node)}</span>
+        <span
+          className={cn(
+            'ml-2 text-xs text-gray-500',
+            errorKind === 'error' && 'text-red-500',
+            errorKind === 'missing' && 'text-amber-600'
+          )}
+        >
           [{node.startPosition.row}: {node.startPosition.column}] [
           {node.endPosition.row}: {node.endPosition.column}]
         </span>

@@ -180,6 +180,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'default:\n  echo "hello, world"',
     extension: [],
   },
+  kotlin: {
+    name: 'kotlin',
+    displayName: 'Kotlin',
+    wasmPath: 'tree-sitter-kotlin.wasm',
+    sampleCode: 'fun main() {\n  println("foo")\n}',
+    extension: [],
+  },
   lua: {
     name: 'lua',
     displayName: 'Lua',

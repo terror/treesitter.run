@@ -20,6 +20,7 @@ export type Language =
   | 'json'
   | 'julia'
   | 'just'
+  | 'kotlin'
   | 'lua'
   | 'make'
   | 'markdown'

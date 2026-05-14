@@ -28,20 +28,24 @@ const node = ({
 });
 
 describe('tree filters', () => {
-  it('matches named, anonymous, and extra filters', () => {
-    const filters = {
-      named: true,
-      anonymous: false,
-      extra: false,
-    };
+  it('filters anonymous nodes without losing ancestor context', () => {
+    const anonymous = node({ type: 'bar', isNamed: false });
+    const named = node({ type: 'baz' });
+    const root = node({ type: 'root', children: [anonymous, named] });
 
-    expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
-    expect(treeNodeMatchesFilters(node({ isNamed: false }), filters)).toBe(
-      false
-    );
-    expect(
-      treeNodeMatchesFilters(node({ isNamed: true, isExtra: true }), filters)
-    ).toBe(false);
+    const { visibleNodes } = collectVisibleTreeNodes({
+      root,
+      filters: {
+        named: false,
+        anonymous: true,
+        extra: false,
+      },
+      search: '',
+    });
+
+    expect(visibleNodes.has(root)).toBe(true);
+    expect(visibleNodes.has(anonymous)).toBe(true);
+    expect(visibleNodes.has(named)).toBe(false);
   });
 
   it('keeps ancestors of search matches visible', () => {
@@ -66,23 +70,19 @@ describe('tree filters', () => {
     expect(searchMatches.has(parent)).toBe(false);
   });
 
-  it('filters anonymous nodes without losing ancestor context', () => {
-    const anonymous = node({ type: 'bar', isNamed: false });
-    const named = node({ type: 'baz' });
-    const root = node({ type: 'root', children: [anonymous, named] });
+  it('matches named, anonymous, and extra filters', () => {
+    const filters = {
+      named: true,
+      anonymous: false,
+      extra: false,
+    };
 
-    const { visibleNodes } = collectVisibleTreeNodes({
-      root,
-      filters: {
-        named: false,
-        anonymous: true,
-        extra: false,
-      },
-      search: '',
-    });
-
-    expect(visibleNodes.has(root)).toBe(true);
-    expect(visibleNodes.has(anonymous)).toBe(true);
-    expect(visibleNodes.has(named)).toBe(false);
+    expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
+    expect(treeNodeMatchesFilters(node({ isNamed: false }), filters)).toBe(
+      false
+    );
+    expect(
+      treeNodeMatchesFilters(node({ isNamed: true, isExtra: true }), filters)
+    ).toBe(false);
   });
 });

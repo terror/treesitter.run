@@ -5,6 +5,7 @@ import { html } from '@codemirror/lang-html';
 import { java } from '@codemirror/lang-java';
 import { javascript } from '@codemirror/lang-javascript';
 import { json } from '@codemirror/lang-json';
+import { markdown } from '@codemirror/lang-markdown';
 import { php } from '@codemirror/lang-php';
 import { python } from '@codemirror/lang-python';
 import { rust } from '@codemirror/lang-rust';
@@ -149,6 +150,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-just.wasm',
     sampleCode: 'default:\n  echo "hello, world"',
     extension: [],
+  },
+  markdown: {
+    name: 'markdown',
+    displayName: 'Markdown',
+    wasmPath: 'tree-sitter-markdown.wasm',
+    sampleCode: '# Foo\n\nbar baz',
+    extension: markdown(),
   },
   ocaml: {
     name: 'ocaml',

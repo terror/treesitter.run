@@ -113,4 +113,20 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'fn main() {\n  println!("hello, world");\n}',
     extension: rust(),
   },
+  typescript: {
+    name: 'typescript',
+    displayName: 'TypeScript',
+    wasmPath: 'tree-sitter-typescript.wasm',
+    sampleCode:
+      'type Message = {\n' +
+      '  text: string;\n' +
+      '};\n' +
+      '\n' +
+      'const message: Message = {\n' +
+      '  text: "hello, world",\n' +
+      '};\n' +
+      '\n' +
+      'console.log(message.text);',
+    extension: javascript({ typescript: true }),
+  },
 };

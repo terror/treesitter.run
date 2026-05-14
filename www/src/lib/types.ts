@@ -4,6 +4,7 @@ export type Language =
   | 'agda'
   | 'bash'
   | 'c'
+  | 'c-sharp'
   | 'cpp'
   | 'css'
   | 'go'

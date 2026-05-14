@@ -5,33 +5,33 @@ import { Text } from '@codemirror/state';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 interface TreeNodeProps {
-  node: SyntaxNode;
-  level: number;
   doc: Text;
   expandedNodes: Set<SyntaxNode>;
-  visibleNodes: Set<SyntaxNode>;
-  searchMatches: Set<SyntaxNode>;
   forceExpanded: boolean;
-  toggleExpand: (node: SyntaxNode) => void;
+  level: number;
+  node: SyntaxNode;
   onHighlightChange: (range?: { from: number; to: number }) => void;
+  searchMatches: Set<SyntaxNode>;
+  toggleExpand: (node: SyntaxNode) => void;
+  visibleNodes: Set<SyntaxNode>;
 }
 
 export const TreeNode: React.FC<TreeNodeProps> = ({
-  node,
-  level,
   doc,
   expandedNodes,
-  visibleNodes,
-  searchMatches,
   forceExpanded,
-  toggleExpand,
+  level,
+  node,
   onHighlightChange,
+  searchMatches,
+  toggleExpand,
+  visibleNodes,
 }) => {
   const children = node.children.filter((child) => visibleNodes.has(child));
+  const errorKind = parseErrorKind(node);
   const hasChildren = children.length > 0;
   const isExpanded = forceExpanded || expandedNodes.has(node);
   const searchMatch = searchMatches.has(node);
-  const errorKind = parseErrorKind(node);
 
   const handleMouseEnter = () => {
     const from = positionToOffset(node.startPosition, doc);

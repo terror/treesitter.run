@@ -40,6 +40,7 @@ describe('parse errors', () => {
     expect(parseErrorLabel(node({ type: ';', isMissing: true }))).toBe(
       'MISSING ;'
     );
+
     expect(parseErrorLabel(node({ type: 'ERROR', isError: true }))).toBe(
       'ERROR'
     );
@@ -47,6 +48,7 @@ describe('parse errors', () => {
 
   it('collects sorted parse error ranges', () => {
     const doc = Text.of(['foo bar', 'baz']);
+
     const root = node({
       children: [
         node({

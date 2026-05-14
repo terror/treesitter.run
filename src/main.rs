@@ -6,11 +6,14 @@ use {
   console::style,
   indicatif::{ProgressBar, ProgressStyle},
   manifest::{Manifest, ParserConfig},
+  runnable::Runnable,
   serde::{Deserialize, Serialize},
   std::{
-    env, fs, iter,
+    env, fs,
+    io::{self, IsTerminal},
+    iter,
     path::{Path, PathBuf},
-    process::{Command, Output},
+    process::{Command, ExitCode, Output},
   },
   tempfile::Builder,
 };
@@ -18,46 +21,13 @@ use {
 mod arguments;
 mod compiler;
 mod manifest;
+mod runnable;
 
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
 
 type Result<T = (), E = anyhow::Error> = std::result::Result<T, E>;
 
-fn run(command: &mut Command) -> Result<Output> {
-  let display = iter::once(command.get_program())
-    .chain(command.get_args())
-    .map(|argument| argument.to_string_lossy())
-    .collect::<Vec<_>>()
-    .join(" ");
-
-  let output = command.output()?;
-
-  if !output.status.success() {
-    let mut message = format!("{} exited with {}", display, output.status);
-
-    for (label, output) in [
-      ("stdout", output.stdout.as_slice()),
-      ("stderr", output.stderr.as_slice()),
-    ] {
-      let output = String::from_utf8_lossy(output);
-
-      let output = output.trim();
-
-      if !output.is_empty() {
-        message.push_str("\n\n");
-        message.push_str(label);
-        message.push_str(":\n");
-        message.push_str(output);
-      }
-    }
-
-    bail!("{message}");
-  }
-
-  Ok(output)
-}
-
-fn main() -> Result {
+fn run() -> Result {
   let options = Arguments::parse();
 
   let root = env::current_dir()?;
@@ -69,4 +39,27 @@ fn main() -> Result {
   };
 
   compiler.run()
+}
+
+fn main() -> ExitCode {
+  if let Err(error) = run() {
+    if io::stderr().is_terminal() {
+      eprintln!("\x1b[1;31merror\x1b[0m: \x1b[1m{error}\x1b[0m");
+    } else {
+      eprintln!("error: {error}");
+    }
+
+    let causes = error.chain().skip(1).count();
+
+    for (i, source) in error.chain().skip(1).enumerate() {
+      eprintln!(
+        "       {}─ {source}",
+        if i < causes - 1 { '├' } else { '└' }
+      );
+    }
+
+    ExitCode::FAILURE
+  } else {
+    ExitCode::SUCCESS
+  }
 }

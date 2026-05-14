@@ -19,6 +19,8 @@ const node = ({
   id: 0,
   type,
   text: '',
+  isNamed: true,
+  isExtra: false,
   isError,
   isMissing,
   hasError: isError || isMissing || children.some((child) => child.hasError),

@@ -65,6 +65,8 @@ export interface SyntaxNode {
   id?: number;
   type: string;
   text: string;
+  isNamed: boolean;
+  isExtra: boolean;
   isError: boolean;
   isMissing: boolean;
   hasError: boolean;

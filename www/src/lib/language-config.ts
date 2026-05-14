@@ -200,6 +200,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'print("hello, world")',
     extension: python(),
   },
+  query: {
+    name: 'query',
+    displayName: 'Query',
+    wasmPath: 'tree-sitter-query.wasm',
+    sampleCode: '(function_item\n  name: (identifier) @function)',
+    extension: [],
+  },
   regex: {
     name: 'regex',
     displayName: 'Regex',

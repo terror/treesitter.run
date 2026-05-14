@@ -23,6 +23,7 @@ export type Language =
   | 'ocaml'
   | 'php'
   | 'python'
+  | 'query'
   | 'regex'
   | 'ruby'
   | 'rust'

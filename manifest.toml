@@ -113,6 +113,11 @@ repository = "https://github.com/tree-sitter/tree-sitter-python"
 revision = "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"
 
 [[parser]]
+name = "query"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-query"
+revision = "fc5409c6820dd5e02b0b0a309d3da2bfcde2db17"
+
+[[parser]]
 name = "regex"
 repository = "https://github.com/tree-sitter/tree-sitter-regex"
 revision = "b2ac15e27fce703d2f37a79ccd94a5c0cbe9720b"

@@ -16,7 +16,8 @@ export type Language =
   | 'rust'
   | 'typescript'
   | 'yaml'
-  | 'toml';
+  | 'toml'
+  | 'xml';
 
 export interface LanguageConfig {
   name: Language;

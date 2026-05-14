@@ -80,3 +80,9 @@ revision = "4463985dfccc640f3d6991e3396a2047610cf5f8"
 name = "toml"
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-toml"
 revision = "64b56832c2cffe41758f28e05c756a3a98d16f41"
+
+[[parser]]
+name = "xml"
+path = "xml"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-xml"
+revision = "5000ae8f22d11fbe93939b05c1e37cf21117162d"

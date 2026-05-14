@@ -16,6 +16,7 @@ export type Language =
   | 'json'
   | 'julia'
   | 'just'
+  | 'ocaml'
   | 'php'
   | 'python'
   | 'rust'

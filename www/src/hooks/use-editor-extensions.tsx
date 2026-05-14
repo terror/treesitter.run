@@ -1,6 +1,6 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
-import { highlightExtension } from '@/lib/cm-highlight-extension';
-import { parseErrorExtension } from '@/lib/cm-parse-error-extension';
+import { parseErrorExtension } from '@/extensions/error';
+import { highlightExtension } from '@/extensions/highlight';
 import { languageConfig } from '@/lib/language-config';
 import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { Language } from '@/lib/types';

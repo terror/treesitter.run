@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { highlightExtension } from './cm-highlight-extension';
+import { highlightExtension } from './highlight';
 
 describe('highlightExtension', () => {
   it('handles empty ranges', () => {

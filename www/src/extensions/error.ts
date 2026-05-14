@@ -3,9 +3,7 @@ import type { Diagnostic } from '@codemirror/lint';
 import { lintGutter, linter } from '@codemirror/lint';
 import type { Extension } from '@codemirror/state';
 
-export const parseErrorExtension = (
-  parseErrors: ParseErrorRange[]
-): Extension => [
+export const errorExtension = (parseErrors: ParseErrorRange[]): Extension => [
   linter(
     () =>
       parseErrors.map(

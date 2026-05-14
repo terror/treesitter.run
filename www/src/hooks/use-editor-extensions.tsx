@@ -1,5 +1,5 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
-import { parseErrorExtension } from '@/extensions/error';
+import { errorExtension } from '@/extensions/error';
 import { highlightExtension } from '@/extensions/highlight';
 import { languageConfig } from '@/lib/language-config';
 import type { ParseErrorRange } from '@/lib/parse-errors';
@@ -26,7 +26,7 @@ export function useEditorExtensions({
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
       languageConfig[language].extension,
-      parseErrorExtension(parseErrors),
+      errorExtension(parseErrors),
       highlightExtension(highlight),
     ];
 

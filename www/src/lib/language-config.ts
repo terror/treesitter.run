@@ -12,6 +12,19 @@ import { rust } from '@codemirror/lang-rust';
 import { Language, LanguageConfig } from './types';
 
 export const languageConfig: Record<Language, LanguageConfig> = {
+  c: {
+    name: 'c',
+    displayName: 'C',
+    wasmPath: 'tree-sitter-c.wasm',
+    sampleCode:
+      '#include <stdio.h>\n' +
+      '\n' +
+      'int main(void) {\n' +
+      '  puts("hello, world");\n' +
+      '  return 0;\n' +
+      '}',
+    extension: cpp(),
+  },
   cpp: {
     name: 'cpp',
     displayName: 'C++',

@@ -9,6 +9,7 @@ export type Language =
   | 'css'
   | 'go'
   | 'haskell'
+  | 'hcl'
   | 'html'
   | 'java'
   | 'javascript'

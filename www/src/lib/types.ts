@@ -53,6 +53,7 @@ export type Language =
   | 'meson'
   | 'nginx'
   | 'nix'
+  | 'objc'
   | 'ocaml'
   | 'php'
   | 'powershell'

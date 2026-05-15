@@ -2,6 +2,7 @@ import { Extension } from '@codemirror/state';
 
 export type Language =
   | 'agda'
+  | 'arduino'
   | 'bash'
   | 'c'
   | 'c-sharp'

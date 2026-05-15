@@ -44,6 +44,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '2024-01-01 open Assets:Foo',
     extension: [],
   },
+  bicep: {
+    name: 'bicep',
+    displayName: 'Bicep',
+    wasmPath: 'tree-sitter-bicep.wasm',
+    sampleCode:
+      "param foo string\nresource bar 'Microsoft.Storage/storageAccounts@2023-01-01' = {\n  name: foo\n  location: resourceGroup().location\n}",
+    extension: [],
+  },
   c: {
     name: 'c',
     displayName: 'C',

@@ -5,6 +5,7 @@ export type Language =
   | 'arduino'
   | 'bash'
   | 'beancount'
+  | 'bicep'
   | 'c'
   | 'c-sharp'
   | 'cpp'

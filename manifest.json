@@ -140,6 +140,11 @@
     "revision": "27816eb6b7315746ae9fcf711e4e1396dc1cf237"
   },
   {
+    "name": "gpg-config",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gpg-config",
+    "revision": "4024eb268c59204280f8ac71ef146b8ff5e737f6"
+  },
+  {
     "name": "graphql",
     "repository": "https://github.com/joowani/tree-sitter-graphql",
     "revision": "df5b88d1d24dcfc02e64919d2d20491359abe4c8"

@@ -235,6 +235,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'foo v1.0.0 h1:bar',
     extension: [],
   },
+  'gpg-config': {
+    name: 'gpg-config',
+    displayName: 'GPG Config',
+    wasmPath: 'tree-sitter-gpg-config.wasm',
+    sampleCode: 'keyserver foo',
+    extension: [],
+  },
   graphql: {
     name: 'graphql',
     displayName: 'GraphQL',

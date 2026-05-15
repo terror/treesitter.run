@@ -29,6 +29,7 @@ export type Language =
   | 'glsl'
   | 'go'
   | 'go-sum'
+  | 'gpg-config'
   | 'graphql'
   | 'haskell'
   | 'hcl'

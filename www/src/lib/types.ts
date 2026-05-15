@@ -21,6 +21,7 @@ export type Language =
   | 'elixir'
   | 'elm'
   | 'embedded-template'
+  | 'fennel'
   | 'gleam'
   | 'go'
   | 'graphql'

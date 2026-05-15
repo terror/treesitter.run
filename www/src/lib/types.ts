@@ -74,6 +74,7 @@ export type Language =
   | 'racket'
   | 'readline'
   | 'regex'
+  | 'requirements'
   | 'ruby'
   | 'rust'
   | 'scala'

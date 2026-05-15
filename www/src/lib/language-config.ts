@@ -158,6 +158,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'defmodule Foo do\n  def bar do\n    IO.puts("baz")\n  end\nend',
     extension: [],
   },
+  elm: {
+    name: 'elm',
+    displayName: 'Elm',
+    wasmPath: 'tree-sitter-elm.wasm',
+    sampleCode: 'module Foo exposing (bar)\n\nbar =\n    "baz"',
+    extension: [],
+  },
   'embedded-template': {
     name: 'embedded-template',
     displayName: 'Embedded Template',

@@ -358,6 +358,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'fun main() {\n  println("foo")\n}',
     extension: [],
   },
+  llvm: {
+    name: 'llvm',
+    displayName: 'LLVM',
+    wasmPath: 'tree-sitter-llvm.wasm',
+    sampleCode: 'define i32 @foo() {\nentry:\n  ret i32 0\n}',
+    extension: [],
+  },
   lua: {
     name: 'lua',
     displayName: 'Lua',

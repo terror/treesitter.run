@@ -414,6 +414,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '{ foo = "bar"; }',
     extension: [],
   },
+  objc: {
+    name: 'objc',
+    displayName: 'Objective-C',
+    wasmPath: 'tree-sitter-objc.wasm',
+    sampleCode: '@interface Foo\n- (void)bar;\n@end',
+    extension: [],
+  },
   ocaml: {
     name: 'ocaml',
     displayName: 'OCaml',

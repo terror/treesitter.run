@@ -58,6 +58,7 @@ export type Language =
   | 'odin'
   | 'pem'
   | 'php'
+  | 'poe-filter'
   | 'powershell'
   | 'python'
   | 'query'

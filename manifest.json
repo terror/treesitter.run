@@ -115,6 +115,11 @@
     "revision": "89e66b6bdc002ab976283f277cbb48b780c5d0e9"
   },
   {
+    "name": "gitattributes",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gitattributes",
+    "revision": "1b7af09d45b579f9f288453b95ad555f1f431645"
+  },
+  {
     "name": "gleam",
     "repository": "https://github.com/gleam-lang/tree-sitter-gleam",
     "revision": "4e4643c2215c2b2343d9ec179c798818c132c9cc"

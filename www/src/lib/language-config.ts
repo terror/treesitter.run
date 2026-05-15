@@ -193,6 +193,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'func foo(bar):\n  print(bar)',
     extension: [],
   },
+  gitattributes: {
+    name: 'gitattributes',
+    displayName: 'Git Attributes',
+    wasmPath: 'tree-sitter-gitattributes.wasm',
+    sampleCode: '*.foo text',
+    extension: [],
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

@@ -89,6 +89,7 @@ export type Language =
   | 'sql'
   | 'ssh-config'
   | 'starlark'
+  | 'tcl'
   | 'tsx'
   | 'zig';
 

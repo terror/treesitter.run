@@ -8,6 +8,7 @@ export type Language =
   | 'bicep'
   | 'c'
   | 'c-sharp'
+  | 'chatito'
   | 'cpp'
   | 'css'
   | 'dart'

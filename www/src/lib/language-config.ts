@@ -73,6 +73,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'using System;\n\nclass Foo {\n  static void Main() {\n    Console.WriteLine("bar");\n  }\n}',
     extension: [],
   },
+  chatito: {
+    name: 'chatito',
+    displayName: 'Chatito',
+    wasmPath: 'tree-sitter-chatito.wasm',
+    sampleCode: '%[foo]\n  bar',
+    extension: [],
+  },
   cpp: {
     name: 'cpp',
     displayName: 'C++',

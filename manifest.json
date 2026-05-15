@@ -100,6 +100,11 @@
     "revision": "3499d85f0a0d937c507a4a65368f2f63772786e1"
   },
   {
+    "name": "fennel",
+    "repository": "https://github.com/alexmozaidze/tree-sitter-fennel",
+    "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"
+  },
+  {
     "name": "gleam",
     "repository": "https://github.com/gleam-lang/tree-sitter-gleam",
     "revision": "4e4643c2215c2b2343d9ec179c798818c132c9cc"

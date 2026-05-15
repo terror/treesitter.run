@@ -172,6 +172,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '<p><%= foo %></p>',
     extension: [],
   },
+  fennel: {
+    name: 'fennel',
+    displayName: 'Fennel',
+    wasmPath: 'tree-sitter-fennel.wasm',
+    sampleCode: '(fn foo [bar]\n  (print bar))',
+    extension: [],
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

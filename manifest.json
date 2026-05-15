@@ -15,6 +15,11 @@
     "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7"
   },
   {
+    "name": "beancount",
+    "repository": "https://github.com/polarmutex/tree-sitter-beancount",
+    "revision": "c5e6cdf260629f76035a0c0de830947f385ae622"
+  },
+  {
     "name": "c",
     "repository": "https://github.com/tree-sitter/tree-sitter-c",
     "revision": "b780e47fc780ddc8da13afa35a3f4ed5c157823d"

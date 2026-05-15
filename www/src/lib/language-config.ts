@@ -37,6 +37,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'for name in foo bar; do\n  echo "hello, $name"\ndone',
     extension: [],
   },
+  beancount: {
+    name: 'beancount',
+    displayName: 'Beancount',
+    wasmPath: 'tree-sitter-beancount.wasm',
+    sampleCode: '2024-01-01 open Assets:Foo',
+    extension: [],
+  },
   c: {
     name: 'c',
     displayName: 'C',

@@ -3,8 +3,7 @@ use super::*;
 #[derive(Debug)]
 pub(crate) struct Compiler {
   pub(crate) manifest: Manifest,
-  pub(crate) manifest_path: PathBuf,
-  pub(crate) root: PathBuf,
+  pub(crate) workspace: Workspace,
 }
 
 impl Compiler {
@@ -14,26 +13,11 @@ impl Compiler {
     progress: &ProgressBar,
     source: &Path,
   ) -> Result {
-    let output = self
-      .root
-      .join("www")
-      .join("public")
-      .join(format!("tree-sitter-{}.wasm", parser.name));
+    let output = self.workspace.parser_wasm(parser);
 
     Self::start_step(progress, "build", &parser.name);
 
-    let tree_sitter = self
-      .root
-      .join("www")
-      .join("node_modules")
-      .join(".bin")
-      .join(if cfg!(windows) {
-        "tree-sitter.cmd"
-      } else {
-        "tree-sitter"
-      });
-
-    Command::new(tree_sitter)
+    Command::new(self.workspace.tree_sitter_bin())
       .arg("build")
       .arg("--wasm")
       .arg("--output")
@@ -41,7 +25,7 @@ impl Compiler {
       .arg(source)
       .run()?;
 
-    Self::finish_step(progress, "built", &self.display_path(&output));
+    Self::finish_step(progress, "built", &self.workspace.display_path(&output));
 
     Ok(())
   }
@@ -102,39 +86,19 @@ impl Compiler {
   }
 
   fn copy_runtime(&self, progress: &ProgressBar) -> Result {
-    let output = self
-      .root
-      .join("www")
-      .join("public")
-      .join("tree-sitter.wasm");
+    let output = self.workspace.runtime_wasm();
 
-    let output_display = self.display_path(output.as_path());
+    let output_display = self.workspace.display_path(output.as_path());
 
     Self::start_step(progress, "copy", &output_display);
 
-    fs::create_dir_all(self.root.join("www").join("public"))?;
+    fs::create_dir_all(self.workspace.public_dir())?;
 
-    fs::copy(
-      self
-        .root
-        .join("www")
-        .join("node_modules")
-        .join("web-tree-sitter")
-        .join("tree-sitter.wasm"),
-      output,
-    )?;
+    fs::copy(self.workspace.bundled_runtime_wasm(), output)?;
 
     Self::finish_step(progress, "copied", &output_display);
 
     Ok(())
-  }
-
-  fn display_path(&self, path: &Path) -> String {
-    path
-      .strip_prefix(&self.root)
-      .unwrap_or(path)
-      .display()
-      .to_string()
   }
 
   fn finish_step(progress: &ProgressBar, status: &str, message: &str) {
@@ -166,14 +130,11 @@ impl Compiler {
   }
 
   pub(crate) fn new() -> Result<Self> {
-    let root = env::current_dir()?;
-
-    let manifest_path = root.join("manifest.json");
+    let workspace = Workspace::current()?;
 
     Ok(Self {
-      manifest: Manifest::load(&manifest_path)?,
-      manifest_path: manifest_path.clone(),
-      root,
+      manifest: Manifest::load(&workspace.manifest_path())?,
+      workspace,
     })
   }
 
@@ -322,7 +283,7 @@ impl Compiler {
       self.manifest.parsers[*index].revision = revision;
     }
 
-    self.manifest.save(self.manifest_path.as_path())?;
+    self.manifest.save(&self.workspace.manifest_path())?;
 
     Ok(())
   }
@@ -340,11 +301,8 @@ impl Compiler {
       Command::new("bun")
         .arg("--eval")
         .arg(VERIFY_SCRIPT)
-        .current_dir(self.root.join("www"))
-        .env(
-          "TREE_SITTER_PUBLIC_DIR",
-          self.root.join("www").join("public"),
-        )
+        .current_dir(self.workspace.www_dir())
+        .env("TREE_SITTER_PUBLIC_DIR", self.workspace.public_dir())
         .env("TREE_SITTER_PARSERS", &parser.name)
         .run()?;
 
@@ -378,8 +336,7 @@ mod tests {
           },
         ],
       },
-      manifest_path: PathBuf::from("foo"),
-      root: PathBuf::from("bar"),
+      workspace: Workspace::new(PathBuf::from("bar")),
     };
 
     assert_eq!(compiler.parser_indices(None).unwrap(), vec![0, 1]);

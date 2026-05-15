@@ -19,6 +19,7 @@ use {
   },
   subcommand::Subcommand,
   tempfile::Builder,
+  workspace::Workspace,
 };
 
 mod arguments;
@@ -26,6 +27,7 @@ mod compiler;
 mod manifest;
 mod runnable;
 mod subcommand;
+mod workspace;
 
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
 

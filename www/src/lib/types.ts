@@ -80,6 +80,7 @@ export type Language =
   | 'rust'
   | 'scala'
   | 'slang'
+  | 'solidity'
   | 'typescript'
   | 'verilog'
   | 'yaml'

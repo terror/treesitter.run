@@ -125,6 +125,11 @@
     "revision": "4e4643c2215c2b2343d9ec179c798818c132c9cc"
   },
   {
+    "name": "glsl",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-glsl",
+    "revision": "24a6c8ef698e4480fecf8340d771fbcb5de8fbb4"
+  },
+  {
     "name": "go",
     "repository": "https://github.com/tree-sitter/tree-sitter-go",
     "revision": "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"

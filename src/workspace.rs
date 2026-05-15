@@ -34,7 +34,7 @@ impl Workspace {
     Self { root }
   }
 
-  pub(crate) fn parser_wasm(&self, parser: &ParserConfig) -> PathBuf {
+  pub(crate) fn parser_wasm(&self, parser: &Parser) -> PathBuf {
     self
       .public_dir()
       .join(format!("tree-sitter-{}.wasm", parser.name))
@@ -75,7 +75,7 @@ mod tests {
 
     let workspace = Workspace::new(root.clone());
 
-    let parser = ParserConfig {
+    let parser = Parser {
       name: String::from("bar"),
       path: None,
       repository: String::from("baz"),

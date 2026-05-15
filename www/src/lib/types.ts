@@ -28,6 +28,7 @@ export type Language =
   | 'gleam'
   | 'glsl'
   | 'go'
+  | 'go-sum'
   | 'graphql'
   | 'haskell'
   | 'hcl'

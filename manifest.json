@@ -252,6 +252,11 @@
     "revision": "c84f3540624b81fc44067030afce2ff78d6ede05"
   },
   {
+    "name": "nginx",
+    "repository": "https://github.com/opa-oz/tree-sitter-nginx",
+    "revision": "47ade644d754cce57974aac44d2c9450e823d4f4"
+  },
+  {
     "name": "nix",
     "repository": "https://github.com/nix-community/tree-sitter-nix",
     "revision": "69fbfb02896cdd27cb7ff3cd61f7f3f6bde4f017"

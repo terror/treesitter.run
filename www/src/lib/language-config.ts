@@ -400,6 +400,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: "project('foo', 'c')\nexecutable('bar', 'bar.c')",
     extension: [],
   },
+  nginx: {
+    name: 'nginx',
+    displayName: 'Nginx',
+    wasmPath: 'tree-sitter-nginx.wasm',
+    sampleCode: 'server {\n  listen 80;\n  server_name foo;\n}',
+    extension: [],
+  },
   nix: {
     name: 'nix',
     displayName: 'Nix',

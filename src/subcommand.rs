@@ -1,16 +1,12 @@
-use super::*;
+use {super::*, check::Check, compile::Compile};
 
 mod check;
 mod compile;
 
 #[derive(Debug, Parser)]
 pub(crate) enum Subcommand {
-  /// Check compiled parsers.
-  #[command(display_order = 1)]
-  Check(check::Check),
-  /// Compile parsers.
-  #[command(display_order = 0)]
-  Compile(compile::Compile),
+  Check(Check),
+  Compile(Compile),
 }
 
 impl Subcommand {

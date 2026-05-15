@@ -43,6 +43,7 @@ export type Language =
   | 'json'
   | 'julia'
   | 'just'
+  | 'kconfig'
   | 'kotlin'
   | 'lua'
   | 'make'

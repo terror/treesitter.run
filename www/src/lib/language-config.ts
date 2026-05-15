@@ -344,6 +344,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'default:\n  echo "hello, world"',
     extension: [],
   },
+  kconfig: {
+    name: 'kconfig',
+    displayName: 'Kconfig',
+    wasmPath: 'tree-sitter-kconfig.wasm',
+    sampleCode: 'config FOO\n  bool "bar"',
+    extension: [],
+  },
   kotlin: {
     name: 'kotlin',
     displayName: 'Kotlin',

@@ -491,6 +491,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: "file { 'foo':\n  ensure => present,\n}",
     extension: [],
   },
+  purescript: {
+    name: 'purescript',
+    displayName: 'PureScript',
+    wasmPath: 'tree-sitter-purescript.wasm',
+    sampleCode: 'module Foo where\n\nbar = "baz"',
+    extension: [],
+  },
   python: {
     name: 'python',
     displayName: 'Python',

@@ -419,6 +419,11 @@
     "revision": "a453dbf3ba433db0e5ec621a38a7e59d72e4dc69"
   },
   {
+    "name": "tcl",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-tcl",
+    "revision": "8f11ac7206a54ed11210491cee1e0657e2962c47"
+  },
+  {
     "name": "toml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-toml",
     "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41"

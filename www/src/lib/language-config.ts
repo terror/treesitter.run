@@ -681,6 +681,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'def foo(bar):\n    return bar',
     extension: [],
   },
+  tcl: {
+    name: 'tcl',
+    displayName: 'Tcl',
+    wasmPath: 'tree-sitter-tcl.wasm',
+    sampleCode: 'proc foo {bar} {\n  puts $bar\n}',
+    extension: [],
+  },
   tsx: {
     name: 'tsx',
     displayName: 'TSX',

@@ -414,6 +414,11 @@
     "revision": "71d2693deadaca8cdc09e38ba41d2f6042da1616"
   },
   {
+    "name": "starlark",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-starlark",
+    "revision": "a453dbf3ba433db0e5ec621a38a7e59d72e4dc69"
+  },
+  {
     "name": "toml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-toml",
     "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41"

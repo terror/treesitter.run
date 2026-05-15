@@ -28,25 +28,9 @@ impl Manifest {
     Ok(manifest)
   }
 
-  pub(crate) fn update_revisions(
-    &mut self,
-    path: &Path,
-    revisions: &[String],
-  ) -> Result {
-    ensure!(
-      self.parsers.len() == revisions.len(),
-      "{} revisions provided for {} parsers",
-      revisions.len(),
-      self.parsers.len()
-    );
-
-    for (parser, revision) in self.parsers.iter_mut().zip(revisions) {
-      parser.revision.clone_from(revision);
-    }
-
-    fs::write(path, format!("{}\n", serde_json::to_string_pretty(self)?))?;
-
-    Ok(())
+  pub(crate) fn save(&self, path: &Path) -> Result {
+    fs::write(path, format!("{}\n", serde_json::to_string_pretty(self)?))
+      .map_err(Into::into)
   }
 }
 
@@ -55,7 +39,7 @@ mod tests {
   use {super::*, indoc::indoc};
 
   #[test]
-  fn update_revisions() {
+  fn save() {
     let tempdir = Builder::new()
       .prefix("treesitter-run-test-")
       .tempdir()
@@ -87,9 +71,10 @@ mod tests {
 
     let mut manifest = Manifest::load(&path).unwrap();
 
-    manifest
-      .update_revisions(&path, &[String::from("foo"), String::from("bar")])
-      .unwrap();
+    manifest.parsers[0].revision = String::from("foo");
+    manifest.parsers[1].revision = String::from("bar");
+
+    manifest.save(&path).unwrap();
 
     assert_eq!(
       manifest,

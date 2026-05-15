@@ -18,28 +18,24 @@ impl Runnable for Command {
 
     let output = self.output()?;
 
-    if !output.status.success() {
-      let mut message = format!("{} exited with {}", display, output.status);
-
-      for (label, output) in [
-        ("stdout", output.stdout.as_slice()),
-        ("stderr", output.stderr.as_slice()),
-      ] {
-        let output = String::from_utf8_lossy(output);
-
-        let output = output.trim();
-
-        if !output.is_empty() {
-          message.push_str("\n\n");
-          message.push_str(label);
-          message.push_str(":\n");
-          message.push_str(output);
-        }
-      }
-
-      bail!("{message}");
+    if output.status.success() {
+      return Ok(output);
     }
 
-    Ok(output)
+    let mut message = format!("{display} exited with {}", output.status);
+
+    for (label, bytes) in
+      [("stdout", &output.stdout), ("stderr", &output.stderr)]
+    {
+      let text = String::from_utf8_lossy(bytes).trim().to_owned();
+
+      if text.is_empty() {
+        continue;
+      }
+
+      let _ = write!(message, "\n\n{label}:\n{text}");
+    }
+
+    bail!("{message}");
   }
 }

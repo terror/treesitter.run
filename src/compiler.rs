@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug)]
 pub(crate) struct Compiler {
   pub(crate) manifest: Manifest,
-  pub(crate) options: Arguments,
+  pub(crate) manifest_path: PathBuf,
   pub(crate) root: PathBuf,
 }
 
@@ -15,12 +15,25 @@ impl Compiler {
     source: &Path,
   ) -> Result {
     let output = self
-      .resolve(self.options.public_directory.as_path())
+      .root
+      .join("www")
+      .join("public")
       .join(format!("tree-sitter-{}.wasm", parser.name));
 
     Self::start_step(progress, "build", &parser.name);
 
-    Command::new(self.tree_sitter())
+    let tree_sitter = self
+      .root
+      .join("www")
+      .join("node_modules")
+      .join(".bin")
+      .join(if cfg!(windows) {
+        "tree-sitter.cmd"
+      } else {
+        "tree-sitter"
+      });
+
+    Command::new(tree_sitter)
       .arg("build")
       .arg("--wasm")
       .arg("--output")
@@ -33,11 +46,17 @@ impl Compiler {
     Ok(())
   }
 
-  fn build_parsers(&self, progress: &ProgressBar) -> Result {
+  fn build_parsers(
+    &self,
+    progress: &ProgressBar,
+    parser_indices: &[usize],
+  ) -> Result {
     let checkout_directory =
       Builder::new().prefix("treesitter-run-parsers-").tempdir()?;
 
-    for parser in &self.manifest.parsers {
+    for index in parser_indices {
+      let parser = &self.manifest.parsers[*index];
+
       Self::start_step(progress, "fetch", &parser.name);
 
       self.build_parser(
@@ -50,15 +69,60 @@ impl Compiler {
     Ok(())
   }
 
+  pub(crate) fn check(&self, parser: Option<&str>) -> Result {
+    let parser_indices = self.parser_indices(parser)?;
+
+    let progress = Self::progress_bar(u64::try_from(parser_indices.len())?)?;
+
+    self.verify_parsers(&progress, &parser_indices)?;
+
+    progress.finish_with_message(
+      style("done").for_stderr().green().bold().to_string(),
+    );
+
+    Ok(())
+  }
+
+  pub(crate) fn compile(&mut self, parser: Option<&str>) -> Result {
+    let parser_indices = self.parser_indices(parser)?;
+
+    let progress =
+      Self::progress_bar(1 + 2 * u64::try_from(parser_indices.len())?)?;
+
+    self.copy_runtime(&progress)?;
+
+    self.update_parsers(&progress, &parser_indices)?;
+    self.build_parsers(&progress, &parser_indices)?;
+
+    progress.finish_with_message(
+      style("done").for_stderr().green().bold().to_string(),
+    );
+
+    Ok(())
+  }
+
   fn copy_runtime(&self, progress: &ProgressBar) -> Result {
-    let output = self.runtime_output();
+    let output = self
+      .root
+      .join("www")
+      .join("public")
+      .join("tree-sitter.wasm");
 
     let output_display = self.display_path(output.as_path());
 
     Self::start_step(progress, "copy", &output_display);
 
-    fs::create_dir_all(self.resolve(self.options.public_directory.as_path()))?;
-    fs::copy(self.runtime_wasm(), output)?;
+    fs::create_dir_all(self.root.join("www").join("public"))?;
+
+    fs::copy(
+      self
+        .root
+        .join("www")
+        .join("node_modules")
+        .join("web-tree-sitter")
+        .join("tree-sitter.wasm"),
+      output,
+    )?;
 
     Self::finish_step(progress, "copied", &output_display);
 
@@ -87,7 +151,7 @@ impl Compiler {
   }
 
   fn latest_revision(parser: &ParserConfig) -> Result<String> {
-    let output = String::from_utf8(
+    Self::parse_latest_revision(&String::from_utf8(
       Command::new("git")
         .arg("ls-remote")
         .arg("--exit-code")
@@ -95,10 +159,21 @@ impl Compiler {
         .arg("HEAD")
         .run()?
         .stdout,
-    )?;
-
-    Self::parse_latest_revision(&output).with_context(|| {
+    )?)
+    .with_context(|| {
       format!("failed to resolve latest revision for {}", parser.name)
+    })
+  }
+
+  pub(crate) fn new() -> Result<Self> {
+    let root = env::current_dir()?;
+
+    let manifest_path = root.join("manifest.json");
+
+    Ok(Self {
+      manifest: Manifest::load(&manifest_path)?,
+      manifest_path: manifest_path.clone(),
+      root,
     })
   }
 
@@ -124,6 +199,21 @@ impl Compiler {
     );
 
     Ok(revision.to_string())
+  }
+
+  fn parser_indices(&self, parser: Option<&str>) -> Result<Vec<usize>> {
+    if let Some(parser) = parser {
+      Ok(vec![
+        self
+          .manifest
+          .parsers
+          .iter()
+          .position(|config| config.name == parser)
+          .with_context(|| format!("unknown parser `{parser}`"))?,
+      ])
+    } else {
+      Ok((0..self.manifest.parsers.len()).collect::<Vec<_>>())
+    }
   }
 
   fn prepare_parser(
@@ -186,8 +276,8 @@ impl Compiler {
     Ok(source)
   }
 
-  fn progress_bar(&self) -> Result<ProgressBar> {
-    let progress = ProgressBar::new(self.progress_len()?);
+  fn progress_bar(len: u64) -> Result<ProgressBar> {
+    let progress = ProgressBar::new(len);
 
     progress.set_style(
       ProgressStyle::with_template(
@@ -199,67 +289,6 @@ impl Compiler {
     Ok(progress)
   }
 
-  fn progress_len(&self) -> Result<u64> {
-    let parser_steps = if self.options.verify_only {
-      0
-    } else {
-      2 * u64::try_from(self.manifest.parsers.len())?
-    };
-
-    let verify_count = u64::from(!self.options.skip_verify);
-
-    Ok(1 + parser_steps + verify_count)
-  }
-
-  fn resolve(&self, path: &Path) -> PathBuf {
-    if path.is_absolute() {
-      path.to_path_buf()
-    } else {
-      self.root.join(path)
-    }
-  }
-
-  pub(crate) fn run(&mut self) -> Result {
-    let progress = self.progress_bar()?;
-
-    self.copy_runtime(&progress)?;
-
-    if !self.options.verify_only {
-      self.update_parsers(&progress)?;
-      self.build_parsers(&progress)?;
-    }
-
-    if !self.options.skip_verify {
-      self.verify_parsers(&progress)?;
-    }
-
-    progress.finish_with_message(
-      style("done").for_stderr().green().bold().to_string(),
-    );
-
-    Ok(())
-  }
-
-  fn runtime_output(&self) -> PathBuf {
-    self
-      .resolve(self.options.public_directory.as_path())
-      .join("tree-sitter.wasm")
-  }
-
-  fn runtime_wasm(&self) -> PathBuf {
-    self.options.runtime_wasm.as_ref().map_or_else(
-      || {
-        self
-          .root
-          .join("www")
-          .join("node_modules")
-          .join("web-tree-sitter")
-          .join("tree-sitter.wasm")
-      },
-      |path| self.resolve(path),
-    )
-  }
-
   fn start_step(progress: &ProgressBar, status: &str, message: &str) {
     progress.set_message(format!(
       "{} {}",
@@ -268,28 +297,14 @@ impl Compiler {
     ));
   }
 
-  fn tree_sitter(&self) -> PathBuf {
-    self.options.tree_sitter.as_ref().map_or_else(
-      || {
-        self
-          .root
-          .join("www")
-          .join("node_modules")
-          .join(".bin")
-          .join(if cfg!(windows) {
-            "tree-sitter.cmd"
-          } else {
-            "tree-sitter"
-          })
-      },
-      |path| self.resolve(path),
-    )
-  }
+  fn update_parsers(
+    &mut self,
+    progress: &ProgressBar,
+    parser_indices: &[usize],
+  ) -> Result {
+    for index in parser_indices {
+      let parser = &self.manifest.parsers[*index];
 
-  fn update_parsers(&mut self, progress: &ProgressBar) -> Result {
-    let mut revisions = Vec::new();
-
-    for parser in &self.manifest.parsers {
       Self::start_step(progress, "update", &parser.name);
 
       let revision = Self::latest_revision(parser)?;
@@ -304,39 +319,37 @@ impl Compiler {
         ),
       );
 
-      revisions.push(revision);
+      self.manifest.parsers[*index].revision = revision;
     }
 
-    let manifest = self.resolve(self.options.manifest.as_path());
-
-    self.manifest.update_revisions(&manifest, &revisions)?;
+    self.manifest.save(self.manifest_path.as_path())?;
 
     Ok(())
   }
 
-  fn verify_parsers(&self, progress: &ProgressBar) -> Result {
-    let parser_names = self
-      .manifest
-      .parsers
-      .iter()
-      .map(|parser| parser.name.as_str())
-      .collect::<Vec<_>>()
-      .join("\n");
+  fn verify_parsers(
+    &self,
+    progress: &ProgressBar,
+    parser_indices: &[usize],
+  ) -> Result {
+    for index in parser_indices {
+      let parser = &self.manifest.parsers[*index];
 
-    Self::start_step(progress, "verify", "parsers");
+      Self::start_step(progress, "verify", &parser.name);
 
-    Command::new("bun")
-      .arg("--eval")
-      .arg(VERIFY_SCRIPT)
-      .current_dir(self.root.join("www"))
-      .env(
-        "TREE_SITTER_PUBLIC_DIR",
-        self.resolve(self.options.public_directory.as_path()),
-      )
-      .env("TREE_SITTER_PARSERS", parser_names)
-      .run()?;
+      Command::new("bun")
+        .arg("--eval")
+        .arg(VERIFY_SCRIPT)
+        .current_dir(self.root.join("www"))
+        .env(
+          "TREE_SITTER_PUBLIC_DIR",
+          self.root.join("www").join("public"),
+        )
+        .env("TREE_SITTER_PARSERS", &parser.name)
+        .run()?;
 
-    Self::finish_step(progress, "verified", "parsers");
+      Self::finish_step(progress, "verified", &parser.name);
+    }
 
     Ok(())
   }
@@ -345,6 +358,41 @@ impl Compiler {
 #[cfg(test)]
 mod tests {
   use super::*;
+
+  #[test]
+  fn parser_indices() {
+    let compiler = Compiler {
+      manifest: Manifest {
+        parsers: vec![
+          ParserConfig {
+            name: String::from("foo"),
+            path: None,
+            repository: String::from("bar"),
+            revision: String::from("baz"),
+          },
+          ParserConfig {
+            name: String::from("bar"),
+            path: None,
+            repository: String::from("baz"),
+            revision: String::from("foo"),
+          },
+        ],
+      },
+      manifest_path: PathBuf::from("foo"),
+      root: PathBuf::from("bar"),
+    };
+
+    assert_eq!(compiler.parser_indices(None).unwrap(), vec![0, 1]);
+    assert_eq!(compiler.parser_indices(Some("bar")).unwrap(), vec![1]);
+
+    assert_eq!(
+      compiler
+        .parser_indices(Some("baz"))
+        .unwrap_err()
+        .to_string(),
+      "unknown parser `baz`",
+    );
+  }
 
   #[test]
   fn parse_latest_revision() {

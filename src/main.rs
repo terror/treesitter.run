@@ -9,12 +9,15 @@ use {
   runnable::Runnable,
   serde::{Deserialize, Serialize},
   std::{
-    env, fs,
+    env,
+    fmt::Write,
+    fs,
     io::{self, IsTerminal},
     iter,
     path::{Path, PathBuf},
     process::{Command, ExitCode, Output},
   },
+  subcommand::Subcommand,
   tempfile::Builder,
 };
 
@@ -22,27 +25,14 @@ mod arguments;
 mod compiler;
 mod manifest;
 mod runnable;
+mod subcommand;
 
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
 
 type Result<T = (), E = anyhow::Error> = std::result::Result<T, E>;
 
-fn run() -> Result {
-  let options = Arguments::parse();
-
-  let root = env::current_dir()?;
-
-  let mut compiler = Compiler {
-    manifest: Manifest::load(&root.join(&options.manifest))?,
-    options,
-    root,
-  };
-
-  compiler.run()
-}
-
 fn main() -> ExitCode {
-  if let Err(error) = run() {
+  if let Err(error) = Arguments::parse().run() {
     if io::stderr().is_terminal() {
       eprintln!("\x1b[1;31merror\x1b[0m: \x1b[1m{error}\x1b[0m");
     } else {

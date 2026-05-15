@@ -674,6 +674,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'Host foo\n  HostName bar',
     extension: [],
   },
+  starlark: {
+    name: 'starlark',
+    displayName: 'Starlark',
+    wasmPath: 'tree-sitter-starlark.wasm',
+    sampleCode: 'def foo(bar):\n    return bar',
+    extension: [],
+  },
   tsx: {
     name: 'tsx',
     displayName: 'TSX',

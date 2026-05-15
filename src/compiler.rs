@@ -103,21 +103,6 @@ impl Compiler {
     Ok(())
   }
 
-  fn latest_revision(parser: &Parser) -> Result<String> {
-    Self::parse_latest_revision(&String::from_utf8(
-      Command::new("git")
-        .arg("ls-remote")
-        .arg("--exit-code")
-        .arg(&parser.repository)
-        .arg("HEAD")
-        .run()?
-        .stdout,
-    )?)
-    .with_context(|| {
-      format!("failed to resolve latest revision for {}", parser.name)
-    })
-  }
-
   pub(crate) fn new() -> Result<Self> {
     let workspace = Workspace::current()?;
 
@@ -126,30 +111,6 @@ impl Compiler {
       reporter: Reporter::new()?,
       workspace,
     })
-  }
-
-  fn parse_latest_revision(output: &str) -> Result<String> {
-    let line = output
-      .lines()
-      .find(|line| !line.trim().is_empty())
-      .context("git ls-remote returned no HEAD")?;
-
-    let mut fields = line.split_whitespace();
-
-    let revision = fields
-      .next()
-      .context("git ls-remote HEAD output did not contain a revision")?;
-
-    let reference = fields
-      .next()
-      .context("git ls-remote HEAD output did not contain a reference")?;
-
-    ensure!(
-      reference == "HEAD",
-      "git ls-remote HEAD resolved {reference}, expected HEAD"
-    );
-
-    Ok(revision.to_string())
   }
 
   fn parser_indices(&self, parser: Option<&str>) -> Result<Vec<usize>> {
@@ -237,7 +198,7 @@ impl Compiler {
 
       self.reporter.start_step("update", &parser.name);
 
-      let revision = Self::latest_revision(parser)?;
+      let revision = parser.latest_revision()?;
 
       self.reporter.finish_step(
         "updated",
@@ -264,14 +225,6 @@ impl Compiler {
 #[cfg(test)]
 mod tests {
   use super::*;
-
-  #[test]
-  fn parse_latest_revision() {
-    assert_eq!(
-      Compiler::parse_latest_revision("foo\tHEAD\n").unwrap(),
-      "foo"
-    );
-  }
 
   #[test]
   fn parser_indices() {

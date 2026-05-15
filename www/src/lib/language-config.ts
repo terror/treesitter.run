@@ -561,6 +561,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '^(foo|bar)+$',
     extension: [],
   },
+  requirements: {
+    name: 'requirements',
+    displayName: 'Requirements',
+    wasmPath: 'tree-sitter-requirements.wasm',
+    sampleCode: 'foo==1.0.0',
+    extension: [],
+  },
   ruby: {
     name: 'ruby',
     displayName: 'Ruby',

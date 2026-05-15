@@ -22,6 +22,7 @@ export type Language =
   | 'elm'
   | 'embedded-template'
   | 'fennel'
+  | 'fortran'
   | 'gleam'
   | 'go'
   | 'graphql'

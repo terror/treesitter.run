@@ -435,6 +435,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'package foo\n\nbar :: proc() {}',
     extension: [],
   },
+  pem: {
+    name: 'pem',
+    displayName: 'PEM',
+    wasmPath: 'tree-sitter-pem.wasm',
+    sampleCode: '-----BEGIN FOO-----\nbar\n-----END FOO-----',
+    extension: [],
+  },
   php: {
     name: 'php',
     displayName: 'PHP',

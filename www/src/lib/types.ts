@@ -56,6 +56,7 @@ export type Language =
   | 'objc'
   | 'ocaml'
   | 'odin'
+  | 'pem'
   | 'php'
   | 'powershell'
   | 'python'

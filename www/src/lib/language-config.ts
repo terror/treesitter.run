@@ -477,6 +477,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'model Foo {\n  id Int @id\n  bar String\n}',
     extension: [],
   },
+  properties: {
+    name: 'properties',
+    displayName: 'Properties',
+    wasmPath: 'tree-sitter-properties.wasm',
+    sampleCode: 'foo=bar',
+    extension: [],
+  },
   python: {
     name: 'python',
     displayName: 'Python',

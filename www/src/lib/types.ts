@@ -62,6 +62,7 @@ export type Language =
   | 'powershell'
   | 'printf'
   | 'prisma'
+  | 'properties'
   | 'python'
   | 'query'
   | 'r'

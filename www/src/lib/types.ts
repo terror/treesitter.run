@@ -26,6 +26,7 @@ export type Language =
   | 'gdscript'
   | 'gitattributes'
   | 'gleam'
+  | 'glsl'
   | 'go'
   | 'graphql'
   | 'haskell'

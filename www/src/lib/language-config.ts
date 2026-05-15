@@ -207,6 +207,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'pub fn main() {\n  "foo"\n}',
     extension: [],
   },
+  glsl: {
+    name: 'glsl',
+    displayName: 'GLSL',
+    wasmPath: 'tree-sitter-glsl.wasm',
+    sampleCode: 'void main() {\n  gl_Position = vec4(1.0);\n}',
+    extension: [],
+  },
   go: {
     name: 'go',
     displayName: 'Go',

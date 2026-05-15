@@ -1,18 +1,64 @@
 use super::*;
 
 #[derive(Debug, Parser)]
-#[command(name = "compiler")]
+#[command(version)]
 pub(crate) struct Arguments {
-  #[arg(long, default_value = "manifest.json")]
-  pub(crate) manifest: PathBuf,
-  #[arg(long, default_value = "www/public")]
-  pub(crate) public_directory: PathBuf,
-  #[arg(long)]
-  pub(crate) runtime_wasm: Option<PathBuf>,
-  #[arg(long)]
-  pub(crate) skip_verify: bool,
-  #[arg(long)]
-  pub(crate) tree_sitter: Option<PathBuf>,
-  #[arg(long)]
-  pub(crate) verify_only: bool,
+  #[clap(subcommand)]
+  subcommand: Subcommand,
+}
+
+impl Arguments {
+  pub(crate) fn run(self) -> Result {
+    self.subcommand.run()
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn parsing() {
+    let arguments =
+      Arguments::try_parse_from(["treesitter-run", "compile"]).unwrap();
+
+    match arguments.subcommand {
+      Subcommand::Check(_) => unreachable!(),
+      Subcommand::Compile(compile) => assert_eq!(compile.parser, None),
+    }
+
+    let arguments = Arguments::try_parse_from([
+      "treesitter-run",
+      "compile",
+      "--parser",
+      "foo",
+    ])
+    .unwrap();
+
+    match arguments.subcommand {
+      Subcommand::Check(_) => unreachable!(),
+      Subcommand::Compile(compile) => {
+        assert_eq!(compile.parser, Some(String::from("foo")));
+      }
+    }
+
+    let arguments =
+      Arguments::try_parse_from(["treesitter-run", "check"]).unwrap();
+
+    match arguments.subcommand {
+      Subcommand::Check(check) => assert_eq!(check.parser, None),
+      Subcommand::Compile(_) => unreachable!(),
+    }
+
+    let arguments =
+      Arguments::try_parse_from(["treesitter-run", "check", "--parser", "foo"])
+        .unwrap();
+
+    match arguments.subcommand {
+      Subcommand::Check(check) => {
+        assert_eq!(check.parser, Some(String::from("foo")));
+      }
+      Subcommand::Compile(_) => unreachable!(),
+    }
+  }
 }

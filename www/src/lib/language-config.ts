@@ -179,6 +179,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '(fn foo [bar]\n  (print bar))',
     extension: [],
   },
+  fortran: {
+    name: 'fortran',
+    displayName: 'Fortran',
+    wasmPath: 'tree-sitter-fortran.wasm',
+    sampleCode: 'program foo\n  print *, "bar"\nend program foo',
+    extension: [],
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

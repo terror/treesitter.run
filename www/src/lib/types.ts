@@ -33,6 +33,7 @@ export type Language =
   | 'graphql'
   | 'haskell'
   | 'hcl'
+  | 'hlsl'
   | 'html'
   | 'java'
   | 'javascript'

@@ -45,6 +45,7 @@ export type Language =
   | 'just'
   | 'kconfig'
   | 'kotlin'
+  | 'llvm'
   | 'lua'
   | 'make'
   | 'markdown'

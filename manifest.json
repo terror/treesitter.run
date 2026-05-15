@@ -221,6 +221,11 @@
     "revision": "f66d2908542e93c0204c6c241f794afe4e9cd5d1"
   },
   {
+    "name": "llvm",
+    "repository": "https://github.com/benwilliamgraham/tree-sitter-llvm",
+    "revision": "2914786ae6774d4c4e25a230f4afe16aa68fe1c1"
+  },
+  {
     "name": "lua",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-lua",
     "revision": "10fe0054734eec83049514ea2e718b2a56acd0c9"

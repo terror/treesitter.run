@@ -512,6 +512,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'print("hello, world")',
     extension: python(),
   },
+  ql: {
+    name: 'ql',
+    displayName: 'QL',
+    wasmPath: 'tree-sitter-ql.wasm',
+    sampleCode: 'from string foo\nselect foo',
+    extension: [],
+  },
   query: {
     name: 'query',
     displayName: 'Query',

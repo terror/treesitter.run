@@ -334,6 +334,11 @@
     "revision": "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"
   },
   {
+    "name": "ql",
+    "repository": "https://github.com/tree-sitter/tree-sitter-ql",
+    "revision": "1fd627a4e8bff8c24c11987474bd33112bead857"
+  },
+  {
     "name": "query",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-query",
     "revision": "fc5409c6820dd5e02b0b0a309d3da2bfcde2db17"

@@ -50,6 +50,7 @@ export type Language =
   | 'luau'
   | 'make'
   | 'markdown'
+  | 'meson'
   | 'nix'
   | 'ocaml'
   | 'php'

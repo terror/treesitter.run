@@ -247,6 +247,11 @@
     "revision": "c3570720f7f7bbad22fe96603f106276618e0cf5"
   },
   {
+    "name": "meson",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-meson",
+    "revision": "c84f3540624b81fc44067030afce2ff78d6ede05"
+  },
+  {
     "name": "nix",
     "repository": "https://github.com/nix-community/tree-sitter-nix",
     "revision": "69fbfb02896cdd27cb7ff3cd61f7f3f6bde4f017"

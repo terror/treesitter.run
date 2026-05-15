@@ -540,6 +540,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'foo <- function(bar) {\n  print(bar)\n}\n\nfoo("baz")',
     extension: [],
   },
+  racket: {
+    name: 'racket',
+    displayName: 'Racket',
+    wasmPath: 'tree-sitter-racket.wasm',
+    sampleCode: '#lang racket\n\n(define (foo bar)\n  bar)',
+    extension: [],
+  },
   regex: {
     name: 'regex',
     displayName: 'Regex',

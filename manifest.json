@@ -354,6 +354,11 @@
     "revision": "0e6ef7741712c09dc3ee6e81c42e919820cc65ef"
   },
   {
+    "name": "racket",
+    "repository": "https://github.com/6cdh/tree-sitter-racket",
+    "revision": "54649be8b939341d2d5410b594ab954fe8814bd0"
+  },
+  {
     "name": "regex",
     "repository": "https://github.com/tree-sitter/tree-sitter-regex",
     "revision": "b2ac15e27fce703d2f37a79ccd94a5c0cbe9720b"

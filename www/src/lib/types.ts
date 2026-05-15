@@ -71,6 +71,7 @@ export type Language =
   | 'ql-dbscheme'
   | 'query'
   | 'r'
+  | 'racket'
   | 'regex'
   | 'ruby'
   | 'rust'

@@ -65,6 +65,11 @@
     "revision": "48b066f334f4cf2174e05a50218ce2ed98b6fd01"
   },
   {
+    "name": "cyberchef",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-cyberchef",
+    "revision": "8bad395b98253324085b4b5227b14d4988f374b7"
+  },
+  {
     "name": "dart",
     "repository": "https://github.com/usernobody14/tree-sitter-dart",
     "revision": "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"

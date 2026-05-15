@@ -4,8 +4,8 @@ use {
   clap::Parser,
   compiler::Compiler,
   console::style,
-  indicatif::{ProgressBar, ProgressStyle},
   manifest::{Manifest, ParserConfig},
+  reporter::Reporter,
   runnable::Runnable,
   serde::{Deserialize, Serialize},
   std::{
@@ -25,6 +25,7 @@ use {
 mod arguments;
 mod compiler;
 mod manifest;
+mod reporter;
 mod runnable;
 mod subcommand;
 mod workspace;

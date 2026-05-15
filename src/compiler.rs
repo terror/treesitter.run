@@ -2,20 +2,16 @@ use super::*;
 
 #[derive(Debug)]
 pub(crate) struct Compiler {
-  pub(crate) manifest: Manifest,
-  pub(crate) workspace: Workspace,
+  manifest: Manifest,
+  reporter: Reporter,
+  workspace: Workspace,
 }
 
 impl Compiler {
-  fn build_parser(
-    &self,
-    parser: &ParserConfig,
-    progress: &ProgressBar,
-    source: &Path,
-  ) -> Result {
+  fn build_parser(&self, parser: &ParserConfig, source: &Path) -> Result {
     let output = self.workspace.parser_wasm(parser);
 
-    Self::start_step(progress, "build", &parser.name);
+    self.reporter.start_step("build", &parser.name);
 
     Command::new(self.workspace.tree_sitter_bin())
       .arg("build")
@@ -25,31 +21,24 @@ impl Compiler {
       .arg(source)
       .run()?;
 
-    Self::finish_step(
-      progress,
-      "built",
-      &self.workspace.display_path(output.as_path()),
-    );
+    self
+      .reporter
+      .finish_step("built", &self.workspace.display_path(output.as_path()));
 
     Ok(())
   }
 
-  fn build_parsers(
-    &self,
-    progress: &ProgressBar,
-    parser_indices: &[usize],
-  ) -> Result {
+  fn build_parsers(&self, parser_indices: &[usize]) -> Result {
     let checkout_directory =
       Builder::new().prefix("treesitter-run-parsers-").tempdir()?;
 
     for index in parser_indices {
       let parser = &self.manifest.parsers[*index];
 
-      Self::start_step(progress, "fetch", &parser.name);
+      self.reporter.start_step("fetch", &parser.name);
 
       self.build_parser(
         parser,
-        progress,
         &Self::prepare_parser(parser, checkout_directory.path())?,
       )?;
     }
@@ -60,13 +49,25 @@ impl Compiler {
   pub(crate) fn check(&self, parser: Option<&str>) -> Result {
     let parser_indices = self.parser_indices(parser)?;
 
-    let progress = Self::progress_bar(u64::try_from(parser_indices.len())?)?;
+    self.reporter.reset(u64::try_from(parser_indices.len())?);
 
-    self.verify_parsers(&progress, &parser_indices)?;
+    for index in parser_indices {
+      let parser = &self.manifest.parsers[index];
 
-    progress.finish_with_message(
-      style("done").for_stderr().green().bold().to_string(),
-    );
+      self.reporter.start_step("verify", &parser.name);
+
+      Command::new("bun")
+        .arg("--eval")
+        .arg(VERIFY_SCRIPT)
+        .current_dir(self.workspace.www_dir())
+        .env("TREE_SITTER_PUBLIC_DIR", self.workspace.public_dir())
+        .env("TREE_SITTER_PARSERS", &parser.name)
+        .run()?;
+
+      self.reporter.finish_step("verified", &parser.name);
+    }
+
+    self.reporter.done();
 
     Ok(())
   }
@@ -74,46 +75,32 @@ impl Compiler {
   pub(crate) fn compile(&self, parser: Option<&str>) -> Result {
     let parser_indices = self.parser_indices(parser)?;
 
-    let progress =
-      Self::progress_bar(1 + u64::try_from(parser_indices.len())?)?;
+    self
+      .reporter
+      .reset(1 + u64::try_from(parser_indices.len())?);
 
-    self.copy_runtime(&progress)?;
+    self.copy_runtime()?;
 
-    self.build_parsers(&progress, &parser_indices)?;
+    self.build_parsers(&parser_indices)?;
 
-    progress.finish_with_message(
-      style("done").for_stderr().green().bold().to_string(),
-    );
+    self.reporter.done();
 
     Ok(())
   }
 
-  fn copy_runtime(&self, progress: &ProgressBar) -> Result {
+  fn copy_runtime(&self) -> Result {
     let output = self.workspace.runtime_wasm();
 
     let output_display = self.workspace.display_path(output.as_path());
 
-    Self::start_step(progress, "copy", &output_display);
+    self.reporter.start_step("copy", &output_display);
 
     fs::create_dir_all(self.workspace.public_dir())?;
     fs::copy(self.workspace.bundled_runtime_wasm(), output)?;
 
-    Self::finish_step(progress, "copied", &output_display);
+    self.reporter.finish_step("copied", &output_display);
 
     Ok(())
-  }
-
-  fn finish_step(progress: &ProgressBar, status: &str, message: &str) {
-    progress.inc(1);
-
-    let message =
-      format!("{} {}", style(status).for_stderr().green().bold(), message);
-
-    if progress.is_hidden() {
-      eprintln!("{message}");
-    } else {
-      progress.println(message);
-    }
   }
 
   fn latest_revision(parser: &ParserConfig) -> Result<String> {
@@ -136,6 +123,7 @@ impl Compiler {
 
     Ok(Self {
       manifest: Manifest::load(&workspace.manifest_path())?,
+      reporter: Reporter::new()?,
       workspace,
     })
   }
@@ -239,55 +227,19 @@ impl Compiler {
     Ok(source)
   }
 
-  fn progress_bar(len: u64) -> Result<ProgressBar> {
-    let progress = ProgressBar::new(len);
-
-    progress.set_style(
-      ProgressStyle::with_template(
-        "[{bar:32.cyan/blue}] {pos:>2}/{len:2} {msg}",
-      )?
-      .progress_chars("=>-"),
-    );
-
-    Ok(progress)
-  }
-
-  fn start_step(progress: &ProgressBar, status: &str, message: &str) {
-    progress.set_message(format!(
-      "{} {}",
-      style(status).for_stderr().cyan().bold(),
-      message
-    ));
-  }
-
   pub(crate) fn update(&mut self, parser: Option<&str>) -> Result {
     let parser_indices = self.parser_indices(parser)?;
 
-    let progress = Self::progress_bar(u64::try_from(parser_indices.len())?)?;
+    self.reporter.reset(u64::try_from(parser_indices.len())?);
 
-    self.update_parsers(&progress, &parser_indices)?;
-
-    progress.finish_with_message(
-      style("done").for_stderr().green().bold().to_string(),
-    );
-
-    Ok(())
-  }
-
-  fn update_parsers(
-    &mut self,
-    progress: &ProgressBar,
-    parser_indices: &[usize],
-  ) -> Result {
     for index in parser_indices {
-      let parser = &self.manifest.parsers[*index];
+      let parser = &self.manifest.parsers[index];
 
-      Self::start_step(progress, "update", &parser.name);
+      self.reporter.start_step("update", &parser.name);
 
       let revision = Self::latest_revision(parser)?;
 
-      Self::finish_step(
-        progress,
+      self.reporter.finish_step(
         "updated",
         &format!(
           "{} {}",
@@ -296,36 +248,14 @@ impl Compiler {
         ),
       );
 
-      self.manifest.parsers[*index].revision = revision;
+      self.manifest.parsers[index].revision = revision;
     }
 
     self
       .manifest
       .save(self.workspace.manifest_path().as_path())?;
 
-    Ok(())
-  }
-
-  fn verify_parsers(
-    &self,
-    progress: &ProgressBar,
-    parser_indices: &[usize],
-  ) -> Result {
-    for index in parser_indices {
-      let parser = &self.manifest.parsers[*index];
-
-      Self::start_step(progress, "verify", &parser.name);
-
-      Command::new("bun")
-        .arg("--eval")
-        .arg(VERIFY_SCRIPT)
-        .current_dir(self.workspace.www_dir())
-        .env("TREE_SITTER_PUBLIC_DIR", self.workspace.public_dir())
-        .env("TREE_SITTER_PARSERS", &parser.name)
-        .run()?;
-
-      Self::finish_step(progress, "verified", &parser.name);
-    }
+    self.reporter.done();
 
     Ok(())
   }
@@ -362,6 +292,7 @@ mod tests {
           },
         ],
       },
+      reporter: Reporter::new().unwrap(),
       workspace: Workspace::new(PathBuf::from("bar")),
     };
 

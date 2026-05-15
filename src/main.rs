@@ -9,7 +9,9 @@ use {
   runnable::Runnable,
   serde::{Deserialize, Serialize},
   std::{
-    env, fs,
+    env,
+    fmt::Write,
+    fs,
     io::{self, IsTerminal},
     iter,
     path::{Path, PathBuf},

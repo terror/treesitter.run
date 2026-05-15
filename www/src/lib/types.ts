@@ -87,6 +87,7 @@ export type Language =
   | 'toml'
   | 'xml'
   | 'sql'
+  | 'ssh-config'
   | 'tsx'
   | 'zig';
 

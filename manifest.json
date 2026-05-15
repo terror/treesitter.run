@@ -299,6 +299,11 @@
     "revision": "d398441825243b00e317e87e1829b9d6a3e54ce0"
   },
   {
+    "name": "prisma",
+    "repository": "https://github.com/victorhqc/tree-sitter-prisma",
+    "revision": "3556b2c1f20ec9ac91e92d32c43d9d2a0ca3cc49"
+  },
+  {
     "name": "python",
     "repository": "https://github.com/tree-sitter/tree-sitter-python",
     "revision": "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"

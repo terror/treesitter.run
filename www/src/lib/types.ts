@@ -4,6 +4,7 @@ export type Language =
   | 'agda'
   | 'arduino'
   | 'bash'
+  | 'beancount'
   | 'c'
   | 'c-sharp'
   | 'cpp'

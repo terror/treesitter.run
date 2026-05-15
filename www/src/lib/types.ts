@@ -75,6 +75,7 @@ export type Language =
   | 'readline'
   | 'regex'
   | 'requirements'
+  | 'rescript'
   | 'ruby'
   | 'rust'
   | 'scala'

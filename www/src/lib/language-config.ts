@@ -568,6 +568,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'foo==1.0.0',
     extension: [],
   },
+  rescript: {
+    name: 'rescript',
+    displayName: 'ReScript',
+    wasmPath: 'tree-sitter-rescript.wasm',
+    sampleCode: 'let foo = bar => bar',
+    extension: [],
+  },
   ruby: {
     name: 'ruby',
     displayName: 'Ruby',

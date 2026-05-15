@@ -51,6 +51,7 @@ export type Language =
   | 'make'
   | 'markdown'
   | 'meson'
+  | 'nginx'
   | 'nix'
   | 'ocaml'
   | 'php'

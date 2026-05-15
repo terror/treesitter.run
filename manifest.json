@@ -324,6 +324,11 @@
     "revision": "f541f95ffd6852fbbe88636317c613285bc105af"
   },
   {
+    "name": "pymanifest",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-pymanifest",
+    "revision": "debbdb83fe6356adc7261c41c69b45ba49c97294"
+  },
+  {
     "name": "python",
     "repository": "https://github.com/tree-sitter/tree-sitter-python",
     "revision": "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"

@@ -498,6 +498,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'module Foo where\n\nbar = "baz"',
     extension: [],
   },
+  pymanifest: {
+    name: 'pymanifest',
+    displayName: 'Python Manifest',
+    wasmPath: 'tree-sitter-pymanifest.wasm',
+    sampleCode: 'include foo',
+    extension: [],
+  },
   python: {
     name: 'python',
     displayName: 'Python',

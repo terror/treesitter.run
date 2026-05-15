@@ -45,6 +45,11 @@
     "revision": "c7b2a71e7f8ecb167fad4c97227c838439280175"
   },
   {
+    "name": "commonlisp",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-commonlisp",
+    "revision": "32323509b3d9fe96607d151c2da2c9009eb13a2f"
+  },
+  {
     "name": "cpp",
     "repository": "https://github.com/tree-sitter/tree-sitter-cpp",
     "revision": "8b5b49eb196bec7040441bee33b2c9a4838d6967"

@@ -37,10 +37,8 @@ impl Compiler {
 
       self.reporter.start_step("fetch", &parser.name);
 
-      self.build_parser(
-        parser,
-        &Self::prepare_parser(parser, checkout_directory.path())?,
-      )?;
+      self
+        .build_parser(parser, &parser.checkout(checkout_directory.path())?)?;
     }
 
     Ok(())
@@ -126,66 +124,6 @@ impl Compiler {
     } else {
       Ok((0..self.manifest.parsers.len()).collect::<Vec<_>>())
     }
-  }
-
-  fn prepare_parser(
-    parser: &Parser,
-    checkout_directory: &Path,
-  ) -> Result<PathBuf> {
-    let directory = checkout_directory.join(&parser.name);
-
-    Command::new("git")
-      .arg("clone")
-      .arg("--filter=blob:none")
-      .arg("--no-checkout")
-      .arg(&parser.repository)
-      .arg(&directory)
-      .run()?;
-
-    Command::new("git")
-      .arg("-C")
-      .arg(&directory)
-      .arg("fetch")
-      .arg("--depth")
-      .arg("1")
-      .arg("origin")
-      .arg(&parser.revision)
-      .run()?;
-
-    Command::new("git")
-      .arg("-C")
-      .arg(&directory)
-      .arg("checkout")
-      .arg("--detach")
-      .arg(&parser.revision)
-      .run()?;
-
-    let revision = String::from_utf8(
-      Command::new("git")
-        .arg("-C")
-        .arg(&directory)
-        .arg("rev-parse")
-        .arg("HEAD")
-        .run()?
-        .stdout,
-    )?;
-
-    if revision.trim() != parser.revision {
-      bail!(
-        "{} checked out {}, expected {}",
-        parser.name,
-        revision.trim(),
-        parser.revision
-      );
-    }
-
-    let source = if let Some(path) = &parser.path {
-      directory.join(path)
-    } else {
-      directory
-    };
-
-    Ok(source)
   }
 
   pub(crate) fn update(&mut self, parser: Option<&str>) -> Result {

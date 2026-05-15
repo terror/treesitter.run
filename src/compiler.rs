@@ -25,7 +25,11 @@ impl Compiler {
       .arg(source)
       .run()?;
 
-    Self::finish_step(progress, "built", &self.workspace.display_path(&output));
+    Self::finish_step(
+      progress,
+      "built",
+      &self.workspace.display_path(output.as_path()),
+    );
 
     Ok(())
   }
@@ -67,15 +71,14 @@ impl Compiler {
     Ok(())
   }
 
-  pub(crate) fn compile(&mut self, parser: Option<&str>) -> Result {
+  pub(crate) fn compile(&self, parser: Option<&str>) -> Result {
     let parser_indices = self.parser_indices(parser)?;
 
     let progress =
-      Self::progress_bar(1 + 2 * u64::try_from(parser_indices.len())?)?;
+      Self::progress_bar(1 + u64::try_from(parser_indices.len())?)?;
 
     self.copy_runtime(&progress)?;
 
-    self.update_parsers(&progress, &parser_indices)?;
     self.build_parsers(&progress, &parser_indices)?;
 
     progress.finish_with_message(
@@ -93,7 +96,6 @@ impl Compiler {
     Self::start_step(progress, "copy", &output_display);
 
     fs::create_dir_all(self.workspace.public_dir())?;
-
     fs::copy(self.workspace.bundled_runtime_wasm(), output)?;
 
     Self::finish_step(progress, "copied", &output_display);
@@ -258,6 +260,20 @@ impl Compiler {
     ));
   }
 
+  pub(crate) fn update(&mut self, parser: Option<&str>) -> Result {
+    let parser_indices = self.parser_indices(parser)?;
+
+    let progress = Self::progress_bar(u64::try_from(parser_indices.len())?)?;
+
+    self.update_parsers(&progress, &parser_indices)?;
+
+    progress.finish_with_message(
+      style("done").for_stderr().green().bold().to_string(),
+    );
+
+    Ok(())
+  }
+
   fn update_parsers(
     &mut self,
     progress: &ProgressBar,
@@ -283,7 +299,9 @@ impl Compiler {
       self.manifest.parsers[*index].revision = revision;
     }
 
-    self.manifest.save(&self.workspace.manifest_path())?;
+    self
+      .manifest
+      .save(self.workspace.manifest_path().as_path())?;
 
     Ok(())
   }
@@ -318,6 +336,14 @@ mod tests {
   use super::*;
 
   #[test]
+  fn parse_latest_revision() {
+    assert_eq!(
+      Compiler::parse_latest_revision("foo\tHEAD\n").unwrap(),
+      "foo"
+    );
+  }
+
+  #[test]
   fn parser_indices() {
     let compiler = Compiler {
       manifest: Manifest {
@@ -342,20 +368,11 @@ mod tests {
     assert_eq!(compiler.parser_indices(None).unwrap(), vec![0, 1]);
     assert_eq!(compiler.parser_indices(Some("bar")).unwrap(), vec![1]);
 
-    assert_eq!(
-      compiler
-        .parser_indices(Some("baz"))
-        .unwrap_err()
-        .to_string(),
-      "unknown parser `baz`",
-    );
-  }
+    let error = compiler
+      .parser_indices(Some("baz"))
+      .unwrap_err()
+      .to_string();
 
-  #[test]
-  fn parse_latest_revision() {
-    assert_eq!(
-      Compiler::parse_latest_revision("foo\tHEAD\n").unwrap(),
-      "foo"
-    );
+    assert_eq!(error, "unknown parser `baz`",);
   }
 }

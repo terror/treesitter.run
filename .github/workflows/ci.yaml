@@ -56,6 +56,32 @@ jobs:
     - name: Check
       run: cargo check
 
+  parsers:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        cache: false
+
+    - uses: Swatinem/rust-cache@v2
+      with:
+        cache-bin: false
+        prefix-key: v1-rust
+
+    - uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install Web Dependencies
+      working-directory: ./www
+      run: bun install
+
+    - name: Check Parsers
+      run: cargo run -- check
+
   test:
     strategy:
       matrix:

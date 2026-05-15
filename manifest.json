@@ -451,6 +451,11 @@
     "revision": "227d277b6a1a5e2bf818d6206935722a7503de08"
   },
   {
+    "name": "vim",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-vim",
+    "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"
+  },
+  {
     "name": "xml",
     "path": "xml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-xml",

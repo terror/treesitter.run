@@ -642,6 +642,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'module foo(input bar, output baz);\n  assign baz = bar;\nendmodule',
     extension: [],
   },
+  vim: {
+    name: 'vim',
+    displayName: 'Vimscript',
+    wasmPath: 'tree-sitter-vim.wasm',
+    sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction',
+    extension: [],
+  },
   yaml: {
     name: 'yaml',
     displayName: 'YAML',

@@ -84,6 +84,7 @@ export type Language =
   | 'typescript'
   | 'udev'
   | 'verilog'
+  | 'vim'
   | 'yaml'
   | 'toml'
   | 'xml'

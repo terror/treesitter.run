@@ -604,6 +604,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'void foo() {}',
     extension: [],
   },
+  solidity: {
+    name: 'solidity',
+    displayName: 'Solidity',
+    wasmPath: 'tree-sitter-solidity.wasm',
+    sampleCode: 'contract Foo {\n  function bar() public {}\n}',
+    extension: [],
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

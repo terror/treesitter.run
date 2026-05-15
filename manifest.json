@@ -399,6 +399,11 @@
     "revision": "1dbcc4abc7b3cdd663eb03d93031167d6ed19f56"
   },
   {
+    "name": "solidity",
+    "repository": "https://github.com/JoranHonig/tree-sitter-solidity",
+    "revision": "048fe686cb1fde267243739b8bdbec8fc3a55272"
+  },
+  {
     "name": "sql",
     "repository": "https://github.com/wippyai/tree-sitter-sql",
     "revision": "f7491fe853198c1ea81d743244ad9c2aa3eab157"

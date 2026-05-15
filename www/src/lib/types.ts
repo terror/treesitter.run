@@ -35,6 +35,7 @@ export type Language =
   | 'hcl'
   | 'hlsl'
   | 'html'
+  | 'hyprlang'
   | 'java'
   | 'javascript'
   | 'jsdoc'

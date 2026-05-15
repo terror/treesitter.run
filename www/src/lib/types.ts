@@ -82,6 +82,7 @@ export type Language =
   | 'slang'
   | 'solidity'
   | 'typescript'
+  | 'udev'
   | 'verilog'
   | 'yaml'
   | 'toml'

@@ -9,6 +9,7 @@ export type Language =
   | 'c'
   | 'c-sharp'
   | 'chatito'
+  | 'cmake'
   | 'cpp'
   | 'css'
   | 'dart'

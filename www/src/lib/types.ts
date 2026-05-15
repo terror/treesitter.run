@@ -60,6 +60,7 @@ export type Language =
   | 'php'
   | 'poe-filter'
   | 'powershell'
+  | 'prisma'
   | 'python'
   | 'query'
   | 'r'

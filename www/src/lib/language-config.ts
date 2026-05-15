@@ -463,6 +463,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'function Foo {\n  Write-Output "bar"\n}\n\nFoo',
     extension: [],
   },
+  prisma: {
+    name: 'prisma',
+    displayName: 'Prisma',
+    wasmPath: 'tree-sitter-prisma.wasm',
+    sampleCode: 'model Foo {\n  id Int @id\n  bar String\n}',
+    extension: [],
+  },
   python: {
     name: 'python',
     displayName: 'Python',

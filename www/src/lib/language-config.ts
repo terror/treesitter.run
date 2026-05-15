@@ -428,6 +428,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'let foo bar =\n  print_endline bar\n\nlet () = foo "baz"',
     extension: [],
   },
+  odin: {
+    name: 'odin',
+    displayName: 'Odin',
+    wasmPath: 'tree-sitter-odin.wasm',
+    sampleCode: 'package foo\n\nbar :: proc() {}',
+    extension: [],
+  },
   php: {
     name: 'php',
     displayName: 'PHP',

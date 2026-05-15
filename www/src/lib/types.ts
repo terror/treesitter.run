@@ -55,6 +55,7 @@ export type Language =
   | 'nix'
   | 'objc'
   | 'ocaml'
+  | 'odin'
   | 'php'
   | 'powershell'
   | 'python'

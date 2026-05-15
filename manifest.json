@@ -299,6 +299,11 @@
     "revision": "d398441825243b00e317e87e1829b9d6a3e54ce0"
   },
   {
+    "name": "printf",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-printf",
+    "revision": "ec4e5674573d5554fccb87a887c97d4aec489da7"
+  },
+  {
     "name": "prisma",
     "repository": "https://github.com/victorhqc/tree-sitter-prisma",
     "revision": "3556b2c1f20ec9ac91e92d32c43d9d2a0ca3cc49"

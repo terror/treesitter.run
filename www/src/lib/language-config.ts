@@ -463,6 +463,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'function Foo {\n  Write-Output "bar"\n}\n\nFoo',
     extension: [],
   },
+  printf: {
+    name: 'printf',
+    displayName: 'Printf',
+    wasmPath: 'tree-sitter-printf.wasm',
+    sampleCode: '%s %d',
+    extension: [],
+  },
   prisma: {
     name: 'prisma',
     displayName: 'Prisma',

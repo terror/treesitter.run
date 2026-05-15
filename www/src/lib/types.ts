@@ -79,6 +79,7 @@ export type Language =
   | 'ruby'
   | 'rust'
   | 'scala'
+  | 'slang'
   | 'typescript'
   | 'verilog'
   | 'yaml'

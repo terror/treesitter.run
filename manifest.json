@@ -394,6 +394,11 @@
     "revision": "a68000002745b94eec61cef741efe7cede4ff465"
   },
   {
+    "name": "slang",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-slang",
+    "revision": "1dbcc4abc7b3cdd663eb03d93031167d6ed19f56"
+  },
+  {
     "name": "sql",
     "repository": "https://github.com/wippyai/tree-sitter-sql",
     "revision": "f7491fe853198c1ea81d743244ad9c2aa3eab157"

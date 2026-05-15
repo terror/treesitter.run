@@ -597,6 +597,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'object Foo {\n  def main(args: Array[String]): Unit = {\n    println("bar")\n  }\n}',
     extension: [],
   },
+  slang: {
+    name: 'slang',
+    displayName: 'Slang',
+    wasmPath: 'tree-sitter-slang.wasm',
+    sampleCode: 'void foo() {}',
+    extension: [],
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

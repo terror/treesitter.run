@@ -283,6 +283,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '</html>',
     extension: html(),
   },
+  hyprlang: {
+    name: 'hyprlang',
+    displayName: 'Hyprlang',
+    wasmPath: 'tree-sitter-hyprlang.wasm',
+    sampleCode: '$foo = bar\nmonitor = , preferred, auto, 1',
+    extension: [],
+  },
   java: {
     name: 'java',
     displayName: 'Java',

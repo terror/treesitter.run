@@ -85,6 +85,7 @@ export type Language =
   | 'udev'
   | 'verilog'
   | 'vim'
+  | 'xcompose'
   | 'yaml'
   | 'toml'
   | 'xml'

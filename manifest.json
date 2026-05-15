@@ -135,6 +135,11 @@
     "revision": "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"
   },
   {
+    "name": "go-sum",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-go-sum",
+    "revision": "27816eb6b7315746ae9fcf711e4e1396dc1cf237"
+  },
+  {
     "name": "graphql",
     "repository": "https://github.com/joowani/tree-sitter-graphql",
     "revision": "df5b88d1d24dcfc02e64919d2d20491359abe4c8"

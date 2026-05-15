@@ -228,6 +228,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '}',
     extension: go(),
   },
+  'go-sum': {
+    name: 'go-sum',
+    displayName: 'go.sum',
+    wasmPath: 'tree-sitter-go-sum.wasm',
+    sampleCode: 'foo v1.0.0 h1:bar',
+    extension: [],
+  },
   graphql: {
     name: 'graphql',
     displayName: 'GraphQL',

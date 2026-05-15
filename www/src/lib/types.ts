@@ -65,6 +65,7 @@ export type Language =
   | 'properties'
   | 'puppet'
   | 'purescript'
+  | 'pymanifest'
   | 'python'
   | 'query'
   | 'r'

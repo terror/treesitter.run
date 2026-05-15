@@ -4,7 +4,7 @@ mod check;
 mod compile;
 mod update;
 
-#[derive(Debug, Parser)]
+#[derive(Clap, Debug)]
 pub(crate) enum Subcommand {
   Check(Check),
   Compile(Compile),

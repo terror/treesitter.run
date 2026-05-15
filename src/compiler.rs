@@ -8,7 +8,7 @@ pub(crate) struct Compiler {
 }
 
 impl Compiler {
-  fn build_parser(&self, parser: &ParserConfig, source: &Path) -> Result {
+  fn build_parser(&self, parser: &Parser, source: &Path) -> Result {
     let output = self.workspace.parser_wasm(parser);
 
     self.reporter.start_step("build", &parser.name);
@@ -103,7 +103,7 @@ impl Compiler {
     Ok(())
   }
 
-  fn latest_revision(parser: &ParserConfig) -> Result<String> {
+  fn latest_revision(parser: &Parser) -> Result<String> {
     Self::parse_latest_revision(&String::from_utf8(
       Command::new("git")
         .arg("ls-remote")
@@ -168,7 +168,7 @@ impl Compiler {
   }
 
   fn prepare_parser(
-    parser: &ParserConfig,
+    parser: &Parser,
     checkout_directory: &Path,
   ) -> Result<PathBuf> {
     let directory = checkout_directory.join(&parser.name);
@@ -278,13 +278,13 @@ mod tests {
     let compiler = Compiler {
       manifest: Manifest {
         parsers: vec![
-          ParserConfig {
+          Parser {
             name: String::from("foo"),
             path: None,
             repository: String::from("bar"),
             revision: String::from("baz"),
           },
-          ParserConfig {
+          Parser {
             name: String::from("bar"),
             path: None,
             repository: String::from("baz"),

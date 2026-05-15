@@ -1,10 +1,11 @@
 use {
   anyhow::{Context, bail, ensure},
   arguments::Arguments,
-  clap::Parser,
+  clap::Parser as Clap,
   compiler::Compiler,
   console::style,
-  manifest::{Manifest, ParserConfig},
+  manifest::Manifest,
+  parser::Parser,
   reporter::Reporter,
   runnable::Runnable,
   serde::{Deserialize, Serialize},
@@ -25,6 +26,7 @@ use {
 mod arguments;
 mod compiler;
 mod manifest;
+mod parser;
 mod reporter;
 mod runnable;
 mod subcommand;

@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Parser)]
+#[derive(Clap, Debug)]
 pub(crate) struct Check {
   #[arg(long)]
   pub(crate) parser: Option<String>,

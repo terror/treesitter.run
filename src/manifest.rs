@@ -1,18 +1,9 @@
 use super::*;
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
-pub(crate) struct ParserConfig {
-  pub(crate) name: String,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub(crate) path: Option<PathBuf>,
-  pub(crate) repository: String,
-  pub(crate) revision: String,
-}
-
-#[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(transparent)]
 pub(crate) struct Manifest {
-  pub(crate) parsers: Vec<ParserConfig>,
+  pub(crate) parsers: Vec<Parser>,
 }
 
 impl Manifest {
@@ -80,13 +71,13 @@ mod tests {
       manifest,
       Manifest {
         parsers: vec![
-          ParserConfig {
+          Parser {
             name: String::from("foo"),
             path: None,
             repository: String::from("bar"),
             revision: String::from("foo"),
           },
-          ParserConfig {
+          Parser {
             name: String::from("qux"),
             path: Some(PathBuf::from("foo")),
             repository: String::from("bar"),

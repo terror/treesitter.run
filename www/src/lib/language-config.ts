@@ -115,6 +115,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'body::before {\n  content: "hello, world";\n}',
     extension: css(),
   },
+  cuda: {
+    name: 'cuda',
+    displayName: 'CUDA',
+    wasmPath: 'tree-sitter-cuda.wasm',
+    sampleCode: '__global__ void foo(int *bar) {\n  bar[threadIdx.x] = 1;\n}',
+    extension: [],
+  },
   dart: {
     name: 'dart',
     displayName: 'Dart',

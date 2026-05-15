@@ -60,6 +60,11 @@
     "revision": "dda5cfc5722c429eaba1c910ca32c2c0c5bb1a3f"
   },
   {
+    "name": "cuda",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-cuda",
+    "revision": "48b066f334f4cf2174e05a50218ce2ed98b6fd01"
+  },
+  {
     "name": "dart",
     "repository": "https://github.com/usernobody14/tree-sitter-dart",
     "revision": "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"

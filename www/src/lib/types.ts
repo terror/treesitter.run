@@ -72,6 +72,7 @@ export type Language =
   | 'query'
   | 'r'
   | 'racket'
+  | 'readline'
   | 'regex'
   | 'ruby'
   | 'rust'

@@ -547,6 +547,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '#lang racket\n\n(define (foo bar)\n  bar)',
     extension: [],
   },
+  readline: {
+    name: 'readline',
+    displayName: 'Readline',
+    wasmPath: 'tree-sitter-readline.wasm',
+    sampleCode: 'set editing-mode vi',
+    extension: [],
+  },
   regex: {
     name: 'regex',
     displayName: 'Regex',

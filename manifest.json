@@ -5,6 +5,11 @@
     "revision": "e8d47a6987effe34d5595baf321d82d3519a8527"
   },
   {
+    "name": "arduino",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-arduino",
+    "revision": "11dd46c9ae25135c473c0003a133bb06a484af0c"
+  },
+  {
     "name": "bash",
     "repository": "https://github.com/tree-sitter/tree-sitter-bash",
     "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7"

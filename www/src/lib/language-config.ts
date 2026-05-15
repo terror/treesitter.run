@@ -22,6 +22,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'module Foo where\n\ndata Bar : Set where\n  baz : Bar',
     extension: [],
   },
+  arduino: {
+    name: 'arduino',
+    displayName: 'Arduino',
+    wasmPath: 'tree-sitter-arduino.wasm',
+    sampleCode:
+      'void setup() {\n  pinMode(13, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n}',
+    extension: [],
+  },
   bash: {
     name: 'bash',
     displayName: 'Bash',

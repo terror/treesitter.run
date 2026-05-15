@@ -47,6 +47,7 @@ export type Language =
   | 'kotlin'
   | 'llvm'
   | 'lua'
+  | 'luau'
   | 'make'
   | 'markdown'
   | 'nix'

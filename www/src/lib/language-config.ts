@@ -372,6 +372,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'local function foo(bar)\n  print(bar)\nend\n\nfoo("baz")',
     extension: [],
   },
+  luau: {
+    name: 'luau',
+    displayName: 'Luau',
+    wasmPath: 'tree-sitter-luau.wasm',
+    sampleCode: 'local function foo(bar)\n  return bar\nend',
+    extension: [],
+  },
   make: {
     name: 'make',
     displayName: 'Make',

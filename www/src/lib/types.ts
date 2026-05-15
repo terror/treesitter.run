@@ -63,6 +63,7 @@ export type Language =
   | 'printf'
   | 'prisma'
   | 'properties'
+  | 'puppet'
   | 'python'
   | 'query'
   | 'r'

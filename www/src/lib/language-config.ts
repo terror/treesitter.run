@@ -484,6 +484,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'foo=bar',
     extension: [],
   },
+  puppet: {
+    name: 'puppet',
+    displayName: 'Puppet',
+    wasmPath: 'tree-sitter-puppet.wasm',
+    sampleCode: "file { 'foo':\n  ensure => present,\n}",
+    extension: [],
+  },
   python: {
     name: 'python',
     displayName: 'Python',

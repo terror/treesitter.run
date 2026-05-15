@@ -36,6 +36,7 @@ export type Language =
   | 'hlsl'
   | 'html'
   | 'hyprlang'
+  | 'ini'
   | 'java'
   | 'javascript'
   | 'jsdoc'

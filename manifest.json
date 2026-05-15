@@ -231,6 +231,11 @@
     "revision": "10fe0054734eec83049514ea2e718b2a56acd0c9"
   },
   {
+    "name": "luau",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-luau",
+    "revision": "a8914d6c1fc5131f8e1c13f769fa704c9f5eb02f"
+  },
+  {
     "name": "make",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-make",
     "revision": "70613f3d812cbabbd7f38d104d60a409c4008b43"

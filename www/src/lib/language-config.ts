@@ -649,6 +649,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction',
     extension: [],
   },
+  xcompose: {
+    name: 'xcompose',
+    displayName: 'XCompose',
+    wasmPath: 'tree-sitter-xcompose.wasm',
+    sampleCode: '<Multi_key> <f> <o> <o> : "foo"',
+    extension: [],
+  },
   yaml: {
     name: 'yaml',
     displayName: 'YAML',

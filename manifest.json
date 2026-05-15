@@ -456,6 +456,11 @@
     "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"
   },
   {
+    "name": "xcompose",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-xcompose",
+    "revision": "a51d6366f041dbefec4da39a7eb3168a9b1cbc0e"
+  },
+  {
     "name": "xml",
     "path": "xml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-xml",

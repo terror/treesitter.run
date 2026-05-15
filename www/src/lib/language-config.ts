@@ -393,6 +393,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '# Foo\n\nbar baz',
     extension: markdown(),
   },
+  meson: {
+    name: 'meson',
+    displayName: 'Meson',
+    wasmPath: 'tree-sitter-meson.wasm',
+    sampleCode: "project('foo', 'c')\nexecutable('bar', 'bar.c')",
+    extension: [],
+  },
   nix: {
     name: 'nix',
     displayName: 'Nix',

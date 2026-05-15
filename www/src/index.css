@@ -129,6 +129,52 @@
   border-radius: 2px;
 }
 
+.editor-host .cm-ts-attribute,
+.editor-host .cm-ts-property {
+  color: #b45309;
+}
+
+.editor-host .cm-ts-comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.editor-host .cm-ts-constant,
+.editor-host .cm-ts-number {
+  color: #dc2626;
+}
+
+.editor-host .cm-ts-function {
+  color: #2563eb;
+}
+
+.editor-host .cm-ts-keyword,
+.editor-host .cm-ts-label,
+.editor-host .cm-ts-operator {
+  color: #7c3aed;
+}
+
+.editor-host .cm-ts-module,
+.editor-host .cm-ts-tag {
+  color: #0891b2;
+}
+
+.editor-host .cm-ts-punctuation {
+  color: #64748b;
+}
+
+.editor-host .cm-ts-string {
+  color: #047857;
+}
+
+.editor-host .cm-ts-type {
+  color: #9333ea;
+}
+
+.editor-host .cm-ts-variable {
+  color: #334155;
+}
+
 .editor-host .cm-lintRange-error.cm-parse-error,
 .editor-host .cm-lintRange-error.cm-parse-missing {
   background-color: rgba(239, 68, 68, 0.1);

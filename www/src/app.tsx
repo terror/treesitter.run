@@ -28,7 +28,9 @@ const STACKED_LAYOUT_QUERY = '(max-width: 767px)';
 
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
-  const { parser, language, loading, error } = useTreeSitter(settings.language);
+  const { parser, language, query, loading, error } = useTreeSitter(
+    settings.language
+  );
 
   const ready = Boolean(parser && language);
 
@@ -53,11 +55,12 @@ const App = () => {
     [setEditorState]
   );
 
-  const { root, parseErrors, expandedNodes, toggleExpand } = useSyntaxTree({
-    parser,
-    language,
-    code: doc,
-  });
+  const { tree, root, parseErrors, expandedNodes, toggleExpand } =
+    useSyntaxTree({
+      parser,
+      language,
+      code: doc,
+    });
 
   const [highlight, setHighlight] = useState<
     { from: number; to: number } | undefined
@@ -91,7 +94,9 @@ const App = () => {
   }, []);
 
   const extensions = useEditorExtensions({
-    language: settings.language,
+    code: doc,
+    query,
+    tree,
     highlight,
     parseErrors,
   });

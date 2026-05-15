@@ -1,5 +1,3 @@
-import { Extension } from '@codemirror/state';
-
 export type Language =
   | 'agda'
   | 'arduino'
@@ -101,7 +99,6 @@ export interface LanguageConfig {
   displayName: string;
   wasmPath: string;
   sampleCode: string;
-  extension: Extension;
 }
 
 export interface ParserMetadata {

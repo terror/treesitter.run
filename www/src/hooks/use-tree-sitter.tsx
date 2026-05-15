@@ -1,11 +1,12 @@
-import { languageConfig } from '@/lib/language-config';
+import { highlightQueryPath, languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
-import { useEffect, useState } from 'react';
-import { Parser, Language as TSLanguage } from 'web-tree-sitter';
+import { useEffect, useRef, useState } from 'react';
+import { Parser, Query, Language as TSLanguage } from 'web-tree-sitter';
 
 interface UseTreeSitter {
   parser: Parser | undefined;
   language: TSLanguage | undefined;
+  query: Query | null | undefined;
   loading: boolean;
   error: string | undefined;
 }
@@ -19,6 +20,11 @@ export function useTreeSitter(languageName: Language): UseTreeSitter {
   const [loadedLanguages, setLoadedLanguages] = useState<
     Partial<Record<Language, TSLanguage>>
   >({});
+
+  const [loadedQueries, setLoadedQueries] = useState<
+    Partial<Record<Language, Query | null>>
+  >({});
+  const loadedQueriesRef = useRef<Partial<Record<Language, Query | null>>>({});
 
   useEffect(() => {
     let canceled = false;
@@ -38,6 +44,9 @@ export function useTreeSitter(languageName: Language): UseTreeSitter {
 
         if (!canceled) {
           setParser(parserInstance);
+        } else {
+          parserInstance.delete();
+          parserInstance = undefined;
         }
       } catch (err) {
         if (!canceled) {
@@ -62,6 +71,15 @@ export function useTreeSitter(languageName: Language): UseTreeSitter {
       }
     };
   }, []);
+
+  useEffect(
+    () => () => {
+      for (const query of Object.values(loadedQueriesRef.current)) {
+        query?.delete();
+      }
+    },
+    []
+  );
 
   useEffect(() => {
     if (!parser || loadedLanguages[languageName]) return;
@@ -104,9 +122,60 @@ export function useTreeSitter(languageName: Language): UseTreeSitter {
     };
   }, [parser, languageName, loadedLanguages]);
 
+  useEffect(() => {
+    const language = loadedLanguages[languageName];
+
+    if (!language || loadedQueries[languageName] !== undefined) return;
+
+    let canceled = false;
+
+    const loadQuery = async () => {
+      let query: Query | null = null;
+
+      try {
+        const response = await fetch(highlightQueryPath(languageName));
+
+        if (response.ok) {
+          const source = await response.text();
+          query = source.trim() ? new Query(language, source) : null;
+        } else if (response.status !== 404) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+      } catch (err) {
+        console.warn(
+          `Failed to load highlights query ${languageName}: ${
+            err instanceof Error ? err.message : String(err)
+          }`
+        );
+      } finally {
+        if (canceled) {
+          query?.delete();
+        } else {
+          setLoadedQueries((prev) => {
+            const next = {
+              ...prev,
+              [languageName]: query,
+            };
+
+            loadedQueriesRef.current = next;
+
+            return next;
+          });
+        }
+      }
+    };
+
+    loadQuery();
+
+    return () => {
+      canceled = true;
+    };
+  }, [languageName, loadedLanguages, loadedQueries]);
+
   return {
     parser,
     language: loadedLanguages[languageName],
+    query: loadedQueries[languageName],
     loading: initializing || loadingLanguage,
     error,
   };

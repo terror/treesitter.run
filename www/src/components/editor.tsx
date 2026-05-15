@@ -23,7 +23,7 @@ export const Editor = ({ value, onChange, extensions }: EditorProps) => {
           bracketMatching: true,
           history: true,
           indentOnInput: true,
-          syntaxHighlighting: true,
+          syntaxHighlighting: false,
           foldGutter: false,
           closeBrackets: false,
           autocompletion: false,

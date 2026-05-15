@@ -59,11 +59,10 @@ impl Compiler {
 
       Self::start_step(progress, "fetch", &parser.name);
 
-      self.build_parser(
-        parser,
-        progress,
-        &Self::prepare_parser(parser, checkout_directory.path())?,
-      )?;
+      let source = Self::prepare_parser(parser, checkout_directory.path())?;
+
+      self.build_parser(parser, progress, &source)?;
+      self.copy_highlights_query(parser, progress, &source)?;
     }
 
     Ok(())
@@ -87,7 +86,7 @@ impl Compiler {
     let parser_indices = self.parser_indices(parser)?;
 
     let progress =
-      Self::progress_bar(1 + 2 * u64::try_from(parser_indices.len())?)?;
+      Self::progress_bar(1 + 3 * u64::try_from(parser_indices.len())?)?;
 
     self.copy_runtime(&progress)?;
 
@@ -97,6 +96,35 @@ impl Compiler {
     progress.finish_with_message(
       style("done").for_stderr().green().bold().to_string(),
     );
+
+    Ok(())
+  }
+
+  fn copy_highlights_query(
+    &self,
+    parser: &ParserConfig,
+    progress: &ProgressBar,
+    source: &Path,
+  ) -> Result {
+    let input = source.join("queries").join("highlights.scm");
+
+    let output = self.highlight_query_path(parser);
+    let output_display = self.display_path(output.as_path());
+
+    Self::start_step(progress, "copy", &output_display);
+
+    if input.try_exists()? {
+      fs::create_dir_all(
+        output.parent().context("query output has no parent")?,
+      )?;
+      fs::copy(input, &output)?;
+      Self::finish_step(progress, "copied", &output_display);
+    } else if output.try_exists()? {
+      fs::remove_file(&output)?;
+      Self::finish_step(progress, "removed", &output_display);
+    } else {
+      Self::finish_step(progress, "skipped", &output_display);
+    }
 
     Ok(())
   }
@@ -148,6 +176,14 @@ impl Compiler {
     } else {
       progress.println(message);
     }
+  }
+
+  fn highlight_query_path(&self, parser: &ParserConfig) -> PathBuf {
+    self
+      .root
+      .join("www")
+      .join("public")
+      .join(format!("tree-sitter-{}.highlights.scm", parser.name))
   }
 
   fn latest_revision(parser: &ParserConfig) -> Result<String> {
@@ -400,5 +436,50 @@ mod tests {
       Compiler::parse_latest_revision("foo\tHEAD\n").unwrap(),
       "foo"
     );
+  }
+
+  #[test]
+  fn copy_highlights_query() {
+    let root = Builder::new()
+      .prefix("treesitter-run-test-")
+      .tempdir()
+      .unwrap();
+
+    let source = root.path().join("source");
+    let query = source.join("queries").join("highlights.scm");
+
+    fs::create_dir_all(query.parent().unwrap()).unwrap();
+    fs::write(&query, "bar").unwrap();
+
+    let compiler = Compiler {
+      manifest: Manifest {
+        parsers: vec![ParserConfig {
+          name: String::from("foo"),
+          path: None,
+          repository: String::from("bar"),
+          revision: String::from("baz"),
+        }],
+      },
+      manifest_path: root.path().join("manifest.json"),
+      root: root.path().to_path_buf(),
+    };
+
+    let parser = compiler.manifest.parsers.first().unwrap();
+    let progress = ProgressBar::hidden();
+    let output = compiler.highlight_query_path(parser);
+
+    compiler
+      .copy_highlights_query(parser, &progress, &source)
+      .unwrap();
+
+    assert_eq!(fs::read_to_string(&output).unwrap(), "bar");
+
+    fs::remove_file(&query).unwrap();
+
+    compiler
+      .copy_highlights_query(parser, &progress, &source)
+      .unwrap();
+
+    assert!(!output.try_exists().unwrap());
   }
 }

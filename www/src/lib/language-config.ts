@@ -627,6 +627,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'console.log(message.text);',
     extension: javascript({ typescript: true }),
   },
+  udev: {
+    name: 'udev',
+    displayName: 'udev',
+    wasmPath: 'tree-sitter-udev.wasm',
+    sampleCode: 'ACTION=="add", NAME="foo"',
+    extension: [],
+  },
   verilog: {
     name: 'verilog',
     displayName: 'Verilog',

@@ -289,6 +289,11 @@
     "revision": "3f2465c217d0a966d41e584b42d75522f2a3149e"
   },
   {
+    "name": "poe-filter",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-poe-filter",
+    "revision": "205a7d576984feb38a9fc2d8cfe729617f9e0548"
+  },
+  {
     "name": "powershell",
     "repository": "https://github.com/airbus-cert/tree-sitter-powershell",
     "revision": "d398441825243b00e317e87e1829b9d6a3e54ce0"

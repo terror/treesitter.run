@@ -449,6 +449,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '<?php\n\necho "hello, world\\n";\n',
     extension: php(),
   },
+  'poe-filter': {
+    name: 'poe-filter',
+    displayName: 'PoE Filter',
+    wasmPath: 'tree-sitter-poe-filter.wasm',
+    sampleCode: 'Show\n  Class "foo"',
+    extension: [],
+  },
   powershell: {
     name: 'powershell',
     displayName: 'PowerShell',

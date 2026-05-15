@@ -667,6 +667,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'select foo\nfrom bar\nwhere baz = 1;',
     extension: sql(),
   },
+  'ssh-config': {
+    name: 'ssh-config',
+    displayName: 'SSH Config',
+    wasmPath: 'tree-sitter-ssh-config.wasm',
+    sampleCode: 'Host foo\n  HostName bar',
+    extension: [],
+  },
   tsx: {
     name: 'tsx',
     displayName: 'TSX',

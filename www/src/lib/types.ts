@@ -68,6 +68,7 @@ export type Language =
   | 'pymanifest'
   | 'python'
   | 'ql'
+  | 'ql-dbscheme'
   | 'query'
   | 'r'
   | 'regex'

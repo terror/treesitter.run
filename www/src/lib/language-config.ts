@@ -519,6 +519,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'from string foo\nselect foo',
     extension: [],
   },
+  'ql-dbscheme': {
+    name: 'ql-dbscheme',
+    displayName: 'QL Dbscheme',
+    wasmPath: 'tree-sitter-ql-dbscheme.wasm',
+    sampleCode: 'class foo extends string',
+    extension: [],
+  },
   query: {
     name: 'query',
     displayName: 'Query',

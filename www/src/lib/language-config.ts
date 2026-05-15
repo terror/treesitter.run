@@ -263,6 +263,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'resource "foo" "bar" {\n  name = "baz"\n}',
     extension: [],
   },
+  hlsl: {
+    name: 'hlsl',
+    displayName: 'HLSL',
+    wasmPath: 'tree-sitter-hlsl.wasm',
+    sampleCode: 'float4 foo() : SV_Target {\n  return float4(1, 0, 0, 1);\n}',
+    extension: [],
+  },
   html: {
     name: 'html',
     displayName: 'HTML',

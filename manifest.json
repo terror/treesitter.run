@@ -319,6 +319,11 @@
     "revision": "15f192929b7d317f5914de2b4accd37b349182a6"
   },
   {
+    "name": "purescript",
+    "repository": "https://github.com/postsolar/tree-sitter-purescript",
+    "revision": "f541f95ffd6852fbbe88636317c613285bc105af"
+  },
+  {
     "name": "python",
     "repository": "https://github.com/tree-sitter/tree-sitter-python",
     "revision": "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64"

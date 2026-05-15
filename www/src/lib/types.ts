@@ -64,6 +64,7 @@ export type Language =
   | 'prisma'
   | 'properties'
   | 'puppet'
+  | 'purescript'
   | 'python'
   | 'query'
   | 'r'

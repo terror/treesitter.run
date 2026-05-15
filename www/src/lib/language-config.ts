@@ -80,6 +80,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '%[foo]\n  bar',
     extension: [],
   },
+  cmake: {
+    name: 'cmake',
+    displayName: 'CMake',
+    wasmPath: 'tree-sitter-cmake.wasm',
+    sampleCode:
+      'cmake_minimum_required(VERSION 3.20)\nproject(foo)\nadd_executable(bar bar.c)',
+    extension: [],
+  },
   cpp: {
     name: 'cpp',
     displayName: 'C++',

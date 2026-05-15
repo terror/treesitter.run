@@ -90,6 +90,11 @@
     "revision": "7937d3b4d65fa574163cfa59394515d3c1cf16f4"
   },
   {
+    "name": "elm",
+    "repository": "https://github.com/elm-tooling/tree-sitter-elm",
+    "revision": "6d9511c28181db66daee4e883f811f6251220943"
+  },
+  {
     "name": "embedded-template",
     "repository": "https://github.com/tree-sitter/tree-sitter-embedded-template",
     "revision": "3499d85f0a0d937c507a4a65368f2f63772786e1"

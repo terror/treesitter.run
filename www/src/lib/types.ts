@@ -19,6 +19,7 @@ export type Language =
   | 'diff'
   | 'dockerfile'
   | 'elixir'
+  | 'elm'
   | 'embedded-template'
   | 'gleam'
   | 'go'

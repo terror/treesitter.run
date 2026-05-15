@@ -13,6 +13,7 @@ export type Language =
   | 'commonlisp'
   | 'cpp'
   | 'css'
+  | 'cuda'
   | 'dart'
   | 'dockerfile'
   | 'elixir'

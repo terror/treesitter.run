@@ -20,6 +20,11 @@
     "revision": "c5e6cdf260629f76035a0c0de830947f385ae622"
   },
   {
+    "name": "bicep",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-bicep",
+    "revision": "bff59884307c0ab009bd5e81afd9324b46a6c0f9"
+  },
+  {
     "name": "c",
     "repository": "https://github.com/tree-sitter/tree-sitter-c",
     "revision": "b780e47fc780ddc8da13afa35a3f4ed5c157823d"

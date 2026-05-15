@@ -14,6 +14,7 @@ export type Language =
   | 'cpp'
   | 'css'
   | 'cuda'
+  | 'cyberchef'
   | 'dart'
   | 'dockerfile'
   | 'elixir'

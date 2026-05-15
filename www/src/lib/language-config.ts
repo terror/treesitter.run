@@ -122,6 +122,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '__global__ void foo(int *bar) {\n  bar[threadIdx.x] = 1;\n}',
     extension: [],
   },
+  cyberchef: {
+    name: 'cyberchef',
+    displayName: 'CyberChef',
+    wasmPath: 'tree-sitter-cyberchef.wasm',
+    sampleCode: "From_Hex('Auto')\nTo_Base64('A-Za-z0-9+/=')",
+    extension: [],
+  },
   dart: {
     name: 'dart',
     displayName: 'Dart',

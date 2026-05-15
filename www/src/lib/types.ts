@@ -16,6 +16,7 @@ export type Language =
   | 'cuda'
   | 'cyberchef'
   | 'dart'
+  | 'diff'
   | 'dockerfile'
   | 'elixir'
   | 'embedded-template'

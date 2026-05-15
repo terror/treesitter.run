@@ -136,6 +136,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: "void main() {\n  print('foo');\n}",
     extension: [],
   },
+  diff: {
+    name: 'diff',
+    displayName: 'Diff',
+    wasmPath: 'tree-sitter-diff.wasm',
+    sampleCode: 'diff --git a/foo b/foo\n+bar',
+    extension: [],
+  },
   dockerfile: {
     name: 'dockerfile',
     displayName: 'Dockerfile',

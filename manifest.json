@@ -75,6 +75,11 @@
     "revision": "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"
   },
   {
+    "name": "diff",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-diff",
+    "revision": "2520c3f934b3179bb540d23e0ef45f75304b5fed"
+  },
+  {
     "name": "dockerfile",
     "repository": "https://github.com/camdencheek/tree-sitter-dockerfile",
     "revision": "971acdd908568b4531b0ba28a445bf0bb720aba5"

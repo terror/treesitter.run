@@ -175,6 +175,11 @@
     "revision": "cecd6b748107d9da1f7b4ca03ef95f1f71d93b8f"
   },
   {
+    "name": "ini",
+    "repository": "https://github.com/justinmk/tree-sitter-ini",
+    "revision": "e4018b5176132b4f3c5d6e61cea383f42288d0f5"
+  },
+  {
     "name": "java",
     "repository": "https://github.com/tree-sitter/tree-sitter-java",
     "revision": "e10607b45ff745f5f876bfa3e94fbcc6b44bdc11"

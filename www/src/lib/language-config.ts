@@ -290,6 +290,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '$foo = bar\nmonitor = , preferred, auto, 1',
     extension: [],
   },
+  ini: {
+    name: 'ini',
+    displayName: 'INI',
+    wasmPath: 'tree-sitter-ini.wasm',
+    sampleCode: '[foo]\nbar = baz',
+    extension: [],
+  },
   java: {
     name: 'java',
     displayName: 'Java',

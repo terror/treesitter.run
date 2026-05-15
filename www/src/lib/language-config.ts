@@ -88,6 +88,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'cmake_minimum_required(VERSION 3.20)\nproject(foo)\nadd_executable(bar bar.c)',
     extension: [],
   },
+  commonlisp: {
+    name: 'commonlisp',
+    displayName: 'Common Lisp',
+    wasmPath: 'tree-sitter-commonlisp.wasm',
+    sampleCode: '(defun foo (bar)\n  (print bar))',
+    extension: [],
+  },
   cpp: {
     name: 'cpp',
     displayName: 'C++',

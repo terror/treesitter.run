@@ -24,6 +24,7 @@ export type Language =
   | 'fennel'
   | 'fortran'
   | 'gdscript'
+  | 'gitattributes'
   | 'gleam'
   | 'go'
   | 'graphql'

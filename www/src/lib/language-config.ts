@@ -186,6 +186,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'program foo\n  print *, "bar"\nend program foo',
     extension: [],
   },
+  gdscript: {
+    name: 'gdscript',
+    displayName: 'GDScript',
+    wasmPath: 'tree-sitter-gdscript.wasm',
+    sampleCode: 'func foo(bar):\n  print(bar)',
+    extension: [],
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

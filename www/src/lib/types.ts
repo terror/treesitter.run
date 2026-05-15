@@ -23,6 +23,7 @@ export type Language =
   | 'embedded-template'
   | 'fennel'
   | 'fortran'
+  | 'gdscript'
   | 'gleam'
   | 'go'
   | 'graphql'

@@ -67,6 +67,7 @@ export type Language =
   | 'purescript'
   | 'pymanifest'
   | 'python'
+  | 'ql'
   | 'query'
   | 'r'
   | 'regex'

@@ -3,6 +3,7 @@ import type { SyntaxNode } from '@/lib/types';
 import { cn, positionToOffset } from '@/lib/utils';
 import { Text } from '@codemirror/state';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { toast } from 'sonner';
 
 import {
   ContextMenu,
@@ -49,8 +50,9 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
     }
   };
 
-  const copyText = () => {
-    void navigator.clipboard.writeText(node.text);
+  const copyText = async () => {
+    await navigator.clipboard.writeText(node.text);
+    toast.success('Copied node text to clipboard');
   };
 
   return (
@@ -96,7 +98,9 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
           </div>
         </ContextMenuTrigger>
         <ContextMenuContent>
-          <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>
+          <ContextMenuItem onSelect={() => void copyText()}>
+            Copy text
+          </ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
       {isExpanded &&

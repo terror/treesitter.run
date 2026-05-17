@@ -55,7 +55,7 @@ export const ParserMetadataDialog = ({
               href={metadata.repository}
               target='_blank'
               rel='noreferrer'
-              className='inline-flex min-w-0 items-center gap-1 underline-offset-4 hover:underline'
+              className='inline-flex min-w-0 cursor-pointer items-center gap-1 underline-offset-4 hover:underline'
             >
               <span className='truncate'>
                 {repositoryLabel(metadata.repository)}
@@ -72,7 +72,7 @@ export const ParserMetadataDialog = ({
               href={commitUrl(metadata)}
               target='_blank'
               rel='noreferrer'
-              className='font-mono text-xs break-all underline-offset-4 hover:underline'
+              className='cursor-pointer font-mono text-xs break-all underline-offset-4 hover:underline'
             >
               {metadata.revision}
             </a>

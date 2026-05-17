@@ -39,18 +39,24 @@ const App = () => {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [panelLayoutVersion, setPanelLayoutVersion] = useState(0);
 
-  const [editorState, setEditorState] = usePersistedState<{ code: string }>(
-    EDITOR_STORAGE_KEY,
-    { code: languageConfig[settings.language].sampleCode }
-  );
+  const [editorState, setEditorState] = usePersistedState<{
+    code: Partial<Record<Language, string>>;
+  }>(EDITOR_STORAGE_KEY, { code: {} });
 
-  const doc = editorState.code;
+  const doc =
+    editorState.code[settings.language] ??
+    languageConfig[settings.language].sampleCode;
 
   const setDoc = useCallback(
     (code: string) => {
-      setEditorState({ code });
+      setEditorState((editorState) => ({
+        code: {
+          ...editorState.code,
+          [settings.language]: code,
+        },
+      }));
     },
-    [setEditorState]
+    [setEditorState, settings.language]
   );
 
   const { root, parseErrors, expandedNodes, toggleExpand } = useSyntaxTree({
@@ -73,10 +79,22 @@ const App = () => {
   const handleLanguageChange = useCallback(
     (language: Language) => {
       updateSettings({ language });
-      setDoc(languageConfig[language].sampleCode);
       setHighlight(undefined);
     },
-    [setDoc, updateSettings]
+    [updateSettings]
+  );
+
+  const handleResetCode = useCallback(
+    (language: Language) => {
+      setEditorState((editorState) => ({
+        code: {
+          ...editorState.code,
+          [language]: languageConfig[language].sampleCode,
+        },
+      }));
+      setHighlight(undefined);
+    },
+    [setEditorState]
   );
 
   const handleResetPaneLayout = useCallback(() => {
@@ -142,6 +160,7 @@ const App = () => {
               language={settings.language}
               onChange={setDoc}
               onLanguageChange={handleLanguageChange}
+              onResetCode={handleResetCode}
               value={doc}
             />
           </ResizablePanel>

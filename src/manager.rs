@@ -242,7 +242,7 @@ mod tests {
           revision: String::from("baz"),
         }],
       },
-      reporter: Reporter::new().unwrap(),
+      reporter: Reporter::hidden(),
       workspace: Workspace::new(root.path().to_path_buf()),
     };
 

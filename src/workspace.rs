@@ -34,16 +34,16 @@ impl Workspace {
     Self { root }
   }
 
-  pub(crate) fn parser_wasm(&self, parser: &Parser) -> PathBuf {
-    self
-      .public_dir()
-      .join(format!("tree-sitter-{}.wasm", parser.name))
-  }
-
   pub(crate) fn parser_highlights_query(&self, parser: &Parser) -> PathBuf {
     self
       .public_dir()
       .join(format!("tree-sitter-{}.highlights.scm", parser.name))
+  }
+
+  pub(crate) fn parser_wasm(&self, parser: &Parser) -> PathBuf {
+    self
+      .public_dir()
+      .join(format!("tree-sitter-{}.wasm", parser.name))
   }
 
   pub(crate) fn public_dir(&self) -> PathBuf {

@@ -5,7 +5,6 @@ mod check;
 mod compile;
 mod update;
 
-/// Commands for maintaining bundled tree-sitter parsers.
 #[derive(Clap, Debug)]
 pub(crate) enum Subcommand {
   /// Add a parser from a GitHub repository to the manifest and build it.

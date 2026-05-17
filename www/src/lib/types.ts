@@ -6,6 +6,7 @@ export type Language =
   | 'bash'
   | 'beancount'
   | 'bicep'
+  | 'bibtex'
   | 'c'
   | 'c-sharp'
   | 'chatito'

@@ -76,6 +76,14 @@ const App = () => {
     []
   );
 
+  const handleDeleteRange = useCallback(
+    ({ from, to }: { from: number; to: number }) => {
+      setDoc(`${doc.slice(0, from)}${doc.slice(to)}`);
+      setHighlight(undefined);
+    },
+    [doc, setDoc]
+  );
+
   const handleLanguageChange = useCallback(
     (language: Language) => {
       updateSettings({ language });
@@ -173,6 +181,7 @@ const App = () => {
               expandedNodes={expandedNodes}
               language={settings.language}
               loading={loading || !language}
+              onDeleteRange={handleDeleteRange}
               onHighlightChange={handleHighlightChange}
               root={root}
               toggleExpand={toggleExpand}

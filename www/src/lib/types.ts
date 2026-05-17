@@ -37,6 +37,7 @@ export type Language =
   | 'html'
   | 'hyprlang'
   | 'ini'
+  | 'ispc'
   | 'java'
   | 'javascript'
   | 'jsdoc'

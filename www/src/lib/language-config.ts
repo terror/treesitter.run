@@ -297,6 +297,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '[foo]\nbar = baz',
     extension: [],
   },
+  ispc: {
+    name: 'ispc',
+    displayName: 'ISPC',
+    wasmPath: 'tree-sitter-ispc.wasm',
+    sampleCode: 'export void foo(uniform int bar) {\n  int baz = bar;\n}',
+    extension: [],
+  },
   java: {
     name: 'java',
     displayName: 'Java',

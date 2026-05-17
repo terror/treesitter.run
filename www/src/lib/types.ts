@@ -69,6 +69,7 @@ export type Language =
   | 'python'
   | 'ql'
   | 'ql-dbscheme'
+  | 'qmljs'
   | 'query'
   | 'r'
   | 'racket'

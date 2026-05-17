@@ -8,6 +8,50 @@ pub(crate) struct Compiler {
 }
 
 impl Compiler {
+  pub(crate) fn add(&mut self, mut parser: Parser) -> Result {
+    ensure!(
+      !self
+        .manifest
+        .parsers
+        .iter()
+        .any(|existing| existing.name == parser.name),
+      "parser `{}` already exists",
+      parser.name
+    );
+
+    self.reporter.reset(2);
+    self.reporter.start_step("resolve", &parser.name);
+
+    parser.revision = parser.latest_revision()?;
+
+    self.reporter.finish_step(
+      "resolved",
+      &format!(
+        "{} {}",
+        parser.name,
+        parser.revision.chars().take(12).collect::<String>()
+      ),
+    );
+
+    let checkout_directory =
+      Builder::new().prefix("treesitter-run-parsers-").tempdir()?;
+
+    self.reporter.start_step("fetch", &parser.name);
+
+    self.build_parser(&parser, &parser.checkout(checkout_directory.path())?)?;
+
+    self.manifest.parsers.push(parser);
+    self.manifest.parsers.sort_by(|a, b| a.name.cmp(&b.name));
+
+    self
+      .manifest
+      .save(self.workspace.manifest_path().as_path())?;
+
+    self.reporter.done();
+
+    Ok(())
+  }
+
   fn build_parser(&self, parser: &Parser, source: &Path) -> Result {
     let output = self.workspace.parser_wasm(parser);
 

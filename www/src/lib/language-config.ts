@@ -330,6 +330,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '{\n  "message": "hello, world"\n}',
     extension: json(),
   },
+  json5: {
+    name: 'json5',
+    displayName: 'JSON5',
+    wasmPath: 'tree-sitter-json5.wasm',
+    sampleCode: '{\n  message: "hello, world",\n}',
+    extension: json(),
+  },
   julia: {
     name: 'julia',
     displayName: 'Julia',

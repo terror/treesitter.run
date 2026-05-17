@@ -297,6 +297,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '[foo]\nbar = baz',
     extension: [],
   },
+  ispc: {
+    name: 'ispc',
+    displayName: 'ISPC',
+    wasmPath: 'tree-sitter-ispc.wasm',
+    sampleCode: 'export void foo(uniform int bar) {\n  int baz = bar;\n}',
+    extension: [],
+  },
   java: {
     name: 'java',
     displayName: 'Java',
@@ -328,6 +335,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'JSON',
     wasmPath: 'tree-sitter-json.wasm',
     sampleCode: '{\n  "message": "hello, world"\n}',
+    extension: json(),
+  },
+  json5: {
+    name: 'json5',
+    displayName: 'JSON5',
+    wasmPath: 'tree-sitter-json5.wasm',
+    sampleCode: '{\n  message: "hello, world",\n}',
     extension: json(),
   },
   julia: {

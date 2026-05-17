@@ -10,7 +10,7 @@ impl Compile {
   pub(crate) fn run(self, manager: &mut Manager) -> Result {
     manager.copy_runtime()?;
 
-    manager.compile_parser(
+    manager.compile_parsers(
       self
         .parsers
         .as_ref()

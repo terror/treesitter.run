@@ -38,7 +38,7 @@ impl Manager {
     self.manifest.parsers.push(parser);
     self.manifest.parsers.sort_by(|a, b| a.name.cmp(&b.name));
 
-    self.compile_parser(Some(vec![name.as_str()]))?;
+    self.compile_parsers(Some(vec![name.as_str()]))?;
 
     self
       .manifest
@@ -71,7 +71,7 @@ impl Manager {
     Ok(())
   }
 
-  pub(crate) fn compile_parser(&self, parsers: Option<Vec<&str>>) -> Result {
+  pub(crate) fn compile_parsers(&self, parsers: Option<Vec<&str>>) -> Result {
     let parsers = self.parsers(parsers)?;
 
     self.reporter.reset(u64::try_from(parsers.len())?);
@@ -234,6 +234,7 @@ mod tests {
         },
       ],
     );
+
     assert_eq!(
       manager.parsers(Some(vec!["bar"])).unwrap(),
       vec![Parser {
@@ -244,8 +245,9 @@ mod tests {
       }],
     );
 
-    let error = manager.parsers(Some(vec!["baz"])).unwrap_err().to_string();
-
-    assert_eq!(error, "unknown parser `baz`",);
+    assert_eq!(
+      manager.parsers(Some(vec!["baz"])).unwrap_err().to_string(),
+      "unknown parser `baz`",
+    );
   }
 }

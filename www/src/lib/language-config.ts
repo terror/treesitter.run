@@ -667,7 +667,8 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'wgsl-bevy',
     displayName: 'WGSL Bevy',
     wasmPath: 'tree-sitter-wgsl-bevy.wasm',
-    sampleCode: '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
+    sampleCode:
+      '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
     extension: [],
   },
   xcompose: {

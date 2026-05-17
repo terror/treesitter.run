@@ -20,6 +20,11 @@
     "revision": "c5e6cdf260629f76035a0c0de830947f385ae622"
   },
   {
+    "name": "bibtex",
+    "repository": "https://github.com/latex-lsp/tree-sitter-bibtex",
+    "revision": "8d04ed27b3bc7929f14b7df9236797dab9f3fa66"
+  },
+  {
     "name": "bicep",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-bicep",
     "revision": "bff59884307c0ab009bd5e81afd9324b46a6c0f9"
@@ -180,6 +185,11 @@
     "revision": "e4018b5176132b4f3c5d6e61cea383f42288d0f5"
   },
   {
+    "name": "ispc",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-ispc",
+    "revision": "6ee3fec5a3d293969828a5803760f929ca988c81"
+  },
+  {
     "name": "java",
     "repository": "https://github.com/tree-sitter/tree-sitter-java",
     "revision": "e10607b45ff745f5f876bfa3e94fbcc6b44bdc11"
@@ -200,6 +210,11 @@
     "revision": "001c28d7a29832b06b0e831ec77845553c89b56d"
   },
   {
+    "name": "json5",
+    "repository": "https://github.com/Joakker/tree-sitter-json5",
+    "revision": "248b8564567087d7866be76569b182f6dd7e14e9"
+  },
+  {
     "name": "julia",
     "repository": "https://github.com/tree-sitter/tree-sitter-julia",
     "revision": "e0f9dcd180fdcfcfa8d79a3531e11d99e79321d3"
@@ -208,7 +223,7 @@
     "name": "just",
     "path": "vendor/tree-sitter-just",
     "repository": "https://github.com/terror/just-lsp",
-    "revision": "f07c3111b367f17d7e83e422feedfdd806c308f2"
+    "revision": "30da7aee52b5fcfab6d31e782faa5c65142f56bb"
   },
   {
     "name": "kconfig",
@@ -344,6 +359,11 @@
     "revision": "15baf01feb5f20bb3d668d27abc0a36e944b183f"
   },
   {
+    "name": "qmljs",
+    "repository": "https://github.com/yuja/tree-sitter-qmljs",
+    "revision": "606a66b96a13ef30ed5c7ec7e5adc20a9a40157a"
+  },
+  {
     "name": "query",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-query",
     "revision": "fc5409c6820dd5e02b0b0a309d3da2bfcde2db17"
@@ -391,7 +411,7 @@
   {
     "name": "scala",
     "repository": "https://github.com/tree-sitter/tree-sitter-scala",
-    "revision": "a68000002745b94eec61cef741efe7cede4ff465"
+    "revision": "c1a83a6be68c85647e2a8e8d8bf5a57ca5c97a9e"
   },
   {
     "name": "slang",
@@ -454,6 +474,11 @@
     "name": "vim",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-vim",
     "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"
+  },
+  {
+    "name": "wgsl-bevy",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-wgsl-bevy",
+    "revision": "d9306a798ede627001a8e5752f775858c8edd7e4"
   },
   {
     "name": "xcompose",

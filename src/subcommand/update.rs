@@ -1,16 +1,16 @@
 use super::*;
 
-/// Verify bundled parser WASM files.
+/// Update parser revisions in the manifest.
 #[derive(Clap, Debug)]
-pub(crate) struct Check {
-  /// Parser names to verify; when omitted, all parsers in the manifest are checked.
+pub(crate) struct Update {
+  /// Parser names to update; when omitted, every parser in the manifest is updated.
   #[arg(long, num_args = 1..)]
   pub(crate) parsers: Option<Vec<String>>,
 }
 
-impl Check {
+impl Update {
   pub(crate) fn run(self, manager: &mut Manager) -> Result {
-    manager.check_parsers(
+    manager.update_parser(
       self
         .parsers
         .as_ref()

@@ -1,11 +1,15 @@
 use {
   anyhow::{Context, bail, ensure},
   arguments::Arguments,
-  clap::Parser,
-  compiler::Compiler,
+  clap::{
+    Parser as Clap,
+    builder::styling::{AnsiColor, Effects, Styles},
+  },
   console::style,
-  indicatif::{ProgressBar, ProgressStyle},
-  manifest::{Manifest, ParserConfig},
+  manager::Manager,
+  manifest::Manifest,
+  parser::Parser,
+  reporter::Reporter,
   runnable::Runnable,
   serde::{Deserialize, Serialize},
   std::{
@@ -19,13 +23,17 @@ use {
   },
   subcommand::Subcommand,
   tempfile::Builder,
+  workspace::Workspace,
 };
 
 mod arguments;
-mod compiler;
+mod manager;
 mod manifest;
+mod parser;
+mod reporter;
 mod runnable;
 mod subcommand;
+mod workspace;
 
 const VERIFY_SCRIPT: &str = include_str!("verify.js");
 

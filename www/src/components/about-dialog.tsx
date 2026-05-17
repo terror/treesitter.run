@@ -20,7 +20,12 @@ export const AboutDialog = () => {
           <p>
             <span className='font-semibold'>treesitter.run</span> is a web
             playground for{' '}
-            <a href='https://tree-sitter.github.io/tree-sitter/'>tree-sitter</a>
+            <a
+              href='https://tree-sitter.github.io/tree-sitter/'
+              className='cursor-pointer'
+            >
+              tree-sitter
+            </a>
             , the incremental parsing system.
           </p>
 
@@ -33,7 +38,7 @@ export const AboutDialog = () => {
           <div className='grid gap-2 pt-2'>
             <a
               href='https://github.com/terror/treesitter.space'
-              className='text-foreground font-medium underline-offset-4 hover:underline'
+              className='text-foreground cursor-pointer font-medium underline-offset-4 hover:underline'
               target='_blank'
               rel='noreferrer'
             >

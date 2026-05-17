@@ -1,0 +1,99 @@
+name: Update Parsers
+
+on:
+  schedule:
+  - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-parsers
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  parsers:
+    outputs:
+      parsers: ${{ steps.parsers.outputs.parsers }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: List Parsers
+      id: parsers
+      run: echo "parsers=$(jq -c '[.[].name]' manifest.json)" >> "$GITHUB_OUTPUT"
+
+  update:
+    needs: parsers
+
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        parser: ${{ fromJson(needs.parsers.outputs.parsers) }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        cache: false
+
+    - name: Cache Rust
+      uses: Swatinem/rust-cache@v2
+      with:
+        cache-bin: false
+        prefix-key: v1-rust
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install Web Dependencies
+      working-directory: ./www
+      run: bun install
+
+    - name: Update Parser
+      id: update
+      run: |
+        cargo run -- update --parser "${{ matrix.parser }}"
+
+        if git diff --quiet -- manifest.json; then
+          echo "changed=false" >> "$GITHUB_OUTPUT"
+        else
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Compile Parser
+      if: steps.update.outputs.changed == 'true'
+      run: cargo run -- compile --parser "${{ matrix.parser }}"
+
+    - name: Check Parser
+      if: steps.update.outputs.changed == 'true'
+      run: cargo run -- check --parser "${{ matrix.parser }}"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v8
+      with:
+        add-paths: |
+          manifest.json
+          www/public/tree-sitter-${{ matrix.parser }}.wasm
+          www/public/tree-sitter.wasm
+        branch: update-parser-${{ matrix.parser }}
+        commit-message: Update `${{ matrix.parser }}` parser
+        delete-branch: true
+        title: Update `${{ matrix.parser }}` parser
+        body: Updates the `${{ matrix.parser }}` parser to the latest upstream revision and rebuilds its WASM artifact.

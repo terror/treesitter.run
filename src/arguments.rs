@@ -11,7 +11,6 @@ use super::*;
     .placeholder(AnsiColor::Cyan.on_default())
 )]
 pub(crate) struct Arguments {
-  /// Command to run.
   #[clap(subcommand)]
   subcommand: Subcommand,
 }

@@ -4,6 +4,7 @@ import {
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
 import { useEditorSettings } from '@/contexts/editor-settings-context';
+import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
@@ -18,7 +19,6 @@ import { useEditorExtensions } from './hooks/use-editor-extensions';
 import { useMediaQuery } from './hooks/use-media-query';
 import { usePersistedState } from './hooks/use-persisted-state';
 import { useSyntaxTree } from './hooks/use-syntax-tree';
-import { useTreeSitter } from './hooks/use-tree-sitter';
 
 const DEFAULT_PANEL_LAYOUT = [50, 50];
 const EDITOR_STORAGE_KEY = 'treesitter.run:editor-state';

@@ -3,19 +3,6 @@ import { Decoration, EditorView, ViewPlugin } from '@codemirror/view';
 
 const highlightMark = Decoration.mark({ class: 'cm-highlighted-node' });
 
-const scrollIntoViewExtension = (position: number): Extension =>
-  ViewPlugin.fromClass(
-    class {
-      constructor(view: EditorView) {
-        queueMicrotask(() => {
-          view.dispatch({
-            effects: EditorView.scrollIntoView(position, { y: 'center' }),
-          });
-        });
-      }
-    }
-  );
-
 export const highlightExtension = (
   range: { from: number; to: number } | undefined
 ): Extension => {
@@ -29,7 +16,17 @@ export const highlightExtension = (
     return [];
   }
 
-  const scrollExtension = scrollIntoViewExtension(from);
+  const scrollExtension = ViewPlugin.fromClass(
+    class {
+      constructor(view: EditorView) {
+        queueMicrotask(() => {
+          view.dispatch({
+            effects: EditorView.scrollIntoView(from, { y: 'center' }),
+          });
+        });
+      }
+    }
+  );
 
   if (from === to) {
     return [scrollExtension];

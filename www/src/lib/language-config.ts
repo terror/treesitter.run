@@ -304,6 +304,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: '[foo]\nbar = baz',
     extension: [],
   },
+  ispc: {
+    name: 'ispc',
+    displayName: 'ISPC',
+    wasmPath: 'tree-sitter-ispc.wasm',
+    sampleCode: 'export void foo(uniform int bar) {\n  int baz = bar;\n}',
+    extension: [],
+  },
   java: {
     name: 'java',
     displayName: 'Java',
@@ -335,6 +342,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'JSON',
     wasmPath: 'tree-sitter-json.wasm',
     sampleCode: '{\n  "message": "hello, world"\n}',
+    extension: json(),
+  },
+  json5: {
+    name: 'json5',
+    displayName: 'JSON5',
+    wasmPath: 'tree-sitter-json5.wasm',
+    sampleCode: '{\n  message: "hello, world",\n}',
     extension: json(),
   },
   julia: {
@@ -654,6 +668,14 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'Vimscript',
     wasmPath: 'tree-sitter-vim.wasm',
     sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction',
+    extension: [],
+  },
+  'wgsl-bevy': {
+    name: 'wgsl-bevy',
+    displayName: 'WGSL Bevy',
+    wasmPath: 'tree-sitter-wgsl-bevy.wasm',
+    sampleCode:
+      '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
     extension: [],
   },
   xcompose: {

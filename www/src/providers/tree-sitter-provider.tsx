@@ -7,15 +7,18 @@ import { Parser, Language as TSLanguage } from 'web-tree-sitter';
 export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<string | undefined>(undefined);
   const [initializing, setInitializing] = useState<boolean>(true);
+  const [parser, setParser] = useState<Parser | undefined>(undefined);
+
   const [loadingLanguages, setLoadingLanguages] = useState<Set<Language>>(
     () => new Set()
   );
-  const [parser, setParser] = useState<Parser | undefined>(undefined);
+
   const [loadedLanguages, setLoadedLanguages] = useState<
     Partial<Record<Language, TSLanguage>>
   >({});
 
   const loadedLanguagesRef = useRef(loadedLanguages);
+
   const pendingLanguages = useRef<
     Partial<Record<Language, Promise<TSLanguage>>>
   >({});

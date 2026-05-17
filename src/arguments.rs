@@ -1,8 +1,10 @@
 use super::*;
 
+/// Manage the tree-sitter parsers bundled by treesitter.run.
 #[derive(Clap, Debug)]
 #[command(version)]
 pub(crate) struct Arguments {
+  /// Command to run.
   #[clap(subcommand)]
   subcommand: Subcommand,
 }

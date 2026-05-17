@@ -1,7 +1,9 @@
 use super::*;
 
+/// Verify bundled parser WASM files.
 #[derive(Clap, Debug)]
 pub(crate) struct Check {
+  /// Parser names to verify; when omitted, all parsers in the manifest are checked.
   #[arg(long, num_args = 1..)]
   pub(crate) parsers: Option<Vec<String>>,
 }

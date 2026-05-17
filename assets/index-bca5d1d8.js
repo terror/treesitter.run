@@ -174,7 +174,8 @@ void loop() {
   digitalWrite(13, HIGH);
 }`,extension:[]},bash:{name:"bash",displayName:"Bash",wasmPath:"tree-sitter-bash.wasm",sampleCode:`for name in foo bar; do
   echo "hello, $name"
-done`,extension:[]},beancount:{name:"beancount",displayName:"Beancount",wasmPath:"tree-sitter-beancount.wasm",sampleCode:"2024-01-01 open Assets:Foo",extension:[]},bicep:{name:"bicep",displayName:"Bicep",wasmPath:"tree-sitter-bicep.wasm",sampleCode:`param foo string
+done`,extension:[]},beancount:{name:"beancount",displayName:"Beancount",wasmPath:"tree-sitter-beancount.wasm",sampleCode:`2024-01-01 open Assets:Foo
+`,extension:[]},bicep:{name:"bicep",displayName:"Bicep",wasmPath:"tree-sitter-bicep.wasm",sampleCode:`param foo string
 resource bar 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   name: foo
   location: resourceGroup().location
@@ -192,7 +193,8 @@ class Foo {
     Console.WriteLine("bar");
   }
 }`,extension:[]},chatito:{name:"chatito",displayName:"Chatito",wasmPath:"tree-sitter-chatito.wasm",sampleCode:`%[foo]
-  bar`,extension:[]},cmake:{name:"cmake",displayName:"CMake",wasmPath:"tree-sitter-cmake.wasm",sampleCode:`cmake_minimum_required(VERSION 3.20)
+    bar
+`,extension:[]},cmake:{name:"cmake",displayName:"CMake",wasmPath:"tree-sitter-cmake.wasm",sampleCode:`cmake_minimum_required(VERSION 3.20)
 project(foo)
 add_executable(bar bar.c)`,extension:[]},commonlisp:{name:"commonlisp",displayName:"Common Lisp",wasmPath:"tree-sitter-commonlisp.wasm",sampleCode:`(defun foo (bar)
   (print bar))`,extension:[]},cpp:{name:"cpp",displayName:"C++",wasmPath:"tree-sitter-cpp.wasm",sampleCode:`#include <iostream>
@@ -204,12 +206,14 @@ int main() {
   content: "hello, world";
 }`,extension:css()},cuda:{name:"cuda",displayName:"CUDA",wasmPath:"tree-sitter-cuda.wasm",sampleCode:`__global__ void foo(int *bar) {
   bar[threadIdx.x] = 1;
-}`,extension:[]},cyberchef:{name:"cyberchef",displayName:"CyberChef",wasmPath:"tree-sitter-cyberchef.wasm",sampleCode:`From_Hex('Auto')
-To_Base64('A-Za-z0-9+/=')`,extension:[]},dart:{name:"dart",displayName:"Dart",wasmPath:"tree-sitter-dart.wasm",sampleCode:`void main() {
+}`,extension:[]},cyberchef:{name:"cyberchef",displayName:"CyberChef",wasmPath:"tree-sitter-cyberchef.wasm",sampleCode:`From_Hex()
+To_Base64()
+`,extension:[]},dart:{name:"dart",displayName:"Dart",wasmPath:"tree-sitter-dart.wasm",sampleCode:`void main() {
   print('foo');
 }`,extension:[]},diff:{name:"diff",displayName:"Diff",wasmPath:"tree-sitter-diff.wasm",sampleCode:`diff --git a/foo b/foo
 +bar`,extension:[]},dockerfile:{name:"dockerfile",displayName:"Dockerfile",wasmPath:"tree-sitter-dockerfile.wasm",sampleCode:`FROM alpine
-RUN echo foo`,extension:[]},elixir:{name:"elixir",displayName:"Elixir",wasmPath:"tree-sitter-elixir.wasm",sampleCode:`defmodule Foo do
+RUN echo foo
+`,extension:[]},elixir:{name:"elixir",displayName:"Elixir",wasmPath:"tree-sitter-elixir.wasm",sampleCode:`defmodule Foo do
   def bar do
     IO.puts("baz")
   end
@@ -220,7 +224,8 @@ bar =
   (print bar))`,extension:[]},fortran:{name:"fortran",displayName:"Fortran",wasmPath:"tree-sitter-fortran.wasm",sampleCode:`program foo
   print *, "bar"
 end program foo`,extension:[]},gdscript:{name:"gdscript",displayName:"GDScript",wasmPath:"tree-sitter-gdscript.wasm",sampleCode:`func foo(bar):
-  print(bar)`,extension:[]},gitattributes:{name:"gitattributes",displayName:"Git Attributes",wasmPath:"tree-sitter-gitattributes.wasm",sampleCode:"*.foo text",extension:[]},gleam:{name:"gleam",displayName:"Gleam",wasmPath:"tree-sitter-gleam.wasm",sampleCode:`pub fn main() {
+  print(bar)`,extension:[]},gitattributes:{name:"gitattributes",displayName:"Git Attributes",wasmPath:"tree-sitter-gitattributes.wasm",sampleCode:`*.foo text
+`,extension:[]},gleam:{name:"gleam",displayName:"Gleam",wasmPath:"tree-sitter-gleam.wasm",sampleCode:`pub fn main() {
   "foo"
 }`,extension:[]},glsl:{name:"glsl",displayName:"GLSL",wasmPath:"tree-sitter-glsl.wasm",sampleCode:`void main() {
   gl_Position = vec4(1.0);
@@ -230,7 +235,8 @@ import "fmt"
 
 func main() {
   fmt.Println("hello, world")
-}`,extension:go()},"go-sum":{name:"go-sum",displayName:"go.sum",wasmPath:"tree-sitter-go-sum.wasm",sampleCode:"foo v1.0.0 h1:bar",extension:[]},"gpg-config":{name:"gpg-config",displayName:"GPG Config",wasmPath:"tree-sitter-gpg-config.wasm",sampleCode:"keyserver foo",extension:[]},graphql:{name:"graphql",displayName:"GraphQL",wasmPath:"tree-sitter-graphql.wasm",sampleCode:`query Foo {
+}`,extension:go()},"go-sum":{name:"go-sum",displayName:"go.sum",wasmPath:"tree-sitter-go-sum.wasm",sampleCode:"foo v1.0.0 h1:bar",extension:[]},"gpg-config":{name:"gpg-config",displayName:"GPG Config",wasmPath:"tree-sitter-gpg-config.wasm",sampleCode:`no-greeting
+`,extension:[]},graphql:{name:"graphql",displayName:"GraphQL",wasmPath:"tree-sitter-graphql.wasm",sampleCode:`query Foo {
   bar {
     baz
   }
@@ -247,8 +253,10 @@ main = putStrLn "foo"`,extension:[]},hcl:{name:"hcl",displayName:"HCL",wasmPath:
     <p>hello, world</p>
   </body>
 </html>`,extension:html()},hyprlang:{name:"hyprlang",displayName:"Hyprlang",wasmPath:"tree-sitter-hyprlang.wasm",sampleCode:`$foo = bar
-monitor = , preferred, auto, 1`,extension:[]},ini:{name:"ini",displayName:"INI",wasmPath:"tree-sitter-ini.wasm",sampleCode:`[foo]
-bar = baz`,extension:[]},ispc:{name:"ispc",displayName:"ISPC",wasmPath:"tree-sitter-ispc.wasm",sampleCode:`export void foo(uniform int bar) {
+monitor = , preferred, auto, 1
+`,extension:[]},ini:{name:"ini",displayName:"INI",wasmPath:"tree-sitter-ini.wasm",sampleCode:`[foo]
+bar = baz
+`,extension:[]},ispc:{name:"ispc",displayName:"ISPC",wasmPath:"tree-sitter-ispc.wasm",sampleCode:`export void foo(uniform int bar) {
   int baz = bar;
 }`,extension:[]},java:{name:"java",displayName:"Java",wasmPath:"tree-sitter-java.wasm",sampleCode:`public class Main {
   public static void main(String[] args) {
@@ -267,7 +275,8 @@ end
 
 foo("baz")`,extension:[]},just:{name:"just",displayName:"Just",wasmPath:"tree-sitter-just.wasm",sampleCode:`default:
   echo "hello, world"`,extension:[]},kconfig:{name:"kconfig",displayName:"Kconfig",wasmPath:"tree-sitter-kconfig.wasm",sampleCode:`config FOO
-  bool "bar"`,extension:[]},kotlin:{name:"kotlin",displayName:"Kotlin",wasmPath:"tree-sitter-kotlin.wasm",sampleCode:`fun main() {
+  bool "bar"
+`,extension:[]},kotlin:{name:"kotlin",displayName:"Kotlin",wasmPath:"tree-sitter-kotlin.wasm",sampleCode:`fun main() {
   println("foo")
 }`,extension:[]},llvm:{name:"llvm",displayName:"LLVM",wasmPath:"tree-sitter-llvm.wasm",sampleCode:`define i32 @foo() {
 entry:
@@ -279,13 +288,15 @@ end
 foo("baz")`,extension:[]},luau:{name:"luau",displayName:"Luau",wasmPath:"tree-sitter-luau.wasm",sampleCode:`local function foo(bar)
   return bar
 end`,extension:[]},make:{name:"make",displayName:"Make",wasmPath:"tree-sitter-make.wasm",sampleCode:`foo:
-	echo bar`,extension:[]},markdown:{name:"markdown",displayName:"Markdown",wasmPath:"tree-sitter-markdown.wasm",sampleCode:`# Foo
+	echo bar
+`,extension:[]},markdown:{name:"markdown",displayName:"Markdown",wasmPath:"tree-sitter-markdown.wasm",sampleCode:`# Foo
 
 bar baz`,extension:markdown()},meson:{name:"meson",displayName:"Meson",wasmPath:"tree-sitter-meson.wasm",sampleCode:`project('foo', 'c')
 executable('bar', 'bar.c')`,extension:[]},nginx:{name:"nginx",displayName:"Nginx",wasmPath:"tree-sitter-nginx.wasm",sampleCode:`server {
   listen 80;
   server_name foo;
-}`,extension:[]},nix:{name:"nix",displayName:"Nix",wasmPath:"tree-sitter-nix.wasm",sampleCode:'{ foo = "bar"; }',extension:[]},objc:{name:"objc",displayName:"Objective-C",wasmPath:"tree-sitter-objc.wasm",sampleCode:`@interface Foo
+}
+`,extension:[]},nix:{name:"nix",displayName:"Nix",wasmPath:"tree-sitter-nix.wasm",sampleCode:'{ foo = "bar"; }',extension:[]},objc:{name:"objc",displayName:"Objective-C",wasmPath:"tree-sitter-objc.wasm",sampleCode:`@interface Foo
 - (void)bar;
 @end`,extension:[]},ocaml:{name:"ocaml",displayName:"OCaml",wasmPath:"tree-sitter-ocaml.wasm",sampleCode:`let foo bar =
   print_endline bar
@@ -298,7 +309,8 @@ bar
 
 echo "hello, world\\n";
 `,extension:php()},"poe-filter":{name:"poe-filter",displayName:"PoE Filter",wasmPath:"tree-sitter-poe-filter.wasm",sampleCode:`Show
-  Class "foo"`,extension:[]},powershell:{name:"powershell",displayName:"PowerShell",wasmPath:"tree-sitter-powershell.wasm",sampleCode:`function Foo {
+  Class "foo"
+`,extension:[]},powershell:{name:"powershell",displayName:"PowerShell",wasmPath:"tree-sitter-powershell.wasm",sampleCode:`function Foo {
   Write-Output "bar"
 }
 
@@ -309,8 +321,9 @@ Foo`,extension:[]},printf:{name:"printf",displayName:"Printf",wasmPath:"tree-sit
   ensure => present,
 }`,extension:[]},purescript:{name:"purescript",displayName:"PureScript",wasmPath:"tree-sitter-purescript.wasm",sampleCode:`module Foo where
 
-bar = "baz"`,extension:[]},pymanifest:{name:"pymanifest",displayName:"Python Manifest",wasmPath:"tree-sitter-pymanifest.wasm",sampleCode:"include foo",extension:[]},python:{name:"python",displayName:"Python",wasmPath:"tree-sitter-python.wasm",sampleCode:'print("hello, world")',extension:python()},ql:{name:"ql",displayName:"QL",wasmPath:"tree-sitter-ql.wasm",sampleCode:`from string foo
-select foo`,extension:[]},"ql-dbscheme":{name:"ql-dbscheme",displayName:"QL Dbscheme",wasmPath:"tree-sitter-ql-dbscheme.wasm",sampleCode:"class foo extends string",extension:[]},qmljs:{name:"qmljs",displayName:"QMLJS",wasmPath:"tree-sitter-qmljs.wasm",sampleCode:`Item {
+bar = "baz"`,extension:[]},pymanifest:{name:"pymanifest",displayName:"Python Manifest",wasmPath:"tree-sitter-pymanifest.wasm",sampleCode:`include foo
+`,extension:[]},python:{name:"python",displayName:"Python",wasmPath:"tree-sitter-python.wasm",sampleCode:'print("hello, world")',extension:python()},ql:{name:"ql",displayName:"QL",wasmPath:"tree-sitter-ql.wasm",sampleCode:`from string foo
+select foo`,extension:[]},"ql-dbscheme":{name:"ql-dbscheme",displayName:"QL Dbscheme",wasmPath:"tree-sitter-ql-dbscheme.wasm",sampleCode:"@foo = @bar | @baz;",extension:[]},qmljs:{name:"qmljs",displayName:"QMLJS",wasmPath:"tree-sitter-qmljs.wasm",sampleCode:`Item {
   property string foo: "bar"
 }`,extension:[]},query:{name:"query",displayName:"Query",wasmPath:"tree-sitter-query.wasm",sampleCode:`(function_item
   name: (identifier) @function)`,extension:[]},r:{name:"r",displayName:"R",wasmPath:"tree-sitter-r.wasm",sampleCode:`foo <- function(bar) {
@@ -320,7 +333,9 @@ select foo`,extension:[]},"ql-dbscheme":{name:"ql-dbscheme",displayName:"QL Dbsc
 foo("baz")`,extension:[]},racket:{name:"racket",displayName:"Racket",wasmPath:"tree-sitter-racket.wasm",sampleCode:`#lang racket
 
 (define (foo bar)
-  bar)`,extension:[]},readline:{name:"readline",displayName:"Readline",wasmPath:"tree-sitter-readline.wasm",sampleCode:"set editing-mode vi",extension:[]},regex:{name:"regex",displayName:"Regex",wasmPath:"tree-sitter-regex.wasm",sampleCode:"^(foo|bar)+$",extension:[]},requirements:{name:"requirements",displayName:"Requirements",wasmPath:"tree-sitter-requirements.wasm",sampleCode:"foo==1.0.0",extension:[]},rescript:{name:"rescript",displayName:"ReScript",wasmPath:"tree-sitter-rescript.wasm",sampleCode:"let foo = bar => bar",extension:[]},ruby:{name:"ruby",displayName:"Ruby",wasmPath:"tree-sitter-ruby.wasm",sampleCode:`def foo(bar)
+  bar)`,extension:[]},readline:{name:"readline",displayName:"Readline",wasmPath:"tree-sitter-readline.wasm",sampleCode:`set editing-mode vi
+`,extension:[]},regex:{name:"regex",displayName:"Regex",wasmPath:"tree-sitter-regex.wasm",sampleCode:"^(foo|bar)+$",extension:[]},requirements:{name:"requirements",displayName:"Requirements",wasmPath:"tree-sitter-requirements.wasm",sampleCode:`foo==1.0.0
+`,extension:[]},rescript:{name:"rescript",displayName:"ReScript",wasmPath:"tree-sitter-rescript.wasm",sampleCode:"let foo = bar => bar",extension:[]},ruby:{name:"ruby",displayName:"Ruby",wasmPath:"tree-sitter-ruby.wasm",sampleCode:`def foo(bar)
   puts bar
 end
 
@@ -340,14 +355,17 @@ const message: Message = {
   text: "hello, world",
 };
 
-console.log(message.text);`,extension:javascript({typescript:!0})},udev:{name:"udev",displayName:"udev",wasmPath:"tree-sitter-udev.wasm",sampleCode:'ACTION=="add", NAME="foo"',extension:[]},verilog:{name:"verilog",displayName:"Verilog",wasmPath:"tree-sitter-verilog.wasm",sampleCode:`module foo(input bar, output baz);
+console.log(message.text);`,extension:javascript({typescript:!0})},udev:{name:"udev",displayName:"udev",wasmPath:"tree-sitter-udev.wasm",sampleCode:`ACTION=="add", NAME="foo"
+`,extension:[]},verilog:{name:"verilog",displayName:"Verilog",wasmPath:"tree-sitter-verilog.wasm",sampleCode:`module foo(input bar, output baz);
   assign baz = bar;
 endmodule`,extension:[]},vim:{name:"vim",displayName:"Vimscript",wasmPath:"tree-sitter-vim.wasm",sampleCode:`function Foo(bar)
   echo a:bar
-endfunction`,extension:[]},"wgsl-bevy":{name:"wgsl-bevy",displayName:"WGSL Bevy",wasmPath:"tree-sitter-wgsl-bevy.wasm",sampleCode:`@fragment
+endfunction
+`,extension:[]},"wgsl-bevy":{name:"wgsl-bevy",displayName:"WGSL Bevy",wasmPath:"tree-sitter-wgsl-bevy.wasm",sampleCode:`@fragment
 fn foo() -> @location(0) vec4<f32> {
   return vec4<f32>(1.0);
-}`,extension:[]},xcompose:{name:"xcompose",displayName:"XCompose",wasmPath:"tree-sitter-xcompose.wasm",sampleCode:'<Multi_key> <f> <o> <o> : "foo"',extension:[]},yaml:{name:"yaml",displayName:"YAML",wasmPath:"tree-sitter-yaml.wasm",sampleCode:`message: hello, world
+}`,extension:[]},xcompose:{name:"xcompose",displayName:"XCompose",wasmPath:"tree-sitter-xcompose.wasm",sampleCode:`<Multi_key> <f> <o> <o> : "foo"
+`,extension:[]},yaml:{name:"yaml",displayName:"YAML",wasmPath:"tree-sitter-yaml.wasm",sampleCode:`message: hello, world
 items:
   - foo
   - bar`,extension:[]},toml:{name:"toml",displayName:"TOML",wasmPath:"tree-sitter-toml.wasm",sampleCode:`message = "hello, world"
@@ -357,10 +375,12 @@ items = ["foo", "bar"]`,extension:[]},xml:{name:"xml",displayName:"XML",wasmPath
 </message>`,extension:xml()},sql:{name:"sql",displayName:"SQL",wasmPath:"tree-sitter-sql.wasm",sampleCode:`select foo
 from bar
 where baz = 1;`,extension:sql()},"ssh-config":{name:"ssh-config",displayName:"SSH Config",wasmPath:"tree-sitter-ssh-config.wasm",sampleCode:`Host foo
-  HostName bar`,extension:[]},starlark:{name:"starlark",displayName:"Starlark",wasmPath:"tree-sitter-starlark.wasm",sampleCode:`def foo(bar):
+  HostName bar
+`,extension:[]},starlark:{name:"starlark",displayName:"Starlark",wasmPath:"tree-sitter-starlark.wasm",sampleCode:`def foo(bar):
     return bar`,extension:[]},tcl:{name:"tcl",displayName:"Tcl",wasmPath:"tree-sitter-tcl.wasm",sampleCode:`proc foo {bar} {
   puts $bar
-}`,extension:[]},tsx:{name:"tsx",displayName:"TSX",wasmPath:"tree-sitter-tsx.wasm",sampleCode:`type Props = {
+}
+`,extension:[]},tsx:{name:"tsx",displayName:"TSX",wasmPath:"tree-sitter-tsx.wasm",sampleCode:`type Props = {
   text: string;
 };
 

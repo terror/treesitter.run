@@ -15,11 +15,13 @@ pub(crate) enum Subcommand {
 
 impl Subcommand {
   pub(crate) fn run(self) -> Result {
+    let mut manager = Manager::new()?;
+
     match self {
-      Self::Add(add) => add.run(),
-      Self::Check(check) => check.run(),
-      Self::Compile(compile) => compile.run(),
-      Self::Update(update) => update.run(),
+      Self::Add(add) => add.run(&mut manager),
+      Self::Check(check) => check.run(&mut manager),
+      Self::Compile(compile) => compile.run(&mut manager),
+      Self::Update(update) => update.run(&mut manager),
     }
   }
 }

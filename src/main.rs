@@ -2,8 +2,8 @@ use {
   anyhow::{Context, bail, ensure},
   arguments::Arguments,
   clap::Parser as Clap,
-  compiler::Compiler,
   console::style,
+  manager::Manager,
   manifest::Manifest,
   parser::Parser,
   reporter::Reporter,
@@ -24,7 +24,7 @@ use {
 };
 
 mod arguments;
-mod compiler;
+mod manager;
 mod manifest;
 mod parser;
 mod reporter;

@@ -547,6 +547,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode: 'class foo extends string',
     extension: [],
   },
+  qmljs: {
+    name: 'qmljs',
+    displayName: 'QMLJS',
+    wasmPath: 'tree-sitter-qmljs.wasm',
+    sampleCode: 'Item {\n  property string foo: "bar"\n}',
+    extension: [],
+  },
   query: {
     name: 'query',
     displayName: 'Query',

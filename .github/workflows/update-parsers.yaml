@@ -94,6 +94,9 @@ jobs:
           www/public/tree-sitter.wasm
         branch: update-parser-${{ matrix.parser }}
         commit-message: Update `${{ matrix.parser }}` parser
+        committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+        author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+        sign-commits: true
         delete-branch: true
         title: Update `${{ matrix.parser }}` parser
         body: Updates the `${{ matrix.parser }}` parser to the latest upstream revision and rebuilds its WASM artifact.

@@ -1,7 +1,10 @@
 use {
   anyhow::{Context, bail, ensure},
   arguments::Arguments,
-  clap::Parser as Clap,
+  clap::{
+    Parser as Clap,
+    builder::styling::{AnsiColor, Effects, Styles},
+  },
   console::style,
   manager::Manager,
   manifest::Manifest,

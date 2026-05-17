@@ -1,7 +1,14 @@
 use super::*;
 
 #[derive(Clap, Debug)]
-#[command(version)]
+#[command(
+  version,
+  styles = Styles::styled()
+    .header(AnsiColor::Green.on_default().effects(Effects::BOLD))
+    .usage(AnsiColor::Green.on_default().effects(Effects::BOLD))
+    .literal(AnsiColor::Blue.on_default().effects(Effects::BOLD))
+    .placeholder(AnsiColor::Cyan.on_default())
+)]
 pub(crate) struct Arguments {
   #[clap(subcommand)]
   subcommand: Subcommand,

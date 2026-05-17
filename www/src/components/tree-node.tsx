@@ -3,8 +3,10 @@ import type { SyntaxNode } from '@/lib/types';
 import { cn, positionToOffset } from '@/lib/utils';
 import { Text } from '@codemirror/state';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 import { toast } from 'sonner';
 
+import { NodeInspectorDialog } from './node-inspector-dialog';
 import {
   ContextMenu,
   ContextMenuContent,
@@ -40,6 +42,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   const hasChildren = children.length > 0;
   const isExpanded = forceExpanded || expandedNodes.has(node);
   const searchMatch = searchMatches.has(node);
+  const [inspectorOpen, setInspectorOpen] = useState(false);
 
   const handleMouseEnter = () => {
     const from = positionToOffset(node.startPosition, doc);
@@ -53,6 +56,10 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   const copyText = async () => {
     await navigator.clipboard.writeText(node.text);
     toast.success('Copied node text to clipboard');
+  };
+
+  const inspect = () => {
+    window.setTimeout(() => setInspectorOpen(true), 0);
   };
 
   return (
@@ -98,11 +105,17 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
           </div>
         </ContextMenuTrigger>
         <ContextMenuContent>
+          <ContextMenuItem onSelect={inspect}>Inspect</ContextMenuItem>
           <ContextMenuItem onSelect={() => void copyText()}>
             Copy text
           </ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
+      <NodeInspectorDialog
+        node={node}
+        open={inspectorOpen}
+        onOpenChange={setInspectorOpen}
+      />
       {isExpanded &&
         hasChildren &&
         children.map((child, index) => (

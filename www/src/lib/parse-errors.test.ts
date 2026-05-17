@@ -17,6 +17,9 @@ const node = ({
   children = [],
 }: Partial<SyntaxNode>): SyntaxNode => ({
   id: 0,
+  typeId: 0,
+  grammarId: 0,
+  grammarType: type,
   type,
   text: '',
   isNamed: true,
@@ -24,10 +27,21 @@ const node = ({
   isError,
   isMissing,
   hasError: isError || isMissing || children.some((child) => child.hasError),
+  hasChanges: false,
+  startIndex: 0,
+  endIndex: 0,
   startPosition,
   endPosition,
+  parseState: 0,
+  nextParseState: 0,
   childCount: children.length,
+  namedChildCount: children.length,
+  descendantCount: children.length + 1,
+  parent: null,
   children,
+  child: (index) => children[index] ?? null,
+  equals: (other) => other.id === 0,
+  fieldNameForChild: () => null,
 });
 
 describe('parse errors', () => {

@@ -11,6 +11,7 @@ import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
+  ContextMenuSeparator,
   ContextMenuTrigger,
 } from './ui/context-menu';
 
@@ -20,6 +21,7 @@ interface TreeNodeProps {
   forceExpanded: boolean;
   level: number;
   node: SyntaxNode;
+  onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range?: { from: number; to: number }) => void;
   searchMatches: Set<SyntaxNode>;
   toggleExpand: (node: SyntaxNode) => void;
@@ -32,6 +34,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   forceExpanded,
   level,
   node,
+  onDeleteRange,
   onHighlightChange,
   searchMatches,
   toggleExpand,
@@ -43,11 +46,11 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   const isExpanded = forceExpanded || expandedNodes.has(node);
   const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);
+  const from = positionToOffset(node.startPosition, doc);
+  const to = positionToOffset(node.endPosition, doc);
+  const deletable = from !== null && to !== null && from < to;
 
   const handleMouseEnter = () => {
-    const from = positionToOffset(node.startPosition, doc);
-    const to = positionToOffset(node.endPosition, doc);
-
     if (from !== null && to !== null) {
       onHighlightChange({ from, to });
     }
@@ -60,6 +63,13 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
 
   const inspect = () => {
     window.setTimeout(() => setInspectorOpen(true), 0);
+  };
+
+  const deleteNode = () => {
+    if (from !== null && to !== null && from < to) {
+      onDeleteRange({ from, to });
+      toast.success('Deleted node text');
+    }
   };
 
   return (
@@ -109,6 +119,14 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
           <ContextMenuItem onSelect={() => void copyText()}>
             Copy text
           </ContextMenuItem>
+          <ContextMenuSeparator />
+          <ContextMenuItem
+            disabled={!deletable}
+            onSelect={deleteNode}
+            variant='destructive'
+          >
+            Delete
+          </ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
       <NodeInspectorDialog
@@ -129,6 +147,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
             searchMatches={searchMatches}
             forceExpanded={forceExpanded}
             toggleExpand={toggleExpand}
+            onDeleteRange={onDeleteRange}
             onHighlightChange={onHighlightChange}
           />
         ))}

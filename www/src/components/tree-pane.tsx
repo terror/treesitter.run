@@ -20,6 +20,7 @@ interface TreePaneProps {
   loading: boolean;
   expandedNodes: Set<SyntaxNode>;
   toggleExpand: (node: SyntaxNode) => void;
+  onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
 }
 
@@ -36,6 +37,7 @@ export const TreePane = ({
   loading,
   expandedNodes,
   toggleExpand,
+  onDeleteRange,
   onHighlightChange,
 }: TreePaneProps) => {
   const doc = useMemo(() => Text.of(code.split('\n')), [code]);
@@ -113,6 +115,7 @@ export const TreePane = ({
               searchMatches={visibleTree.searchMatches}
               forceExpanded={forceExpanded}
               toggleExpand={toggleExpand}
+              onDeleteRange={onDeleteRange}
               onHighlightChange={onHighlightChange}
             />
           </div>

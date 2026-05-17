@@ -41,7 +41,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'BibTeX',
     wasmPath: 'tree-sitter-bibtex.wasm',
     sampleCode: '@article{foo,\n  title = {bar},\n}',
-    extension: [],
   },
   c: {
     name: 'c',
@@ -262,7 +261,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'ISPC',
     wasmPath: 'tree-sitter-ispc.wasm',
     sampleCode: 'export void foo(uniform int bar) {\n  int baz = bar;\n}',
-    extension: [],
   },
   java: {
     name: 'java',
@@ -298,7 +296,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'JSON5',
     wasmPath: 'tree-sitter-json5.wasm',
     sampleCode: '{\n  message: "hello, world",\n}',
-    extension: json(),
   },
   julia: {
     name: 'julia',
@@ -473,7 +470,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'QMLJS',
     wasmPath: 'tree-sitter-qmljs.wasm',
     sampleCode: 'Item {\n  property string foo: "bar"\n}',
-    extension: [],
   },
   query: {
     name: 'query',
@@ -588,7 +584,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-wgsl-bevy.wasm',
     sampleCode:
       '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
-    extension: [],
   },
   xcompose: {
     name: 'xcompose',

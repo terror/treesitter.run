@@ -1,5 +1,6 @@
 use super::*;
 
+/// Manage the tree-sitter parsers bundled by treesitter.run.
 #[derive(Clap, Debug)]
 #[command(
   version,

@@ -1,11 +1,15 @@
 use super::*;
 
+/// Add a parser from GitHub to the manifest.
 #[derive(Clap, Debug)]
 pub(crate) struct Add {
+  /// Parser name used in the manifest and generated WASM filename.
   #[arg(long)]
   pub(crate) name: String,
+  /// Subdirectory containing the grammar when it is not at the repository root.
   #[arg(long)]
   pub(crate) path: Option<PathBuf>,
+  /// GitHub repository to add, written as `owner/repo`.
   #[arg(long)]
   pub(crate) repository: String,
 }

@@ -1,7 +1,9 @@
 use super::*;
 
+/// Build parser WASM files.
 #[derive(Clap, Debug)]
 pub(crate) struct Compile {
+  /// Parser names to build; when omitted, every parser in the manifest is built.
   #[arg(long, num_args = 1..)]
   pub(crate) parsers: Option<Vec<String>>,
 }

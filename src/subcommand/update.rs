@@ -1,7 +1,9 @@
 use super::*;
 
+/// Update parser revisions in the manifest.
 #[derive(Clap, Debug)]
 pub(crate) struct Update {
+  /// Parser names to update; when omitted, every parser in the manifest is updated.
   #[arg(long, num_args = 1..)]
   pub(crate) parsers: Option<Vec<String>>,
 }

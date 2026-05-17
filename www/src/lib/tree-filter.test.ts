@@ -16,6 +16,9 @@ const node = ({
   children = [],
 }: Partial<SyntaxNode>): SyntaxNode => ({
   id: 0,
+  typeId: 0,
+  grammarId: 0,
+  grammarType: type,
   type,
   text: '',
   isNamed,
@@ -23,10 +26,21 @@ const node = ({
   isError,
   isMissing,
   hasError: false,
+  hasChanges: false,
+  startIndex: 0,
+  endIndex: 0,
   startPosition: { row: 0, column: 0 },
   endPosition: { row: 0, column: 0 },
+  parseState: 0,
+  nextParseState: 0,
   childCount: children.length,
+  namedChildCount: children.length,
+  descendantCount: children.length + 1,
+  parent: null,
   children,
+  child: (index) => children[index] ?? null,
+  equals: (other) => other.id === 0,
+  fieldNameForChild: () => null,
 });
 
 describe('tree filters', () => {

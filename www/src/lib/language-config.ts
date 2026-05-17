@@ -52,6 +52,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       "param foo string\nresource bar 'Microsoft.Storage/storageAccounts@2023-01-01' = {\n  name: foo\n  location: resourceGroup().location\n}",
     extension: [],
   },
+  bibtex: {
+    name: 'bibtex',
+    displayName: 'BibTeX',
+    wasmPath: 'tree-sitter-bibtex.wasm',
+    sampleCode: '@article{foo,\n  title = {bar},\n}',
+    extension: [],
+  },
   c: {
     name: 'c',
     displayName: 'C',

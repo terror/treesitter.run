@@ -25,6 +25,11 @@
     "revision": "bff59884307c0ab009bd5e81afd9324b46a6c0f9"
   },
   {
+    "name": "bibtex",
+    "repository": "https://github.com/latex-lsp/tree-sitter-bibtex",
+    "revision": "8d04ed27b3bc7929f14b7df9236797dab9f3fa66"
+  },
+  {
     "name": "c",
     "repository": "https://github.com/tree-sitter/tree-sitter-c",
     "revision": "b780e47fc780ddc8da13afa35a3f4ed5c157823d"

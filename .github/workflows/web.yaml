@@ -7,15 +7,18 @@ on:
   pull_request:
     branches:
     - '*'
+    types:
+    - opened
+    - reopened
+    - synchronize
+    - closed
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: web-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 defaults:
@@ -24,6 +27,8 @@ defaults:
 
 jobs:
   build:
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
+
     runs-on: ubuntu-latest
 
     steps:
@@ -34,9 +39,6 @@ jobs:
       uses: oven-sh/setup-bun@v2
       with:
         bun-version: latest
-
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
 
     - name: Install dependencies
       working-directory: ./www
@@ -58,23 +60,95 @@ jobs:
       working-directory: ./www
       run: bun run build
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Configure Custom Domain
+      run: |
+        echo treesitter.run > ./www/dist/CNAME
+        touch ./www/dist/.nojekyll
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
+        name: web-dist
         path: ./www/dist
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      actions: read
+      contents: write
 
     runs-on: ubuntu-latest
 
     needs: build
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: web-dist
+        path: ./www/dist
+
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        clean-exclude: pr-preview
+        folder: www/dist
+        force: false
+
+  preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+
+    environment:
+      name: preview-${{ github.event.pull_request.number }}
+      url: ${{ steps.preview.outputs.preview-url }}
+
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: web-dist
+        path: ./www/dist
+
+    - name: Deploy Preview
+      id: preview
+      uses: rossjrw/pr-preview-action@v1
+      with:
+        source-dir: www/dist
+        preview-branch: gh-pages
+        umbrella-dir: pr-preview
+
+  remove-preview:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Remove Preview
+      uses: rossjrw/pr-preview-action@v1
+      with:
+        preview-branch: gh-pages
+        umbrella-dir: pr-preview

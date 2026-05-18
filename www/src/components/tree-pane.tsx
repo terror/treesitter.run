@@ -6,8 +6,9 @@ import {
 } from '@/lib/tree-filter';
 import type { Language, SyntaxNode } from '@/lib/types';
 import { Text } from '@codemirror/state';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { Loader2, Search } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 import { ParserMetadataDialog } from './parser-metadata-dialog';
 import { TreeFilterDialog } from './tree-filter-dialog';
@@ -22,6 +23,13 @@ interface TreePaneProps {
   toggleExpand: (node: SyntaxNode) => void;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
+}
+
+interface TreeRow {
+  hasChildren: boolean;
+  isExpanded: boolean;
+  level: number;
+  node: SyntaxNode;
 }
 
 const treeNodeFilterKeys = Object.keys(
@@ -75,6 +83,60 @@ export const TreePane = ({
 
   const rootVisible = Boolean(root && visibleTree?.visibleNodes.has(root));
 
+  const visibleRows = useMemo(() => {
+    if (!root || !visibleTree) {
+      return [];
+    }
+
+    const rows: TreeRow[] = [];
+    const stack = [{ node: root, level: 0 }];
+
+    while (stack.length > 0) {
+      const row = stack.pop();
+
+      if (!row) {
+        continue;
+      }
+
+      const { node, level } = row;
+
+      const isExpanded = forceExpanded || expandedNodes.has(node);
+
+      const hasChildren = node.children.some((child) =>
+        visibleTree.visibleNodes.has(child)
+      );
+
+      rows.push({
+        hasChildren,
+        isExpanded,
+        level,
+        node,
+      });
+
+      if (isExpanded) {
+        for (let index = node.children.length - 1; index >= 0; index--) {
+          const child = node.children[index];
+
+          if (visibleTree.visibleNodes.has(child)) {
+            stack.push({ node: child, level: level + 1 });
+          }
+        }
+      }
+    }
+
+    return rows;
+  }, [expandedNodes, forceExpanded, root, visibleTree]);
+
+  const scrollParentRef = useRef<HTMLDivElement>(null);
+
+  const rowVirtualizer = useVirtualizer({
+    count: visibleRows.length,
+    getScrollElement: () => scrollParentRef.current,
+    estimateSize: () => 28,
+    getItemKey: (index) => visibleRows[index]?.node.id ?? index,
+    overscan: 20,
+  });
+
   return (
     <div className='flex h-full min-h-0 flex-col overflow-hidden'>
       <div className='flex min-h-9 flex-wrap items-center gap-2 border-b bg-gray-50 px-2 py-1'>
@@ -99,25 +161,45 @@ export const TreePane = ({
         </div>
       </div>
 
-      <div className='flex-1 overflow-auto'>
+      <div ref={scrollParentRef} className='flex-1 overflow-auto'>
         {loading ? (
           <div className='flex h-full items-center justify-center'>
             <Loader2 className='text-muted-foreground h-8 w-8 animate-spin' />
           </div>
         ) : root && visibleTree && rootVisible ? (
           <div className='p-2'>
-            <TreeNode
-              node={root}
-              level={0}
-              doc={doc}
-              expandedNodes={expandedNodes}
-              visibleNodes={visibleTree.visibleNodes}
-              searchMatches={visibleTree.searchMatches}
-              forceExpanded={forceExpanded}
-              toggleExpand={toggleExpand}
-              onDeleteRange={onDeleteRange}
-              onHighlightChange={onHighlightChange}
-            />
+            <div
+              className='relative min-w-full'
+              style={{ height: `${rowVirtualizer.getTotalSize()}px` }}
+            >
+              {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                const row = visibleRows[virtualRow.index];
+
+                return (
+                  <div
+                    key={virtualRow.key}
+                    data-index={virtualRow.index}
+                    ref={rowVirtualizer.measureElement}
+                    className='absolute top-0 left-0 min-w-full'
+                    style={{
+                      transform: `translateY(${virtualRow.start}px)`,
+                    }}
+                  >
+                    <TreeNode
+                      doc={doc}
+                      hasChildren={row.hasChildren}
+                      isExpanded={row.isExpanded}
+                      level={row.level}
+                      node={row.node}
+                      searchMatches={visibleTree.searchMatches}
+                      toggleExpand={toggleExpand}
+                      onDeleteRange={onDeleteRange}
+                      onHighlightChange={onHighlightChange}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : root && visibleTree ? (
           <p className='p-4 text-center text-gray-500'>No matching nodes</p>

@@ -17,33 +17,28 @@ import {
 
 interface TreeNodeProps {
   doc: Text;
-  expandedNodes: Set<SyntaxNode>;
-  forceExpanded: boolean;
+  hasChildren: boolean;
+  isExpanded: boolean;
   level: number;
   node: SyntaxNode;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range?: { from: number; to: number }) => void;
   searchMatches: Set<SyntaxNode>;
   toggleExpand: (node: SyntaxNode) => void;
-  visibleNodes: Set<SyntaxNode>;
 }
 
-export const TreeNode: React.FC<TreeNodeProps> = ({
+export const TreeNode = ({
   doc,
-  expandedNodes,
-  forceExpanded,
+  hasChildren,
+  isExpanded,
   level,
   node,
   onDeleteRange,
   onHighlightChange,
   searchMatches,
   toggleExpand,
-  visibleNodes,
-}) => {
-  const children = node.children.filter((child) => visibleNodes.has(child));
+}: TreeNodeProps) => {
   const errorKind = parseErrorKind(node);
-  const hasChildren = children.length > 0;
-  const isExpanded = forceExpanded || expandedNodes.has(node);
   const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const from = positionToOffset(node.startPosition, doc);
@@ -139,23 +134,6 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
         open={inspectorOpen}
         onOpenChange={setInspectorOpen}
       />
-      {isExpanded &&
-        hasChildren &&
-        children.map((child, index) => (
-          <TreeNode
-            key={child.id ?? index}
-            node={child}
-            level={level + 1}
-            doc={doc}
-            expandedNodes={expandedNodes}
-            visibleNodes={visibleNodes}
-            searchMatches={searchMatches}
-            forceExpanded={forceExpanded}
-            toggleExpand={toggleExpand}
-            onDeleteRange={onDeleteRange}
-            onHighlightChange={onHighlightChange}
-          />
-        ))}
     </>
   );
 };

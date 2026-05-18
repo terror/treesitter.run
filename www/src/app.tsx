@@ -150,7 +150,7 @@ const App = () => {
     <div className='flex h-screen max-w-full flex-col'>
       <CommandMenu onResetPaneLayout={handleResetPaneLayout} />
 
-      <div className='flex items-center gap-x-2 px-4 py-4'>
+      <div className='flex items-center gap-x-2 px-4 pt-4 pb-2'>
         <TentTree className='h-4 w-4' />
         <a href='/' className='cursor-pointer font-semibold'>
           treesitter.run
@@ -160,7 +160,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className='flex-1 overflow-hidden p-4'>
+      <div className='flex-1 overflow-hidden p-2'>
         <div className='flex h-full flex-col overflow-hidden rounded border'>
           <ResizablePanelGroup
             autoSaveId={`${PANEL_LAYOUT_STORAGE_KEY}:${panelDirection}`}

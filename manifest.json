@@ -411,7 +411,7 @@
   {
     "name": "scala",
     "repository": "https://github.com/tree-sitter/tree-sitter-scala",
-    "revision": "c1a83a6be68c85647e2a8e8d8bf5a57ca5c97a9e"
+    "revision": "d0f532c1f63e394c7b48fc7ad5866293cde60cc5"
   },
   {
     "name": "slang",

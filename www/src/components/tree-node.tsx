@@ -2,7 +2,7 @@ import { parseErrorKind, parseErrorLabel } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { cn, positionToOffset } from '@/lib/utils';
 import { Text } from '@codemirror/state';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, Copy, Info, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -115,8 +115,12 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
           </div>
         </ContextMenuTrigger>
         <ContextMenuContent>
-          <ContextMenuItem onSelect={inspect}>Inspect</ContextMenuItem>
+          <ContextMenuItem onSelect={inspect}>
+            <Info />
+            Inspect
+          </ContextMenuItem>
           <ContextMenuItem onSelect={() => void copyText()}>
+            <Copy />
             Copy text
           </ContextMenuItem>
           <ContextMenuSeparator />
@@ -125,6 +129,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
             onSelect={deleteNode}
             variant='destructive'
           >
+            <Trash2 />
             Delete
           </ContextMenuItem>
         </ContextMenuContent>

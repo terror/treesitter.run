@@ -19,8 +19,8 @@ interface UseSyntaxTree {
   tree: Tree | null;
   root: SyntaxNode | undefined;
   parseErrors: ParseErrorRange[];
-  expandedNodes: Set<SyntaxNode>;
-  toggleExpand: (node: SyntaxNode) => void;
+  collapsedNodePaths: Set<string>;
+  toggleCollapse: (nodePath: string) => void;
 }
 
 export function useSyntaxTree({
@@ -55,41 +55,23 @@ export function useSyntaxTree({
     return collectParseErrors(root, Text.of(code.split('\n')));
   }, [root, code]);
 
-  const [expandedNodes, setExpandedNodes] = useState<Set<SyntaxNode>>(
+  const [collapsedNodePaths, setCollapsedNodePaths] = useState<Set<string>>(
     () => new Set()
   );
 
-  useEffect(() => {
-    if (!root) {
-      setExpandedNodes(new Set());
-      return;
-    }
-
-    const all = new Set<SyntaxNode>();
-
-    const walk = (node: SyntaxNode) => {
-      all.add(node);
-      node.children.forEach(walk);
-    };
-
-    walk(root);
-
-    setExpandedNodes(all);
-  }, [root]);
-
-  const toggleExpand = useCallback((node: SyntaxNode) => {
-    setExpandedNodes((prev) => {
+  const toggleCollapse = useCallback((nodePath: string) => {
+    setCollapsedNodePaths((prev) => {
       const next = new Set(prev);
 
-      if (next.has(node)) {
-        next.delete(node);
+      if (next.has(nodePath)) {
+        next.delete(nodePath);
       } else {
-        next.add(node);
+        next.add(nodePath);
       }
 
       return next;
     });
   }, []);
 
-  return { tree, root, parseErrors, expandedNodes, toggleExpand };
+  return { tree, root, parseErrors, collapsedNodePaths, toggleCollapse };
 }

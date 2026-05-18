@@ -8,7 +8,13 @@ import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 
 import { AboutDialog } from './components/about-dialog';
@@ -54,6 +60,8 @@ const App = () => {
   const doc =
     editorState.code[settings.language] ??
     languageConfig[settings.language].sampleCode;
+  const deferredDoc = useDeferredValue(doc);
+  const parsedDocCurrent = deferredDoc === doc;
 
   const setDoc = useCallback(
     (code: string) => {
@@ -67,11 +75,11 @@ const App = () => {
     [setEditorState, settings.language]
   );
 
-  const { tree, root, parseErrors, expandedNodes, toggleExpand } =
+  const { tree, root, parseErrors, collapsedNodePaths, toggleCollapse } =
     useSyntaxTree({
       parser,
       language,
-      code: doc,
+      code: deferredDoc,
     });
 
   const [highlight, setHighlight] = useState<
@@ -128,9 +136,9 @@ const App = () => {
   const extensions = useEditorExtensions({
     code: doc,
     query,
-    tree,
-    highlight,
-    parseErrors,
+    tree: parsedDocCurrent ? tree : null,
+    highlight: parsedDocCurrent ? highlight : undefined,
+    parseErrors: parsedDocCurrent ? parseErrors : [],
   });
 
   useEffect(() => {
@@ -190,19 +198,19 @@ const App = () => {
 
             <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
               <TreePane
-                code={doc}
-                expandedNodes={expandedNodes}
+                code={deferredDoc}
+                collapsedNodePaths={collapsedNodePaths}
                 language={settings.language}
-                loading={loading || !language}
+                loading={loading || !language || !parsedDocCurrent}
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={handleHighlightChange}
                 root={root}
-                toggleExpand={toggleExpand}
+                toggleCollapse={toggleCollapse}
               />
             </ResizablePanel>
           </ResizablePanelGroup>
 
-          {ready && !loading ? (
+          {ready && !loading && parsedDocCurrent ? (
             <StatusBar
               cursorPosition={cursorPosition}
               errorCount={parseErrors.length}

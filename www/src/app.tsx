@@ -4,6 +4,7 @@ import {
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
 import { useEditorSettings } from '@/contexts/editor-settings-context';
+import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
@@ -13,12 +14,12 @@ import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
 import { EditorPane } from './components/editor-pane';
+import { StatusBar } from './components/status-bar';
 import { TreePane } from './components/tree-pane';
 import { useEditorExtensions } from './hooks/use-editor-extensions';
 import { useMediaQuery } from './hooks/use-media-query';
 import { usePersistedState } from './hooks/use-persisted-state';
 import { useSyntaxTree } from './hooks/use-syntax-tree';
-import { useTreeSitter } from './hooks/use-tree-sitter';
 
 const DEFAULT_PANEL_LAYOUT = [50, 50];
 const EDITOR_STORAGE_KEY = 'treesitter.run:editor-state';
@@ -41,18 +42,29 @@ const App = () => {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [panelLayoutVersion, setPanelLayoutVersion] = useState(0);
 
-  const [editorState, setEditorState] = usePersistedState<{ code: string }>(
-    EDITOR_STORAGE_KEY,
-    { code: languageConfig[settings.language].sampleCode }
-  );
+  const [cursorPosition, setCursorPosition] = useState({
+    row: 1,
+    column: 1,
+  });
 
-  const doc = editorState.code;
+  const [editorState, setEditorState] = usePersistedState<{
+    code: Partial<Record<Language, string>>;
+  }>(EDITOR_STORAGE_KEY, { code: {} });
+
+  const doc =
+    editorState.code[settings.language] ??
+    languageConfig[settings.language].sampleCode;
 
   const setDoc = useCallback(
     (code: string) => {
-      setEditorState({ code });
+      setEditorState((editorState) => ({
+        code: {
+          ...editorState.code,
+          [settings.language]: code,
+        },
+      }));
     },
-    [setEditorState]
+    [setEditorState, settings.language]
   );
 
   const { tree, root, parseErrors, expandedNodes, toggleExpand } =
@@ -73,13 +85,33 @@ const App = () => {
     []
   );
 
+  const handleDeleteRange = useCallback(
+    ({ from, to }: { from: number; to: number }) => {
+      setDoc(`${doc.slice(0, from)}${doc.slice(to)}`);
+      setHighlight(undefined);
+    },
+    [doc, setDoc]
+  );
+
   const handleLanguageChange = useCallback(
     (language: Language) => {
       updateSettings({ language });
-      setDoc(languageConfig[language].sampleCode);
       setHighlight(undefined);
     },
-    [setDoc, updateSettings]
+    [updateSettings]
+  );
+
+  const handleResetCode = useCallback(
+    (language: Language) => {
+      setEditorState((editorState) => ({
+        code: {
+          ...editorState.code,
+          [language]: languageConfig[language].sampleCode,
+        },
+      }));
+      setHighlight(undefined);
+    },
+    [setEditorState]
   );
 
   const handleResetPaneLayout = useCallback(() => {
@@ -125,7 +157,7 @@ const App = () => {
 
       <div className='flex items-center gap-x-2 px-4 py-4'>
         <TentTree className='h-4 w-4' />
-        <a href='/' className='font-semibold'>
+        <a href='/' className='cursor-pointer font-semibold'>
           treesitter.run
         </a>
         <div className='ml-auto'>
@@ -134,37 +166,49 @@ const App = () => {
       </div>
 
       <div className='flex-1 overflow-hidden p-4'>
-        <ResizablePanelGroup
-          autoSaveId={`${PANEL_LAYOUT_STORAGE_KEY}:${panelDirection}`}
-          className='h-full rounded border'
-          direction={panelDirection}
-          key={`${panelDirection}:${panelLayoutVersion}`}
-          ref={panelGroupRef}
-        >
-          <ResizablePanel id='editor-panel' defaultSize={50} minSize={30}>
-            <EditorPane
-              extensions={extensions}
-              language={settings.language}
-              onChange={setDoc}
-              onLanguageChange={handleLanguageChange}
-              value={doc}
-            />
-          </ResizablePanel>
+        <div className='flex h-full flex-col overflow-hidden rounded border'>
+          <ResizablePanelGroup
+            autoSaveId={`${PANEL_LAYOUT_STORAGE_KEY}:${panelDirection}`}
+            className='min-h-0 flex-1'
+            direction={panelDirection}
+            key={`${panelDirection}:${panelLayoutVersion}`}
+            ref={panelGroupRef}
+          >
+            <ResizablePanel id='editor-panel' defaultSize={50} minSize={30}>
+              <EditorPane
+                extensions={extensions}
+                language={settings.language}
+                onChange={setDoc}
+                onCursorPositionChange={setCursorPosition}
+                onLanguageChange={handleLanguageChange}
+                onResetCode={handleResetCode}
+                value={doc}
+              />
+            </ResizablePanel>
 
-          <ResizableHandle />
+            <ResizableHandle />
 
-          <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
-            <TreePane
-              code={doc}
-              expandedNodes={expandedNodes}
-              language={settings.language}
-              loading={loading || !language}
-              onHighlightChange={handleHighlightChange}
-              root={root}
-              toggleExpand={toggleExpand}
+            <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
+              <TreePane
+                code={doc}
+                expandedNodes={expandedNodes}
+                language={settings.language}
+                loading={loading || !language}
+                onDeleteRange={handleDeleteRange}
+                onHighlightChange={handleHighlightChange}
+                root={root}
+                toggleExpand={toggleExpand}
+              />
+            </ResizablePanel>
+          </ResizablePanelGroup>
+
+          {ready && !loading ? (
+            <StatusBar
+              cursorPosition={cursorPosition}
+              errorCount={parseErrors.length}
             />
-          </ResizablePanel>
-        </ResizablePanelGroup>
+          ) : null}
+        </div>
       </div>
     </div>
   );

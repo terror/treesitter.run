@@ -27,7 +27,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'beancount',
     displayName: 'Beancount',
     wasmPath: 'tree-sitter-beancount.wasm',
-    sampleCode: '2024-01-01 open Assets:Foo',
+    sampleCode: '2024-01-01 open Assets:Foo\n',
   },
   bicep: {
     name: 'bicep',
@@ -65,7 +65,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'chatito',
     displayName: 'Chatito',
     wasmPath: 'tree-sitter-chatito.wasm',
-    sampleCode: '%[foo]\n  bar',
+    sampleCode: '%[foo]\n    bar\n',
   },
   cmake: {
     name: 'cmake',
@@ -108,7 +108,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'cyberchef',
     displayName: 'CyberChef',
     wasmPath: 'tree-sitter-cyberchef.wasm',
-    sampleCode: "From_Hex('Auto')\nTo_Base64('A-Za-z0-9+/=')",
+    sampleCode: 'From_Hex()\nTo_Base64()\n',
   },
   dart: {
     name: 'dart',
@@ -126,7 +126,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'dockerfile',
     displayName: 'Dockerfile',
     wasmPath: 'tree-sitter-dockerfile.wasm',
-    sampleCode: 'FROM alpine\nRUN echo foo',
+    sampleCode: 'FROM alpine\nRUN echo foo\n',
   },
   elixir: {
     name: 'elixir',
@@ -169,7 +169,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'gitattributes',
     displayName: 'Git Attributes',
     wasmPath: 'tree-sitter-gitattributes.wasm',
-    sampleCode: '*.foo text',
+    sampleCode: '*.foo text\n',
   },
   gleam: {
     name: 'gleam',
@@ -206,7 +206,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'gpg-config',
     displayName: 'GPG Config',
     wasmPath: 'tree-sitter-gpg-config.wasm',
-    sampleCode: 'keyserver foo',
+    sampleCode: 'no-greeting\n',
   },
   graphql: {
     name: 'graphql',
@@ -248,13 +248,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'hyprlang',
     displayName: 'Hyprlang',
     wasmPath: 'tree-sitter-hyprlang.wasm',
-    sampleCode: '$foo = bar\nmonitor = , preferred, auto, 1',
+    sampleCode: '$foo = bar\nmonitor = , preferred, auto, 1\n',
   },
   ini: {
     name: 'ini',
     displayName: 'INI',
     wasmPath: 'tree-sitter-ini.wasm',
-    sampleCode: '[foo]\nbar = baz',
+    sampleCode: '[foo]\nbar = baz\n',
   },
   ispc: {
     name: 'ispc',
@@ -313,7 +313,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'kconfig',
     displayName: 'Kconfig',
     wasmPath: 'tree-sitter-kconfig.wasm',
-    sampleCode: 'config FOO\n  bool "bar"',
+    sampleCode: 'config FOO\n  bool "bar"\n',
   },
   kotlin: {
     name: 'kotlin',
@@ -343,7 +343,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'make',
     displayName: 'Make',
     wasmPath: 'tree-sitter-make.wasm',
-    sampleCode: 'foo:\n\techo bar',
+    sampleCode: 'foo:\n\techo bar\n',
   },
   markdown: {
     name: 'markdown',
@@ -361,7 +361,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'nginx',
     displayName: 'Nginx',
     wasmPath: 'tree-sitter-nginx.wasm',
-    sampleCode: 'server {\n  listen 80;\n  server_name foo;\n}',
+    sampleCode: 'server {\n  listen 80;\n  server_name foo;\n}\n',
   },
   nix: {
     name: 'nix',
@@ -403,7 +403,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'poe-filter',
     displayName: 'PoE Filter',
     wasmPath: 'tree-sitter-poe-filter.wasm',
-    sampleCode: 'Show\n  Class "foo"',
+    sampleCode: 'Show\n  Class "foo"\n',
   },
   powershell: {
     name: 'powershell',
@@ -445,7 +445,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'pymanifest',
     displayName: 'Python Manifest',
     wasmPath: 'tree-sitter-pymanifest.wasm',
-    sampleCode: 'include foo',
+    sampleCode: 'include foo\n',
   },
   python: {
     name: 'python',
@@ -463,7 +463,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'ql-dbscheme',
     displayName: 'QL Dbscheme',
     wasmPath: 'tree-sitter-ql-dbscheme.wasm',
-    sampleCode: 'class foo extends string',
+    sampleCode: '@foo = @bar | @baz;',
   },
   qmljs: {
     name: 'qmljs',
@@ -493,7 +493,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'readline',
     displayName: 'Readline',
     wasmPath: 'tree-sitter-readline.wasm',
-    sampleCode: 'set editing-mode vi',
+    sampleCode: 'set editing-mode vi\n',
   },
   regex: {
     name: 'regex',
@@ -505,7 +505,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'requirements',
     displayName: 'Requirements',
     wasmPath: 'tree-sitter-requirements.wasm',
-    sampleCode: 'foo==1.0.0',
+    sampleCode: 'foo==1.0.0\n',
   },
   rescript: {
     name: 'rescript',
@@ -563,7 +563,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'udev',
     displayName: 'udev',
     wasmPath: 'tree-sitter-udev.wasm',
-    sampleCode: 'ACTION=="add", NAME="foo"',
+    sampleCode: 'ACTION=="add", NAME="foo"\n',
   },
   verilog: {
     name: 'verilog',
@@ -576,7 +576,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'vim',
     displayName: 'Vimscript',
     wasmPath: 'tree-sitter-vim.wasm',
-    sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction',
+    sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction\n',
   },
   'wgsl-bevy': {
     name: 'wgsl-bevy',
@@ -589,7 +589,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'xcompose',
     displayName: 'XCompose',
     wasmPath: 'tree-sitter-xcompose.wasm',
-    sampleCode: '<Multi_key> <f> <o> <o> : "foo"',
+    sampleCode: '<Multi_key> <f> <o> <o> : "foo"\n',
   },
   yaml: {
     name: 'yaml',
@@ -623,7 +623,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'ssh-config',
     displayName: 'SSH Config',
     wasmPath: 'tree-sitter-ssh-config.wasm',
-    sampleCode: 'Host foo\n  HostName bar',
+    sampleCode: 'Host foo\n  HostName bar\n',
   },
   starlark: {
     name: 'starlark',
@@ -635,7 +635,7 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     name: 'tcl',
     displayName: 'Tcl',
     wasmPath: 'tree-sitter-tcl.wasm',
-    sampleCode: 'proc foo {bar} {\n  puts $bar\n}',
+    sampleCode: 'proc foo {bar} {\n  puts $bar\n}\n',
   },
   tsx: {
     name: 'tsx',

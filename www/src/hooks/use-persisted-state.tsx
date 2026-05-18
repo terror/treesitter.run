@@ -1,50 +1,43 @@
 import { useCallback, useEffect, useState } from 'react';
 
+type PersistedStateAction<T> = Partial<T> | ((prevState: T) => Partial<T>);
+
 export function usePersistedState<T extends object>(
   key: string,
-  initialValue: T,
-  options?: {
-    serialize?: (value: T) => string;
-    deserialize?: (value: string) => T;
-  }
-): [T, (action: Partial<T> | ((prevState: T) => Partial<T>)) => void] {
+  initialValue: T
+): [T, (action: PersistedStateAction<T>) => void] {
   const [state, setFullState] = useState<T>(() => {
-    const savedValue = localStorage.getItem(key);
+    try {
+      const savedValue = localStorage.getItem(key);
 
-    if (savedValue !== null) {
-      try {
-        return options?.deserialize
-          ? options.deserialize(savedValue)
-          : JSON.parse(savedValue);
-      } catch (error) {
-        console.warn(`Error reading ${key} from localStorage:`, error);
+      if (savedValue === null) {
         return initialValue;
       }
-    }
 
-    return initialValue;
+      return {
+        ...initialValue,
+        ...JSON.parse(savedValue),
+      };
+    } catch (error) {
+      console.warn(`Error reading ${key} from localStorage:`, error);
+      return initialValue;
+    }
   });
 
   useEffect(() => {
     try {
-      localStorage.setItem(
-        key,
-        options?.serialize ? options.serialize(state) : JSON.stringify(state)
-      );
+      localStorage.setItem(key, JSON.stringify(state));
     } catch (error) {
       console.warn(`Error saving ${key} to localStorage:`, error);
     }
-  }, [key, state, options]);
+  }, [key, state]);
 
-  const setState = useCallback(
-    (action: Partial<T> | ((prevState: T) => Partial<T>)) => {
-      setFullState((prevState) => ({
-        ...prevState,
-        ...(typeof action === 'function' ? action(prevState) : action),
-      }));
-    },
-    []
-  );
+  const setState = useCallback((action: PersistedStateAction<T>) => {
+    setFullState((prevState) => ({
+      ...prevState,
+      ...(typeof action === 'function' ? action(prevState) : action),
+    }));
+  }, []);
 
   return [state, setState];
 }

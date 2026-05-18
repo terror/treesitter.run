@@ -29,6 +29,7 @@ interface EditorPaneProps {
   extensions: Extension[];
   language: Language;
   onLanguageChange: (language: Language) => void;
+  onCursorPositionChange: (position: { row: number; column: number }) => void;
   onResetCode: (language: Language) => void;
 }
 
@@ -38,6 +39,7 @@ export const EditorPane = ({
   extensions,
   language,
   onLanguageChange,
+  onCursorPositionChange,
   onResetCode,
 }: EditorPaneProps) => {
   const [resetOpen, setResetOpen] = useState<boolean>(false);
@@ -101,7 +103,12 @@ export const EditorPane = ({
       </Dialog>
 
       <div className='flex-1 overflow-hidden'>
-        <Editor value={value} onChange={onChange} extensions={extensions} />
+        <Editor
+          value={value}
+          onChange={onChange}
+          onCursorPositionChange={onCursorPositionChange}
+          extensions={extensions}
+        />
       </div>
     </div>
   );

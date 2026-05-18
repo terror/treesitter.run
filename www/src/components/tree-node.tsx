@@ -28,7 +28,7 @@ interface TreeNodeProps {
   toggleCollapse: (nodePath: string) => void;
 }
 
-export const TreeNode: React.FC<TreeNodeProps> = ({
+export const TreeNode = ({
   doc,
   expanded,
   hasChildren,
@@ -39,7 +39,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   onHighlightChange,
   searchMatches,
   toggleCollapse,
-}) => {
+}: TreeNodeProps) => {
   const errorKind = parseErrorKind(node);
   const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);

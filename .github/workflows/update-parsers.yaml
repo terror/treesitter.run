@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -86,6 +87,7 @@ jobs:
       run: cargo run -- check --parsers "${{ matrix.parser }}"
 
     - name: Create Pull Request
+      id: pr
       uses: peter-evans/create-pull-request@v8
       with:
         add-paths: |
@@ -100,3 +102,12 @@ jobs:
         delete-branch: true
         title: Update `${{ matrix.parser }}` parser
         body: Updates the `${{ matrix.parser }}` parser to the latest upstream revision and rebuilds its WASM artifact.
+
+    - name: Run CI
+      if: steps.pr.outputs.pull-request-operation == 'created' || steps.pr.outputs.pull-request-operation == 'updated'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        BRANCH: ${{ steps.pr.outputs.pull-request-branch }}
+      run: |
+        gh workflow run ci.yaml --ref "$BRANCH"
+        gh workflow run web.yaml --ref "$BRANCH"

@@ -39,6 +39,7 @@ export const TreeNode = ({
   toggleExpand,
 }: TreeNodeProps) => {
   const errorKind = parseErrorKind(node);
+  const label = parseErrorLabel(node);
   const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const from = positionToOffset(node.startPosition, doc);
@@ -51,9 +52,14 @@ export const TreeNode = ({
     }
   };
 
-  const copyText = async () => {
+  const copyNodeLabel = async () => {
+    await navigator.clipboard.writeText(label);
+    toast.success('Copied node label to clipboard');
+  };
+
+  const copySourceText = async () => {
     await navigator.clipboard.writeText(node.text);
-    toast.success('Copied node text to clipboard');
+    toast.success('Copied source text to clipboard');
   };
 
   const inspect = () => {
@@ -96,7 +102,7 @@ export const TreeNode = ({
                 <span className='w-4'></span>
               )}
             </span>
-            <span>{parseErrorLabel(node)}</span>
+            <span>{label}</span>
             <span
               className={cn(
                 'ml-2 text-xs text-gray-500',
@@ -114,9 +120,13 @@ export const TreeNode = ({
             <Info />
             Inspect
           </ContextMenuItem>
-          <ContextMenuItem onSelect={() => void copyText()}>
+          <ContextMenuItem onSelect={() => void copyNodeLabel()}>
             <Copy />
-            Copy text
+            Copy node label
+          </ContextMenuItem>
+          <ContextMenuItem onSelect={() => void copySourceText()}>
+            <Copy />
+            Copy source text
           </ContextMenuItem>
           <ContextMenuSeparator />
           <ContextMenuItem

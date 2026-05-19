@@ -89,6 +89,7 @@ const App = () => {
   const extensions = useEditorExtensions({
     language: settings.language,
     highlight,
+    query,
     queryHighlights,
     parseErrors,
   });

@@ -1,9 +1,7 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { errorExtension } from '@/extensions/error';
-import {
-  highlightExtension,
-  queryHighlightExtension,
-} from '@/extensions/highlight';
+import { highlightExtension } from '@/extensions/highlight';
+import { queryExtension } from '@/extensions/query';
 import { treeSitterHighlightExtension } from '@/extensions/tree-sitter-highlight';
 import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { SyntaxRange } from '@/lib/types';
@@ -37,7 +35,7 @@ export function useEditorExtensions({
       EditorState.tabSize.of(settings.tabSize),
       treeSitterHighlightExtension({ code, query, tree }),
       errorExtension(parseErrors),
-      queryHighlightExtension(queryHighlights),
+      queryExtension(queryHighlights),
       highlightExtension(highlight),
     ];
 

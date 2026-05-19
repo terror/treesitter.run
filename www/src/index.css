@@ -129,6 +129,12 @@
   border-radius: 2px;
 }
 
+.cm-query-capture {
+  background-color: rgba(16, 185, 129, 0.18);
+  outline: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 2px;
+}
+
 .editor-host .cm-lintRange-error.cm-parse-error,
 .editor-host .cm-lintRange-error.cm-parse-missing {
   background-color: rgba(239, 68, 68, 0.1);

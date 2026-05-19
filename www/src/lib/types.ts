@@ -143,3 +143,14 @@ export interface SyntaxNode {
   equals: (other: SyntaxNode) => boolean;
   fieldNameForChild: (index: number) => string | null;
 }
+
+export interface SyntaxRange {
+  from: number;
+  to: number;
+}
+
+export interface QueryCapture {
+  name: string;
+  node: SyntaxNode;
+  range: SyntaxRange;
+}

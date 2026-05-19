@@ -6,9 +6,9 @@ import {
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import { languageConfig } from '@/lib/language-config';
-import type { Language } from '@/lib/types';
+import type { Language, QueryCapture } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 
 import { AboutDialog } from './components/about-dialog';
@@ -75,6 +75,8 @@ const App = () => {
     { from: number; to: number } | undefined
   >(undefined);
 
+  const [queryCaptures, setQueryCaptures] = useState<QueryCapture[]>([]);
+
   const handleHighlightChange = useCallback(
     (range: { from: number; to: number } | undefined) => {
       setHighlight(range);
@@ -86,6 +88,7 @@ const App = () => {
     ({ from, to }: { from: number; to: number }) => {
       setDoc(`${doc.slice(0, from)}${doc.slice(to)}`);
       setHighlight(undefined);
+      setQueryCaptures([]);
     },
     [doc, setDoc]
   );
@@ -94,6 +97,7 @@ const App = () => {
     (language: Language) => {
       updateSettings({ language });
       setHighlight(undefined);
+      setQueryCaptures([]);
     },
     [updateSettings]
   );
@@ -107,9 +111,14 @@ const App = () => {
         },
       }));
       setHighlight(undefined);
+      setQueryCaptures([]);
     },
     [setEditorState]
   );
+
+  const handleQueryCapturesChange = useCallback((captures: QueryCapture[]) => {
+    setQueryCaptures(captures);
+  }, []);
 
   const handleResetPaneLayout = useCallback(() => {
     for (const direction of PANEL_LAYOUT_STORAGE_DIRECTIONS) {
@@ -122,9 +131,15 @@ const App = () => {
     panelGroupRef.current?.setLayout(DEFAULT_PANEL_LAYOUT);
   }, []);
 
+  const queryHighlights = useMemo(
+    () => queryCaptures.map((capture) => capture.range),
+    [queryCaptures]
+  );
+
   const extensions = useEditorExtensions({
     language: settings.language,
     highlight,
+    queryHighlights,
     parseErrors,
   });
 
@@ -188,9 +203,11 @@ const App = () => {
                 code={doc}
                 expandedNodes={expandedNodes}
                 language={settings.language}
+                treeSitterLanguage={language}
                 loading={loading || !language}
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={handleHighlightChange}
+                onQueryCapturesChange={handleQueryCapturesChange}
                 root={root}
                 toggleExpand={toggleExpand}
               />

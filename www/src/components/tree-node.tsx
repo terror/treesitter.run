@@ -23,6 +23,7 @@ interface TreeNodeProps {
   node: SyntaxNode;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range?: { from: number; to: number }) => void;
+  queryMatch: boolean;
   searchMatches: Set<SyntaxNode>;
   toggleExpand: (node: SyntaxNode) => void;
 }
@@ -35,6 +36,7 @@ export const TreeNode = ({
   node,
   onDeleteRange,
   onHighlightChange,
+  queryMatch,
   searchMatches,
   toggleExpand,
 }: TreeNodeProps) => {
@@ -80,6 +82,8 @@ export const TreeNode = ({
           <div
             className={cn(
               'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50',
+              queryMatch &&
+                'bg-emerald-50 text-emerald-900 hover:bg-emerald-100',
               searchMatch && 'bg-yellow-50 text-yellow-900 hover:bg-yellow-100',
               errorKind === 'error' &&
                 'border-red-500 bg-red-50 text-red-800 hover:bg-red-100',

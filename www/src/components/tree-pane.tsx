@@ -1,11 +1,9 @@
 import { useTreeFilters } from '@/hooks/use-tree-filters';
-import { useTreeQuery } from '@/hooks/use-tree-query';
 import { useVisibleTreeRows } from '@/hooks/use-visible-tree-rows';
 import type { Language, QueryCapture, SyntaxNode } from '@/lib/types';
-import { Text } from '@codemirror/state';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import type { Text } from '@codemirror/state';
+import { useRef, useState } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
-import { type Language as TSLanguage } from 'web-tree-sitter';
 
 import { QueryBar, QueryPane } from './query-pane';
 import { TreeToolbar } from './tree-toolbar';
@@ -17,34 +15,38 @@ import {
 import { VirtualizedTreeList } from './virtualized-tree-list';
 
 interface TreePaneProps {
-  code: string;
+  doc: Text;
   expandedNodes: Set<SyntaxNode>;
   language: Language;
   loading: boolean;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
-  onQueryCapturesChange: (captures: QueryCapture[]) => void;
+  query: string;
+  queryCaptures: QueryCapture[];
+  queryError: string | undefined;
+  queryMatchKeys: Set<string>;
   root: SyntaxNode | undefined;
+  setQuery: (query: string) => void;
   toggleExpand: (node: SyntaxNode) => void;
-  treeSitterLanguage: TSLanguage | undefined;
 }
 
 const TREE_QUERY_LAYOUT_STORAGE_KEY = 'treesitter.run:tree-query-layout';
 
 export const TreePane = ({
-  code,
+  doc,
   expandedNodes,
   language,
   loading,
   onDeleteRange,
   onHighlightChange,
-  onQueryCapturesChange,
+  query,
+  queryCaptures,
+  queryError,
+  queryMatchKeys,
   root,
+  setQuery,
   toggleExpand,
-  treeSitterLanguage,
 }: TreePaneProps) => {
-  const doc = useMemo(() => Text.of(code.split('\n')), [code]);
-
   const [search, setSearch] = useState<string>('');
   const [queryCollapsed, setQueryCollapsed] = useState<boolean>(false);
 
@@ -59,23 +61,6 @@ export const TreePane = ({
     root,
     search,
   });
-
-  const {
-    captures,
-    error: queryError,
-    query,
-    queryMatchKeys,
-    setQuery,
-  } = useTreeQuery({
-    doc,
-    language,
-    root,
-    treeSitterLanguage,
-  });
-
-  useEffect(() => {
-    onQueryCapturesChange(captures);
-  }, [captures, onQueryCapturesChange]);
 
   return (
     <div className='flex h-full min-h-0 flex-col overflow-hidden'>
@@ -119,7 +104,7 @@ export const TreePane = ({
           onExpand={() => setQueryCollapsed(false)}
         >
           <QueryPane
-            captures={captures}
+            captures={queryCaptures}
             error={queryError}
             query={query}
             onQueryChange={setQuery}
@@ -128,7 +113,7 @@ export const TreePane = ({
       </ResizablePanelGroup>
       {queryCollapsed ? (
         <QueryBar
-          captures={captures}
+          captures={queryCaptures}
           className='border-b-0'
           error={queryError}
           onExpand={() => {

@@ -1,14 +1,15 @@
 import { type ParseErrorRange, collectParseErrors } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { parse } from '@/lib/utils';
-import { Text } from '@codemirror/state';
+import type { Text } from '@codemirror/state';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Parser, Language as TSLanguage } from 'web-tree-sitter';
 
 interface UseSyntaxTreeOptions {
-  parser: Parser | undefined;
-  language: TSLanguage | undefined;
   code: string;
+  doc: Text;
+  language: TSLanguage | undefined;
+  parser: Parser | undefined;
 }
 
 interface UseSyntaxTree {
@@ -19,9 +20,10 @@ interface UseSyntaxTree {
 }
 
 export function useSyntaxTree({
-  parser,
-  language,
   code,
+  doc,
+  language,
+  parser,
 }: UseSyntaxTreeOptions): UseSyntaxTree {
   const root = useMemo(() => {
     if (!parser || !language) {
@@ -38,8 +40,8 @@ export function useSyntaxTree({
       return [];
     }
 
-    return collectParseErrors(root, Text.of(code.split('\n')));
-  }, [root, code]);
+    return collectParseErrors(root, doc);
+  }, [doc, root]);
 
   const [expandedNodes, setExpandedNodes] = useState<Set<SyntaxNode>>(
     () => new Set()

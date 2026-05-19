@@ -20,7 +20,7 @@ import { useEditorExtensions } from './hooks/use-editor-extensions';
 import { useEditorHighlights } from './hooks/use-editor-highlights';
 import { useHasLoaded } from './hooks/use-has-loaded';
 import { usePanelLayout } from './hooks/use-panel-layout';
-import { useSyntaxTree } from './hooks/use-syntax-tree';
+import { useTreeWorkbench } from './hooks/use-tree-workbench';
 
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
@@ -40,19 +40,27 @@ const App = () => {
   const { cursorPosition, setCursorPosition } = useCursorPosition();
   const { code, resetCode, setCode } = useEditorBuffer(settings.language);
 
-  const { root, parseErrors, expandedNodes, toggleExpand } = useSyntaxTree({
-    parser,
-    language,
+  const {
+    doc,
+    expandedNodes,
+    parseErrors,
+    query,
+    queryCaptures,
+    queryError,
+    queryHighlights,
+    queryMatchKeys,
+    root,
+    setQuery,
+    toggleExpand,
+  } = useTreeWorkbench({
     code,
+    language: settings.language,
+    parser,
+    treeSitterLanguage: language,
   });
 
-  const {
-    clearHighlights,
-    highlight,
-    onHighlightChange,
-    onQueryCapturesChange,
-    queryHighlights,
-  } = useEditorHighlights();
+  const { clearHighlights, highlight, onHighlightChange } =
+    useEditorHighlights();
 
   const handleDeleteRange = useCallback(
     ({ from, to }: { from: number; to: number }) => {
@@ -136,15 +144,18 @@ const App = () => {
 
             <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
               <TreePane
-                code={code}
+                doc={doc}
                 expandedNodes={expandedNodes}
                 language={settings.language}
-                treeSitterLanguage={language}
                 loading={loading || !language}
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={onHighlightChange}
-                onQueryCapturesChange={onQueryCapturesChange}
+                query={query}
+                queryCaptures={queryCaptures}
+                queryError={queryError}
+                queryMatchKeys={queryMatchKeys}
                 root={root}
+                setQuery={setQuery}
                 toggleExpand={toggleExpand}
               />
             </ResizablePanel>

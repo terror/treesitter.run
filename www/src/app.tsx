@@ -7,7 +7,7 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
-import { useCallback } from 'react';
+import { useCallback, useDeferredValue } from 'react';
 
 import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
@@ -24,7 +24,13 @@ import { useTreeWorkbench } from './hooks/use-tree-workbench';
 
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
-  const { parser, language, loading, error } = useTreeSitter(settings.language);
+  const {
+    parser,
+    language,
+    query: highlightQuery,
+    loading,
+    error,
+  } = useTreeSitter(settings.language);
 
   const ready = Boolean(parser && language);
   const loaded = useHasLoaded(ready);
@@ -39,6 +45,8 @@ const App = () => {
 
   const { cursorPosition, setCursorPosition } = useCursorPosition();
   const { code, resetCode, setCode } = useEditorBuffer(settings.language);
+  const deferredCode = useDeferredValue(code);
+  const parsedCodeCurrent = deferredCode === code;
 
   const {
     doc,
@@ -51,9 +59,10 @@ const App = () => {
     queryMatchKeys,
     root,
     setQuery,
+    tree,
     toggleExpand,
   } = useTreeWorkbench({
-    code,
+    code: deferredCode,
     language: settings.language,
     parser,
     treeSitterLanguage: language,
@@ -87,10 +96,12 @@ const App = () => {
   );
 
   const extensions = useEditorExtensions({
-    language: settings.language,
-    highlight,
-    queryHighlights,
-    parseErrors,
+    code,
+    query: highlightQuery,
+    tree: parsedCodeCurrent ? tree : null,
+    highlight: parsedCodeCurrent ? highlight : undefined,
+    queryHighlights: parsedCodeCurrent ? queryHighlights : [],
+    parseErrors: parsedCodeCurrent ? parseErrors : [],
   });
 
   if (error) {
@@ -147,7 +158,7 @@ const App = () => {
                 doc={doc}
                 expandedNodes={expandedNodes}
                 language={settings.language}
-                loading={loading || !language}
+                loading={loading || !language || !parsedCodeCurrent}
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={onHighlightChange}
                 query={query}
@@ -161,7 +172,7 @@ const App = () => {
             </ResizablePanel>
           </ResizablePanelGroup>
 
-          {ready && !loading ? (
+          {ready && !loading && parsedCodeCurrent ? (
             <StatusBar
               cursorPosition={cursorPosition}
               errorCount={parseErrors.length}

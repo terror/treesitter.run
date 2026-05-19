@@ -1,0 +1,13 @@
+.editor-host.editor-theme-github-light-default {
+  --editor-syntax-attribute: #1a7f37;
+  --editor-syntax-comment: #6e7781;
+  --editor-syntax-constant: #0550ae;
+  --editor-syntax-foreground: #24292f;
+  --editor-syntax-function: #8250df;
+  --editor-syntax-keyword: #cf222e;
+  --editor-syntax-module: #0969da;
+  --editor-syntax-punctuation: #57606a;
+  --editor-syntax-string: #0a3069;
+  --editor-syntax-type: #953800;
+  --editor-syntax-variable: #24292f;
+}

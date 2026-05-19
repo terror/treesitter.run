@@ -6,6 +6,7 @@ use {
 #[derive(Debug)]
 pub(crate) struct Reporter {
   progress: ProgressBar,
+  quiet: bool,
 }
 
 impl Reporter {
@@ -21,10 +22,20 @@ impl Reporter {
     let message =
       format!("{} {}", style(status).for_stderr().green().bold(), message);
 
-    if self.progress.is_hidden() {
-      eprintln!("{message}");
-    } else {
-      self.progress.println(message);
+    if !self.quiet {
+      if self.progress.is_hidden() {
+        eprintln!("{message}");
+      } else {
+        self.progress.println(message);
+      }
+    }
+  }
+
+  #[cfg(test)]
+  pub(crate) fn hidden() -> Self {
+    Self {
+      progress: ProgressBar::hidden(),
+      quiet: true,
     }
   }
 
@@ -38,7 +49,10 @@ impl Reporter {
       .progress_chars("=>-"),
     );
 
-    Ok(Self { progress })
+    Ok(Self {
+      progress,
+      quiet: false,
+    })
   }
 
   pub(crate) fn reset(&self, len: u64) {

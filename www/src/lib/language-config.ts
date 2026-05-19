@@ -1,18 +1,7 @@
-import { cpp } from '@codemirror/lang-cpp';
-import { css } from '@codemirror/lang-css';
-import { go } from '@codemirror/lang-go';
-import { html } from '@codemirror/lang-html';
-import { java } from '@codemirror/lang-java';
-import { javascript } from '@codemirror/lang-javascript';
-import { json } from '@codemirror/lang-json';
-import { markdown } from '@codemirror/lang-markdown';
-import { php } from '@codemirror/lang-php';
-import { python } from '@codemirror/lang-python';
-import { rust } from '@codemirror/lang-rust';
-import { sql } from '@codemirror/lang-sql';
-import { xml } from '@codemirror/lang-xml';
-
 import { Language, LanguageConfig } from './types';
+
+export const highlightQueryPath = (language: Language): string =>
+  `tree-sitter-${language}.highlights.scm`;
 
 export const languageConfig: Record<Language, LanguageConfig> = {
   agda: {
@@ -20,7 +9,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     displayName: 'Agda',
     wasmPath: 'tree-sitter-agda.wasm',
     sampleCode: 'module Foo where\n\ndata Bar : Set where\n  baz : Bar',
-    extension: [],
   },
   arduino: {
     name: 'arduino',
@@ -28,21 +16,18 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-arduino.wasm',
     sampleCode:
       'void setup() {\n  pinMode(13, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n}',
-    extension: [],
   },
   bash: {
     name: 'bash',
     displayName: 'Bash',
     wasmPath: 'tree-sitter-bash.wasm',
     sampleCode: 'for name in foo bar; do\n  echo "hello, $name"\ndone',
-    extension: [],
   },
   beancount: {
     name: 'beancount',
     displayName: 'Beancount',
     wasmPath: 'tree-sitter-beancount.wasm',
     sampleCode: '2024-01-01 open Assets:Foo\n',
-    extension: [],
   },
   bicep: {
     name: 'bicep',
@@ -50,14 +35,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-bicep.wasm',
     sampleCode:
       "param foo string\nresource bar 'Microsoft.Storage/storageAccounts@2023-01-01' = {\n  name: foo\n  location: resourceGroup().location\n}",
-    extension: [],
   },
   bibtex: {
     name: 'bibtex',
     displayName: 'BibTeX',
     wasmPath: 'tree-sitter-bibtex.wasm',
     sampleCode: '@article{foo,\n  title = {bar},\n}',
-    extension: [],
   },
   c: {
     name: 'c',
@@ -70,7 +53,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '  puts("hello, world");\n' +
       '  return 0;\n' +
       '}',
-    extension: cpp(),
   },
   'c-sharp': {
     name: 'c-sharp',
@@ -78,14 +60,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-c-sharp.wasm',
     sampleCode:
       'using System;\n\nclass Foo {\n  static void Main() {\n    Console.WriteLine("bar");\n  }\n}',
-    extension: [],
   },
   chatito: {
     name: 'chatito',
     displayName: 'Chatito',
     wasmPath: 'tree-sitter-chatito.wasm',
     sampleCode: '%[foo]\n    bar\n',
-    extension: [],
   },
   cmake: {
     name: 'cmake',
@@ -93,14 +73,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-cmake.wasm',
     sampleCode:
       'cmake_minimum_required(VERSION 3.20)\nproject(foo)\nadd_executable(bar bar.c)',
-    extension: [],
   },
   commonlisp: {
     name: 'commonlisp',
     displayName: 'Common Lisp',
     wasmPath: 'tree-sitter-commonlisp.wasm',
     sampleCode: '(defun foo (bar)\n  (print bar))',
-    extension: [],
   },
   cpp: {
     name: 'cpp',
@@ -113,49 +91,42 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '  std::cout << "hello, world" << std::endl;\n' +
       '  return 0;\n' +
       '}',
-    extension: cpp(),
   },
   css: {
     name: 'css',
     displayName: 'CSS',
     wasmPath: 'tree-sitter-css.wasm',
     sampleCode: 'body::before {\n  content: "hello, world";\n}',
-    extension: css(),
   },
   cuda: {
     name: 'cuda',
     displayName: 'CUDA',
     wasmPath: 'tree-sitter-cuda.wasm',
     sampleCode: '__global__ void foo(int *bar) {\n  bar[threadIdx.x] = 1;\n}',
-    extension: [],
   },
   cyberchef: {
     name: 'cyberchef',
     displayName: 'CyberChef',
     wasmPath: 'tree-sitter-cyberchef.wasm',
     sampleCode: 'From_Hex()\nTo_Base64()\n',
-    extension: [],
   },
   dart: {
     name: 'dart',
     displayName: 'Dart',
     wasmPath: 'tree-sitter-dart.wasm',
     sampleCode: "void main() {\n  print('foo');\n}",
-    extension: [],
   },
   diff: {
     name: 'diff',
     displayName: 'Diff',
     wasmPath: 'tree-sitter-diff.wasm',
     sampleCode: 'diff --git a/foo b/foo\n+bar',
-    extension: [],
   },
   dockerfile: {
     name: 'dockerfile',
     displayName: 'Dockerfile',
     wasmPath: 'tree-sitter-dockerfile.wasm',
     sampleCode: 'FROM alpine\nRUN echo foo\n',
-    extension: [],
   },
   elixir: {
     name: 'elixir',
@@ -163,63 +134,54 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-elixir.wasm',
     sampleCode:
       'defmodule Foo do\n  def bar do\n    IO.puts("baz")\n  end\nend',
-    extension: [],
   },
   elm: {
     name: 'elm',
     displayName: 'Elm',
     wasmPath: 'tree-sitter-elm.wasm',
     sampleCode: 'module Foo exposing (bar)\n\nbar =\n    "baz"',
-    extension: [],
   },
   'embedded-template': {
     name: 'embedded-template',
     displayName: 'Embedded Template',
     wasmPath: 'tree-sitter-embedded-template.wasm',
     sampleCode: '<p><%= foo %></p>',
-    extension: [],
   },
   fennel: {
     name: 'fennel',
     displayName: 'Fennel',
     wasmPath: 'tree-sitter-fennel.wasm',
     sampleCode: '(fn foo [bar]\n  (print bar))',
-    extension: [],
   },
   fortran: {
     name: 'fortran',
     displayName: 'Fortran',
     wasmPath: 'tree-sitter-fortran.wasm',
     sampleCode: 'program foo\n  print *, "bar"\nend program foo',
-    extension: [],
   },
   gdscript: {
     name: 'gdscript',
     displayName: 'GDScript',
     wasmPath: 'tree-sitter-gdscript.wasm',
     sampleCode: 'func foo(bar):\n  print(bar)',
-    extension: [],
   },
   gitattributes: {
     name: 'gitattributes',
     displayName: 'Git Attributes',
     wasmPath: 'tree-sitter-gitattributes.wasm',
     sampleCode: '*.foo text\n',
-    extension: [],
   },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',
     wasmPath: 'tree-sitter-gleam.wasm',
     sampleCode: 'pub fn main() {\n  "foo"\n}',
-    extension: [],
   },
   glsl: {
     name: 'glsl',
     displayName: 'GLSL',
     wasmPath: 'tree-sitter-glsl.wasm',
     sampleCode: 'void main() {\n  gl_Position = vec4(1.0);\n}',
-    extension: [],
   },
   go: {
     name: 'go',
@@ -233,49 +195,42 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'func main() {\n' +
       '  fmt.Println("hello, world")\n' +
       '}',
-    extension: go(),
   },
   'go-sum': {
     name: 'go-sum',
     displayName: 'go.sum',
     wasmPath: 'tree-sitter-go-sum.wasm',
     sampleCode: 'foo v1.0.0 h1:bar',
-    extension: [],
   },
   'gpg-config': {
     name: 'gpg-config',
     displayName: 'GPG Config',
     wasmPath: 'tree-sitter-gpg-config.wasm',
     sampleCode: 'no-greeting\n',
-    extension: [],
   },
   graphql: {
     name: 'graphql',
     displayName: 'GraphQL',
     wasmPath: 'tree-sitter-graphql.wasm',
     sampleCode: 'query Foo {\n  bar {\n    baz\n  }\n}',
-    extension: [],
   },
   haskell: {
     name: 'haskell',
     displayName: 'Haskell',
     wasmPath: 'tree-sitter-haskell.wasm',
     sampleCode: 'module Main where\n\nmain :: IO ()\nmain = putStrLn "foo"',
-    extension: [],
   },
   hcl: {
     name: 'hcl',
     displayName: 'HCL',
     wasmPath: 'tree-sitter-hcl.wasm',
     sampleCode: 'resource "foo" "bar" {\n  name = "baz"\n}',
-    extension: [],
   },
   hlsl: {
     name: 'hlsl',
     displayName: 'HLSL',
     wasmPath: 'tree-sitter-hlsl.wasm',
     sampleCode: 'float4 foo() : SV_Target {\n  return float4(1, 0, 0, 1);\n}',
-    extension: [],
   },
   html: {
     name: 'html',
@@ -288,28 +243,24 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '    <p>hello, world</p>\n' +
       '  </body>\n' +
       '</html>',
-    extension: html(),
   },
   hyprlang: {
     name: 'hyprlang',
     displayName: 'Hyprlang',
     wasmPath: 'tree-sitter-hyprlang.wasm',
     sampleCode: '$foo = bar\nmonitor = , preferred, auto, 1\n',
-    extension: [],
   },
   ini: {
     name: 'ini',
     displayName: 'INI',
     wasmPath: 'tree-sitter-ini.wasm',
     sampleCode: '[foo]\nbar = baz\n',
-    extension: [],
   },
   ispc: {
     name: 'ispc',
     displayName: 'ISPC',
     wasmPath: 'tree-sitter-ispc.wasm',
     sampleCode: 'export void foo(uniform int bar) {\n  int baz = bar;\n}',
-    extension: [],
   },
   java: {
     name: 'java',
@@ -321,301 +272,258 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '    System.out.println("hello, world");\n' +
       '  }\n' +
       '}',
-    extension: java(),
   },
   javascript: {
     name: 'javascript',
     displayName: 'JavaScript',
     wasmPath: 'tree-sitter-javascript.wasm',
     sampleCode: 'console.log("hello, world");',
-    extension: javascript(),
   },
   jsdoc: {
     name: 'jsdoc',
     displayName: 'JSDoc',
     wasmPath: 'tree-sitter-jsdoc.wasm',
     sampleCode: '/**\n * @param {string} foo\n * @returns {string}\n */',
-    extension: [],
   },
   json: {
     name: 'json',
     displayName: 'JSON',
     wasmPath: 'tree-sitter-json.wasm',
     sampleCode: '{\n  "message": "hello, world"\n}',
-    extension: json(),
   },
   json5: {
     name: 'json5',
     displayName: 'JSON5',
     wasmPath: 'tree-sitter-json5.wasm',
     sampleCode: '{\n  message: "hello, world",\n}',
-    extension: json(),
   },
   julia: {
     name: 'julia',
     displayName: 'Julia',
     wasmPath: 'tree-sitter-julia.wasm',
     sampleCode: 'function foo(bar)\n  println(bar)\nend\n\nfoo("baz")',
-    extension: [],
   },
   just: {
     name: 'just',
     displayName: 'Just',
     wasmPath: 'tree-sitter-just.wasm',
     sampleCode: 'default:\n  echo "hello, world"',
-    extension: [],
   },
   kconfig: {
     name: 'kconfig',
     displayName: 'Kconfig',
     wasmPath: 'tree-sitter-kconfig.wasm',
     sampleCode: 'config FOO\n  bool "bar"\n',
-    extension: [],
   },
   kotlin: {
     name: 'kotlin',
     displayName: 'Kotlin',
     wasmPath: 'tree-sitter-kotlin.wasm',
     sampleCode: 'fun main() {\n  println("foo")\n}',
-    extension: [],
   },
   llvm: {
     name: 'llvm',
     displayName: 'LLVM',
     wasmPath: 'tree-sitter-llvm.wasm',
     sampleCode: 'define i32 @foo() {\nentry:\n  ret i32 0\n}',
-    extension: [],
   },
   lua: {
     name: 'lua',
     displayName: 'Lua',
     wasmPath: 'tree-sitter-lua.wasm',
     sampleCode: 'local function foo(bar)\n  print(bar)\nend\n\nfoo("baz")',
-    extension: [],
   },
   luau: {
     name: 'luau',
     displayName: 'Luau',
     wasmPath: 'tree-sitter-luau.wasm',
     sampleCode: 'local function foo(bar)\n  return bar\nend',
-    extension: [],
   },
   make: {
     name: 'make',
     displayName: 'Make',
     wasmPath: 'tree-sitter-make.wasm',
     sampleCode: 'foo:\n\techo bar\n',
-    extension: [],
   },
   markdown: {
     name: 'markdown',
     displayName: 'Markdown',
     wasmPath: 'tree-sitter-markdown.wasm',
     sampleCode: '# Foo\n\nbar baz',
-    extension: markdown(),
   },
   meson: {
     name: 'meson',
     displayName: 'Meson',
     wasmPath: 'tree-sitter-meson.wasm',
     sampleCode: "project('foo', 'c')\nexecutable('bar', 'bar.c')",
-    extension: [],
   },
   nginx: {
     name: 'nginx',
     displayName: 'Nginx',
     wasmPath: 'tree-sitter-nginx.wasm',
     sampleCode: 'server {\n  listen 80;\n  server_name foo;\n}\n',
-    extension: [],
   },
   nix: {
     name: 'nix',
     displayName: 'Nix',
     wasmPath: 'tree-sitter-nix.wasm',
     sampleCode: '{ foo = "bar"; }',
-    extension: [],
   },
   objc: {
     name: 'objc',
     displayName: 'Objective-C',
     wasmPath: 'tree-sitter-objc.wasm',
     sampleCode: '@interface Foo\n- (void)bar;\n@end',
-    extension: [],
   },
   ocaml: {
     name: 'ocaml',
     displayName: 'OCaml',
     wasmPath: 'tree-sitter-ocaml.wasm',
     sampleCode: 'let foo bar =\n  print_endline bar\n\nlet () = foo "baz"',
-    extension: [],
   },
   odin: {
     name: 'odin',
     displayName: 'Odin',
     wasmPath: 'tree-sitter-odin.wasm',
     sampleCode: 'package foo\n\nbar :: proc() {}',
-    extension: [],
   },
   pem: {
     name: 'pem',
     displayName: 'PEM',
     wasmPath: 'tree-sitter-pem.wasm',
     sampleCode: '-----BEGIN FOO-----\nbar\n-----END FOO-----',
-    extension: [],
   },
   php: {
     name: 'php',
     displayName: 'PHP',
     wasmPath: 'tree-sitter-php.wasm',
     sampleCode: '<?php\n\necho "hello, world\\n";\n',
-    extension: php(),
   },
   'poe-filter': {
     name: 'poe-filter',
     displayName: 'PoE Filter',
     wasmPath: 'tree-sitter-poe-filter.wasm',
     sampleCode: 'Show\n  Class "foo"\n',
-    extension: [],
   },
   powershell: {
     name: 'powershell',
     displayName: 'PowerShell',
     wasmPath: 'tree-sitter-powershell.wasm',
     sampleCode: 'function Foo {\n  Write-Output "bar"\n}\n\nFoo',
-    extension: [],
   },
   printf: {
     name: 'printf',
     displayName: 'Printf',
     wasmPath: 'tree-sitter-printf.wasm',
     sampleCode: '%s %d',
-    extension: [],
   },
   prisma: {
     name: 'prisma',
     displayName: 'Prisma',
     wasmPath: 'tree-sitter-prisma.wasm',
     sampleCode: 'model Foo {\n  id Int @id\n  bar String\n}',
-    extension: [],
   },
   properties: {
     name: 'properties',
     displayName: 'Properties',
     wasmPath: 'tree-sitter-properties.wasm',
     sampleCode: 'foo=bar',
-    extension: [],
   },
   puppet: {
     name: 'puppet',
     displayName: 'Puppet',
     wasmPath: 'tree-sitter-puppet.wasm',
     sampleCode: "file { 'foo':\n  ensure => present,\n}",
-    extension: [],
   },
   purescript: {
     name: 'purescript',
     displayName: 'PureScript',
     wasmPath: 'tree-sitter-purescript.wasm',
     sampleCode: 'module Foo where\n\nbar = "baz"',
-    extension: [],
   },
   pymanifest: {
     name: 'pymanifest',
     displayName: 'Python Manifest',
     wasmPath: 'tree-sitter-pymanifest.wasm',
     sampleCode: 'include foo\n',
-    extension: [],
   },
   python: {
     name: 'python',
     displayName: 'Python',
     wasmPath: 'tree-sitter-python.wasm',
     sampleCode: 'print("hello, world")',
-    extension: python(),
   },
   ql: {
     name: 'ql',
     displayName: 'QL',
     wasmPath: 'tree-sitter-ql.wasm',
     sampleCode: 'from string foo\nselect foo',
-    extension: [],
   },
   'ql-dbscheme': {
     name: 'ql-dbscheme',
     displayName: 'QL Dbscheme',
     wasmPath: 'tree-sitter-ql-dbscheme.wasm',
     sampleCode: '@foo = @bar | @baz;',
-    extension: [],
   },
   qmljs: {
     name: 'qmljs',
     displayName: 'QMLJS',
     wasmPath: 'tree-sitter-qmljs.wasm',
     sampleCode: 'Item {\n  property string foo: "bar"\n}',
-    extension: [],
   },
   query: {
     name: 'query',
     displayName: 'Query',
     wasmPath: 'tree-sitter-query.wasm',
     sampleCode: '(function_item\n  name: (identifier) @function)',
-    extension: [],
   },
   r: {
     name: 'r',
     displayName: 'R',
     wasmPath: 'tree-sitter-r.wasm',
     sampleCode: 'foo <- function(bar) {\n  print(bar)\n}\n\nfoo("baz")',
-    extension: [],
   },
   racket: {
     name: 'racket',
     displayName: 'Racket',
     wasmPath: 'tree-sitter-racket.wasm',
     sampleCode: '#lang racket\n\n(define (foo bar)\n  bar)',
-    extension: [],
   },
   readline: {
     name: 'readline',
     displayName: 'Readline',
     wasmPath: 'tree-sitter-readline.wasm',
     sampleCode: 'set editing-mode vi\n',
-    extension: [],
   },
   regex: {
     name: 'regex',
     displayName: 'Regex',
     wasmPath: 'tree-sitter-regex.wasm',
     sampleCode: '^(foo|bar)+$',
-    extension: [],
   },
   requirements: {
     name: 'requirements',
     displayName: 'Requirements',
     wasmPath: 'tree-sitter-requirements.wasm',
     sampleCode: 'foo==1.0.0\n',
-    extension: [],
   },
   rescript: {
     name: 'rescript',
     displayName: 'ReScript',
     wasmPath: 'tree-sitter-rescript.wasm',
     sampleCode: 'let foo = bar => bar',
-    extension: [],
   },
   ruby: {
     name: 'ruby',
     displayName: 'Ruby',
     wasmPath: 'tree-sitter-ruby.wasm',
     sampleCode: 'def foo(bar)\n  puts bar\nend\n\nfoo("baz")',
-    extension: [],
   },
   rust: {
     name: 'rust',
     displayName: 'Rust',
     wasmPath: 'tree-sitter-rust.wasm',
     sampleCode: 'fn main() {\n  println!("hello, world");\n}',
-    extension: rust(),
   },
   scala: {
     name: 'scala',
@@ -623,21 +531,18 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-scala.wasm',
     sampleCode:
       'object Foo {\n  def main(args: Array[String]): Unit = {\n    println("bar")\n  }\n}',
-    extension: [],
   },
   slang: {
     name: 'slang',
     displayName: 'Slang',
     wasmPath: 'tree-sitter-slang.wasm',
     sampleCode: 'void foo() {}',
-    extension: [],
   },
   solidity: {
     name: 'solidity',
     displayName: 'Solidity',
     wasmPath: 'tree-sitter-solidity.wasm',
     sampleCode: 'contract Foo {\n  function bar() public {}\n}',
-    extension: [],
   },
   typescript: {
     name: 'typescript',
@@ -653,14 +558,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '};\n' +
       '\n' +
       'console.log(message.text);',
-    extension: javascript({ typescript: true }),
   },
   udev: {
     name: 'udev',
     displayName: 'udev',
     wasmPath: 'tree-sitter-udev.wasm',
     sampleCode: 'ACTION=="add", NAME="foo"\n',
-    extension: [],
   },
   verilog: {
     name: 'verilog',
@@ -668,14 +571,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-verilog.wasm',
     sampleCode:
       'module foo(input bar, output baz);\n  assign baz = bar;\nendmodule',
-    extension: [],
   },
   vim: {
     name: 'vim',
     displayName: 'Vimscript',
     wasmPath: 'tree-sitter-vim.wasm',
     sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction\n',
-    extension: [],
   },
   'wgsl-bevy': {
     name: 'wgsl-bevy',
@@ -683,28 +584,24 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-wgsl-bevy.wasm',
     sampleCode:
       '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
-    extension: [],
   },
   xcompose: {
     name: 'xcompose',
     displayName: 'XCompose',
     wasmPath: 'tree-sitter-xcompose.wasm',
     sampleCode: '<Multi_key> <f> <o> <o> : "foo"\n',
-    extension: [],
   },
   yaml: {
     name: 'yaml',
     displayName: 'YAML',
     wasmPath: 'tree-sitter-yaml.wasm',
     sampleCode: 'message: hello, world\nitems:\n  - foo\n  - bar',
-    extension: [],
   },
   toml: {
     name: 'toml',
     displayName: 'TOML',
     wasmPath: 'tree-sitter-toml.wasm',
     sampleCode: 'message = "hello, world"\nitems = ["foo", "bar"]',
-    extension: [],
   },
   xml: {
     name: 'xml',
@@ -715,35 +612,30 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '<message>\n' +
       '  <text>hello, world</text>\n' +
       '</message>',
-    extension: xml(),
   },
   sql: {
     name: 'sql',
     displayName: 'SQL',
     wasmPath: 'tree-sitter-sql.wasm',
     sampleCode: 'select foo\nfrom bar\nwhere baz = 1;',
-    extension: sql(),
   },
   'ssh-config': {
     name: 'ssh-config',
     displayName: 'SSH Config',
     wasmPath: 'tree-sitter-ssh-config.wasm',
     sampleCode: 'Host foo\n  HostName bar\n',
-    extension: [],
   },
   starlark: {
     name: 'starlark',
     displayName: 'Starlark',
     wasmPath: 'tree-sitter-starlark.wasm',
     sampleCode: 'def foo(bar):\n    return bar',
-    extension: [],
   },
   tcl: {
     name: 'tcl',
     displayName: 'Tcl',
     wasmPath: 'tree-sitter-tcl.wasm',
     sampleCode: 'proc foo {bar} {\n  puts $bar\n}\n',
-    extension: [],
   },
   tsx: {
     name: 'tsx',
@@ -757,7 +649,6 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'export function Message({ text }: Props) {\n' +
       '  return <span>{text}</span>;\n' +
       '}',
-    extension: javascript({ jsx: true, typescript: true }),
   },
   zig: {
     name: 'zig',
@@ -765,6 +656,5 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-zig.wasm',
     sampleCode:
       'const std = @import("std");\n\npub fn main() void {\n  std.debug.print("foo\\n", .{});\n}',
-    extension: [],
   },
 };

@@ -1,26 +1,29 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { errorExtension } from '@/extensions/error';
-import {
-  highlightExtension,
-  queryHighlightExtension,
-} from '@/extensions/highlight';
-import { languageConfig } from '@/lib/language-config';
+import { highlightExtension } from '@/extensions/highlight';
+import { queryExtension } from '@/extensions/query';
+import { treeSitterHighlightExtension } from '@/extensions/tree-sitter-highlight';
 import type { ParseErrorRange } from '@/lib/parse-errors';
-import type { Language, SyntaxRange } from '@/lib/types';
+import type { SyntaxRange } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { vim } from '@replit/codemirror-vim';
 import { useMemo } from 'react';
+import { type Query, type Tree } from 'web-tree-sitter';
 
 interface UseEditorExtensionsOptions {
-  language: Language;
+  code: string;
+  query: Query | null | undefined;
+  tree: Tree | null;
   highlight: { from: number; to: number } | undefined;
   queryHighlights: SyntaxRange[];
   parseErrors: ParseErrorRange[];
 }
 
 export function useEditorExtensions({
-  language,
+  code,
+  query,
+  tree,
   highlight,
   queryHighlights,
   parseErrors,
@@ -30,9 +33,9 @@ export function useEditorExtensions({
   return useMemo(() => {
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
-      languageConfig[language].extension,
+      treeSitterHighlightExtension({ code, query, tree }),
       errorExtension(parseErrors),
-      queryHighlightExtension(queryHighlights),
+      queryExtension(queryHighlights),
       highlightExtension(highlight),
     ];
 
@@ -49,7 +52,9 @@ export function useEditorExtensions({
     settings.tabSize,
     settings.keybindings,
     settings.lineWrapping,
-    language,
+    code,
+    query,
+    tree,
     parseErrors,
     highlight,
     queryHighlights,

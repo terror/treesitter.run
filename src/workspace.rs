@@ -34,6 +34,12 @@ impl Workspace {
     Self { root }
   }
 
+  pub(crate) fn parser_highlights_query(&self, parser: &Parser) -> PathBuf {
+    self
+      .public_dir()
+      .join(format!("tree-sitter-{}.highlights.scm", parser.name))
+  }
+
   pub(crate) fn parser_wasm(&self, parser: &Parser) -> PathBuf {
     self
       .public_dir()
@@ -102,6 +108,14 @@ mod tests {
     assert_eq!(
       workspace.parser_wasm(&parser),
       root.join("www").join("public").join("tree-sitter-bar.wasm"),
+    );
+
+    assert_eq!(
+      workspace.parser_highlights_query(&parser),
+      root
+        .join("www")
+        .join("public")
+        .join("tree-sitter-bar.highlights.scm"),
     );
 
     assert_eq!(workspace.public_dir(), root.join("www").join("public"));

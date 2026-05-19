@@ -1,0 +1,13 @@
+.editor-host.editor-theme-solarized-light {
+  --editor-syntax-attribute: #b58900;
+  --editor-syntax-comment: #93a1a1;
+  --editor-syntax-constant: #d33682;
+  --editor-syntax-foreground: #657b83;
+  --editor-syntax-function: #268bd2;
+  --editor-syntax-keyword: #859900;
+  --editor-syntax-module: #2aa198;
+  --editor-syntax-punctuation: #657b83;
+  --editor-syntax-string: #2aa198;
+  --editor-syntax-type: #b58900;
+  --editor-syntax-variable: #657b83;
+}

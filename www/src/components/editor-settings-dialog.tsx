@@ -10,14 +10,25 @@ import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { useEditorSettings } from '@/contexts/editor-settings-context';
+import type { EditorSyntaxTheme } from '@/contexts/editor-settings-context';
+import { syntaxThemes } from '@/lib/syntax-themes';
 import { Settings } from 'lucide-react';
 import { useState } from 'react';
+
+const syntaxThemeGroups = Array.from(
+  new Set(syntaxThemes.map((theme) => theme.family))
+).map((family) => ({
+  family,
+  themes: syntaxThemes.filter((theme) => theme.family === family),
+}));
 
 export const EditorSettingsDialog = () => {
   const { settings, updateSettings } = useEditorSettings();
@@ -99,6 +110,46 @@ export const EditorSettingsDialog = () => {
                 <SelectContent>
                   <SelectItem value='default'>Default</SelectItem>
                   <SelectItem value='vim'>Vim</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className='flex items-center justify-between'>
+              <Label className='text-sm font-medium'>Theme</Label>
+              <Select
+                value={settings.syntaxTheme}
+                onValueChange={(value) =>
+                  updateSettings({ syntaxTheme: value as EditorSyntaxTheme })
+                }
+              >
+                <SelectTrigger className='w-56'>
+                  <SelectValue placeholder='Syntax theme' />
+                </SelectTrigger>
+                <SelectContent className='w-56'>
+                  {syntaxThemeGroups.map(({ family, themes }) => (
+                    <SelectGroup key={family}>
+                      <SelectLabel>{family}</SelectLabel>
+                      {themes.map(({ label, swatches, value }) => (
+                        <SelectItem key={value} value={value}>
+                          <span className='flex min-w-0 items-center gap-2'>
+                            <span
+                              aria-hidden='true'
+                              className='border-border flex shrink-0 overflow-hidden rounded-sm border'
+                            >
+                              {swatches.map((swatch) => (
+                                <span
+                                  key={swatch}
+                                  className='h-3 w-3'
+                                  style={{ backgroundColor: swatch }}
+                                />
+                              ))}
+                            </span>
+                            <span className='truncate'>{label}</span>
+                          </span>
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  ))}
                 </SelectContent>
               </Select>
             </div>

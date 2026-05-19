@@ -1,0 +1,13 @@
+.editor-host.editor-theme-catppuccin-latte {
+  --editor-syntax-attribute: #179299;
+  --editor-syntax-comment: #8c8fa1;
+  --editor-syntax-constant: #fe640b;
+  --editor-syntax-foreground: #4c4f69;
+  --editor-syntax-function: #1e66f5;
+  --editor-syntax-keyword: #8839ef;
+  --editor-syntax-module: #209fb5;
+  --editor-syntax-punctuation: #7c7f93;
+  --editor-syntax-string: #40a02b;
+  --editor-syntax-type: #df8e1d;
+  --editor-syntax-variable: #4c4f69;
+}

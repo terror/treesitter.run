@@ -1,0 +1,13 @@
+.editor-host.editor-theme-ayu-light {
+  --editor-syntax-attribute: #f07171;
+  --editor-syntax-comment: #abb0b6;
+  --editor-syntax-constant: #a37acc;
+  --editor-syntax-foreground: #5c6166;
+  --editor-syntax-function: #eba400;
+  --editor-syntax-keyword: #fa8532;
+  --editor-syntax-module: #55b4d4;
+  --editor-syntax-punctuation: #5c6166;
+  --editor-syntax-string: #86b300;
+  --editor-syntax-type: #22a4e6;
+  --editor-syntax-variable: #5c6166;
+}

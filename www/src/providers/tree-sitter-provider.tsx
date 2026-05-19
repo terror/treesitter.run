@@ -1,8 +1,8 @@
 import { TreeSitterContext } from '@/contexts/tree-sitter-context';
-import { languageConfig } from '@/lib/language-config';
+import { highlightQueryPath, languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { Parser, Language as TSLanguage } from 'web-tree-sitter';
+import { Parser, Query, Language as TSLanguage } from 'web-tree-sitter';
 
 export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<string | undefined>(undefined);
@@ -17,15 +17,26 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
     Partial<Record<Language, TSLanguage>>
   >({});
 
+  const [loadedQueries, setLoadedQueries] = useState<
+    Partial<Record<Language, Query | null>>
+  >({});
+
   const loadedLanguagesRef = useRef(loadedLanguages);
+  const loadedQueriesRef = useRef(loadedQueries);
 
   const pendingLanguages = useRef<
     Partial<Record<Language, Promise<TSLanguage>>>
   >({});
 
+  const pendingQueries = useRef<Partial<Record<Language, Promise<void>>>>({});
+
   useEffect(() => {
     loadedLanguagesRef.current = loadedLanguages;
   }, [loadedLanguages]);
+
+  useEffect(() => {
+    loadedQueriesRef.current = loadedQueries;
+  }, [loadedQueries]);
 
   useEffect(() => {
     let canceled = false;
@@ -67,6 +78,10 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
       if (parserInstance) {
         parserInstance.delete();
       }
+
+      for (const query of Object.values(loadedQueriesRef.current)) {
+        query?.delete();
+      }
     };
   }, []);
 
@@ -93,10 +108,16 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
       try {
         const language = await promise;
 
-        setLoadedLanguages((loadedLanguages) => ({
-          ...loadedLanguages,
-          [languageName]: language,
-        }));
+        setLoadedLanguages((previous) => {
+          const loadedLanguages = {
+            ...previous,
+            [languageName]: language,
+          };
+
+          loadedLanguagesRef.current = loadedLanguages;
+
+          return loadedLanguages;
+        });
       } catch (err) {
         setError(
           `Failed to load language ${languageName}: ${
@@ -116,15 +137,67 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
     [parser]
   );
 
+  const loadQuery = useCallback(async (languageName: Language) => {
+    const language = loadedLanguagesRef.current[languageName];
+
+    if (
+      !language ||
+      loadedQueriesRef.current[languageName] !== undefined ||
+      pendingQueries.current[languageName]
+    ) {
+      return;
+    }
+
+    const promise = (async () => {
+      let query: Query | null = null;
+
+      try {
+        const response = await fetch(highlightQueryPath(languageName));
+
+        if (response.ok) {
+          const source = await response.text();
+          query = source.trim() ? new Query(language, source) : null;
+        } else if (response.status !== 404) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+      } catch (err) {
+        console.warn(
+          `Failed to load highlights query ${languageName}: ${
+            err instanceof Error ? err.message : String(err)
+          }`
+        );
+      } finally {
+        delete pendingQueries.current[languageName];
+
+        setLoadedQueries((previous) => {
+          const loadedQueries = {
+            ...previous,
+            [languageName]: query,
+          };
+
+          loadedQueriesRef.current = loadedQueries;
+
+          return loadedQueries;
+        });
+      }
+    })();
+
+    pendingQueries.current[languageName] = promise;
+
+    await promise;
+  }, []);
+
   return (
     <TreeSitterContext.Provider
       value={{
         parser,
         loadedLanguages,
+        loadedQueries,
         loadingLanguages,
         initializing,
         error,
         loadLanguage,
+        loadQuery,
       }}
     >
       {children}

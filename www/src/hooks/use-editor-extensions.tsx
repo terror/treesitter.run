@@ -1,8 +1,12 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { errorExtension } from '@/extensions/error';
-import { highlightExtension } from '@/extensions/highlight';
+import {
+  highlightExtension,
+  queryHighlightExtension,
+} from '@/extensions/highlight';
 import { treeSitterHighlightExtension } from '@/extensions/tree-sitter-highlight';
 import type { ParseErrorRange } from '@/lib/parse-errors';
+import type { SyntaxRange } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { vim } from '@replit/codemirror-vim';
@@ -14,6 +18,7 @@ interface UseEditorExtensionsOptions {
   query: Query | null | undefined;
   tree: Tree | null;
   highlight: { from: number; to: number } | undefined;
+  queryHighlights: SyntaxRange[];
   parseErrors: ParseErrorRange[];
 }
 
@@ -22,6 +27,7 @@ export function useEditorExtensions({
   query,
   tree,
   highlight,
+  queryHighlights,
   parseErrors,
 }: UseEditorExtensionsOptions): Extension[] {
   const { settings } = useEditorSettings();
@@ -31,6 +37,7 @@ export function useEditorExtensions({
       EditorState.tabSize.of(settings.tabSize),
       treeSitterHighlightExtension({ code, query, tree }),
       errorExtension(parseErrors),
+      queryHighlightExtension(queryHighlights),
       highlightExtension(highlight),
     ];
 
@@ -52,5 +59,6 @@ export function useEditorExtensions({
     tree,
     parseErrors,
     highlight,
+    queryHighlights,
   ]);
 }

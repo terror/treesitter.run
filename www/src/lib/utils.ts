@@ -3,6 +3,8 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Language, Parser, Tree } from 'web-tree-sitter';
 
+import type { SyntaxNode } from './types';
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -35,3 +37,6 @@ export const positionToOffset = (
     Math.min(position.column, doc.line(lineNumber).length)
   );
 };
+
+export const syntaxNodeKey = (node: SyntaxNode): string =>
+  `${node.typeId}:${node.startIndex}:${node.endIndex}`;

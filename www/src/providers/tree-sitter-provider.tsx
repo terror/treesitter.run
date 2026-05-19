@@ -98,11 +98,10 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
       const promise = TSLanguage.load(languageConfig[languageName].wasmPath);
 
       pendingLanguages.current[languageName] = promise;
+
       setLoadingLanguages((previous) => {
         const loadingLanguages = new Set(previous);
-
         loadingLanguages.add(languageName);
-
         return loadingLanguages;
       });
 
@@ -130,9 +129,7 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
 
         setLoadingLanguages((previous) => {
           const loadingLanguages = new Set(previous);
-
           loadingLanguages.delete(languageName);
-
           return loadingLanguages;
         });
       }

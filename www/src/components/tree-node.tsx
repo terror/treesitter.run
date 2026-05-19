@@ -17,30 +17,31 @@ import {
 
 interface TreeNodeProps {
   doc: Text;
-  expanded: boolean;
   hasChildren: boolean;
+  isExpanded: boolean;
   level: number;
   node: SyntaxNode;
-  nodePath: string;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range?: { from: number; to: number }) => void;
+  queryMatch: boolean;
   searchMatches: Set<SyntaxNode>;
-  toggleCollapse: (nodePath: string) => void;
+  toggleExpand: (node: SyntaxNode) => void;
 }
 
 export const TreeNode = ({
   doc,
-  expanded,
   hasChildren,
+  isExpanded,
   level,
   node,
-  nodePath,
   onDeleteRange,
   onHighlightChange,
+  queryMatch,
   searchMatches,
-  toggleCollapse,
+  toggleExpand,
 }: TreeNodeProps) => {
   const errorKind = parseErrorKind(node);
+  const label = parseErrorLabel(node);
   const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const from = positionToOffset(node.startPosition, doc);
@@ -53,9 +54,14 @@ export const TreeNode = ({
     }
   };
 
-  const copyText = async () => {
+  const copyNodeLabel = async () => {
+    await navigator.clipboard.writeText(label);
+    toast.success('Copied node label to clipboard');
+  };
+
+  const copySourceText = async () => {
     await navigator.clipboard.writeText(node.text);
-    toast.success('Copied node text to clipboard');
+    toast.success('Copied source text to clipboard');
   };
 
   const inspect = () => {
@@ -76,6 +82,8 @@ export const TreeNode = ({
           <div
             className={cn(
               'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50',
+              queryMatch &&
+                'bg-emerald-50 text-emerald-900 hover:bg-emerald-100',
               searchMatch && 'bg-yellow-50 text-yellow-900 hover:bg-yellow-100',
               errorKind === 'error' &&
                 'border-red-500 bg-red-50 text-red-800 hover:bg-red-100',
@@ -85,11 +93,11 @@ export const TreeNode = ({
             style={{ paddingLeft: `${level * 16 + 4}px` }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={() => onHighlightChange(undefined)}
-            onClick={() => hasChildren && toggleCollapse(nodePath)}
+            onClick={() => hasChildren && toggleExpand(node)}
           >
             <span className='mr-1 flex w-4 justify-center'>
               {hasChildren ? (
-                expanded ? (
+                isExpanded ? (
                   <ChevronDown size={14} />
                 ) : (
                   <ChevronRight size={14} />
@@ -98,7 +106,7 @@ export const TreeNode = ({
                 <span className='w-4'></span>
               )}
             </span>
-            <span>{parseErrorLabel(node)}</span>
+            <span>{label}</span>
             <span
               className={cn(
                 'ml-2 text-xs text-gray-500',
@@ -116,9 +124,13 @@ export const TreeNode = ({
             <Info />
             Inspect
           </ContextMenuItem>
-          <ContextMenuItem onSelect={() => void copyText()}>
+          <ContextMenuItem onSelect={() => void copyNodeLabel()}>
             <Copy />
-            Copy text
+            Copy node label
+          </ContextMenuItem>
+          <ContextMenuItem onSelect={() => void copySourceText()}>
+            <Copy />
+            Copy source text
           </ContextMenuItem>
           <ContextMenuSeparator />
           <ContextMenuItem

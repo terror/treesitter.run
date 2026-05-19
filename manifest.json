@@ -187,7 +187,7 @@
   {
     "name": "ispc",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-ispc",
-    "revision": "6ee3fec5a3d293969828a5803760f929ca988c81"
+    "revision": "ba1bb38ac8ddfa6aa7571cbfe9b4d029f7f77447"
   },
   {
     "name": "java",
@@ -411,7 +411,7 @@
   {
     "name": "scala",
     "repository": "https://github.com/tree-sitter/tree-sitter-scala",
-    "revision": "c1a83a6be68c85647e2a8e8d8bf5a57ca5c97a9e"
+    "revision": "d0f532c1f63e394c7b48fc7ad5866293cde60cc5"
   },
   {
     "name": "slang",

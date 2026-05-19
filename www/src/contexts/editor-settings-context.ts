@@ -1,12 +1,20 @@
 import { Language } from '@/lib/types';
 import { createContext, useContext } from 'react';
 
+export type EditorSyntaxTheme =
+  | 'github-light'
+  | 'catppuccin-latte'
+  | 'tokyo-night-day'
+  | 'ayu-light'
+  | 'base16-seti';
+
 export interface EditorSettings {
   fontSize: number;
   keybindings: 'default' | 'vim';
   language: Language;
   lineNumbers: boolean;
   lineWrapping: boolean;
+  syntaxTheme: EditorSyntaxTheme;
   tabSize: number;
 }
 
@@ -16,6 +24,7 @@ export const defaultSettings: EditorSettings = {
   language: 'javascript',
   lineNumbers: true,
   lineWrapping: true,
+  syntaxTheme: 'github-light',
   tabSize: 2,
 };
 

@@ -1,4 +1,5 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
+import { cn } from '@/lib/utils';
 import { Extension } from '@codemirror/state';
 import type { ViewUpdate } from '@codemirror/view';
 import CodeMirror from '@uiw/react-codemirror';
@@ -33,7 +34,12 @@ export const Editor = ({
   };
 
   return (
-    <div className='editor-host h-full w-full overflow-hidden'>
+    <div
+      className={cn(
+        'editor-host h-full w-full overflow-hidden',
+        `editor-theme-${settings.syntaxTheme}`
+      )}
+    >
       <CodeMirror
         value={value}
         extensions={extensions}

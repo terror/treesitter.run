@@ -16,8 +16,17 @@ import {
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { useEditorSettings } from '@/contexts/editor-settings-context';
+import type { EditorSyntaxTheme } from '@/contexts/editor-settings-context';
 import { Settings } from 'lucide-react';
 import { useState } from 'react';
+
+const syntaxThemes: { label: string; value: EditorSyntaxTheme }[] = [
+  { label: 'GitHub Light', value: 'github-light' },
+  { label: 'Catppuccin Latte', value: 'catppuccin-latte' },
+  { label: 'Tokyo Night Day', value: 'tokyo-night-day' },
+  { label: 'Ayu Light', value: 'ayu-light' },
+  { label: 'Base16 Seti', value: 'base16-seti' },
+];
 
 export const EditorSettingsDialog = () => {
   const { settings, updateSettings } = useEditorSettings();
@@ -99,6 +108,27 @@ export const EditorSettingsDialog = () => {
                 <SelectContent>
                   <SelectItem value='default'>Default</SelectItem>
                   <SelectItem value='vim'>Vim</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className='flex items-center justify-between'>
+              <Label className='text-sm font-medium'>Syntax theme</Label>
+              <Select
+                value={settings.syntaxTheme}
+                onValueChange={(value) =>
+                  updateSettings({ syntaxTheme: value as EditorSyntaxTheme })
+                }
+              >
+                <SelectTrigger className='w-44'>
+                  <SelectValue placeholder='Syntax theme' />
+                </SelectTrigger>
+                <SelectContent>
+                  {syntaxThemes.map(({ label, value }) => (
+                    <SelectItem key={value} value={value}>
+                      {label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>

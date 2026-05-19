@@ -30,6 +30,12 @@ const captureClasses: Record<string, string> = {
 
 const markCache = new Map<string, Decoration>();
 
+interface HighlightRange {
+  className: string;
+  from: number;
+  to: number;
+}
+
 export const captureClassName = (captureName: string): string | undefined => {
   const name = captureName.split('.')[0];
 
@@ -71,6 +77,55 @@ const highlightMark = (className: string): Decoration => {
   return next;
 };
 
+export const normalizeHighlightRanges = (
+  ranges: HighlightRange[]
+): HighlightRange[] => {
+  const validRanges = ranges.filter(({ from, to }) => from < to);
+
+  if (validRanges.length === 0) {
+    return [];
+  }
+
+  const offsets = Array.from(
+    new Set(validRanges.flatMap(({ from, to }) => [from, to]))
+  ).sort((a, b) => a - b);
+
+  const normalized: HighlightRange[] = [];
+
+  for (let i = 0; i < offsets.length - 1; i++) {
+    const from = offsets[i];
+    const to = offsets[i + 1];
+    let range: HighlightRange | undefined;
+
+    for (let j = validRanges.length - 1; j >= 0; j--) {
+      const candidate = validRanges[j];
+
+      if (candidate.from <= from && to <= candidate.to) {
+        range = candidate;
+        break;
+      }
+    }
+
+    if (!range) {
+      continue;
+    }
+
+    const previous = normalized.at(-1);
+
+    if (
+      previous &&
+      previous.to === from &&
+      previous.className === range.className
+    ) {
+      previous.to = to;
+    } else {
+      normalized.push({ className: range.className, from, to });
+    }
+  }
+
+  return normalized;
+};
+
 export const treeSitterHighlightExtension = ({
   code,
   query,
@@ -98,10 +153,14 @@ export const treeSitterHighlightExtension = ({
       return [];
     }
 
-    return [highlightMark(className).range(from, to)];
+    return [{ className, from, to }];
   });
 
-  const decorations = Decoration.set(ranges, true);
+  const decorations = Decoration.set(
+    normalizeHighlightRanges(ranges).map(({ className, from, to }) =>
+      highlightMark(className).range(from, to)
+    )
+  );
 
   return EditorView.decorations.of(() => decorations);
 };

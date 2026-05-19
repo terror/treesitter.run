@@ -124,68 +124,147 @@
 }
 
 .cm-highlighted-node {
-  background-color: rgba(59, 130, 246, 0.15);
   outline: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 2px;
+  text-decoration-color: rgba(59, 130, 246, 0.65);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.editor-host {
+  --editor-syntax-attribute: #116329;
+  --editor-syntax-comment: #57606a;
+  --editor-syntax-constant: #0550ae;
+  --editor-syntax-foreground: #24292f;
+  --editor-syntax-function: #8250df;
+  --editor-syntax-keyword: #cf222e;
+  --editor-syntax-module: #116329;
+  --editor-syntax-punctuation: #57606a;
+  --editor-syntax-string: #0a3069;
+  --editor-syntax-type: #8250df;
+  --editor-syntax-variable: #24292f;
+}
+
+.editor-host.editor-theme-catppuccin-latte {
+  --editor-syntax-attribute: #179299;
+  --editor-syntax-comment: #8c8fa1;
+  --editor-syntax-constant: #fe640b;
+  --editor-syntax-foreground: #4c4f69;
+  --editor-syntax-function: #1e66f5;
+  --editor-syntax-keyword: #8839ef;
+  --editor-syntax-module: #209fb5;
+  --editor-syntax-punctuation: #7c7f93;
+  --editor-syntax-string: #40a02b;
+  --editor-syntax-type: #df8e1d;
+  --editor-syntax-variable: #4c4f69;
+}
+
+.editor-host.editor-theme-tokyo-night-day {
+  --editor-syntax-attribute: #007197;
+  --editor-syntax-comment: #6172b0;
+  --editor-syntax-constant: #b15c00;
+  --editor-syntax-foreground: #3760bf;
+  --editor-syntax-function: #2e7de9;
+  --editor-syntax-keyword: #9854f1;
+  --editor-syntax-module: #007197;
+  --editor-syntax-punctuation: #6172b0;
+  --editor-syntax-string: #587539;
+  --editor-syntax-type: #3760bf;
+  --editor-syntax-variable: #3760bf;
+}
+
+.editor-host.editor-theme-ayu-light {
+  --editor-syntax-attribute: #f07171;
+  --editor-syntax-comment: #abb0b6;
+  --editor-syntax-constant: #a37acc;
+  --editor-syntax-foreground: #5c6166;
+  --editor-syntax-function: #eba400;
+  --editor-syntax-keyword: #fa8532;
+  --editor-syntax-module: #55b4d4;
+  --editor-syntax-punctuation: #5c6166;
+  --editor-syntax-string: #86b300;
+  --editor-syntax-type: #22a4e6;
+  --editor-syntax-variable: #5c6166;
+}
+
+.editor-host.editor-theme-base16-seti {
+  --editor-syntax-attribute: #8a553f;
+  --editor-syntax-comment: #41535b;
+  --editor-syntax-constant: #cd3f45;
+  --editor-syntax-foreground: #151718;
+  --editor-syntax-function: #287fa2;
+  --editor-syntax-keyword: #7d4f9e;
+  --editor-syntax-module: #168f7b;
+  --editor-syntax-punctuation: #41535b;
+  --editor-syntax-string: #668c24;
+  --editor-syntax-type: #3b758c;
+  --editor-syntax-variable: #151718;
 }
 
 .editor-host .cm-ts-attribute,
 .editor-host .cm-ts-property {
-  color: #b45309;
+  color: var(--editor-syntax-attribute);
 }
 
 .editor-host .cm-ts-comment {
-  color: #6b7280;
+  color: var(--editor-syntax-comment);
   font-style: italic;
 }
 
 .editor-host .cm-ts-constant,
 .editor-host .cm-ts-number {
-  color: #dc2626;
+  color: var(--editor-syntax-constant);
 }
 
 .editor-host .cm-ts-function {
-  color: #2563eb;
+  color: var(--editor-syntax-function);
 }
 
 .editor-host .cm-ts-keyword,
 .editor-host .cm-ts-label,
 .editor-host .cm-ts-operator {
-  color: #7c3aed;
+  color: var(--editor-syntax-keyword);
 }
 
 .editor-host .cm-ts-module,
 .editor-host .cm-ts-tag {
-  color: #0891b2;
+  color: var(--editor-syntax-module);
 }
 
 .editor-host .cm-ts-punctuation {
-  color: #64748b;
+  color: var(--editor-syntax-punctuation);
 }
 
 .editor-host .cm-ts-string {
-  color: #047857;
+  color: var(--editor-syntax-string);
 }
 
 .editor-host .cm-ts-type {
-  color: #9333ea;
+  color: var(--editor-syntax-type);
 }
 
 .editor-host .cm-ts-variable {
-  color: #334155;
+  color: var(--editor-syntax-variable);
 }
 
 .cm-query-capture {
-  background-color: rgba(16, 185, 129, 0.18);
   outline: 1px solid rgba(16, 185, 129, 0.35);
   border-radius: 2px;
+  text-decoration-color: rgba(16, 185, 129, 0.7);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 .editor-host .cm-lintRange-error.cm-parse-error,
 .editor-host .cm-lintRange-error.cm-parse-missing {
-  background-color: rgba(239, 68, 68, 0.1);
   outline: 1px solid rgba(239, 68, 68, 0.25);
   border-radius: 2px;
+  text-decoration-color: rgba(239, 68, 68, 0.75);
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 2px;
 }
 
 .editor-host .cm-editor {
@@ -203,6 +282,7 @@
 
 .editor-host .cm-content {
   padding: 10px 0;
+  color: var(--editor-syntax-foreground);
 }
 
 .editor-host .cm-line {
@@ -215,9 +295,13 @@
   padding-right: 8px;
 }
 
-.editor-host .cm-activeLineGutter,
-.editor-host .cm-activeLine {
+.editor-host .cm-activeLineGutter {
   background-color: rgba(59, 130, 246, 0.1);
+}
+
+.editor-host .cm-activeLine {
+  background-color: transparent;
+  box-shadow: inset 2px 0 rgba(59, 130, 246, 0.35);
 }
 
 .editor-host .cm-fat-cursor {

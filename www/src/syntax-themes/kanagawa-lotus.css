@@ -1,0 +1,13 @@
+.editor-host.editor-theme-kanagawa-lotus {
+  --editor-syntax-attribute: #b35b79;
+  --editor-syntax-comment: #8a8980;
+  --editor-syntax-constant: #c84053;
+  --editor-syntax-foreground: #545464;
+  --editor-syntax-function: #4d699b;
+  --editor-syntax-keyword: #624c83;
+  --editor-syntax-module: #597b75;
+  --editor-syntax-punctuation: #545464;
+  --editor-syntax-string: #6f894e;
+  --editor-syntax-type: #b35b79;
+  --editor-syntax-variable: #545464;
+}

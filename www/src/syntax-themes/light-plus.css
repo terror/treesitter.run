@@ -1,0 +1,13 @@
+.editor-host.editor-theme-light-plus {
+  --editor-syntax-attribute: #795e26;
+  --editor-syntax-comment: #008000;
+  --editor-syntax-constant: #098658;
+  --editor-syntax-foreground: #000000;
+  --editor-syntax-function: #795e26;
+  --editor-syntax-keyword: #0000ff;
+  --editor-syntax-module: #267f99;
+  --editor-syntax-punctuation: #000000;
+  --editor-syntax-string: #a31515;
+  --editor-syntax-type: #267f99;
+  --editor-syntax-variable: #001080;
+}

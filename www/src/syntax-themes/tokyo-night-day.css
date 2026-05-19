@@ -1,0 +1,13 @@
+.editor-host.editor-theme-tokyo-night-day {
+  --editor-syntax-attribute: #007197;
+  --editor-syntax-comment: #6172b0;
+  --editor-syntax-constant: #b15c00;
+  --editor-syntax-foreground: #3760bf;
+  --editor-syntax-function: #2e7de9;
+  --editor-syntax-keyword: #9854f1;
+  --editor-syntax-module: #007197;
+  --editor-syntax-punctuation: #6172b0;
+  --editor-syntax-string: #587539;
+  --editor-syntax-type: #3760bf;
+  --editor-syntax-variable: #3760bf;
+}

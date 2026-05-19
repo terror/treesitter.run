@@ -1,12 +1,11 @@
+import {
+  type EditorSyntaxTheme,
+  defaultSyntaxTheme,
+} from '@/lib/syntax-themes';
 import { Language } from '@/lib/types';
 import { createContext, useContext } from 'react';
 
-export type EditorSyntaxTheme =
-  | 'github-light'
-  | 'catppuccin-latte'
-  | 'tokyo-night-day'
-  | 'ayu-light'
-  | 'base16-seti';
+export type { EditorSyntaxTheme };
 
 export interface EditorSettings {
   fontSize: number;
@@ -24,7 +23,7 @@ export const defaultSettings: EditorSettings = {
   language: 'javascript',
   lineNumbers: true,
   lineWrapping: true,
-  syntaxTheme: 'github-light',
+  syntaxTheme: defaultSyntaxTheme,
   tabSize: 2,
 };
 

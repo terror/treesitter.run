@@ -1,0 +1,13 @@
+.editor-host.editor-theme-rose-pine-dawn {
+  --editor-syntax-attribute: #b4637a;
+  --editor-syntax-comment: #9893a5;
+  --editor-syntax-constant: #d7827e;
+  --editor-syntax-foreground: #575279;
+  --editor-syntax-function: #286983;
+  --editor-syntax-keyword: #907aa9;
+  --editor-syntax-module: #56949f;
+  --editor-syntax-punctuation: #797593;
+  --editor-syntax-string: #56949f;
+  --editor-syntax-type: #ea9d34;
+  --editor-syntax-variable: #575279;
+}

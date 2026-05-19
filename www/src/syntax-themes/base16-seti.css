@@ -1,0 +1,13 @@
+.editor-host.editor-theme-base16-seti {
+  --editor-syntax-attribute: #8a553f;
+  --editor-syntax-comment: #41535b;
+  --editor-syntax-constant: #cd3f45;
+  --editor-syntax-foreground: #151718;
+  --editor-syntax-function: #287fa2;
+  --editor-syntax-keyword: #7d4f9e;
+  --editor-syntax-module: #168f7b;
+  --editor-syntax-punctuation: #41535b;
+  --editor-syntax-string: #668c24;
+  --editor-syntax-type: #3b758c;
+  --editor-syntax-variable: #151718;
+}

@@ -1,0 +1,13 @@
+.editor-host.editor-theme-gruvbox-light {
+  --editor-syntax-attribute: #b57614;
+  --editor-syntax-comment: #928374;
+  --editor-syntax-constant: #8f3f71;
+  --editor-syntax-foreground: #3c3836;
+  --editor-syntax-function: #076678;
+  --editor-syntax-keyword: #9d0006;
+  --editor-syntax-module: #427b58;
+  --editor-syntax-punctuation: #7c6f64;
+  --editor-syntax-string: #79740e;
+  --editor-syntax-type: #b57614;
+  --editor-syntax-variable: #3c3836;
+}

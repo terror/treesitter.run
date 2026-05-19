@@ -1,0 +1,13 @@
+.editor-host {
+  --editor-syntax-attribute: #116329;
+  --editor-syntax-comment: #57606a;
+  --editor-syntax-constant: #0550ae;
+  --editor-syntax-foreground: #24292f;
+  --editor-syntax-function: #8250df;
+  --editor-syntax-keyword: #cf222e;
+  --editor-syntax-module: #116329;
+  --editor-syntax-punctuation: #57606a;
+  --editor-syntax-string: #0a3069;
+  --editor-syntax-type: #8250df;
+  --editor-syntax-variable: #24292f;
+}

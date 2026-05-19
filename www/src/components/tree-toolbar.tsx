@@ -37,7 +37,6 @@ export const TreeToolbar = ({
       activeFilterCount={activeFilterCount}
       onFiltersChange={onFiltersChange}
     />
-
     <div className='ml-auto shrink-0'>
       <ParserMetadataDialog language={language} />
     </div>

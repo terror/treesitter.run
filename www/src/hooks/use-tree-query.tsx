@@ -61,6 +61,7 @@ export function useTreeQuery({
         .captures(root as unknown as TSNode)
         .flatMap((capture: TSQueryCapture) => {
           const node = capture.node as unknown as SyntaxNode;
+
           const from = positionToOffset(node.startPosition, doc);
           const to = positionToOffset(node.endPosition, doc);
 

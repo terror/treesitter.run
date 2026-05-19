@@ -108,7 +108,6 @@ export const TreePane = ({
             visibleTree={visibleTree}
           />
         </ResizablePanel>
-
         <ResizableHandle />
         <ResizablePanel
           id='query'

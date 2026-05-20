@@ -128,6 +128,7 @@ export type Language =
   | 'thrift'
   | 'typescript'
   | 'udev'
+  | 'ungrammar'
   | 'verilog'
   | 'vim'
   | 'wgsl-bevy'

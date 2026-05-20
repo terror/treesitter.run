@@ -683,6 +683,11 @@
     "revision": "2fcb563a4d56a6b8e8c129252325fc6335e4acbf"
   },
   {
+    "name": "ungrammar",
+    "repository": "https://github.com/Philipp-M/tree-sitter-ungrammar",
+    "revision": "debd26fed283d80456ebafa33a06957b0c52e451"
+  },
+  {
     "name": "verilog",
     "repository": "https://github.com/tree-sitter/tree-sitter-verilog",
     "revision": "227d277b6a1a5e2bf818d6206935722a7503de08"

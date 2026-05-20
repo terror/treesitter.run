@@ -121,6 +121,7 @@ export type Language =
   | 'slang'
   | 'smali'
   | 'solidity'
+  | 'squirrel'
   | 'svelte'
   | 'typescript'
   | 'udev'

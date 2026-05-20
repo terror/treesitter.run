@@ -770,6 +770,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-solidity.wasm',
     sampleCode: 'contract Foo {\n  function bar() public {}\n}',
   },
+  squirrel: {
+    name: 'squirrel',
+    displayName: 'Squirrel',
+    wasmPath: 'tree-sitter-squirrel.wasm',
+    sampleCode: 'function foo(bar) {\n  return bar\n}',
+  },
   svelte: {
     name: 'svelte',
     displayName: 'Svelte',

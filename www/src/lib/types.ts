@@ -97,6 +97,7 @@ export type Language =
   | 'printf'
   | 'prisma'
   | 'properties'
+  | 'pug'
   | 'puppet'
   | 'purescript'
   | 'pymanifest'

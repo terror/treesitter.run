@@ -51,6 +51,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-bibtex.wasm',
     sampleCode: '@article{foo,\n  title = {bar},\n}',
   },
+  bitbake: {
+    name: 'bitbake',
+    displayName: 'BitBake',
+    wasmPath: 'tree-sitter-bitbake.wasm',
+    sampleCode: 'FOO = "bar"\n',
+  },
   c: {
     name: 'c',
     displayName: 'C',

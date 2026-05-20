@@ -76,7 +76,32 @@ mod tests {
   use super::*;
 
   #[test]
-  fn path_resolution() {
+  fn bundled_runtime_wasm() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
+
+    assert_eq!(
+      workspace.bundled_runtime_wasm(),
+      root
+        .join("www")
+        .join("node_modules")
+        .join("web-tree-sitter")
+        .join("tree-sitter.wasm"),
+    );
+  }
+
+  #[test]
+  fn manifest_path() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
+
+    assert_eq!(workspace.manifest_path(), root.join("manifest.json"));
+  }
+
+  #[test]
+  fn parser_wasm() {
     let root = PathBuf::from("foo");
 
     let workspace = Workspace::new(root.clone());
@@ -88,27 +113,24 @@ mod tests {
       revision: String::from("qux"),
     };
 
-    let tree_sitter = if cfg!(windows) {
-      "tree-sitter.cmd"
-    } else {
-      "tree-sitter"
-    };
-
-    assert_eq!(
-      workspace.bundled_runtime_wasm(),
-      root
-        .join("www")
-        .join("node_modules")
-        .join("web-tree-sitter")
-        .join("tree-sitter.wasm"),
-    );
-
-    assert_eq!(workspace.manifest_path(), root.join("manifest.json"));
-
     assert_eq!(
       workspace.parser_wasm(&parser),
       root.join("www").join("public").join("tree-sitter-bar.wasm"),
     );
+  }
+
+  #[test]
+  fn parser_highlights_query() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
+
+    let parser = Parser {
+      name: String::from("bar"),
+      path: None,
+      repository: String::from("baz"),
+      revision: String::from("qux"),
+    };
 
     assert_eq!(
       workspace.parser_highlights_query(&parser),
@@ -117,13 +139,40 @@ mod tests {
         .join("public")
         .join("tree-sitter-bar.highlights.scm"),
     );
+  }
+
+  #[test]
+  fn public_dir() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
 
     assert_eq!(workspace.public_dir(), root.join("www").join("public"));
+  }
+
+  #[test]
+  fn runtime_wasm() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
 
     assert_eq!(
       workspace.runtime_wasm(),
       root.join("www").join("public").join("tree-sitter.wasm"),
     );
+  }
+
+  #[test]
+  fn tree_sitter_bin() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
+
+    let tree_sitter = if cfg!(windows) {
+      "tree-sitter.cmd"
+    } else {
+      "tree-sitter"
+    };
 
     assert_eq!(
       workspace.tree_sitter_bin(),
@@ -133,6 +182,13 @@ mod tests {
         .join(".bin")
         .join(tree_sitter),
     );
+  }
+
+  #[test]
+  fn www_dir() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
 
     assert_eq!(workspace.www_dir(), root.join("www"));
   }

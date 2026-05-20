@@ -787,6 +787,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '\n' +
       '<h1>{foo}</h1>',
   },
+  tablegen: {
+    name: 'tablegen',
+    displayName: 'TableGen',
+    wasmPath: 'tree-sitter-tablegen.wasm',
+    sampleCode: 'class Foo<string bar> {\n  string baz = bar;\n}',
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

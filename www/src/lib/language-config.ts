@@ -486,6 +486,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-lua.wasm',
     sampleCode: 'local function foo(bar)\n  print(bar)\nend\n\nfoo("baz")',
   },
+  luadoc: {
+    name: 'luadoc',
+    displayName: 'LuaDoc',
+    wasmPath: 'tree-sitter-luadoc.wasm',
+    sampleCode: '@param foo string\n@return string',
+  },
   luau: {
     name: 'luau',
     displayName: 'Luau',

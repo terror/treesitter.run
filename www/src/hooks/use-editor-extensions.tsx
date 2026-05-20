@@ -1,8 +1,8 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
-import { errorExtension } from '@/extensions/error';
-import { highlightExtension } from '@/extensions/highlight';
-import { queryExtension } from '@/extensions/query';
-import { treeSitterHighlightExtension } from '@/extensions/tree-sitter-highlight';
+import { parseDiagnosticsExtension } from '@/extensions/parse-diagnostics';
+import { queryCaptureHighlightExtension } from '@/extensions/query-capture-highlight';
+import { selectedNodeHighlightExtension } from '@/extensions/selected-node-highlight';
+import { syntaxHighlightingExtension } from '@/extensions/syntax-highlighting';
 import { usePreviousValue } from '@/hooks/use-previous-value';
 import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { SyntaxRange } from '@/lib/types';
@@ -14,41 +14,41 @@ import { type Query, type Tree } from 'web-tree-sitter';
 
 interface UseEditorExtensionsOptions {
   code: string;
-  highlight: { from: number; to: number } | undefined;
-  highlightQuery: Query | null | undefined;
+  selectedNodeRange: { from: number; to: number } | undefined;
+  syntaxHighlightQuery: Query | null | undefined;
   parseErrors: ParseErrorRange[];
-  query: string;
-  queryHighlights: SyntaxRange[];
+  queryText: string;
+  queryCaptureRanges: SyntaxRange[];
   tree: Tree | null;
 }
 
 export function useEditorExtensions({
   code,
-  highlight,
-  highlightQuery,
+  selectedNodeRange,
+  syntaxHighlightQuery,
   parseErrors,
-  query,
-  queryHighlights,
+  queryText,
+  queryCaptureRanges,
   tree,
 }: UseEditorExtensionsOptions): Extension[] {
   const { settings } = useEditorSettings();
 
-  const previousHighlight = usePreviousValue(highlight);
-  const previousQuery = usePreviousValue(query);
+  const previousSelectedNodeRange = usePreviousValue(selectedNodeRange);
+  const previousQueryText = usePreviousValue(queryText);
 
-  const scrollToHighlight =
-    previousHighlight?.from !== highlight?.from ||
-    previousHighlight?.to !== highlight?.to;
+  const scrollToSelectedNode =
+    previousSelectedNodeRange?.from !== selectedNodeRange?.from ||
+    previousSelectedNodeRange?.to !== selectedNodeRange?.to;
 
-  const scrollToQueryHighlight = previousQuery !== query;
+  const scrollToQueryCapture = previousQueryText !== queryText;
 
   return useMemo(() => {
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
-      treeSitterHighlightExtension({ code, query: highlightQuery, tree }),
-      errorExtension(parseErrors),
-      queryExtension(queryHighlights, scrollToQueryHighlight),
-      highlightExtension(highlight, scrollToHighlight),
+      syntaxHighlightingExtension({ code, query: syntaxHighlightQuery, tree }),
+      parseDiagnosticsExtension(parseErrors),
+      queryCaptureHighlightExtension(queryCaptureRanges, scrollToQueryCapture),
+      selectedNodeHighlightExtension(selectedNodeRange, scrollToSelectedNode),
     ];
 
     if (settings.keybindings === 'vim') {
@@ -62,12 +62,12 @@ export function useEditorExtensions({
     return extensions;
   }, [
     code,
-    highlight,
-    highlightQuery,
+    selectedNodeRange,
+    syntaxHighlightQuery,
     parseErrors,
-    queryHighlights,
-    scrollToHighlight,
-    scrollToQueryHighlight,
+    queryCaptureRanges,
+    scrollToSelectedNode,
+    scrollToQueryCapture,
     settings.keybindings,
     settings.lineWrapping,
     settings.tabSize,

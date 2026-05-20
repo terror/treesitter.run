@@ -127,7 +127,7 @@ export const normalizeHighlightRanges = (
   return normalized;
 };
 
-export const treeSitterHighlightExtension = ({
+export const syntaxHighlightingExtension = ({
   code,
   query,
   tree,

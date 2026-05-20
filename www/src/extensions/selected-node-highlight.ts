@@ -1,11 +1,11 @@
 import { Extension } from '@codemirror/state';
 import { Decoration, EditorView } from '@codemirror/view';
 
-import { scrollExtension } from './scroll';
+import { scrollIntoViewExtension } from './scroll-into-view';
 
 const highlightMark = Decoration.mark({ class: 'cm-highlighted-node' });
 
-export const highlightExtension = (
+export const selectedNodeHighlightExtension = (
   range: { from: number; to: number } | undefined,
   scroll = true
 ): Extension => {
@@ -30,13 +30,13 @@ export const highlightExtension = (
   }
 
   if (from === to) {
-    return [scrollExtension(from)];
+    return [scrollIntoViewExtension(from)];
   }
 
   return [
     EditorView.decorations.of(() =>
       Decoration.set([highlightMark.range(from, to)])
     ),
-    scrollExtension(from),
+    scrollIntoViewExtension(from),
   ];
 };

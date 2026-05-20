@@ -1,7 +1,7 @@
 import { Extension } from '@codemirror/state';
 import { EditorView, ViewPlugin } from '@codemirror/view';
 
-export const scrollExtension = (from: number): Extension =>
+export const scrollIntoViewExtension = (from: number): Extension =>
   ViewPlugin.fromClass(
     class {
       constructor(view: EditorView) {

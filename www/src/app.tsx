@@ -95,10 +95,10 @@ const App = () => {
 
   const extensions = useEditorExtensions({
     code,
-    highlight,
-    highlightQuery,
-    query,
-    queryHighlights,
+    selectedNodeRange: highlight,
+    syntaxHighlightQuery: highlightQuery,
+    queryText: query,
+    queryCaptureRanges: queryHighlights,
     parseErrors,
     tree,
   });

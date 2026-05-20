@@ -4,7 +4,7 @@ import {
   byteIndexToOffset,
   captureClassName,
   normalizeHighlightRanges,
-} from './tree-sitter-highlight';
+} from './syntax-highlighting';
 
 describe('captureClassName', () => {
   it('maps highlight captures to classes', () => {

@@ -64,6 +64,7 @@ export type Language =
   | 'jsdoc'
   | 'json'
   | 'json5'
+  | 'jsonnet'
   | 'julia'
   | 'just'
   | 'kconfig'

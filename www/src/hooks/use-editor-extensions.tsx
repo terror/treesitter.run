@@ -13,7 +13,6 @@ import { useMemo } from 'react';
 import { type Query, type Tree } from 'web-tree-sitter';
 
 interface UseEditorExtensionsOptions {
-  code: string;
   selectedNodeRange: { from: number; to: number } | undefined;
   syntaxHighlightQuery: Query | null | undefined;
   parseErrors: ParseErrorRange[];
@@ -23,7 +22,6 @@ interface UseEditorExtensionsOptions {
 }
 
 export function useEditorExtensions({
-  code,
   selectedNodeRange,
   syntaxHighlightQuery,
   parseErrors,
@@ -45,7 +43,7 @@ export function useEditorExtensions({
   return useMemo(() => {
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
-      syntaxHighlightingExtension({ code, query: syntaxHighlightQuery, tree }),
+      syntaxHighlightingExtension({ query: syntaxHighlightQuery, tree }),
       parseDiagnosticsExtension(parseErrors),
       queryCaptureHighlightExtension(queryCaptureRanges, scrollToQueryCapture),
       selectedNodeHighlightExtension(selectedNodeRange, scrollToSelectedNode),
@@ -61,7 +59,6 @@ export function useEditorExtensions({
 
     return extensions;
   }, [
-    code,
     selectedNodeRange,
     syntaxHighlightQuery,
     parseErrors,

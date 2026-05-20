@@ -1,10 +1,33 @@
-import { describe, expect, it } from 'bun:test';
+import { afterAll, beforeAll, describe, expect, it } from 'bun:test';
+import { Language, Parser, Query } from 'web-tree-sitter';
 
 import {
-  byteIndexToOffset,
   captureClassName,
+  highlightRanges,
   normalizeHighlightRanges,
 } from './syntax-highlighting';
+
+const publicPath = (path: string): string =>
+  new URL(`../../public/${path}`, import.meta.url).pathname;
+
+let language: Language;
+let parser: Parser;
+
+beforeAll(async () => {
+  await Parser.init({
+    locateFile(scriptName: string) {
+      return publicPath(scriptName);
+    },
+  });
+
+  language = await Language.load(publicPath('tree-sitter-javascript.wasm'));
+  parser = new Parser();
+  parser.setLanguage(language);
+});
+
+afterAll(() => {
+  parser.delete();
+});
 
 describe('captureClassName', () => {
   it('maps highlight captures to classes', () => {
@@ -17,17 +40,21 @@ describe('captureClassName', () => {
   });
 });
 
-describe('byteIndexToOffset', () => {
-  it('converts utf8 byte indices to document offsets', () => {
-    const value = 'foo é 𐐷 bar';
+describe('highlightRanges', () => {
+  it('uses tree-sitter node offsets directly', () => {
+    const code = 'const é = foo;';
+    const query = new Query(language, '(identifier) @variable');
+    const tree = parser.parse(code);
 
-    expect(byteIndexToOffset(value, 0)).toBe(0);
-    expect(byteIndexToOffset(value, 4)).toBe(4);
-    expect(byteIndexToOffset(value, 6)).toBe(5);
-    expect(byteIndexToOffset(value, 7)).toBe(6);
-    expect(byteIndexToOffset(value, 11)).toBe(8);
-    expect(byteIndexToOffset(value, 15)).toBe(12);
-    expect(byteIndexToOffset(value, 100)).toBe(value.length);
+    try {
+      expect(highlightRanges({ query, tree })).toEqual([
+        { className: 'cm-ts-variable', from: 6, to: 7 },
+        { className: 'cm-ts-variable', from: 10, to: 13 },
+      ]);
+    } finally {
+      query.delete();
+      tree?.delete();
+    }
   });
 });
 

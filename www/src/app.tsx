@@ -94,7 +94,6 @@ const App = () => {
   );
 
   const extensions = useEditorExtensions({
-    code,
     selectedNodeRange: highlight,
     syntaxHighlightQuery: highlightQuery,
     queryText: query,

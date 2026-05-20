@@ -42,27 +42,6 @@ export const captureClassName = (captureName: string): string | undefined => {
   return captureClasses[captureName] ?? captureClasses[name];
 };
 
-export const byteIndexToOffset = (value: string, byteIndex: number): number => {
-  let bytes = 0;
-
-  for (let offset = 0; offset < value.length; ) {
-    if (bytes >= byteIndex) {
-      return offset;
-    }
-
-    const codePoint = value.codePointAt(offset);
-
-    if (codePoint === undefined) {
-      return offset;
-    }
-
-    bytes += utf8Length(codePoint);
-    offset += codePoint > 0xffff ? 2 : 1;
-  }
-
-  return value.length;
-};
-
 const highlightMark = (className: string): Decoration => {
   const mark = markCache.get(className);
 
@@ -127,15 +106,13 @@ export const normalizeHighlightRanges = (
   return normalized;
 };
 
-export const syntaxHighlightingExtension = ({
-  code,
+export const highlightRanges = ({
   query,
   tree,
 }: {
-  code: string;
   query: Query | null | undefined;
   tree: Tree | null;
-}): Extension => {
+}): HighlightRange[] => {
   if (!query || !tree) {
     return [];
   }
@@ -147,8 +124,8 @@ export const syntaxHighlightingExtension = ({
       return [];
     }
 
-    const from = byteIndexToOffset(code, capture.node.startIndex);
-    const to = byteIndexToOffset(code, capture.node.endIndex);
+    const from = capture.node.startIndex;
+    const to = capture.node.endIndex;
 
     if (to <= from) {
       return [];
@@ -157,27 +134,27 @@ export const syntaxHighlightingExtension = ({
     return [{ className, from, to }];
   });
 
+  return normalizeHighlightRanges(ranges);
+};
+
+export const syntaxHighlightingExtension = ({
+  query,
+  tree,
+}: {
+  query: Query | null | undefined;
+  tree: Tree | null;
+}): Extension => {
+  const ranges = highlightRanges({ query, tree });
+
+  if (ranges.length === 0) {
+    return [];
+  }
+
   const decorations = Decoration.set(
-    normalizeHighlightRanges(ranges).map(({ className, from, to }) =>
+    ranges.map(({ className, from, to }) =>
       highlightMark(className).range(from, to)
     )
   );
 
   return EditorView.decorations.of(() => decorations);
-};
-
-const utf8Length = (codePoint: number): number => {
-  if (codePoint <= 0x7f) {
-    return 1;
-  }
-
-  if (codePoint <= 0x7ff) {
-    return 2;
-  }
-
-  if (codePoint <= 0xffff) {
-    return 3;
-  }
-
-  return 4;
 };

@@ -51,10 +51,9 @@ const App = () => {
     expandedNodes,
     parseErrors,
     query,
+    queryCaptureNamesByKey,
     queryCaptures,
     queryError,
-    queryHighlights,
-    queryMatchKeys,
     root,
     setQuery,
     tree,
@@ -97,7 +96,7 @@ const App = () => {
     selectedNodeRange: highlight,
     syntaxHighlightQuery: highlightQuery,
     queryText: query,
-    queryCaptureRanges: queryHighlights,
+    queryCaptures,
     parseErrors,
     tree,
   });
@@ -160,9 +159,9 @@ const App = () => {
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={onHighlightChange}
                 query={query}
+                queryCaptureNamesByKey={queryCaptureNamesByKey}
                 queryCaptures={queryCaptures}
                 queryError={queryError}
-                queryMatchKeys={queryMatchKeys}
                 root={root}
                 setQuery={setQuery}
                 toggleExpand={toggleExpand}

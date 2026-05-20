@@ -92,19 +92,31 @@ export function useTreeQuery({
     }
   }, [doc, query, root, treeSitterLanguage]);
 
-  const queryMatchKeys = useMemo(
-    () =>
-      new Set(
-        queryResult.captures.map((capture) => syntaxNodeKey(capture.node))
-      ),
-    [queryResult.captures]
-  );
+  const queryCaptureNamesByKey = useMemo(() => {
+    const namesByKey = new Map<string, string[]>();
+
+    for (const capture of queryResult.captures) {
+      const key = syntaxNodeKey(capture.node);
+
+      const names = namesByKey.get(key);
+
+      if (names) {
+        if (!names.includes(capture.name)) {
+          names.push(capture.name);
+        }
+      } else {
+        namesByKey.set(key, [capture.name]);
+      }
+    }
+
+    return namesByKey;
+  }, [queryResult.captures]);
 
   return {
     captures: queryResult.captures,
     error: queryResult.error,
     query,
-    queryMatchKeys,
+    queryCaptureNamesByKey,
     setQuery,
   };
 }

@@ -108,6 +108,7 @@ export type Language =
   | 'query'
   | 'r'
   | 'racket'
+  | 're2c'
   | 'readline'
   | 'regex'
   | 'requirements'

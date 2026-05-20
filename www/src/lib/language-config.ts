@@ -691,6 +691,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-racket.wasm',
     sampleCode: '#lang racket\n\n(define (foo bar)\n  bar)',
   },
+  re2c: {
+    name: 're2c',
+    displayName: 're2c',
+    wasmPath: 'tree-sitter-re2c.wasm',
+    sampleCode: '/*!re2c\n  * { return 0; }\n*/',
+  },
   readline: {
     name: 'readline',
     displayName: 'Readline',

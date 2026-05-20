@@ -550,6 +550,11 @@
     "revision": "54649be8b939341d2d5410b594ab954fe8814bd0"
   },
   {
+    "name": "re2c",
+    "repository": "https://github.com/amaanq/tree-sitter-re2c",
+    "revision": "c18a3c2f4b6665e35b7e50d6048ea3cff770c572"
+  },
+  {
     "name": "readline",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-readline",
     "revision": "6b744c527aebd12e46a5ecb3aebdb8d621a8e83e"

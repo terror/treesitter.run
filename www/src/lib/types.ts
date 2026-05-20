@@ -68,6 +68,7 @@ export type Language =
   | 'julia'
   | 'just'
   | 'kconfig'
+  | 'kdl'
   | 'kotlin'
   | 'llvm'
   | 'lua'

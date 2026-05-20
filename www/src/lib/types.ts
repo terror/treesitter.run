@@ -79,6 +79,7 @@ export type Language =
   | 'luau'
   | 'make'
   | 'markdown'
+  | 'mermaid'
   | 'meson'
   | 'nginx'
   | 'nix'

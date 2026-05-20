@@ -516,6 +516,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-markdown.wasm',
     sampleCode: '# Foo\n\nbar baz',
   },
+  mermaid: {
+    name: 'mermaid',
+    displayName: 'Mermaid',
+    wasmPath: 'tree-sitter-mermaid.wasm',
+    sampleCode: 'flowchart TB\n  Foo --> Bar\n',
+  },
   meson: {
     name: 'meson',
     displayName: 'Meson',

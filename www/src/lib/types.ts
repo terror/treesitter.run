@@ -32,6 +32,7 @@ export type Language =
   | 'embedded-template'
   | 'erlang'
   | 'fennel'
+  | 'firrtl'
   | 'fortran'
   | 'gdscript'
   | 'gitattributes'

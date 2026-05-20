@@ -165,6 +165,11 @@
     "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"
   },
   {
+    "name": "firrtl",
+    "repository": "https://github.com/amaanq/tree-sitter-firrtl",
+    "revision": "8503d3a0fe0f9e427863cb0055699ff2d29ae5f5"
+  },
+  {
     "name": "fortran",
     "repository": "https://github.com/stadelmanma/tree-sitter-fortran",
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"

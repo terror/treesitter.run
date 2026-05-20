@@ -656,6 +656,11 @@
     "revision": "64ad62785d442eb4d45df3a1764962dafd5bc98b"
   },
   {
+    "name": "thrift",
+    "repository": "https://github.com/duskmoon314/tree-sitter-thrift",
+    "revision": "68fd0d80943a828d9e6f49c58a74be1e9ca142cf"
+  },
+  {
     "name": "toml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-toml",
     "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41"

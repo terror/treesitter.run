@@ -799,6 +799,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-terraform.wasm',
     sampleCode: 'resource "foo" "bar" {\n  baz = "qux"\n}',
   },
+  thrift: {
+    name: 'thrift',
+    displayName: 'Thrift',
+    wasmPath: 'tree-sitter-thrift.wasm',
+    sampleCode: 'namespace rs foo\nstruct Bar {\n  1: string baz\n}\n',
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

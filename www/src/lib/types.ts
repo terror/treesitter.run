@@ -125,6 +125,7 @@ export type Language =
   | 'svelte'
   | 'tablegen'
   | 'terraform'
+  | 'thrift'
   | 'typescript'
   | 'udev'
   | 'verilog'

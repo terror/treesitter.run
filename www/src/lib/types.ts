@@ -113,6 +113,7 @@ export type Language =
   | 'regex'
   | 'requirements'
   | 'rescript'
+  | 'ron'
   | 'ruby'
   | 'rust'
   | 'scala'

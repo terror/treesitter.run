@@ -285,7 +285,7 @@ export const EditorSettingsDialog = () => {
             </SettingSection>
           </div>
 
-          <DialogFooter className='px-6 py-4'>
+          <DialogFooter className='px-6 py-6'>
             <Button
               variant='outline'
               size='sm'

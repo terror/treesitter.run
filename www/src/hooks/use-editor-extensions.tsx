@@ -4,7 +4,7 @@ import { queryCaptureHighlightExtension } from '@/extensions/query-capture-highl
 import { selectedNodeHighlightExtension } from '@/extensions/selected-node-highlight';
 import { usePreviousValue } from '@/hooks/use-previous-value';
 import type { ParseErrorRange } from '@/lib/parse-errors';
-import type { SyntaxRange } from '@/lib/types';
+import type { QueryCapture, SyntaxRange } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { vim } from '@replit/codemirror-vim';
@@ -14,14 +14,14 @@ interface UseEditorExtensionsOptions {
   selectedNodeRange: { from: number; to: number } | undefined;
   parseErrors: ParseErrorRange[];
   queryText: string;
-  queryCaptureRanges: SyntaxRange[];
+  queryCaptures: QueryCapture[];
 }
 
 export function useEditorExtensions({
   selectedNodeRange,
   parseErrors,
   queryText,
-  queryCaptureRanges,
+  queryCaptures,
 }: UseEditorExtensionsOptions): Extension[] {
   const { settings } = useEditorSettings();
 
@@ -35,6 +35,10 @@ export function useEditorExtensions({
   const scrollToQueryCapture = previousQueryText !== queryText;
 
   return useMemo(() => {
+    const queryCaptureRanges = queryCaptures.map(
+      (capture): SyntaxRange => capture.range
+    );
+
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
       parseDiagnosticsExtension(parseErrors),
@@ -54,7 +58,7 @@ export function useEditorExtensions({
   }, [
     selectedNodeRange,
     parseErrors,
-    queryCaptureRanges,
+    queryCaptures,
     scrollToSelectedNode,
     scrollToQueryCapture,
     settings.keybindings,

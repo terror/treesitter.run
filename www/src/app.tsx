@@ -45,10 +45,9 @@ const App = () => {
     expandedNodes,
     parseErrors,
     query,
+    queryCaptureNamesByKey,
     queryCaptures,
     queryError,
-    queryHighlights,
-    queryMatchKeys,
     root,
     setQuery,
     toggleExpand,
@@ -89,7 +88,7 @@ const App = () => {
   const extensions = useEditorExtensions({
     selectedNodeRange: highlight,
     queryText: query,
-    queryCaptureRanges: queryHighlights,
+    queryCaptures,
     parseErrors,
   });
 
@@ -151,9 +150,9 @@ const App = () => {
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={onHighlightChange}
                 query={query}
+                queryCaptureNamesByKey={queryCaptureNamesByKey}
                 queryCaptures={queryCaptures}
                 queryError={queryError}
-                queryMatchKeys={queryMatchKeys}
                 root={root}
                 setQuery={setQuery}
                 toggleExpand={toggleExpand}

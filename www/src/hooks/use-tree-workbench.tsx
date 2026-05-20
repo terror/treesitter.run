@@ -31,7 +31,7 @@ export function useTreeWorkbench({
     captures: queryCaptures,
     error: queryError,
     query,
-    queryMatchKeys,
+    queryCaptureNamesByKey,
     setQuery,
   } = useTreeQuery({
     doc,
@@ -40,20 +40,14 @@ export function useTreeWorkbench({
     treeSitterLanguage,
   });
 
-  const queryHighlights = useMemo(
-    () => queryCaptures.map((capture) => capture.range),
-    [queryCaptures]
-  );
-
   return {
     doc,
     expandedNodes,
     parseErrors,
     query,
+    queryCaptureNamesByKey,
     queryCaptures,
     queryError,
-    queryHighlights,
-    queryMatchKeys,
     root,
     setQuery,
     toggleExpand,

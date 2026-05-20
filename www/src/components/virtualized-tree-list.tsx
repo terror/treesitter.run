@@ -14,7 +14,7 @@ interface VirtualizedTreeListProps {
   loading: boolean;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
-  queryMatchKeys: Set<string>;
+  queryCaptureNamesByKey: Map<string, string[]>;
   root: SyntaxNode | undefined;
   rootVisible: boolean;
   toggleExpand: (node: SyntaxNode) => void;
@@ -27,7 +27,7 @@ export const VirtualizedTreeList = ({
   loading,
   onDeleteRange,
   onHighlightChange,
-  queryMatchKeys,
+  queryCaptureNamesByKey,
   root,
   rootVisible,
   toggleExpand,
@@ -59,6 +59,9 @@ export const VirtualizedTreeList = ({
             {rowVirtualizer.getVirtualItems().map((virtualRow) => {
               const row = visibleRows[virtualRow.index];
 
+              const queryCaptureNames =
+                queryCaptureNamesByKey.get(syntaxNodeKey(row.node)) ?? [];
+
               return (
                 <div
                   key={virtualRow.key}
@@ -75,7 +78,8 @@ export const VirtualizedTreeList = ({
                     isExpanded={row.isExpanded}
                     level={row.level}
                     node={row.node}
-                    queryMatch={queryMatchKeys.has(syntaxNodeKey(row.node))}
+                    queryCaptureNames={queryCaptureNames}
+                    queryMatch={queryCaptureNames.length > 0}
                     searchMatches={visibleTree.searchMatches}
                     toggleExpand={toggleExpand}
                     onDeleteRange={onDeleteRange}

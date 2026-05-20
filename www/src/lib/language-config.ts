@@ -179,6 +179,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-dot.wasm',
     sampleCode: 'digraph foo {\n  bar -> baz\n}',
   },
+  eex: {
+    name: 'eex',
+    displayName: 'EEx',
+    wasmPath: 'tree-sitter-eex.wasm',
+    sampleCode: '<%= @foo %>',
+  },
   elixir: {
     name: 'elixir',
     displayName: 'Elixir',

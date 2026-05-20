@@ -943,4 +943,10 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode:
       'const std = @import("std");\n\npub fn main() void {\n  std.debug.print("foo\\n", .{});\n}',
   },
+  zsh: {
+    name: 'zsh',
+    displayName: 'Zsh',
+    wasmPath: 'tree-sitter-zsh.wasm',
+    sampleCode: 'for foo in bar; do\n  echo $foo\ndone',
+  },
 };

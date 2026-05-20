@@ -144,7 +144,8 @@ export type Language =
   | 'starlark'
   | 'tcl'
   | 'tsx'
-  | 'zig';
+  | 'zig'
+  | 'zsh';
 
 export interface LanguageConfig {
   name: Language;

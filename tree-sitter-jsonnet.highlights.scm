@@ -81,24 +81,6 @@
   (importstr)
 ] @include
 
-; References
-
-; Make reference same color as parameter 
-; (may incur performance issues on big files)
-; Depends on locals.scm
-((id) @parameter.reference
- (#is? @parameter.reference parameter))
-
-((id) @function.reference
- (#is? @function.reference function))
-
-((id) @var.reference
- (#is? @var.reference var))
-((id) @define
- (#is? @var.reference var))
-
-; References do not apply to static field IDs
-; Workaround for `(#is-not? local)` not supported
 (fieldname (id) @field)
 (fieldname (string
              (string_start) @text.strong
@@ -106,19 +88,6 @@
              (string_end) @text.strong
            ))
 
-; But it does apply if ID in an expression
-(fieldname
- ("["
-  (id) @parameter.reference
-  "]"
-  (#is? @parameter.reference parameter)))
-(fieldname
- ("["
-  (id) @define
-  "]"
-  (#is? @var.reference var)))
-
-; Functions
 (field
   function: (fieldname (id) @function))
 (field

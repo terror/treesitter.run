@@ -30,6 +30,7 @@ export type Language =
   | 'elixir'
   | 'elm'
   | 'embedded-template'
+  | 'erlang'
   | 'fennel'
   | 'fortran'
   | 'gdscript'

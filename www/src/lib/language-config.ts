@@ -204,6 +204,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-embedded-template.wasm',
     sampleCode: '<p><%= foo %></p>',
   },
+  erlang: {
+    name: 'erlang',
+    displayName: 'Erlang',
+    wasmPath: 'tree-sitter-erlang.wasm',
+    sampleCode: '-module(foo).\n-export([bar/0]).\nbar() -> ok.',
+  },
   fennel: {
     name: 'fennel',
     displayName: 'Fennel',

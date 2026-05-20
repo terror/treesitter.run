@@ -94,6 +94,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-chatito.wasm',
     sampleCode: '%[foo]\n    bar\n',
   },
+  clojure: {
+    name: 'clojure',
+    displayName: 'Clojure',
+    wasmPath: 'tree-sitter-clojure.wasm',
+    sampleCode: '(defn foo [bar]\n  bar)',
+  },
   cmake: {
     name: 'cmake',
     displayName: 'CMake',

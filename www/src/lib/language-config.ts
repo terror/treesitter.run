@@ -113,6 +113,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-commonlisp.wasm',
     sampleCode: '(defun foo (bar)\n  (print bar))',
   },
+  cpon: {
+    name: 'cpon',
+    displayName: 'CPON',
+    wasmPath: 'tree-sitter-cpon.wasm',
+    sampleCode: '<"foo":"bar">1',
+  },
   cpp: {
     name: 'cpp',
     displayName: 'C++',

@@ -226,6 +226,11 @@
     "revision": "27816eb6b7315746ae9fcf711e4e1396dc1cf237"
   },
   {
+    "name": "gowork",
+    "repository": "https://github.com/omertuc/tree-sitter-go-work",
+    "revision": "949a8a470559543857a62102c84700d291fc984c"
+  },
+  {
     "name": "gpg-config",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gpg-config",
     "revision": "4024eb268c59204280f8ac71ef146b8ff5e737f6"

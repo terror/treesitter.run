@@ -36,6 +36,7 @@ export type Language =
   | 'fish'
   | 'fortran'
   | 'fsharp'
+  | 'func'
   | 'gdscript'
   | 'gitattributes'
   | 'gleam'

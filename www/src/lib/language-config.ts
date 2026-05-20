@@ -355,6 +355,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       '  </body>\n' +
       '</html>',
   },
+  http: {
+    name: 'http',
+    displayName: 'HTTP',
+    wasmPath: 'tree-sitter-http.wasm',
+    sampleCode: 'GET http://example.com\n',
+  },
   hyprlang: {
     name: 'hyprlang',
     displayName: 'Hyprlang',

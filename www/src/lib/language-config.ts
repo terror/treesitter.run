@@ -546,6 +546,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-nix.wasm',
     sampleCode: '{ foo = "bar"; }',
   },
+  nqc: {
+    name: 'nqc',
+    displayName: 'NQC',
+    wasmPath: 'tree-sitter-nqc.wasm',
+    sampleCode: 'task main() {\n  OnFwd(OUT_A, 75);\n}',
+  },
   objc: {
     name: 'objc',
     displayName: 'Objective-C',

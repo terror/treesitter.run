@@ -428,6 +428,11 @@
     "revision": "69fbfb02896cdd27cb7ff3cd61f7f3f6bde4f017"
   },
   {
+    "name": "nqc",
+    "repository": "https://github.com/amaanq/tree-sitter-nqc",
+    "revision": "14e6da1627aaef21d2b2aa0c37d04269766dcc1d"
+  },
+  {
     "name": "objc",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-objc",
     "revision": "181a81b8f23a2d593e7ab4259981f50122909fda"

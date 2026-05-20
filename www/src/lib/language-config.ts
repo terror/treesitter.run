@@ -295,6 +295,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-go-sum.wasm',
     sampleCode: 'foo v1.0.0 h1:bar',
   },
+  gowork: {
+    name: 'gowork',
+    displayName: 'go.work',
+    wasmPath: 'tree-sitter-gowork.wasm',
+    sampleCode: 'go 1.22\n\nuse ./foo\n',
+  },
   'gpg-config': {
     name: 'gpg-config',
     displayName: 'GPG Config',

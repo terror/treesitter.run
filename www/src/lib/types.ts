@@ -44,6 +44,7 @@ export type Language =
   | 'gn'
   | 'go'
   | 'go-sum'
+  | 'gowork'
   | 'gpg-config'
   | 'graphql'
   | 'haskell'

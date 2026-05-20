@@ -20,6 +20,7 @@ beforeAll(async () => {
   });
 
   language = await Language.load(publicPath('tree-sitter-javascript.wasm'));
+
   parser = new Parser();
   parser.setLanguage(language);
 });
@@ -31,6 +32,7 @@ afterAll(() => {
 describe('highlightRanges', () => {
   it('uses tree-sitter node offsets directly', () => {
     const code = 'const é = foo;';
+
     const query = new Query(
       language,
       `
@@ -38,6 +40,7 @@ describe('highlightRanges', () => {
         (identifier) @variable.builtin
       `
     );
+
     const tree = parser.parse(code);
 
     try {

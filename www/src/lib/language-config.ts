@@ -468,6 +468,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-linkerscript.wasm',
     sampleCode: 'SECTIONS { .text : { *(.text) } }',
   },
+  liquid: {
+    name: 'liquid',
+    displayName: 'Liquid',
+    wasmPath: 'tree-sitter-liquid.wasm',
+    sampleCode: '{% assign foo = "bar" %}\n{{ foo }}',
+  },
   llvm: {
     name: 'llvm',
     displayName: 'LLVM',

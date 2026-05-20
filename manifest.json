@@ -362,6 +362,11 @@
     "revision": "f99011a3554213b654985a4b0a65b3b032ec4621"
   },
   {
+    "name": "liquid",
+    "repository": "https://github.com/hankthetank27/tree-sitter-liquid",
+    "revision": "e45dbac8c5fa95b1f0e00e7e0c04bc8855823391"
+  },
+  {
     "name": "llvm",
     "repository": "https://github.com/benwilliamgraham/tree-sitter-llvm",
     "revision": "2914786ae6774d4c4e25a230f4afe16aa68fe1c1"

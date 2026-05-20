@@ -71,6 +71,7 @@ export type Language =
   | 'kdl'
   | 'kotlin'
   | 'linkerscript'
+  | 'liquid'
   | 'llvm'
   | 'lua'
   | 'luau'

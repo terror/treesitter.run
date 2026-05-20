@@ -276,6 +276,11 @@
     "revision": "db8b4398de90b6d0b6c780aba96aaa2cd8e9202c"
   },
   {
+    "name": "hurl",
+    "repository": "https://github.com/pfeiferj/tree-sitter-hurl",
+    "revision": "597efbd7ce9a814bb058f48eabd055b1d1e12145"
+  },
+  {
     "name": "hyprlang",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang",
     "revision": "cecd6b748107d9da1f7b4ca03ef95f1f71d93b8f"

@@ -361,6 +361,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-http.wasm',
     sampleCode: 'GET http://example.com\n',
   },
+  hurl: {
+    name: 'hurl',
+    displayName: 'Hurl',
+    wasmPath: 'tree-sitter-hurl.wasm',
+    sampleCode: 'GET http://example.com\nHTTP 200\n',
+  },
   hyprlang: {
     name: 'hyprlang',
     displayName: 'Hyprlang',

@@ -2,7 +2,6 @@ import { afterAll, beforeAll, describe, expect, it } from 'bun:test';
 import { Language, Parser, Query } from 'web-tree-sitter';
 
 import {
-  captureClassName,
   highlightRanges,
   normalizeHighlightRanges,
 } from './syntax-highlighting';
@@ -29,25 +28,21 @@ afterAll(() => {
   parser.delete();
 });
 
-describe('captureClassName', () => {
-  it('maps highlight captures to classes', () => {
-    expect(captureClassName('keyword')).toBe('cm-ts-keyword');
-    expect(captureClassName('function.call')).toBe('cm-ts-function');
-    expect(captureClassName('string.special')).toBe('cm-ts-string');
-    expect(captureClassName('type.builtin')).toBe('cm-ts-type');
-    expect(captureClassName('comment')).toBe('cm-ts-comment');
-    expect(captureClassName('foo')).toBeUndefined();
-  });
-});
-
 describe('highlightRanges', () => {
   it('uses tree-sitter node offsets directly', () => {
     const code = 'const é = foo;';
-    const query = new Query(language, '(identifier) @variable');
+    const query = new Query(
+      language,
+      `
+        "const" @keyword
+        (identifier) @variable.builtin
+      `
+    );
     const tree = parser.parse(code);
 
     try {
       expect(highlightRanges({ query, tree })).toEqual([
+        { className: 'cm-ts-keyword', from: 0, to: 5 },
         { className: 'cm-ts-variable', from: 6, to: 7 },
         { className: 'cm-ts-variable', from: 10, to: 13 },
       ]);

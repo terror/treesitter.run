@@ -28,33 +28,11 @@ const captureClasses: Record<string, string> = {
   variable: 'cm-ts-variable',
 };
 
-const markCache = new Map<string, Decoration>();
-
 interface HighlightRange {
   className: string;
   from: number;
   to: number;
 }
-
-export const captureClassName = (captureName: string): string | undefined => {
-  const name = captureName.split('.')[0];
-
-  return captureClasses[captureName] ?? captureClasses[name];
-};
-
-const highlightMark = (className: string): Decoration => {
-  const mark = markCache.get(className);
-
-  if (mark) {
-    return mark;
-  }
-
-  const next = Decoration.mark({ class: className });
-
-  markCache.set(className, next);
-
-  return next;
-};
 
 export const normalizeHighlightRanges = (
   ranges: HighlightRange[]
@@ -118,7 +96,7 @@ export const highlightRanges = ({
   }
 
   const ranges = query.captures(tree.rootNode).flatMap((capture) => {
-    const className = captureClassName(capture.name);
+    const className = captureClasses[capture.name.split('.')[0]];
 
     if (!className) {
       return [];
@@ -152,7 +130,7 @@ export const syntaxHighlightingExtension = ({
 
   const decorations = Decoration.set(
     ranges.map(({ className, from, to }) =>
-      highlightMark(className).range(from, to)
+      Decoration.mark({ class: className }).range(from, to)
     )
   );
 

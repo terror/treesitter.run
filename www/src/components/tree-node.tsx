@@ -23,6 +23,7 @@ interface TreeNodeProps {
   node: SyntaxNode;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range?: { from: number; to: number }) => void;
+  queryCaptureNames: string[];
   queryMatch: boolean;
   searchMatches: Set<SyntaxNode>;
   toggleExpand: (node: SyntaxNode) => void;
@@ -36,6 +37,7 @@ export const TreeNode = ({
   node,
   onDeleteRange,
   onHighlightChange,
+  queryCaptureNames,
   queryMatch,
   searchMatches,
   toggleExpand,
@@ -107,6 +109,14 @@ export const TreeNode = ({
               )}
             </span>
             <span>{label}</span>
+            {queryCaptureNames.map((name) => (
+              <span
+                key={name}
+                className='ml-2 rounded-sm bg-emerald-600 px-1 text-xs leading-4 text-white'
+              >
+                {name.startsWith('@') ? name : `@${name}`}
+              </span>
+            ))}
             <span
               className={cn(
                 'ml-2 text-xs text-gray-500',

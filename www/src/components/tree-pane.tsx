@@ -22,9 +22,9 @@ interface TreePaneProps {
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
   query: string;
+  queryCaptureNamesByKey: Map<string, string[]>;
   queryCaptures: QueryCapture[];
   queryError: string | undefined;
-  queryMatchKeys: Set<string>;
   root: SyntaxNode | undefined;
   setQuery: (query: string) => void;
   toggleExpand: (node: SyntaxNode) => void;
@@ -40,9 +40,9 @@ export const TreePane = ({
   onDeleteRange,
   onHighlightChange,
   query,
+  queryCaptureNamesByKey,
   queryCaptures,
   queryError,
-  queryMatchKeys,
   root,
   setQuery,
   toggleExpand,
@@ -85,7 +85,7 @@ export const TreePane = ({
             loading={loading}
             onDeleteRange={onDeleteRange}
             onHighlightChange={onHighlightChange}
-            queryMatchKeys={queryMatchKeys}
+            queryCaptureNamesByKey={queryCaptureNamesByKey}
             root={root}
             rootVisible={rootVisible}
             toggleExpand={toggleExpand}

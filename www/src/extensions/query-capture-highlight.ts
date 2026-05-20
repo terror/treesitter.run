@@ -16,14 +16,16 @@ export const queryCaptureHighlightExtension = (
   const extensions: Extension[] = [
     EditorView.decorations.of((view) => {
       return Decoration.set(
-        ranges
-          .filter(({ from, to }) => from < to)
-          .map(({ from, to }) =>
-            queryMark.range(
-              Math.min(from, view.state.doc.length),
-              Math.min(to, view.state.doc.length)
-            )
-          ),
+        ranges.flatMap((range) => {
+          const from = Math.min(range.from, view.state.doc.length);
+          const to = Math.min(range.to, view.state.doc.length);
+
+          if (to <= from) {
+            return [];
+          }
+
+          return [queryMark.range(from, to)];
+        }),
         true
       );
     }),

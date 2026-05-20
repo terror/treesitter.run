@@ -413,6 +413,11 @@
     "revision": "c84f3540624b81fc44067030afce2ff78d6ede05"
   },
   {
+    "name": "move",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-move",
+    "revision": "b8ca25518749be10562455fd081a3dab30b93b8b"
+  },
+  {
     "name": "nginx",
     "repository": "https://github.com/opa-oz/tree-sitter-nginx",
     "revision": "47ade644d754cce57974aac44d2c9450e823d4f4"

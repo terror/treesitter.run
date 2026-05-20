@@ -77,16 +77,12 @@ const SettingRow = ({ children, description, id, label }: SettingRowProps) => (
   </div>
 );
 
-const currentTheme = (syntaxTheme: EditorSyntaxTheme) =>
-  syntaxThemes.find((theme) => theme.value === syntaxTheme);
-
 export const EditorSettingsDialog = () => {
   const { settings, updateSettings } = useEditorSettings();
 
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
 
   const id = useId();
-  const theme = currentTheme(settings.syntaxTheme);
 
   const settingsChanged = editorDefaultKeys.some(
     (key) => settings[key] !== editorDefaults[key]
@@ -227,23 +223,9 @@ export const EditorSettingsDialog = () => {
               <div className='grid gap-3 p-3'>
                 <Label htmlFor={`${id}-syntax-theme`} className='grid gap-1'>
                   <span className='text-sm font-medium'>Theme</span>
-                  {theme && (
-                    <span className='text-muted-foreground flex min-w-0 items-center gap-2 text-xs font-normal'>
-                      <span
-                        aria-hidden='true'
-                        className='border-border flex shrink-0 overflow-hidden rounded-sm border'
-                      >
-                        {theme.swatches.map((swatch) => (
-                          <span
-                            key={swatch}
-                            className='h-3 w-3'
-                            style={{ backgroundColor: swatch }}
-                          />
-                        ))}
-                      </span>
-                      <span className='truncate'>{theme.label}</span>
-                    </span>
-                  )}
+                  <span className='text-muted-foreground text-xs font-normal'>
+                    Choose the syntax highlighting color palette.
+                  </span>
                 </Label>
                 <Select
                   value={settings.syntaxTheme}

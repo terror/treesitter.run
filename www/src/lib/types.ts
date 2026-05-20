@@ -123,6 +123,7 @@ export type Language =
   | 'solidity'
   | 'squirrel'
   | 'svelte'
+  | 'tablegen'
   | 'typescript'
   | 'udev'
   | 'verilog'

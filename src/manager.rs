@@ -74,7 +74,7 @@ impl Manager {
   pub(crate) fn compile_parsers(&self, parsers: Option<Vec<&str>>) -> Result {
     let parsers = self.parsers(parsers)?;
 
-    self.reporter.reset(u64::try_from(parsers.len())?);
+    self.reporter.reset(2 * u64::try_from(parsers.len())?);
 
     for parser in parsers {
       let checkout_directory =
@@ -93,15 +93,41 @@ impl Manager {
         .arg("--wasm")
         .arg("--output")
         .arg(&output)
-        .arg(source)
+        .arg(&source)
         .run()?;
 
       self
         .reporter
         .finish_step("built", &self.workspace.display_path(output.as_path()));
+
+      self.copy_highlights_query(&parser, &source)?;
     }
 
     self.reporter.done();
+
+    Ok(())
+  }
+
+  fn copy_highlights_query(&self, parser: &Parser, source: &Path) -> Result {
+    let input = source.join("queries").join("highlights.scm");
+
+    let output = self.workspace.parser_highlights_query(parser);
+    let output_display = self.workspace.display_path(output.as_path());
+
+    self.reporter.start_step("copy", &output_display);
+
+    if input.try_exists()? {
+      fs::create_dir_all(
+        output.parent().context("query output has no parent")?,
+      )?;
+      fs::copy(input, &output)?;
+      self.reporter.finish_step("copied", &output_display);
+    } else if output.try_exists()? {
+      fs::remove_file(&output)?;
+      self.reporter.finish_step("removed", &output_display);
+    } else {
+      self.reporter.finish_step("skipped", &output_display);
+    }
 
     Ok(())
   }
@@ -193,6 +219,46 @@ impl Manager {
 #[cfg(test)]
 mod tests {
   use super::*;
+
+  #[test]
+  fn copy_highlights_query() {
+    let root = Builder::new()
+      .prefix("treesitter-run-test-")
+      .tempdir()
+      .unwrap();
+
+    let source = root.path().join("source");
+    let query = source.join("queries").join("highlights.scm");
+
+    fs::create_dir_all(query.parent().unwrap()).unwrap();
+    fs::write(&query, "bar").unwrap();
+
+    let manager = Manager {
+      manifest: Manifest {
+        parsers: vec![Parser {
+          name: String::from("foo"),
+          path: None,
+          repository: String::from("bar"),
+          revision: String::from("baz"),
+        }],
+      },
+      reporter: Reporter::hidden(),
+      workspace: Workspace::new(root.path().to_path_buf()),
+    };
+
+    let parser = manager.manifest.parsers.first().unwrap();
+    let output = manager.workspace.parser_highlights_query(parser);
+
+    manager.copy_highlights_query(parser, &source).unwrap();
+
+    assert_eq!(fs::read_to_string(&output).unwrap(), "bar");
+
+    fs::remove_file(&query).unwrap();
+
+    manager.copy_highlights_query(parser, &source).unwrap();
+
+    assert!(!output.try_exists().unwrap());
+  }
 
   #[test]
   fn parsers() {

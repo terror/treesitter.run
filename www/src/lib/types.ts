@@ -25,6 +25,7 @@ export type Language =
   | 'dart'
   | 'diff'
   | 'dockerfile'
+  | 'dot'
   | 'elixir'
   | 'elm'
   | 'embedded-template'

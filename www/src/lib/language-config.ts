@@ -173,6 +173,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-dockerfile.wasm',
     sampleCode: 'FROM alpine\nRUN echo foo\n',
   },
+  dot: {
+    name: 'dot',
+    displayName: 'DOT',
+    wasmPath: 'tree-sitter-dot.wasm',
+    sampleCode: 'digraph foo {\n  bar -> baz\n}',
+  },
   elixir: {
     name: 'elixir',
     displayName: 'Elixir',

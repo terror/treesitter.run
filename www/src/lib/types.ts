@@ -75,6 +75,7 @@ export type Language =
   | 'llvm'
   | 'lua'
   | 'luadoc'
+  | 'luap'
   | 'luau'
   | 'make'
   | 'markdown'

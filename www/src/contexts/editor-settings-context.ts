@@ -5,8 +5,6 @@ import {
 import { Language } from '@/lib/types';
 import { createContext, useContext } from 'react';
 
-export type { EditorSyntaxTheme };
-
 export interface EditorSettings {
   fontSize: number;
   keybindings: 'default' | 'vim';

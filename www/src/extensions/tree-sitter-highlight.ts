@@ -95,6 +95,7 @@ export const normalizeHighlightRanges = (
   for (let i = 0; i < offsets.length - 1; i++) {
     const from = offsets[i];
     const to = offsets[i + 1];
+
     let range: HighlightRange | undefined;
 
     for (let j = validRanges.length - 1; j >= 0; j--) {

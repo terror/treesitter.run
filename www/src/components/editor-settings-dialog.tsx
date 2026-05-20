@@ -22,8 +22,7 @@ import {
   defaultSettings,
   useEditorSettings,
 } from '@/contexts/editor-settings-context';
-import type { EditorSyntaxTheme } from '@/contexts/editor-settings-context';
-import { syntaxThemes } from '@/lib/syntax-themes';
+import { type EditorSyntaxTheme, syntaxThemes } from '@/lib/syntax-themes';
 import { RotateCcw, Settings } from 'lucide-react';
 import { ReactNode, useId, useState } from 'react';
 

@@ -541,6 +541,17 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-solidity.wasm',
     sampleCode: 'contract Foo {\n  function bar() public {}\n}',
   },
+  svelte: {
+    name: 'svelte',
+    displayName: 'Svelte',
+    wasmPath: 'tree-sitter-svelte.wasm',
+    sampleCode:
+      '<script>\n' +
+      '  let foo = "bar";\n' +
+      '</script>\n' +
+      '\n' +
+      '<h1>{foo}</h1>',
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

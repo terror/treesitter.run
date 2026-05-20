@@ -84,6 +84,8 @@ impl Manager {
 
       let source = parser.checkout(checkout_directory.path())?;
 
+      Self::ensure_tree_sitter_json(&parser, &source)?;
+
       self.reporter.start_step("build", &parser.name);
 
       let output = self.workspace.parser_wasm(&parser);
@@ -148,6 +150,41 @@ impl Manager {
 
     self.reporter.finish_step("copied", &output_display);
     self.reporter.done();
+
+    Ok(())
+  }
+
+  fn ensure_tree_sitter_json(parser: &Parser, source: &Path) -> Result {
+    let path = source.join("tree-sitter.json");
+
+    if path.try_exists()? {
+      return Ok(());
+    }
+
+    fs::write(
+      path,
+      format!(
+        "{}\n",
+        serde_json::to_string_pretty(&serde_json::json!({
+          "grammars": [
+            {
+              "name": parser.name,
+              "scope": format!("source.{}", parser.name),
+              "path": ".",
+            },
+          ],
+          "metadata": {
+            "version": "0.0.0",
+            "license": "MIT",
+            "description": "",
+            "authors": [],
+            "links": {
+              "repository": parser.repository,
+            },
+          },
+        }))?
+      ),
+    )?;
 
     Ok(())
   }
@@ -220,7 +257,7 @@ impl Manager {
 
 #[cfg(test)]
 mod tests {
-  use super::*;
+  use {super::*, indoc::indoc};
 
   #[test]
   fn copy_highlights_query() {
@@ -260,6 +297,94 @@ mod tests {
     manager.copy_highlights_query(parser, &source).unwrap();
 
     assert!(!output.try_exists().unwrap());
+  }
+
+  #[test]
+  fn ensure_tree_sitter_json() {
+    let root = Builder::new()
+      .prefix("treesitter-run-test-")
+      .tempdir()
+      .unwrap();
+
+    let source = root.path().join("source");
+    fs::create_dir_all(&source).unwrap();
+
+    let manager = Manager {
+      manifest: Manifest {
+        parsers: vec![Parser {
+          name: String::from("foo"),
+          path: None,
+          repository: String::from("bar"),
+          revision: String::from("baz"),
+        }],
+      },
+      reporter: Reporter::hidden(),
+      workspace: Workspace::new(root.path().to_path_buf()),
+    };
+
+    let parser = manager.manifest.parsers.first().unwrap();
+
+    Manager::ensure_tree_sitter_json(parser, &source).unwrap();
+
+    assert_eq!(
+      fs::read_to_string(source.join("tree-sitter.json")).unwrap(),
+      indoc! {
+        r#"
+        {
+          "grammars": [
+            {
+              "name": "foo",
+              "path": ".",
+              "scope": "source.foo"
+            }
+          ],
+          "metadata": {
+            "authors": [],
+            "description": "",
+            "license": "MIT",
+            "links": {
+              "repository": "bar"
+            },
+            "version": "0.0.0"
+          }
+        }
+        "#
+      }
+    );
+  }
+
+  #[test]
+  fn ensure_tree_sitter_json_preserves_existing_file() {
+    let root = Builder::new()
+      .prefix("treesitter-run-test-")
+      .tempdir()
+      .unwrap();
+
+    let source = root.path().join("source");
+    fs::create_dir_all(&source).unwrap();
+    fs::write(source.join("tree-sitter.json"), "foo").unwrap();
+
+    let manager = Manager {
+      manifest: Manifest {
+        parsers: vec![Parser {
+          name: String::from("foo"),
+          path: None,
+          repository: String::from("bar"),
+          revision: String::from("baz"),
+        }],
+      },
+      reporter: Reporter::hidden(),
+      workspace: Workspace::new(root.path().to_path_buf()),
+    };
+
+    let parser = manager.manifest.parsers.first().unwrap();
+
+    Manager::ensure_tree_sitter_json(parser, &source).unwrap();
+
+    assert_eq!(
+      fs::read_to_string(source.join("tree-sitter.json")).unwrap(),
+      "foo"
+    );
   }
 
   #[test]

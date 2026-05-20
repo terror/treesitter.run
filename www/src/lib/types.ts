@@ -81,6 +81,7 @@ export type Language =
   | 'markdown'
   | 'mermaid'
   | 'meson'
+  | 'move'
   | 'nginx'
   | 'nix'
   | 'objc'

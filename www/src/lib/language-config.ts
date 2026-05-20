@@ -528,6 +528,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-meson.wasm',
     sampleCode: "project('foo', 'c')\nexecutable('bar', 'bar.c')",
   },
+  move: {
+    name: 'move',
+    displayName: 'Move',
+    wasmPath: 'tree-sitter-move.wasm',
+    sampleCode: 'module 0x1::foo {\n  fun bar() {}\n}\n',
+  },
   nginx: {
     name: 'nginx',
     displayName: 'Nginx',

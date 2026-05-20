@@ -426,6 +426,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-json5.wasm',
     sampleCode: '{\n  message: "hello, world",\n}',
   },
+  jsonnet: {
+    name: 'jsonnet',
+    displayName: 'Jsonnet',
+    wasmPath: 'tree-sitter-jsonnet.wasm',
+    sampleCode: '{ foo: "bar" }',
+  },
   julia: {
     name: 'julia',
     displayName: 'Julia',

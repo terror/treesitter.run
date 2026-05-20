@@ -240,6 +240,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-fsharp.wasm',
     sampleCode: 'let foo bar =\n  printfn "%s" bar',
   },
+  func: {
+    name: 'func',
+    displayName: 'FunC',
+    wasmPath: 'tree-sitter-func.wasm',
+    sampleCode: '() recv_internal() {\n}',
+  },
   gdscript: {
     name: 'gdscript',
     displayName: 'GDScript',

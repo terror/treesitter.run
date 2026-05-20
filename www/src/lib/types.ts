@@ -7,6 +7,7 @@ export type Language =
   | 'beancount'
   | 'bicep'
   | 'bibtex'
+  | 'bitbake'
   | 'c'
   | 'c-sharp'
   | 'chatito'

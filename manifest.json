@@ -40,6 +40,11 @@
     "revision": "bff59884307c0ab009bd5e81afd9324b46a6c0f9"
   },
   {
+    "name": "bitbake",
+    "repository": "https://github.com/amaanq/tree-sitter-bitbake",
+    "revision": "a5d04fdb5a69a02b8fa8eb5525a60dfb5309b73b"
+  },
+  {
     "name": "c",
     "repository": "https://github.com/tree-sitter/tree-sitter-c",
     "revision": "b780e47fc780ddc8da13afa35a3f4ed5c157823d"

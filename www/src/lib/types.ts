@@ -117,6 +117,7 @@ export type Language =
   | 'ruby'
   | 'rust'
   | 'scala'
+  | 'scss'
   | 'slang'
   | 'solidity'
   | 'svelte'

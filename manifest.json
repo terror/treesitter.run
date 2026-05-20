@@ -306,6 +306,11 @@
     "revision": "58404d8cf191d69f2674a8fd507bd5776f46cb11"
   },
   {
+    "name": "jq",
+    "repository": "https://github.com/flurie/tree-sitter-jq",
+    "revision": "c204e36d2c3c6fce1f57950b12cabcc24e5cc4d9"
+  },
+  {
     "name": "jsdoc",
     "repository": "https://github.com/tree-sitter/tree-sitter-jsdoc",
     "revision": "658d18dcdddb75c760363faa4963427a7c6b52db"

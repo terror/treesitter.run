@@ -55,6 +55,11 @@
     "revision": "cac6d5fb595f5811a076336682d5d595ac1c9e85"
   },
   {
+    "name": "cairo",
+    "repository": "https://github.com/amaanq/tree-sitter-cairo",
+    "revision": "6238f609bea233040fe927858156dee5515a0745"
+  },
+  {
     "name": "chatito",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-chatito",
     "revision": "c0ed82c665b732395073f635c74c300f09530a7f"

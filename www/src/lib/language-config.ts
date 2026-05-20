@@ -76,6 +76,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode:
       'using System;\n\nclass Foo {\n  static void Main() {\n    Console.WriteLine("bar");\n  }\n}',
   },
+  cairo: {
+    name: 'cairo',
+    displayName: 'Cairo',
+    wasmPath: 'tree-sitter-cairo.wasm',
+    sampleCode: 'fn foo() -> felt252 {\n  return 1;\n}',
+  },
   chatito: {
     name: 'chatito',
     displayName: 'Chatito',

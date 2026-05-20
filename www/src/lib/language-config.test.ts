@@ -52,7 +52,7 @@ describe('languageConfig', () => {
 
     for (const config of Object.values(languageConfig)) {
       const localPath = new URL(
-        `../../../queries/tree-sitter-${config.name}.highlights.scm`,
+        `../../../queries/${config.highlightQueryPath}`,
         import.meta.url
       ).pathname;
 
@@ -60,10 +60,8 @@ describe('languageConfig', () => {
 
       const path = (await localFile.exists())
         ? localPath
-        : new URL(
-            `../../public/tree-sitter-${config.name}.highlights.scm`,
-            import.meta.url
-          ).pathname;
+        : new URL(`../../public/${config.highlightQueryPath}`, import.meta.url)
+            .pathname;
 
       const language = await Language.load(
         new URL(`../../public/${config.wasmPath}`, import.meta.url).pathname
@@ -88,7 +86,7 @@ describe('languageConfig', () => {
 
     for (const config of Object.values(languageConfig)) {
       const path = new URL(
-        `../../../queries/tree-sitter-${config.name}.highlights.scm`,
+        `../../../queries/${config.highlightQueryPath}`,
         import.meta.url
       ).pathname;
 

@@ -13,6 +13,7 @@ export type Language =
   | 'cairo'
   | 'capnp'
   | 'chatito'
+  | 'clojure'
   | 'cmake'
   | 'commonlisp'
   | 'cpp'

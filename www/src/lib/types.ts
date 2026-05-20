@@ -54,6 +54,7 @@ export type Language =
   | 'hlsl'
   | 'html'
   | 'http'
+  | 'hurl'
   | 'hyprlang'
   | 'ini'
   | 'ispc'

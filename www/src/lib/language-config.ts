@@ -14,6 +14,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode:
       'void setup() {\n  pinMode(13, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n}',
   },
+  astro: {
+    name: 'astro',
+    displayName: 'Astro',
+    wasmPath: 'tree-sitter-astro.wasm',
+    sampleCode: '---\nconst foo = "bar";\n---\n<div>{foo}</div>',
+  },
   bash: {
     name: 'bash',
     displayName: 'Bash',

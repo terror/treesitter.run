@@ -10,6 +10,11 @@
     "revision": "11dd46c9ae25135c473c0003a133bb06a484af0c"
   },
   {
+    "name": "astro",
+    "repository": "https://github.com/virchau13/tree-sitter-astro",
+    "revision": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee"
+  },
+  {
     "name": "bash",
     "repository": "https://github.com/tree-sitter/tree-sitter-bash",
     "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7"

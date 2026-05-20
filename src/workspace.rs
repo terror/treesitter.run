@@ -40,6 +40,15 @@ impl Workspace {
       .join(format!("tree-sitter-{}.highlights.scm", parser.name))
   }
 
+  pub(crate) fn parser_local_highlights_query(
+    &self,
+    parser: &Parser,
+  ) -> PathBuf {
+    self
+      .queries_dir()
+      .join(format!("tree-sitter-{}.highlights.scm", parser.name))
+  }
+
   pub(crate) fn parser_wasm(&self, parser: &Parser) -> PathBuf {
     self
       .public_dir()
@@ -48,6 +57,10 @@ impl Workspace {
 
   pub(crate) fn public_dir(&self) -> PathBuf {
     self.www_dir().join("public")
+  }
+
+  pub(crate) fn queries_dir(&self) -> PathBuf {
+    self.root.join("queries")
   }
 
   pub(crate) fn runtime_wasm(&self) -> PathBuf {
@@ -139,6 +152,34 @@ mod tests {
         .join("public")
         .join("tree-sitter-bar.highlights.scm"),
     );
+  }
+
+  #[test]
+  fn parser_local_highlights_query() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
+
+    let parser = Parser {
+      name: String::from("bar"),
+      path: None,
+      repository: String::from("baz"),
+      revision: String::from("qux"),
+    };
+
+    assert_eq!(
+      workspace.parser_local_highlights_query(&parser),
+      root.join("queries").join("tree-sitter-bar.highlights.scm"),
+    );
+  }
+
+  #[test]
+  fn queries_dir() {
+    let root = PathBuf::from("foo");
+
+    let workspace = Workspace::new(root.clone());
+
+    assert_eq!(workspace.queries_dir(), root.join("queries"));
   }
 
   #[test]

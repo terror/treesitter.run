@@ -40,7 +40,8 @@ export const VirtualizedTreeList = ({
     count: visibleRows.length,
     getScrollElement: () => scrollParentRef.current,
     estimateSize: () => 28,
-    getItemKey: (index) => visibleRows[index]?.node.id ?? index,
+    getItemKey: (index) =>
+      visibleRows[index] ? syntaxNodeKey(visibleRows[index].node) : index,
     overscan: 20,
   });
 

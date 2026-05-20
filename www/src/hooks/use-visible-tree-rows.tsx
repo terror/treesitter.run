@@ -3,11 +3,12 @@ import {
   collectVisibleTreeNodes,
 } from '@/lib/tree-filter';
 import type { SyntaxNode } from '@/lib/types';
+import { syntaxNodeKey } from '@/lib/utils';
 import { useMemo } from 'react';
 
 interface UseVisibleTreeRowsOptions {
   activeFilterCount: number;
-  expandedNodes: Set<SyntaxNode>;
+  expandedNodes: Set<string>;
   filters: TreeNodeFilters;
   root: SyntaxNode | undefined;
   search: string;
@@ -62,7 +63,8 @@ export function useVisibleTreeRows({
 
       const { node, level } = row;
 
-      const isExpanded = forceExpanded || expandedNodes.has(node);
+      const isExpanded =
+        forceExpanded || expandedNodes.has(syntaxNodeKey(node));
 
       const hasChildren = node.children.some((child) =>
         visibleTree.visibleNodes.has(child)

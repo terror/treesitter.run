@@ -450,6 +450,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-kconfig.wasm',
     sampleCode: 'config FOO\n  bool "bar"\n',
   },
+  kdl: {
+    name: 'kdl',
+    displayName: 'KDL',
+    wasmPath: 'tree-sitter-kdl.wasm',
+    sampleCode: 'foo bar="baz"\n',
+  },
   kotlin: {
     name: 'kotlin',
     displayName: 'Kotlin',

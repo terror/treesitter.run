@@ -2,6 +2,7 @@ export type Language =
   | 'agda'
   | 'arduino'
   | 'astro'
+  | 'awk'
   | 'bash'
   | 'beancount'
   | 'bicep'

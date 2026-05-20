@@ -74,7 +74,7 @@ impl Manager {
   pub(crate) fn compile_parsers(&self, parsers: Option<Vec<&str>>) -> Result {
     let parsers = self.parsers(parsers)?;
 
-    self.reporter.reset(2 * u64::try_from(parsers.len())?);
+    self.reporter.reset(3 * u64::try_from(parsers.len())?);
 
     for parser in parsers {
       let checkout_directory =
@@ -111,14 +111,26 @@ impl Manager {
   }
 
   fn copy_highlights_query(&self, parser: &Parser, source: &Path) -> Result {
-    let input = source.join("queries").join("highlights.scm");
-
     let output = self.workspace.parser_highlights_query(parser);
     let output_display = self.workspace.display_path(output.as_path());
 
     self.reporter.start_step("copy", &output_display);
 
-    if input.try_exists()? {
+    let local = self.workspace.parser_local_highlights_query(parser);
+
+    let input = if local.try_exists()? {
+      Some(local)
+    } else {
+      let remote = source.join("queries").join("highlights.scm");
+
+      if remote.try_exists()? {
+        Some(remote)
+      } else {
+        None
+      }
+    };
+
+    if let Some(input) = input {
       fs::create_dir_all(
         output.parent().context("query output has no parent")?,
       )?;
@@ -270,7 +282,7 @@ mod tests {
     let query = source.join("queries").join("highlights.scm");
 
     fs::create_dir_all(query.parent().unwrap()).unwrap();
-    fs::write(&query, "bar").unwrap();
+    fs::write(&query, "remote").unwrap();
 
     let manager = Manager {
       manifest: Manifest {
@@ -290,13 +302,85 @@ mod tests {
 
     manager.copy_highlights_query(parser, &source).unwrap();
 
-    assert_eq!(fs::read_to_string(&output).unwrap(), "bar");
+    assert_eq!(fs::read_to_string(&output).unwrap(), "remote");
 
     fs::remove_file(&query).unwrap();
 
     manager.copy_highlights_query(parser, &source).unwrap();
 
     assert!(!output.try_exists().unwrap());
+  }
+
+  #[test]
+  fn copy_highlights_query_uses_local() {
+    let root = Builder::new()
+      .prefix("treesitter-run-test-")
+      .tempdir()
+      .unwrap();
+
+    let source = root.path().join("source");
+
+    let manager = Manager {
+      manifest: Manifest {
+        parsers: vec![Parser {
+          name: String::from("foo"),
+          path: None,
+          repository: String::from("bar"),
+          revision: String::from("baz"),
+        }],
+      },
+      reporter: Reporter::hidden(),
+      workspace: Workspace::new(root.path().to_path_buf()),
+    };
+
+    let parser = manager.manifest.parsers.first().unwrap();
+    let local = manager.workspace.parser_local_highlights_query(parser);
+    let output = manager.workspace.parser_highlights_query(parser);
+
+    fs::create_dir_all(local.parent().unwrap()).unwrap();
+    fs::write(&local, "local").unwrap();
+
+    manager.copy_highlights_query(parser, &source).unwrap();
+
+    assert_eq!(fs::read_to_string(&output).unwrap(), "local");
+  }
+
+  #[test]
+  fn copy_highlights_query_prefers_local_over_remote() {
+    let root = Builder::new()
+      .prefix("treesitter-run-test-")
+      .tempdir()
+      .unwrap();
+
+    let source = root.path().join("source");
+    let query = source.join("queries").join("highlights.scm");
+
+    fs::create_dir_all(query.parent().unwrap()).unwrap();
+    fs::write(&query, "remote").unwrap();
+
+    let manager = Manager {
+      manifest: Manifest {
+        parsers: vec![Parser {
+          name: String::from("foo"),
+          path: None,
+          repository: String::from("bar"),
+          revision: String::from("baz"),
+        }],
+      },
+      reporter: Reporter::hidden(),
+      workspace: Workspace::new(root.path().to_path_buf()),
+    };
+
+    let parser = manager.manifest.parsers.first().unwrap();
+    let local = manager.workspace.parser_local_highlights_query(parser);
+    let output = manager.workspace.parser_highlights_query(parser);
+
+    fs::create_dir_all(local.parent().unwrap()).unwrap();
+    fs::write(&local, "local").unwrap();
+
+    manager.copy_highlights_query(parser, &source).unwrap();
+
+    assert_eq!(fs::read_to_string(&output).unwrap(), "local");
   }
 
   #[test]

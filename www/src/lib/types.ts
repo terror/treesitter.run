@@ -70,6 +70,7 @@ export type Language =
   | 'kconfig'
   | 'kdl'
   | 'kotlin'
+  | 'linkerscript'
   | 'llvm'
   | 'lua'
   | 'luau'

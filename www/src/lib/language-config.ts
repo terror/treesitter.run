@@ -462,6 +462,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-kotlin.wasm',
     sampleCode: 'fun main() {\n  println("foo")\n}',
   },
+  linkerscript: {
+    name: 'linkerscript',
+    displayName: 'Linker Script',
+    wasmPath: 'tree-sitter-linkerscript.wasm',
+    sampleCode: 'SECTIONS { .text : { *(.text) } }',
+  },
   llvm: {
     name: 'llvm',
     displayName: 'LLVM',

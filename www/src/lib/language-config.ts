@@ -319,6 +319,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-gstlaunch.wasm',
     sampleCode: 'videotestsrc ! autovideosink',
   },
+  hare: {
+    name: 'hare',
+    displayName: 'Hare',
+    wasmPath: 'tree-sitter-hare.wasm',
+    sampleCode: 'export fn main() void = {\n	let foo = "bar";\n};',
+  },
   haskell: {
     name: 'haskell',
     displayName: 'Haskell',

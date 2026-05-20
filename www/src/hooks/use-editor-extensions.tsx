@@ -2,44 +2,37 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { errorExtension } from '@/extensions/error';
 import { highlightExtension } from '@/extensions/highlight';
 import { queryExtension } from '@/extensions/query';
+import { usePreviousValue } from '@/hooks/use-previous-value';
 import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { SyntaxRange } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { vim } from '@replit/codemirror-vim';
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 
 interface UseEditorExtensionsOptions {
   highlight: { from: number; to: number } | undefined;
+  parseErrors: ParseErrorRange[];
   query: string;
   queryHighlights: SyntaxRange[];
-  parseErrors: ParseErrorRange[];
 }
 
 export function useEditorExtensions({
   highlight,
+  parseErrors,
   query,
   queryHighlights,
-  parseErrors,
 }: UseEditorExtensionsOptions): Extension[] {
   const { settings } = useEditorSettings();
 
-  const previousHighlight = useRef<SyntaxRange>();
-  const previousQuery = useRef<string>();
+  const previousHighlight = usePreviousValue(highlight);
+  const previousQuery = usePreviousValue(query);
 
   const scrollToHighlight =
-    previousHighlight.current?.from !== highlight?.from ||
-    previousHighlight.current?.to !== highlight?.to;
+    previousHighlight?.from !== highlight?.from ||
+    previousHighlight?.to !== highlight?.to;
 
-  const scrollToQueryHighlight = previousQuery.current !== query;
-
-  useEffect(() => {
-    previousHighlight.current = highlight;
-  }, [highlight]);
-
-  useEffect(() => {
-    previousQuery.current = query;
-  }, [query]);
+  const scrollToQueryHighlight = previousQuery !== query;
 
   return useMemo(() => {
     const extensions: Extension[] = [
@@ -59,13 +52,13 @@ export function useEditorExtensions({
 
     return extensions;
   }, [
-    settings.tabSize,
-    settings.keybindings,
-    settings.lineWrapping,
-    parseErrors,
     highlight,
+    parseErrors,
     queryHighlights,
     scrollToHighlight,
     scrollToQueryHighlight,
+    settings.keybindings,
+    settings.lineWrapping,
+    settings.tabSize,
   ]);
 }

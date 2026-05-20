@@ -605,6 +605,11 @@
     "revision": "1dbcc4abc7b3cdd663eb03d93031167d6ed19f56"
   },
   {
+    "name": "smali",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-smali",
+    "revision": "fdfa6a1febc43c7467aa7e937b87b607956f2346"
+  },
+  {
     "name": "solidity",
     "repository": "https://github.com/JoranHonig/tree-sitter-solidity",
     "revision": "048fe686cb1fde267243739b8bdbec8fc3a55272"

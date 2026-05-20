@@ -758,6 +758,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-slang.wasm',
     sampleCode: 'void foo() {}',
   },
+  smali: {
+    name: 'smali',
+    displayName: 'Smali',
+    wasmPath: 'tree-sitter-smali.wasm',
+    sampleCode: '.class public Lfoo;\n.super Ljava/lang/Object;\n',
+  },
   solidity: {
     name: 'solidity',
     displayName: 'Solidity',

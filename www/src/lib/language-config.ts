@@ -721,6 +721,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-rescript.wasm',
     sampleCode: 'let foo = bar => bar',
   },
+  ron: {
+    name: 'ron',
+    displayName: 'RON',
+    wasmPath: 'tree-sitter-ron.wasm',
+    sampleCode: '(foo: "bar")',
+  },
   ruby: {
     name: 'ruby',
     displayName: 'Ruby',

@@ -149,6 +149,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-cyberchef.wasm',
     sampleCode: 'From_Hex()\nTo_Base64()\n',
   },
+  d: {
+    name: 'd',
+    displayName: 'D',
+    wasmPath: 'tree-sitter-d.wasm',
+    sampleCode: 'void main() {\n  writeln("foo");\n}',
+  },
   dart: {
     name: 'dart',
     displayName: 'Dart',

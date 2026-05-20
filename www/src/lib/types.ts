@@ -21,6 +21,7 @@ export type Language =
   | 'css'
   | 'cuda'
   | 'cyberchef'
+  | 'd'
   | 'dart'
   | 'diff'
   | 'dockerfile'

@@ -110,6 +110,11 @@
     "revision": "8bad395b98253324085b4b5227b14d4988f374b7"
   },
   {
+    "name": "d",
+    "repository": "https://github.com/gdamore/tree-sitter-d",
+    "revision": "fb028c8f14f4188286c2eef143f105def6fbf24f"
+  },
+  {
     "name": "dart",
     "repository": "https://github.com/usernobody14/tree-sitter-dart",
     "revision": "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"

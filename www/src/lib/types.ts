@@ -83,6 +83,7 @@ export type Language =
   | 'scala'
   | 'slang'
   | 'solidity'
+  | 'svelte'
   | 'typescript'
   | 'udev'
   | 'verilog'

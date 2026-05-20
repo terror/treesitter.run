@@ -1,10 +1,13 @@
 import { Extension } from '@codemirror/state';
-import { Decoration, EditorView, ViewPlugin } from '@codemirror/view';
+import { Decoration, EditorView } from '@codemirror/view';
+
+import { scrollExtension } from './scroll';
 
 const highlightMark = Decoration.mark({ class: 'cm-highlighted-node' });
 
 export const highlightExtension = (
-  range: { from: number; to: number } | undefined
+  range: { from: number; to: number } | undefined,
+  scroll = true
 ): Extension => {
   if (!range) {
     return [];
@@ -16,23 +19,24 @@ export const highlightExtension = (
     return [];
   }
 
-  const scrollExtension = ViewPlugin.fromClass(
-    class {
-      constructor(view: EditorView) {
-        queueMicrotask(() => {
-          view.dispatch({
-            effects: EditorView.scrollIntoView(from, { y: 'center' }),
-          });
-        });
-      }
+  if (!scroll) {
+    if (from === to) {
+      return [];
     }
-  );
 
-  if (from === to) {
-    return [scrollExtension];
+    return EditorView.decorations.of(() =>
+      Decoration.set([highlightMark.range(from, to)])
+    );
   }
 
-  const decorations = Decoration.set([highlightMark.range(from, to)]);
+  if (from === to) {
+    return [scrollExtension(from)];
+  }
 
-  return [EditorView.decorations.of(() => decorations), scrollExtension];
+  return [
+    EditorView.decorations.of(() =>
+      Decoration.set([highlightMark.range(from, to)])
+    ),
+    scrollExtension(from),
+  ];
 };

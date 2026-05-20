@@ -97,11 +97,12 @@ const App = () => {
 
   const extensions = useEditorExtensions({
     code,
-    query: highlightQuery,
-    tree: parsedCodeCurrent ? tree : null,
     highlight: parsedCodeCurrent ? highlight : undefined,
+    highlightQuery,
+    query,
     queryHighlights: parsedCodeCurrent ? queryHighlights : [],
     parseErrors: parsedCodeCurrent ? parseErrors : [],
+    tree: parsedCodeCurrent ? tree : null,
   });
 
   if (error) {

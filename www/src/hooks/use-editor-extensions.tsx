@@ -8,35 +8,54 @@ import type { SyntaxRange } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { vim } from '@replit/codemirror-vim';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { type Query, type Tree } from 'web-tree-sitter';
 
 interface UseEditorExtensionsOptions {
   code: string;
-  query: Query | null | undefined;
-  tree: Tree | null;
   highlight: { from: number; to: number } | undefined;
+  highlightQuery: Query | null | undefined;
+  query: string;
   queryHighlights: SyntaxRange[];
   parseErrors: ParseErrorRange[];
+  tree: Tree | null;
 }
 
 export function useEditorExtensions({
   code,
-  query,
-  tree,
   highlight,
+  highlightQuery,
+  query,
   queryHighlights,
   parseErrors,
+  tree,
 }: UseEditorExtensionsOptions): Extension[] {
   const { settings } = useEditorSettings();
+
+  const previousHighlight = useRef<SyntaxRange>();
+  const previousQuery = useRef<string>();
+
+  const scrollToHighlight =
+    previousHighlight.current?.from !== highlight?.from ||
+    previousHighlight.current?.to !== highlight?.to;
+
+  const scrollToQueryHighlight = previousQuery.current !== query;
+
+  useEffect(() => {
+    previousHighlight.current = highlight;
+  }, [highlight]);
+
+  useEffect(() => {
+    previousQuery.current = query;
+  }, [query]);
 
   return useMemo(() => {
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
-      treeSitterHighlightExtension({ code, query, tree }),
+      treeSitterHighlightExtension({ code, query: highlightQuery, tree }),
       errorExtension(parseErrors),
-      queryExtension(queryHighlights),
-      highlightExtension(highlight),
+      queryExtension(queryHighlights, scrollToQueryHighlight),
+      highlightExtension(highlight, scrollToHighlight),
     ];
 
     if (settings.keybindings === 'vim') {
@@ -53,10 +72,12 @@ export function useEditorExtensions({
     settings.keybindings,
     settings.lineWrapping,
     code,
-    query,
+    highlightQuery,
     tree,
     parseErrors,
     highlight,
     queryHighlights,
+    scrollToHighlight,
+    scrollToQueryHighlight,
   ]);
 }

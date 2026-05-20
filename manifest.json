@@ -403,6 +403,11 @@
     "revision": "c3570720f7f7bbad22fe96603f106276618e0cf5"
   },
   {
+    "name": "mermaid",
+    "repository": "https://github.com/monaqa/tree-sitter-mermaid",
+    "revision": "90ae195b31933ceb9d079abfa8a3ad0a36fee4cc"
+  },
+  {
     "name": "meson",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-meson",
     "revision": "c84f3540624b81fc44067030afce2ff78d6ede05"

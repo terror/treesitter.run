@@ -124,6 +124,7 @@ export type Language =
   | 'squirrel'
   | 'svelte'
   | 'tablegen'
+  | 'terraform'
   | 'typescript'
   | 'udev'
   | 'verilog'

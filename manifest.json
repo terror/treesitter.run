@@ -460,6 +460,11 @@
     "revision": "3f2465c217d0a966d41e584b42d75522f2a3149e"
   },
   {
+    "name": "po",
+    "repository": "https://github.com/erasin/tree-sitter-po",
+    "revision": "bd860a0f57f697162bf28e576674be9c1500db5e"
+  },
+  {
     "name": "poe-filter",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-poe-filter",
     "revision": "205a7d576984feb38a9fc2d8cfe729617f9e0548"

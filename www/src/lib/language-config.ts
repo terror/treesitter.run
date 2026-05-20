@@ -746,6 +746,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     sampleCode:
       'object Foo {\n  def main(args: Array[String]): Unit = {\n    println("bar")\n  }\n}',
   },
+  scss: {
+    name: 'scss',
+    displayName: 'SCSS',
+    wasmPath: 'tree-sitter-scss.wasm',
+    sampleCode: '$foo: #fff;\n.bar {\n  color: $foo;\n}',
+  },
   slang: {
     name: 'slang',
     displayName: 'Slang',

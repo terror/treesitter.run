@@ -82,6 +82,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-cairo.wasm',
     sampleCode: 'fn foo() -> felt252 {\n  return 1;\n}',
   },
+  capnp: {
+    name: 'capnp',
+    displayName: "Cap'n Proto",
+    wasmPath: 'tree-sitter-capnp.wasm',
+    sampleCode: '@0xabcdefabcdefabcd;\nstruct Foo {\n  bar @0 :Text;\n}',
+  },
   chatito: {
     name: 'chatito',
     displayName: 'Chatito',

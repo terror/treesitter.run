@@ -11,6 +11,7 @@ export type Language =
   | 'c'
   | 'c-sharp'
   | 'cairo'
+  | 'capnp'
   | 'chatito'
   | 'cmake'
   | 'commonlisp'

@@ -133,6 +133,7 @@ export type Language =
   | 'vala'
   | 'verilog'
   | 'vim'
+  | 'wgsl'
   | 'wgsl-bevy'
   | 'xcompose'
   | 'yaml'

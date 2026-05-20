@@ -857,6 +857,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-vim.wasm',
     sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction\n',
   },
+  wgsl: {
+    name: 'wgsl',
+    displayName: 'WGSL',
+    wasmPath: 'tree-sitter-wgsl.wasm',
+    sampleCode:
+      '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
+  },
   'wgsl-bevy': {
     name: 'wgsl-bevy',
     displayName: 'WGSL Bevy',

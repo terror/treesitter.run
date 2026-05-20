@@ -211,6 +211,11 @@
     "revision": "24a6c8ef698e4480fecf8340d771fbcb5de8fbb4"
   },
   {
+    "name": "gn",
+    "repository": "https://github.com/amaanq/tree-sitter-gn",
+    "revision": "bc06955bc1e3c9ff8e9b2b2a55b38b94da923c05"
+  },
+  {
     "name": "go",
     "repository": "https://github.com/tree-sitter/tree-sitter-go",
     "revision": "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"

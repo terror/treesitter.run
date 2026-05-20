@@ -270,6 +270,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-glsl.wasm',
     sampleCode: 'void main() {\n  gl_Position = vec4(1.0);\n}',
   },
+  gn: {
+    name: 'gn',
+    displayName: 'GN',
+    wasmPath: 'tree-sitter-gn.wasm',
+    sampleCode: 'executable("foo") {\n  sources = [ "bar.cc" ]\n}',
+  },
   go: {
     name: 'go',
     displayName: 'Go',

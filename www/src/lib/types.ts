@@ -41,6 +41,7 @@ export type Language =
   | 'gitattributes'
   | 'gleam'
   | 'glsl'
+  | 'gn'
   | 'go'
   | 'go-sum'
   | 'gpg-config'

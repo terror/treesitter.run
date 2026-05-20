@@ -620,6 +620,11 @@
     "revision": "f7491fe853198c1ea81d743244ad9c2aa3eab157"
   },
   {
+    "name": "squirrel",
+    "repository": "https://github.com/amaanq/tree-sitter-squirrel",
+    "revision": "072c969749e66f000dba35a33c387650e203e96e"
+  },
+  {
     "name": "ssh-config",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-ssh-config",
     "revision": "71d2693deadaca8cdc09e38ba41d2f6042da1616"

@@ -650,6 +650,12 @@
     "revision": "8f11ac7206a54ed11210491cee1e0657e2962c47"
   },
   {
+    "name": "terraform",
+    "path": "dialects/terraform",
+    "repository": "https://github.com/MichaHoffmann/tree-sitter-hcl",
+    "revision": "64ad62785d442eb4d45df3a1764962dafd5bc98b"
+  },
+  {
     "name": "toml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-toml",
     "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41"

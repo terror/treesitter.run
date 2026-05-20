@@ -793,6 +793,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-tablegen.wasm',
     sampleCode: 'class Foo<string bar> {\n  string baz = bar;\n}',
   },
+  terraform: {
+    name: 'terraform',
+    displayName: 'Terraform',
+    wasmPath: 'tree-sitter-terraform.wasm',
+    sampleCode: 'resource "foo" "bar" {\n  baz = "qux"\n}',
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

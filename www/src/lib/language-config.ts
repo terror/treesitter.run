@@ -402,6 +402,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-javascript.wasm',
     sampleCode: 'console.log("hello, world");',
   },
+  jq: {
+    name: 'jq',
+    displayName: 'jq',
+    wasmPath: 'tree-sitter-jq.wasm',
+    sampleCode: '.foo | length',
+  },
   jsdoc: {
     name: 'jsdoc',
     displayName: 'JSDoc',

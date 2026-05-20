@@ -60,6 +60,7 @@ export type Language =
   | 'ispc'
   | 'java'
   | 'javascript'
+  | 'jq'
   | 'jsdoc'
   | 'json'
   | 'json5'

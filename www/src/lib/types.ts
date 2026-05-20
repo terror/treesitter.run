@@ -103,6 +103,7 @@ export interface LanguageConfig {
   name: Language;
   displayName: string;
   wasmPath: string;
+  highlightQueryPath?: string;
   sampleCode: string;
 }
 

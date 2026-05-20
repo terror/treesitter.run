@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import './syntax-themes/index.css';
+@import './syntax-themes.css';
 
 @plugin "tailwindcss-animate";
 

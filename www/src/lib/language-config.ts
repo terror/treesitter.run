@@ -1,9 +1,99 @@
 import { Language, LanguageConfig } from './types';
 
-export const highlightQueryPath = (language: Language): string =>
-  `tree-sitter-${language}.highlights.scm`;
+const highlightedLanguages = new Set<Language>([
+  'agda',
+  'arduino',
+  'bash',
+  'beancount',
+  'bibtex',
+  'bicep',
+  'c',
+  'c-sharp',
+  'chatito',
+  'cmake',
+  'cpp',
+  'css',
+  'cuda',
+  'cyberchef',
+  'dart',
+  'diff',
+  'dockerfile',
+  'elixir',
+  'elm',
+  'embedded-template',
+  'fortran',
+  'gitattributes',
+  'gleam',
+  'glsl',
+  'go',
+  'go-sum',
+  'gpg-config',
+  'haskell',
+  'html',
+  'ini',
+  'ispc',
+  'java',
+  'javascript',
+  'jsdoc',
+  'json',
+  'json5',
+  'julia',
+  'kconfig',
+  'kotlin',
+  'llvm',
+  'lua',
+  'luau',
+  'make',
+  'markdown',
+  'meson',
+  'nginx',
+  'nix',
+  'objc',
+  'odin',
+  'pem',
+  'poe-filter',
+  'powershell',
+  'printf',
+  'prisma',
+  'properties',
+  'puppet',
+  'purescript',
+  'pymanifest',
+  'python',
+  'ql',
+  'qmljs',
+  'r',
+  'racket',
+  'readline',
+  'regex',
+  'requirements',
+  'rescript',
+  'ruby',
+  'rust',
+  'scala',
+  'solidity',
+  'sql',
+  'ssh-config',
+  'starlark',
+  'toml',
+  'udev',
+  'xcompose',
+  'yaml',
+  'zig',
+]);
 
-export const languageConfig: Record<Language, LanguageConfig> = {
+const withHighlightQueryPath = (config: LanguageConfig): LanguageConfig => {
+  if (!highlightedLanguages.has(config.name)) {
+    return config;
+  }
+
+  return {
+    ...config,
+    highlightQueryPath: `tree-sitter-${config.name}.highlights.scm`,
+  };
+};
+
+const baseLanguageConfig: Record<Language, LanguageConfig> = {
   agda: {
     name: 'agda',
     displayName: 'Agda',
@@ -658,3 +748,10 @@ export const languageConfig: Record<Language, LanguageConfig> = {
       'const std = @import("std");\n\npub fn main() void {\n  std.debug.print("foo\\n", .{});\n}',
   },
 };
+
+export const languageConfig = Object.fromEntries(
+  Object.entries(baseLanguageConfig).map(([name, config]) => [
+    name,
+    withHighlightQueryPath(config),
+  ])
+) as Record<Language, LanguageConfig>;

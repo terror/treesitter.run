@@ -4,6 +4,21 @@ import { Language, Parser } from 'web-tree-sitter';
 import { languageConfig } from './language-config';
 
 describe('languageConfig', () => {
+  test('configured highlight queries exist', async () => {
+    for (const config of Object.values(languageConfig)) {
+      if (!config.highlightQueryPath) {
+        continue;
+      }
+
+      const path = new URL(
+        `../../public/${config.highlightQueryPath}`,
+        import.meta.url
+      ).pathname;
+
+      expect(await Bun.file(path).exists(), config.name).toBe(true);
+    }
+  });
+
   test('sample code parses without errors', async () => {
     await Parser.init({
       locateFile(scriptName: string) {

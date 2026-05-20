@@ -7,7 +7,7 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import type { Language } from '@/lib/types';
 import { Loader2, TentTree } from 'lucide-react';
-import { useCallback, useDeferredValue } from 'react';
+import { useCallback } from 'react';
 
 import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
@@ -45,8 +45,6 @@ const App = () => {
 
   const { cursorPosition, setCursorPosition } = useCursorPosition();
   const { code, resetCode, setCode } = useEditorBuffer(settings.language);
-  const deferredCode = useDeferredValue(code);
-  const parsedCodeCurrent = deferredCode === code;
 
   const {
     doc,
@@ -62,7 +60,7 @@ const App = () => {
     tree,
     toggleExpand,
   } = useTreeWorkbench({
-    code: deferredCode,
+    code,
     language: settings.language,
     parser,
     treeSitterLanguage: language,
@@ -97,12 +95,12 @@ const App = () => {
 
   const extensions = useEditorExtensions({
     code,
-    highlight: parsedCodeCurrent ? highlight : undefined,
+    highlight,
     highlightQuery,
     query,
-    queryHighlights: parsedCodeCurrent ? queryHighlights : [],
-    parseErrors: parsedCodeCurrent ? parseErrors : [],
-    tree: parsedCodeCurrent ? tree : null,
+    queryHighlights,
+    parseErrors,
+    tree,
   });
 
   if (error) {
@@ -159,7 +157,7 @@ const App = () => {
                 doc={doc}
                 expandedNodes={expandedNodes}
                 language={settings.language}
-                loading={loading || !language || !parsedCodeCurrent}
+                loading={loading || !language}
                 onDeleteRange={handleDeleteRange}
                 onHighlightChange={onHighlightChange}
                 query={query}
@@ -173,7 +171,7 @@ const App = () => {
             </ResizablePanel>
           </ResizablePanelGroup>
 
-          {ready && !loading && parsedCodeCurrent ? (
+          {ready && !loading ? (
             <StatusBar
               cursorPosition={cursorPosition}
               errorCount={parseErrors.length}

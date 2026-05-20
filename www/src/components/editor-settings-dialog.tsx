@@ -24,7 +24,7 @@ import {
 } from '@/contexts/editor-settings-context';
 import { type EditorSyntaxTheme, syntaxThemes } from '@/lib/syntax-themes';
 import { RotateCcw, Settings } from 'lucide-react';
-import { ReactNode, useId, useState } from 'react';
+import { type ReactNode, useId, useState } from 'react';
 
 const syntaxThemeGroups = Array.from(
   new Set(syntaxThemes.map((theme) => theme.family))
@@ -41,6 +41,10 @@ const editorDefaults = {
   syntaxTheme: defaultSettings.syntaxTheme,
   tabSize: defaultSettings.tabSize,
 };
+
+const editorDefaultKeys = Object.keys(editorDefaults) as Array<
+  keyof typeof editorDefaults
+>;
 
 interface SettingSectionProps {
   children: ReactNode;
@@ -84,13 +88,9 @@ export const EditorSettingsDialog = () => {
   const id = useId();
   const theme = currentTheme(settings.syntaxTheme);
 
-  const settingsChanged =
-    settings.fontSize !== editorDefaults.fontSize ||
-    settings.keybindings !== editorDefaults.keybindings ||
-    settings.lineNumbers !== editorDefaults.lineNumbers ||
-    settings.lineWrapping !== editorDefaults.lineWrapping ||
-    settings.syntaxTheme !== editorDefaults.syntaxTheme ||
-    settings.tabSize !== editorDefaults.tabSize;
+  const settingsChanged = editorDefaultKeys.some(
+    (key) => settings[key] !== editorDefaults[key]
+  );
 
   return (
     <>

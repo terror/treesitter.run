@@ -470,6 +470,11 @@
     "revision": "205a7d576984feb38a9fc2d8cfe729617f9e0548"
   },
   {
+    "name": "pony",
+    "repository": "https://github.com/amaanq/tree-sitter-pony",
+    "revision": "73ff874ae4c9e9b45462673cbc0a1e350e2522a7"
+  },
+  {
     "name": "powershell",
     "repository": "https://github.com/airbus-cert/tree-sitter-powershell",
     "revision": "d398441825243b00e317e87e1829b9d6a3e54ce0"

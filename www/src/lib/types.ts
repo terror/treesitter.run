@@ -92,6 +92,7 @@ export type Language =
   | 'php'
   | 'po'
   | 'poe-filter'
+  | 'pony'
   | 'powershell'
   | 'printf'
   | 'prisma'

@@ -594,6 +594,13 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-poe-filter.wasm',
     sampleCode: 'Show\n  Class "foo"\n',
   },
+  pony: {
+    name: 'pony',
+    displayName: 'Pony',
+    wasmPath: 'tree-sitter-pony.wasm',
+    sampleCode:
+      'actor Main\n  new create(env: Env) =>\n    env.out.print("foo")',
+  },
   powershell: {
     name: 'powershell',
     displayName: 'PowerShell',

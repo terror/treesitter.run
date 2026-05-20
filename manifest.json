@@ -241,6 +241,11 @@
     "revision": "df5b88d1d24dcfc02e64919d2d20491359abe4c8"
   },
   {
+    "name": "gstlaunch",
+    "repository": "https://github.com/theHamsta/tree-sitter-gstlaunch",
+    "revision": "549aef253fd38a53995cda1bf55c501174372bf7"
+  },
+  {
     "name": "haskell",
     "repository": "https://github.com/tree-sitter/tree-sitter-haskell",
     "revision": "0975ef72fc3c47b530309ca93937d7d143523628"

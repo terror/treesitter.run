@@ -313,6 +313,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-graphql.wasm',
     sampleCode: 'query Foo {\n  bar {\n    baz\n  }\n}',
   },
+  gstlaunch: {
+    name: 'gstlaunch',
+    displayName: 'GStreamer Launch',
+    wasmPath: 'tree-sitter-gstlaunch.wasm',
+    sampleCode: 'videotestsrc ! autovideosink',
+  },
   haskell: {
     name: 'haskell',
     displayName: 'Haskell',

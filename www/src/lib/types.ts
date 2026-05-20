@@ -47,6 +47,7 @@ export type Language =
   | 'gowork'
   | 'gpg-config'
   | 'graphql'
+  | 'gstlaunch'
   | 'haskell'
   | 'hcl'
   | 'hlsl'

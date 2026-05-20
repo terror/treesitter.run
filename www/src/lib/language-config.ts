@@ -222,6 +222,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-firrtl.wasm',
     sampleCode: 'circuit Foo :\n  module Foo :\n    input clock : Clock\n',
   },
+  fish: {
+    name: 'fish',
+    displayName: 'fish',
+    wasmPath: 'tree-sitter-fish.wasm',
+    sampleCode: 'function foo\n  echo bar\nend\n',
+  },
   fortran: {
     name: 'fortran',
     displayName: 'Fortran',

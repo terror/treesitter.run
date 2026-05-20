@@ -170,6 +170,11 @@
     "revision": "8503d3a0fe0f9e427863cb0055699ff2d29ae5f5"
   },
   {
+    "name": "fish",
+    "repository": "https://github.com/ram02z/tree-sitter-fish",
+    "revision": "f435b0bd772578c70e5d158b85267bb886316f88"
+  },
+  {
     "name": "fortran",
     "repository": "https://github.com/stadelmanma/tree-sitter-fortran",
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"

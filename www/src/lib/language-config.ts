@@ -625,6 +625,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-properties.wasm',
     sampleCode: 'foo=bar',
   },
+  pug: {
+    name: 'pug',
+    displayName: 'Pug',
+    wasmPath: 'tree-sitter-pug.wasm',
+    sampleCode: 'html\n  body\n    p foo\n',
+  },
   puppet: {
     name: 'puppet',
     displayName: 'Puppet',

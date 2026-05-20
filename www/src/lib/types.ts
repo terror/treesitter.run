@@ -10,6 +10,7 @@ export type Language =
   | 'bitbake'
   | 'c'
   | 'c-sharp'
+  | 'cairo'
   | 'chatito'
   | 'cmake'
   | 'commonlisp'

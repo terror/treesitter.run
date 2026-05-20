@@ -84,6 +84,7 @@ export type Language =
   | 'move'
   | 'nginx'
   | 'nix'
+  | 'nqc'
   | 'objc'
   | 'ocaml'
   | 'odin'

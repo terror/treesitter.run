@@ -180,6 +180,12 @@
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"
   },
   {
+    "name": "fsharp",
+    "path": "fsharp",
+    "repository": "https://github.com/ionide/tree-sitter-fsharp",
+    "revision": "5247c1197cb290fcaea0e0a793d32829c1396831"
+  },
+  {
     "name": "gdscript",
     "repository": "https://github.com/PrestonKnopp/tree-sitter-gdscript",
     "revision": "89e66b6bdc002ab976283f277cbb48b780c5d0e9"

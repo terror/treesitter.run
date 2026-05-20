@@ -27,7 +27,7 @@ export const QueryBar = ({
 }: QueryBarProps) => (
   <div
     className={cn(
-      'flex min-h-9 items-center gap-2 border-b bg-gray-50 px-2 py-1',
+      'flex min-h-9 items-center gap-1 border-b bg-gray-50 px-2 py-1',
       className
     )}
   >
@@ -43,8 +43,11 @@ export const QueryBar = ({
         <ChevronUp className='h-4 w-4' />
       </Button>
     ) : null}
+
     <span className='font-mono text-sm'>Query</span>
+
     <QueryInfoDialog />
+
     <span className='ml-auto text-xs text-gray-500'>
       {error ? error : `${captures.length} captures`}
     </span>
@@ -59,6 +62,7 @@ export const QueryPane = ({
 }: QueryPaneProps) => (
   <div className='flex h-full min-h-0 flex-col overflow-hidden bg-white'>
     <QueryBar captures={captures} error={error} />
+
     <textarea
       value={query}
       onChange={(event) => onQueryChange(event.target.value)}

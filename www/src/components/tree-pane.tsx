@@ -16,7 +16,7 @@ import { VirtualizedTreeList } from './virtualized-tree-list';
 
 interface TreePaneProps {
   doc: Text;
-  expandedNodes: Set<SyntaxNode>;
+  expandedNodes: Set<string>;
   language: Language;
   loading: boolean;
   onDeleteRange: (range: { from: number; to: number }) => void;

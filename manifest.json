@@ -737,5 +737,10 @@
     "name": "zig",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zig",
     "revision": "6479aa13f32f701c383083d8b28360ebd682fb7d"
+  },
+  {
+    "name": "zsh",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zsh",
+    "revision": "47e2caf4ed7e466f51cfbb13a860a192c300506f"
   }
 ]

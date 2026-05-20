@@ -87,9 +87,9 @@ const App = () => {
   );
 
   const extensions = useEditorExtensions({
-    highlight,
-    query,
-    queryHighlights,
+    selectedNodeRange: highlight,
+    queryText: query,
+    queryCaptureRanges: queryHighlights,
     parseErrors,
   });
 

@@ -1,11 +1,11 @@
 import { Extension } from '@codemirror/state';
 import { Decoration, EditorView } from '@codemirror/view';
 
-import { scrollExtension } from './scroll';
+import { scrollIntoViewExtension } from './scroll-into-view';
 
 const queryMark = Decoration.mark({ class: 'cm-query-capture' });
 
-export const queryExtension = (
+export const queryCaptureHighlightExtension = (
   ranges: { from: number; to: number }[],
   scroll = true
 ): Extension => {
@@ -30,7 +30,7 @@ export const queryExtension = (
   ];
 
   if (scroll) {
-    extensions.push(scrollExtension(ranges[0].from));
+    extensions.push(scrollIntoViewExtension(ranges[0].from));
   }
 
   return extensions;

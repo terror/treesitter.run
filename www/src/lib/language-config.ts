@@ -234,6 +234,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-fortran.wasm',
     sampleCode: 'program foo\n  print *, "bar"\nend program foo',
   },
+  fsharp: {
+    name: 'fsharp',
+    displayName: 'F#',
+    wasmPath: 'tree-sitter-fsharp.wasm',
+    sampleCode: 'let foo bar =\n  printfn "%s" bar',
+  },
   gdscript: {
     name: 'gdscript',
     displayName: 'GDScript',

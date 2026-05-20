@@ -94,24 +94,22 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
 
         let query: Query | null = null;
 
-        if (config.highlightQueryPath) {
-          try {
-            const response = await fetch(config.highlightQueryPath);
+        try {
+          const response = await fetch(config.highlightQueryPath);
 
-            if (!response.ok) {
-              throw new Error(`${response.status} ${response.statusText}`);
-            }
-
-            const source = await response.text();
-
-            query = source.trim() ? new Query(language, source) : null;
-          } catch (error) {
-            console.warn(
-              `Failed to load highlights query ${languageName}: ${
-                error instanceof Error ? error.message : String(error)
-              }`
-            );
+          if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
           }
+
+          const source = await response.text();
+
+          query = source.trim() ? new Query(language, source) : null;
+        } catch (error) {
+          console.warn(
+            `Failed to load highlights query ${languageName}: ${
+              error instanceof Error ? error.message : String(error)
+            }`
+          );
         }
 
         return { language, query };

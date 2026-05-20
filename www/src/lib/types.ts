@@ -33,6 +33,7 @@ export type Language =
   | 'erlang'
   | 'fennel'
   | 'firrtl'
+  | 'fish'
   | 'fortran'
   | 'gdscript'
   | 'gitattributes'

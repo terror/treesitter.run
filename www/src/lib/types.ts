@@ -129,6 +129,7 @@ export type Language =
   | 'typescript'
   | 'udev'
   | 'ungrammar'
+  | 'uxntal'
   | 'verilog'
   | 'vim'
   | 'wgsl-bevy'

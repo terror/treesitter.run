@@ -832,6 +832,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-ungrammar.wasm',
     sampleCode: "Foo = 'bar'\n",
   },
+  uxntal: {
+    name: 'uxntal',
+    displayName: 'Uxntal',
+    wasmPath: 'tree-sitter-uxntal.wasm',
+    sampleCode: '|0100 @foo BRK\n',
+  },
   verilog: {
     name: 'verilog',
     displayName: 'Verilog',

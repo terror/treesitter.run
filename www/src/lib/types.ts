@@ -130,6 +130,7 @@ export type Language =
   | 'udev'
   | 'ungrammar'
   | 'uxntal'
+  | 'vala'
   | 'verilog'
   | 'vim'
   | 'wgsl-bevy'

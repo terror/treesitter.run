@@ -838,6 +838,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-uxntal.wasm',
     sampleCode: '|0100 @foo BRK\n',
   },
+  vala: {
+    name: 'vala',
+    displayName: 'Vala',
+    wasmPath: 'tree-sitter-vala.wasm',
+    sampleCode: 'void main() {\n  print("foo");\n}',
+  },
   verilog: {
     name: 'verilog',
     displayName: 'Verilog',

@@ -10,6 +10,16 @@
     "revision": "11dd46c9ae25135c473c0003a133bb06a484af0c"
   },
   {
+    "name": "astro",
+    "repository": "https://github.com/virchau13/tree-sitter-astro",
+    "revision": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee"
+  },
+  {
+    "name": "awk",
+    "repository": "https://github.com/Beaglefoot/tree-sitter-awk",
+    "revision": "34bbdc7cce8e803096f47b625979e34c1be38127"
+  },
+  {
     "name": "bash",
     "repository": "https://github.com/tree-sitter/tree-sitter-bash",
     "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7"
@@ -30,6 +40,11 @@
     "revision": "bff59884307c0ab009bd5e81afd9324b46a6c0f9"
   },
   {
+    "name": "bitbake",
+    "repository": "https://github.com/amaanq/tree-sitter-bitbake",
+    "revision": "a5d04fdb5a69a02b8fa8eb5525a60dfb5309b73b"
+  },
+  {
     "name": "c",
     "repository": "https://github.com/tree-sitter/tree-sitter-c",
     "revision": "b780e47fc780ddc8da13afa35a3f4ed5c157823d"
@@ -40,9 +55,24 @@
     "revision": "cac6d5fb595f5811a076336682d5d595ac1c9e85"
   },
   {
+    "name": "cairo",
+    "repository": "https://github.com/amaanq/tree-sitter-cairo",
+    "revision": "6238f609bea233040fe927858156dee5515a0745"
+  },
+  {
+    "name": "capnp",
+    "repository": "https://github.com/amaanq/tree-sitter-capnp",
+    "revision": "7b0883c03e5edd34ef7bcf703194204299d7099f"
+  },
+  {
     "name": "chatito",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-chatito",
     "revision": "c0ed82c665b732395073f635c74c300f09530a7f"
+  },
+  {
+    "name": "clojure",
+    "repository": "https://github.com/sogaiu/tree-sitter-clojure",
+    "revision": "e43eff80d17cf34852dcd92ca5e6986d23a7040f"
   },
   {
     "name": "cmake",
@@ -53,6 +83,11 @@
     "name": "commonlisp",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-commonlisp",
     "revision": "32323509b3d9fe96607d151c2da2c9009eb13a2f"
+  },
+  {
+    "name": "cpon",
+    "repository": "https://github.com/amaanq/tree-sitter-cpon",
+    "revision": "594289eadfec719198e560f9d7fd243c4db678d5"
   },
   {
     "name": "cpp",
@@ -75,6 +110,11 @@
     "revision": "8bad395b98253324085b4b5227b14d4988f374b7"
   },
   {
+    "name": "d",
+    "repository": "https://github.com/gdamore/tree-sitter-d",
+    "revision": "fb028c8f14f4188286c2eef143f105def6fbf24f"
+  },
+  {
     "name": "dart",
     "repository": "https://github.com/usernobody14/tree-sitter-dart",
     "revision": "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"
@@ -88,6 +128,16 @@
     "name": "dockerfile",
     "repository": "https://github.com/camdencheek/tree-sitter-dockerfile",
     "revision": "971acdd908568b4531b0ba28a445bf0bb720aba5"
+  },
+  {
+    "name": "dot",
+    "repository": "https://github.com/rydesun/tree-sitter-dot",
+    "revision": "80327abbba6f47530edeb0df9f11bd5d5c93c14d"
+  },
+  {
+    "name": "eex",
+    "repository": "https://github.com/connorlay/tree-sitter-eex",
+    "revision": "f742f2fe327463335e8671a87c0b9b396905d1d1"
   },
   {
     "name": "elixir",
@@ -105,14 +155,40 @@
     "revision": "3499d85f0a0d937c507a4a65368f2f63772786e1"
   },
   {
+    "name": "erlang",
+    "repository": "https://github.com/WhatsApp/tree-sitter-erlang",
+    "revision": "9b5771114c06c69d520469d81e89789325804fa4"
+  },
+  {
     "name": "fennel",
     "repository": "https://github.com/alexmozaidze/tree-sitter-fennel",
     "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"
   },
   {
+    "name": "firrtl",
+    "repository": "https://github.com/amaanq/tree-sitter-firrtl",
+    "revision": "8503d3a0fe0f9e427863cb0055699ff2d29ae5f5"
+  },
+  {
+    "name": "fish",
+    "repository": "https://github.com/ram02z/tree-sitter-fish",
+    "revision": "f435b0bd772578c70e5d158b85267bb886316f88"
+  },
+  {
     "name": "fortran",
     "repository": "https://github.com/stadelmanma/tree-sitter-fortran",
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"
+  },
+  {
+    "name": "fsharp",
+    "path": "fsharp",
+    "repository": "https://github.com/ionide/tree-sitter-fsharp",
+    "revision": "5247c1197cb290fcaea0e0a793d32829c1396831"
+  },
+  {
+    "name": "func",
+    "repository": "https://github.com/amaanq/tree-sitter-func",
+    "revision": "f780ca55e65e7d7360d0229331763e16c452fc98"
   },
   {
     "name": "gdscript",
@@ -135,6 +211,11 @@
     "revision": "24a6c8ef698e4480fecf8340d771fbcb5de8fbb4"
   },
   {
+    "name": "gn",
+    "repository": "https://github.com/amaanq/tree-sitter-gn",
+    "revision": "bc06955bc1e3c9ff8e9b2b2a55b38b94da923c05"
+  },
+  {
     "name": "go",
     "repository": "https://github.com/tree-sitter/tree-sitter-go",
     "revision": "2346a3ab1bb3857b48b29d779a1ef9799a248cd7"
@@ -145,6 +226,11 @@
     "revision": "27816eb6b7315746ae9fcf711e4e1396dc1cf237"
   },
   {
+    "name": "gowork",
+    "repository": "https://github.com/omertuc/tree-sitter-go-work",
+    "revision": "949a8a470559543857a62102c84700d291fc984c"
+  },
+  {
     "name": "gpg-config",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gpg-config",
     "revision": "4024eb268c59204280f8ac71ef146b8ff5e737f6"
@@ -153,6 +239,16 @@
     "name": "graphql",
     "repository": "https://github.com/joowani/tree-sitter-graphql",
     "revision": "df5b88d1d24dcfc02e64919d2d20491359abe4c8"
+  },
+  {
+    "name": "gstlaunch",
+    "repository": "https://github.com/theHamsta/tree-sitter-gstlaunch",
+    "revision": "549aef253fd38a53995cda1bf55c501174372bf7"
+  },
+  {
+    "name": "hare",
+    "repository": "https://github.com/amaanq/tree-sitter-hare",
+    "revision": "eed7ddf6a66b596906aa8ca3d40521b8278adc6f"
   },
   {
     "name": "haskell",
@@ -173,6 +269,16 @@
     "name": "html",
     "repository": "https://github.com/tree-sitter/tree-sitter-html",
     "revision": "73a3947324f6efddf9e17c0ea58d454843590cc0"
+  },
+  {
+    "name": "http",
+    "repository": "https://github.com/rest-nvim/tree-sitter-http",
+    "revision": "db8b4398de90b6d0b6c780aba96aaa2cd8e9202c"
+  },
+  {
+    "name": "hurl",
+    "repository": "https://github.com/pfeiferj/tree-sitter-hurl",
+    "revision": "597efbd7ce9a814bb058f48eabd055b1d1e12145"
   },
   {
     "name": "hyprlang",
@@ -200,6 +306,11 @@
     "revision": "58404d8cf191d69f2674a8fd507bd5776f46cb11"
   },
   {
+    "name": "jq",
+    "repository": "https://github.com/flurie/tree-sitter-jq",
+    "revision": "c204e36d2c3c6fce1f57950b12cabcc24e5cc4d9"
+  },
+  {
     "name": "jsdoc",
     "repository": "https://github.com/tree-sitter/tree-sitter-jsdoc",
     "revision": "658d18dcdddb75c760363faa4963427a7c6b52db"
@@ -213,6 +324,11 @@
     "name": "json5",
     "repository": "https://github.com/Joakker/tree-sitter-json5",
     "revision": "248b8564567087d7866be76569b182f6dd7e14e9"
+  },
+  {
+    "name": "jsonnet",
+    "repository": "https://github.com/sourcegraph/tree-sitter-jsonnet",
+    "revision": "ddd075f1939aed8147b7aa67f042eda3fce22790"
   },
   {
     "name": "julia",
@@ -231,9 +347,24 @@
     "revision": "9ac99fe4c0c27a35dc6f757cef534c646e944881"
   },
   {
+    "name": "kdl",
+    "repository": "https://github.com/amaanq/tree-sitter-kdl",
+    "revision": "b37e3d58e5c5cf8d739b315d6114e02d42e66664"
+  },
+  {
     "name": "kotlin",
     "repository": "https://github.com/fwcd/tree-sitter-kotlin",
     "revision": "f66d2908542e93c0204c6c241f794afe4e9cd5d1"
+  },
+  {
+    "name": "linkerscript",
+    "repository": "https://github.com/amaanq/tree-sitter-linkerscript",
+    "revision": "f99011a3554213b654985a4b0a65b3b032ec4621"
+  },
+  {
+    "name": "liquid",
+    "repository": "https://github.com/hankthetank27/tree-sitter-liquid",
+    "revision": "e45dbac8c5fa95b1f0e00e7e0c04bc8855823391"
   },
   {
     "name": "llvm",
@@ -244,6 +375,16 @@
     "name": "lua",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-lua",
     "revision": "10fe0054734eec83049514ea2e718b2a56acd0c9"
+  },
+  {
+    "name": "luadoc",
+    "repository": "https://github.com/amaanq/tree-sitter-luadoc",
+    "revision": "873612aadd3f684dd4e631bdf42ea8990c57634e"
+  },
+  {
+    "name": "luap",
+    "repository": "https://github.com/amaanq/tree-sitter-luap",
+    "revision": "c134aaec6acf4fa95fe4aa0dc9aba3eacdbbe55a"
   },
   {
     "name": "luau",
@@ -262,9 +403,19 @@
     "revision": "c3570720f7f7bbad22fe96603f106276618e0cf5"
   },
   {
+    "name": "mermaid",
+    "repository": "https://github.com/monaqa/tree-sitter-mermaid",
+    "revision": "90ae195b31933ceb9d079abfa8a3ad0a36fee4cc"
+  },
+  {
     "name": "meson",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-meson",
     "revision": "c84f3540624b81fc44067030afce2ff78d6ede05"
+  },
+  {
+    "name": "move",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-move",
+    "revision": "b8ca25518749be10562455fd081a3dab30b93b8b"
   },
   {
     "name": "nginx",
@@ -275,6 +426,11 @@
     "name": "nix",
     "repository": "https://github.com/nix-community/tree-sitter-nix",
     "revision": "69fbfb02896cdd27cb7ff3cd61f7f3f6bde4f017"
+  },
+  {
+    "name": "nqc",
+    "repository": "https://github.com/amaanq/tree-sitter-nqc",
+    "revision": "14e6da1627aaef21d2b2aa0c37d04269766dcc1d"
   },
   {
     "name": "objc",
@@ -304,9 +460,19 @@
     "revision": "3f2465c217d0a966d41e584b42d75522f2a3149e"
   },
   {
+    "name": "po",
+    "repository": "https://github.com/erasin/tree-sitter-po",
+    "revision": "bd860a0f57f697162bf28e576674be9c1500db5e"
+  },
+  {
     "name": "poe-filter",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-poe-filter",
     "revision": "205a7d576984feb38a9fc2d8cfe729617f9e0548"
+  },
+  {
+    "name": "pony",
+    "repository": "https://github.com/amaanq/tree-sitter-pony",
+    "revision": "73ff874ae4c9e9b45462673cbc0a1e350e2522a7"
   },
   {
     "name": "powershell",
@@ -327,6 +493,11 @@
     "name": "properties",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-properties",
     "revision": "6310671b24d4e04b803577b1c675d765cbd5773b"
+  },
+  {
+    "name": "pug",
+    "repository": "https://github.com/zealot128/tree-sitter-pug",
+    "revision": "13e9195370172c86a8b88184cc358b23b677cc46"
   },
   {
     "name": "puppet",
@@ -379,6 +550,11 @@
     "revision": "54649be8b939341d2d5410b594ab954fe8814bd0"
   },
   {
+    "name": "re2c",
+    "repository": "https://github.com/amaanq/tree-sitter-re2c",
+    "revision": "c18a3c2f4b6665e35b7e50d6048ea3cff770c572"
+  },
+  {
     "name": "readline",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-readline",
     "revision": "6b744c527aebd12e46a5ecb3aebdb8d621a8e83e"
@@ -399,6 +575,11 @@
     "revision": "990214a83f25801dfe0226bd7e92bb71bba1970f"
   },
   {
+    "name": "ron",
+    "repository": "https://github.com/amaanq/tree-sitter-ron",
+    "revision": "78938553b93075e638035f624973083451b29055"
+  },
+  {
     "name": "ruby",
     "repository": "https://github.com/tree-sitter/tree-sitter-ruby",
     "revision": "ad907a69da0c8a4f7a943a7fe012712208da6dee"
@@ -414,9 +595,19 @@
     "revision": "d0f532c1f63e394c7b48fc7ad5866293cde60cc5"
   },
   {
+    "name": "scss",
+    "repository": "https://github.com/serenadeai/tree-sitter-scss",
+    "revision": "c478c6868648eff49eb04a4df90d703dc45b312a"
+  },
+  {
     "name": "slang",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-slang",
     "revision": "1dbcc4abc7b3cdd663eb03d93031167d6ed19f56"
+  },
+  {
+    "name": "smali",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-smali",
+    "revision": "fdfa6a1febc43c7467aa7e937b87b607956f2346"
   },
   {
     "name": "solidity",
@@ -429,6 +620,11 @@
     "revision": "f7491fe853198c1ea81d743244ad9c2aa3eab157"
   },
   {
+    "name": "squirrel",
+    "repository": "https://github.com/amaanq/tree-sitter-squirrel",
+    "revision": "072c969749e66f000dba35a33c387650e203e96e"
+  },
+  {
     "name": "ssh-config",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-ssh-config",
     "revision": "71d2693deadaca8cdc09e38ba41d2f6042da1616"
@@ -439,9 +635,30 @@
     "revision": "a453dbf3ba433db0e5ec621a38a7e59d72e4dc69"
   },
   {
+    "name": "svelte",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-svelte",
+    "revision": "ae5199db47757f785e43a14b332118a5474de1a2"
+  },
+  {
+    "name": "tablegen",
+    "repository": "https://github.com/amaanq/tree-sitter-tablegen",
+    "revision": "b1170880c61355aaf38fc06f4af7d3c55abdabc4"
+  },
+  {
     "name": "tcl",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-tcl",
     "revision": "8f11ac7206a54ed11210491cee1e0657e2962c47"
+  },
+  {
+    "name": "terraform",
+    "path": "dialects/terraform",
+    "repository": "https://github.com/MichaHoffmann/tree-sitter-hcl",
+    "revision": "64ad62785d442eb4d45df3a1764962dafd5bc98b"
+  },
+  {
+    "name": "thrift",
+    "repository": "https://github.com/duskmoon314/tree-sitter-thrift",
+    "revision": "68fd0d80943a828d9e6f49c58a74be1e9ca142cf"
   },
   {
     "name": "toml",
@@ -466,6 +683,21 @@
     "revision": "2fcb563a4d56a6b8e8c129252325fc6335e4acbf"
   },
   {
+    "name": "ungrammar",
+    "repository": "https://github.com/Philipp-M/tree-sitter-ungrammar",
+    "revision": "debd26fed283d80456ebafa33a06957b0c52e451"
+  },
+  {
+    "name": "uxntal",
+    "repository": "https://github.com/amaanq/tree-sitter-uxntal",
+    "revision": "ad9b638b914095320de85d59c49ab271603af048"
+  },
+  {
+    "name": "vala",
+    "repository": "https://github.com/vala-lang/tree-sitter-vala",
+    "revision": "97e6db3c8c73b15a9541a458d8e797a07f588ef4"
+  },
+  {
     "name": "verilog",
     "repository": "https://github.com/tree-sitter/tree-sitter-verilog",
     "revision": "227d277b6a1a5e2bf818d6206935722a7503de08"
@@ -474,6 +706,11 @@
     "name": "vim",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-vim",
     "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"
+  },
+  {
+    "name": "wgsl",
+    "repository": "https://github.com/szebniok/tree-sitter-wgsl",
+    "revision": "40259f3c77ea856841a4e0c4c807705f3e4a2b65"
   },
   {
     "name": "wgsl-bevy",
@@ -500,5 +737,10 @@
     "name": "zig",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zig",
     "revision": "6479aa13f32f701c383083d8b28360ebd682fb7d"
+  },
+  {
+    "name": "zsh",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zsh",
+    "revision": "47e2caf4ed7e466f51cfbb13a860a192c300506f"
   }
 ]

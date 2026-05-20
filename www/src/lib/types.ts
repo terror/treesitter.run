@@ -48,6 +48,7 @@ export type Language =
   | 'gpg-config'
   | 'graphql'
   | 'gstlaunch'
+  | 'hare'
   | 'haskell'
   | 'hcl'
   | 'hlsl'

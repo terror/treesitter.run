@@ -15,6 +15,11 @@
     "revision": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee"
   },
   {
+    "name": "awk",
+    "repository": "https://github.com/Beaglefoot/tree-sitter-awk",
+    "revision": "34bbdc7cce8e803096f47b625979e34c1be38127"
+  },
+  {
     "name": "bash",
     "repository": "https://github.com/tree-sitter/tree-sitter-bash",
     "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7"

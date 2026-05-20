@@ -20,6 +20,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-astro.wasm',
     sampleCode: '---\nconst foo = "bar";\n---\n<div>{foo}</div>',
   },
+  awk: {
+    name: 'awk',
+    displayName: 'Awk',
+    wasmPath: 'tree-sitter-awk.wasm',
+    sampleCode: 'BEGIN { print "foo" }',
+  },
   bash: {
     name: 'bash',
     displayName: 'Bash',

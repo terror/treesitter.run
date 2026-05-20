@@ -155,6 +155,11 @@
     "revision": "3499d85f0a0d937c507a4a65368f2f63772786e1"
   },
   {
+    "name": "erlang",
+    "repository": "https://github.com/WhatsApp/tree-sitter-erlang",
+    "revision": "9b5771114c06c69d520469d81e89789325804fa4"
+  },
+  {
     "name": "fennel",
     "repository": "https://github.com/alexmozaidze/tree-sitter-fennel",
     "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"

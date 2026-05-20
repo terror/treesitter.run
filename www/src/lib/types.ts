@@ -119,6 +119,7 @@ export type Language =
   | 'scala'
   | 'scss'
   | 'slang'
+  | 'smali'
   | 'solidity'
   | 'svelte'
   | 'typescript'

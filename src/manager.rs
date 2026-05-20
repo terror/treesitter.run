@@ -120,7 +120,9 @@ impl Manager {
       fs::create_dir_all(
         output.parent().context("query output has no parent")?,
       )?;
+
       fs::copy(input, &output)?;
+
       self.reporter.finish_step("copied", &output_display);
     } else if output.try_exists()? {
       fs::remove_file(&output)?;

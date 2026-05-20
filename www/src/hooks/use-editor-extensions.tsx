@@ -2,16 +2,14 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { errorExtension } from '@/extensions/error';
 import { highlightExtension } from '@/extensions/highlight';
 import { queryExtension } from '@/extensions/query';
-import { languageConfig } from '@/lib/language-config';
 import type { ParseErrorRange } from '@/lib/parse-errors';
-import type { Language, SyntaxRange } from '@/lib/types';
+import type { SyntaxRange } from '@/lib/types';
 import { EditorState, Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { vim } from '@replit/codemirror-vim';
 import { useEffect, useMemo, useRef } from 'react';
 
 interface UseEditorExtensionsOptions {
-  language: Language;
   highlight: { from: number; to: number } | undefined;
   query: string;
   queryHighlights: SyntaxRange[];
@@ -19,7 +17,6 @@ interface UseEditorExtensionsOptions {
 }
 
 export function useEditorExtensions({
-  language,
   highlight,
   query,
   queryHighlights,
@@ -47,7 +44,6 @@ export function useEditorExtensions({
   return useMemo(() => {
     const extensions: Extension[] = [
       EditorState.tabSize.of(settings.tabSize),
-      languageConfig[language].extension,
       errorExtension(parseErrors),
       queryExtension(queryHighlights, scrollToQueryHighlight),
       highlightExtension(highlight, scrollToHighlight),
@@ -66,7 +62,6 @@ export function useEditorExtensions({
     settings.tabSize,
     settings.keybindings,
     settings.lineWrapping,
-    language,
     parseErrors,
     highlight,
     queryHighlights,

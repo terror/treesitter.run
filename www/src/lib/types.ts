@@ -90,6 +90,7 @@ export type Language =
   | 'odin'
   | 'pem'
   | 'php'
+  | 'po'
   | 'poe-filter'
   | 'powershell'
   | 'printf'

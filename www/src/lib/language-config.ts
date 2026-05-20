@@ -582,6 +582,12 @@ export const languageConfig: Record<Language, LanguageConfig> = {
     wasmPath: 'tree-sitter-php.wasm',
     sampleCode: '<?php\n\necho "hello, world\\n";\n',
   },
+  po: {
+    name: 'po',
+    displayName: 'PO',
+    wasmPath: 'tree-sitter-po.wasm',
+    sampleCode: 'msgid "foo"\nmsgstr "bar"\n',
+  },
   'poe-filter': {
     name: 'poe-filter',
     displayName: 'PoE Filter',

@@ -34,6 +34,37 @@ interface HighlightRange {
   to: number;
 }
 
+export const highlightRanges = ({
+  query,
+  tree,
+}: {
+  query: Query | null | undefined;
+  tree: Tree | null;
+}): HighlightRange[] => {
+  if (!query || !tree) {
+    return [];
+  }
+
+  const ranges = query.captures(tree.rootNode).flatMap((capture) => {
+    const className = captureClasses[capture.name.split('.')[0]];
+
+    if (!className) {
+      return [];
+    }
+
+    const from = capture.node.startIndex;
+    const to = capture.node.endIndex;
+
+    if (to <= from) {
+      return [];
+    }
+
+    return [{ className, from, to }];
+  });
+
+  return normalizeHighlightRanges(ranges);
+};
+
 export const normalizeHighlightRanges = (
   ranges: HighlightRange[]
 ): HighlightRange[] => {
@@ -82,37 +113,6 @@ export const normalizeHighlightRanges = (
   }
 
   return normalized;
-};
-
-export const highlightRanges = ({
-  query,
-  tree,
-}: {
-  query: Query | null | undefined;
-  tree: Tree | null;
-}): HighlightRange[] => {
-  if (!query || !tree) {
-    return [];
-  }
-
-  const ranges = query.captures(tree.rootNode).flatMap((capture) => {
-    const className = captureClasses[capture.name.split('.')[0]];
-
-    if (!className) {
-      return [];
-    }
-
-    const from = capture.node.startIndex;
-    const to = capture.node.endIndex;
-
-    if (to <= from) {
-      return [];
-    }
-
-    return [{ className, from, to }];
-  });
-
-  return normalizeHighlightRanges(ranges);
 };
 
 export const syntaxHighlightingExtension = ({

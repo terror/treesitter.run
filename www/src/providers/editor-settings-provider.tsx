@@ -32,6 +32,7 @@ export const EditorSettingsProvider = ({
       'dark',
       settings.colorMode === 'dark'
     );
+
     document.documentElement.style.colorScheme = settings.colorMode;
   }, [settings.colorMode]);
 

@@ -26,13 +26,6 @@ import { type EditorSyntaxTheme, syntaxThemes } from '@/lib/syntax-themes';
 import { RotateCcw, Settings } from 'lucide-react';
 import { type ReactNode, useId, useState } from 'react';
 
-const syntaxThemeGroups = Array.from(
-  new Set(syntaxThemes.map((theme) => theme.family))
-).map((family) => ({
-  family,
-  themes: syntaxThemes.filter((theme) => theme.family === family),
-}));
-
 const editorDefaults = {
   fontSize: defaultSettings.fontSize,
   keybindings: defaultSettings.keybindings,
@@ -237,28 +230,32 @@ export const EditorSettingsDialog = () => {
                     <SelectValue placeholder='Syntax theme' />
                   </SelectTrigger>
                   <SelectContent className='w-[var(--radix-select-trigger-width)]'>
-                    {syntaxThemeGroups.map(({ family, themes }) => (
+                    {Array.from(
+                      new Set(syntaxThemes.map((theme) => theme.family))
+                    ).map((family) => (
                       <SelectGroup key={family}>
                         <SelectLabel>{family}</SelectLabel>
-                        {themes.map(({ label, swatches, value }) => (
-                          <SelectItem key={value} value={value}>
-                            <span className='flex min-w-0 items-center gap-2'>
-                              <span
-                                aria-hidden='true'
-                                className='border-border flex shrink-0 overflow-hidden rounded-sm border'
-                              >
-                                {swatches.map((swatch) => (
-                                  <span
-                                    key={swatch}
-                                    className='h-3 w-3'
-                                    style={{ backgroundColor: swatch }}
-                                  />
-                                ))}
+                        {syntaxThemes
+                          .filter((theme) => theme.family === family)
+                          .map(({ label, swatches, value }) => (
+                            <SelectItem key={value} value={value}>
+                              <span className='flex min-w-0 items-center gap-2'>
+                                <span
+                                  aria-hidden='true'
+                                  className='border-border flex shrink-0 overflow-hidden rounded-sm border'
+                                >
+                                  {swatches.map((swatch) => (
+                                    <span
+                                      key={swatch}
+                                      className='h-3 w-3'
+                                      style={{ backgroundColor: swatch }}
+                                    />
+                                  ))}
+                                </span>
+                                <span className='truncate'>{label}</span>
                               </span>
-                              <span className='truncate'>{label}</span>
-                            </span>
-                          </SelectItem>
-                        ))}
+                            </SelectItem>
+                          ))}
                       </SelectGroup>
                     ))}
                   </SelectContent>

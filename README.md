@@ -2,11 +2,11 @@
 
 [![build](https://img.shields.io/github/actions/workflow/status/terror/treesitter.run/ci.yaml?branch=master&style=flat&labelColor=1d1d1d&color=424242&logo=GitHub%20Actions&logoColor=white&label=build)](https://github.com/terror/treesitter.run/actions/workflows/ci.yaml)
 
-**treesitter.run** is a web playground for tree-sitter.
+[`treesitter.run`](https://treesitter.run/) is a web playground for tree-sitter.
 
 <img width="1667" alt="demo" src="screenshot.png" />
 
-**treesitter.run** lets you explore and query syntax trees in the browser,
+`treesitter.run` lets you explore and query syntax trees in the browser,
 including:
 
 - Edit source code with CodeMirror, syntax highlighting, diagnostics, and

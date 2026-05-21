@@ -21,6 +21,7 @@ import { useEditorExtensions } from './hooks/use-editor-extensions';
 import { useEditorHighlights } from './hooks/use-editor-highlights';
 import { useHasLoaded } from './hooks/use-has-loaded';
 import { usePanelLayout } from './hooks/use-panel-layout';
+import { useQueryEditorExtensions } from './hooks/use-query-editor-extensions';
 import { useTreeWorkbench } from './hooks/use-tree-workbench';
 
 const App = () => {
@@ -32,6 +33,9 @@ const App = () => {
     loading,
     error,
   } = useTreeSitter(settings.language);
+
+  const { language: queryLanguage, query: queryHighlightQuery } =
+    useTreeSitter('query');
 
   const ready = Boolean(parser && language);
   const loaded = useHasLoaded(ready);
@@ -102,6 +106,14 @@ const App = () => {
     tree,
   });
 
+  const queryExtensions = useQueryEditorExtensions({
+    parser,
+    queryHighlightQuery,
+    queryLanguage,
+    queryText: query,
+    root,
+  });
+
   if (error) {
     return <div className='p-4'>error: {error}</div>;
   }
@@ -164,6 +176,7 @@ const App = () => {
                 queryCaptureNamesByKey={queryCaptureNamesByKey}
                 queryCaptures={queryCaptures}
                 queryError={queryError}
+                queryExtensions={queryExtensions}
                 root={root}
                 setQuery={setQuery}
                 toggleExpand={toggleExpand}

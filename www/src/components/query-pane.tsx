@@ -1,13 +1,16 @@
 import { Button } from '@/components/ui/button';
 import type { QueryCapture } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import type { Extension } from '@codemirror/state';
 import { ChevronUp } from 'lucide-react';
 
+import { QueryEditor } from './query-editor';
 import { QueryInfoDialog } from './query-info-dialog';
 
 interface QueryPaneProps {
   captures: QueryCapture[];
   error: string | undefined;
+  extensions: Extension[];
   onQueryChange: (query: string) => void;
   query: string;
 }
@@ -57,19 +60,19 @@ export const QueryBar = ({
 export const QueryPane = ({
   captures,
   error,
+  extensions,
   onQueryChange,
   query,
 }: QueryPaneProps) => (
   <div className='bg-background flex h-full min-h-0 flex-col overflow-hidden'>
     <QueryBar captures={captures} error={error} />
 
-    <textarea
-      value={query}
-      onChange={(event) => onQueryChange(event.target.value)}
-      spellCheck={false}
-      placeholder='(function_item name: (identifier) @name)'
-      aria-label='Tree-sitter query'
-      className='bg-background min-h-0 flex-1 resize-none border-0 p-2 font-mono text-sm outline-none'
-    />
+    <div className='min-h-0 flex-1 overflow-hidden'>
+      <QueryEditor
+        value={query}
+        onChange={onQueryChange}
+        extensions={extensions}
+      />
+    </div>
   </div>
 );

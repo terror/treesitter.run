@@ -230,6 +230,52 @@
   box-shadow: inset 2px 0 rgba(59, 130, 246, 0.35);
 }
 
+.editor-host .cm-editor .cm-selectionBackground,
+.editor-host
+  .cm-editor.cm-focused
+  > .cm-scroller
+  > .cm-selectionLayer
+  .cm-selectionBackground {
+  background: rgba(59, 130, 246, 0.22) !important;
+}
+
+.dark .editor-host .cm-editor .cm-selectionBackground,
+.dark
+  .editor-host
+  .cm-editor.cm-focused
+  > .cm-scroller
+  > .cm-selectionLayer
+  .cm-selectionBackground {
+  background: rgba(71, 85, 105, 0.68) !important;
+}
+
+.editor-host .cm-line::selection,
+.editor-host .cm-line ::selection,
+.editor-host .cm-content::selection,
+.editor-host .cm-content ::selection {
+  background: rgba(59, 130, 246, 0.22) !important;
+  color: inherit;
+}
+
+.dark .editor-host .cm-line::selection,
+.dark .editor-host .cm-line ::selection,
+.dark .editor-host .cm-content::selection,
+.dark .editor-host .cm-content ::selection {
+  background: rgba(71, 85, 105, 0.68) !important;
+  color: inherit;
+}
+
+.editor-host .cm-selectionMatch {
+  background-color: rgba(59, 130, 246, 0.14);
+  outline: 1px solid rgba(59, 130, 246, 0.24);
+  border-radius: 2px;
+}
+
+.dark .editor-host .cm-selectionMatch {
+  background-color: rgba(96, 165, 250, 0.2);
+  outline-color: rgba(96, 165, 250, 0.34);
+}
+
 .editor-host .cm-fat-cursor {
   background-color: rgba(59, 130, 246, 0.5);
   border-left: none;
@@ -238,6 +284,223 @@
 
 .editor-host .cm-cursor-secondary {
   background-color: rgba(59, 130, 246, 0.3);
+}
+
+.editor-host .cm-tooltip {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.14),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.dark .editor-host .cm-tooltip {
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.48),
+    0 2px 10px rgba(0, 0, 0, 0.32);
+}
+
+.editor-host .cm-tooltip.cm-tooltip-autocomplete > ul {
+  padding: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--editor-font-size, 14px);
+}
+
+.editor-host .cm-tooltip-autocomplete ul li {
+  border-radius: 4px;
+  padding: 3px 7px;
+}
+
+.editor-host .cm-tooltip-autocomplete ul li[aria-selected] {
+  background-color: color-mix(in oklch, var(--accent) 76%, var(--primary) 24%);
+  color: var(--accent-foreground);
+}
+
+.dark .editor-host .cm-tooltip-autocomplete ul li[aria-selected] {
+  background-color: color-mix(in oklch, var(--accent) 82%, var(--primary) 18%);
+  color: var(--accent-foreground);
+}
+
+.editor-host .cm-tooltip-autocomplete-disabled ul li[aria-selected] {
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+}
+
+.editor-host .cm-completionMatchedText {
+  color: var(--editor-syntax-function);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+}
+
+.editor-host .cm-completionDetail,
+.editor-host .cm-diagnosticSource {
+  color: var(--muted-foreground);
+  opacity: 1;
+}
+
+.editor-host .cm-completionIcon {
+  opacity: 0.9;
+}
+
+.editor-host .cm-completionIcon-variable {
+  color: var(--editor-syntax-variable);
+}
+
+.editor-host .cm-completionIcon-constant {
+  color: var(--editor-syntax-constant);
+}
+
+.editor-host .cm-completionIcon-type,
+.editor-host .cm-completionIcon-class,
+.editor-host .cm-completionIcon-interface {
+  color: var(--editor-syntax-type);
+}
+
+.editor-host .cm-completionIcon-property {
+  color: var(--editor-syntax-attribute);
+}
+
+.editor-host .cm-completionIcon-function,
+.editor-host .cm-completionIcon-method {
+  color: var(--editor-syntax-function);
+}
+
+.editor-host .cm-tooltip.cm-completionInfo {
+  padding: 8px 10px;
+  line-height: 1.45;
+}
+
+.editor-host .cm-tooltip-lint {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+}
+
+.editor-host .cm-diagnostic {
+  padding: 8px 10px;
+  border-left-width: 3px;
+}
+
+.editor-host .cm-diagnostic-error {
+  background-color: rgba(239, 68, 68, 0.08);
+  border-left-color: rgb(239, 68, 68);
+}
+
+.editor-host .cm-diagnostic-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left-color: rgb(245, 158, 11);
+}
+
+.editor-host .cm-diagnostic-info {
+  background-color: rgba(59, 130, 246, 0.08);
+  border-left-color: rgb(59, 130, 246);
+}
+
+.editor-host .cm-diagnostic-hint {
+  background-color: rgba(139, 92, 246, 0.08);
+  border-left-color: rgb(139, 92, 246);
+}
+
+.dark .editor-host .cm-diagnostic-error {
+  background-color: rgba(248, 113, 113, 0.12);
+  border-left-color: rgb(248, 113, 113);
+}
+
+.dark .editor-host .cm-diagnostic-warning {
+  background-color: rgba(251, 191, 36, 0.12);
+  border-left-color: rgb(251, 191, 36);
+}
+
+.dark .editor-host .cm-diagnostic-info {
+  background-color: rgba(96, 165, 250, 0.12);
+  border-left-color: rgb(96, 165, 250);
+}
+
+.dark .editor-host .cm-diagnostic-hint {
+  background-color: rgba(167, 139, 250, 0.12);
+  border-left-color: rgb(167, 139, 250);
+}
+
+.editor-host .cm-diagnosticAction {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.editor-host .cm-diagnosticAction:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.editor-host .cm-panels {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.editor-host .cm-panels-bottom {
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .editor-host .cm-panels-bottom {
+  box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.32);
+}
+
+.editor-host .cm-vim-panel {
+  min-height: 34px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  font-size: var(--editor-font-size, 14px);
+  line-height: 1.35;
+}
+
+.editor-host .cm-vim-panel > div {
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.editor-host .cm-vim-panel span {
+  color: var(--muted-foreground);
+}
+
+.editor-host .cm-vim-panel span:first-child {
+  color: var(--popover-foreground);
+}
+
+.editor-host .cm-vim-panel input {
+  min-width: 0;
+  height: 24px;
+  padding: 1px 6px;
+  color: var(--popover-foreground);
+  caret-color: var(--editor-syntax-function);
+  border-radius: 4px;
+  background-color: color-mix(in oklch, var(--muted) 72%, transparent);
+}
+
+.editor-host .cm-vim-panel input:focus {
+  box-shadow: 0 0 0 1px var(--ring);
+}
+
+.editor-host .cm-vim-message {
+  color: var(--destructive) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.editor-host .cm-searchMatch {
+  background-color: rgba(250, 204, 21, 0.28);
+  outline: 1px solid rgba(250, 204, 21, 0.45);
+  border-radius: 2px;
+}
+
+.dark .editor-host .cm-searchMatch {
+  background-color: rgba(34, 211, 238, 0.24);
+  outline-color: rgba(34, 211, 238, 0.42);
 }
 
 ::-webkit-scrollbar {

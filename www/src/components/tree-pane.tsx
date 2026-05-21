@@ -1,7 +1,7 @@
 import { useTreeFilters } from '@/hooks/use-tree-filters';
 import { useVisibleTreeRows } from '@/hooks/use-visible-tree-rows';
 import type { Language, QueryCapture, SyntaxNode } from '@/lib/types';
-import type { Text } from '@codemirror/state';
+import type { Extension, Text } from '@codemirror/state';
 import { useRef, useState } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 
@@ -25,6 +25,7 @@ interface TreePaneProps {
   queryCaptureNamesByKey: Map<string, string[]>;
   queryCaptures: QueryCapture[];
   queryError: string | undefined;
+  queryExtensions: Extension[];
   root: SyntaxNode | undefined;
   setQuery: (query: string) => void;
   toggleExpand: (node: SyntaxNode) => void;
@@ -43,6 +44,7 @@ export const TreePane = ({
   queryCaptureNamesByKey,
   queryCaptures,
   queryError,
+  queryExtensions,
   root,
   setQuery,
   toggleExpand,
@@ -106,6 +108,7 @@ export const TreePane = ({
           <QueryPane
             captures={queryCaptures}
             error={queryError}
+            extensions={queryExtensions}
             query={query}
             onQueryChange={setQuery}
           />

@@ -52,13 +52,13 @@ export const EditorPane = ({
 
   return (
     <div className='flex h-full min-h-0 flex-col overflow-hidden'>
-      <div className='flex items-center justify-between border-b bg-gray-50 px-2 py-1'>
+      <div className='bg-muted/40 flex items-center justify-between border-b px-2 py-1'>
         <div className='flex items-center gap-x-1'>
           <Select
             value={language}
             onValueChange={(value) => onLanguageChange(value as Language)}
           >
-            <SelectTrigger className='focus-visible:border-input h-7 w-36 cursor-pointer bg-white text-sm focus-visible:ring-0'>
+            <SelectTrigger className='focus-visible:border-input bg-background h-7 w-36 cursor-pointer text-sm focus-visible:ring-0'>
               <SelectValue placeholder='Select language' />
             </SelectTrigger>
             <SelectContent>

@@ -90,7 +90,7 @@ export const TreeFilterDialog = ({
           title='Filter'
           className={cn(
             'relative h-7 w-7 cursor-pointer',
-            activeFilterCount > 0 && 'bg-white'
+            activeFilterCount > 0 && 'bg-background'
           )}
         >
           <Filter className='h-4 w-4' />

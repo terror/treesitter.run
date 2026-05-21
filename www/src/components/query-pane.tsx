@@ -27,7 +27,7 @@ export const QueryBar = ({
 }: QueryBarProps) => (
   <div
     className={cn(
-      'flex min-h-9 items-center gap-1 border-b bg-gray-50 px-2 py-1',
+      'bg-muted/40 flex min-h-9 items-center gap-1 border-b px-2 py-1',
       className
     )}
   >
@@ -48,7 +48,7 @@ export const QueryBar = ({
 
     <QueryInfoDialog />
 
-    <span className='ml-auto text-xs text-gray-500'>
+    <span className='text-muted-foreground ml-auto text-xs'>
       {error ? error : `${captures.length} captures`}
     </span>
   </div>
@@ -60,7 +60,7 @@ export const QueryPane = ({
   onQueryChange,
   query,
 }: QueryPaneProps) => (
-  <div className='flex h-full min-h-0 flex-col overflow-hidden bg-white'>
+  <div className='bg-background flex h-full min-h-0 flex-col overflow-hidden'>
     <QueryBar captures={captures} error={error} />
 
     <textarea
@@ -69,7 +69,7 @@ export const QueryPane = ({
       spellCheck={false}
       placeholder='(function_item name: (identifier) @name)'
       aria-label='Tree-sitter query'
-      className='min-h-0 flex-1 resize-none border-0 p-2 font-mono text-sm outline-none'
+      className='bg-background min-h-0 flex-1 resize-none border-0 p-2 font-mono text-sm outline-none'
     />
   </div>
 );

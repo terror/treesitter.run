@@ -27,6 +27,7 @@ import { RotateCcw, Settings } from 'lucide-react';
 import { type ReactNode, useId, useState } from 'react';
 
 const editorDefaults = {
+  colorMode: defaultSettings.colorMode,
   fontSize: defaultSettings.fontSize,
   keybindings: defaultSettings.keybindings,
   lineNumbers: defaultSettings.lineNumbers,
@@ -105,6 +106,22 @@ export const EditorSettingsDialog = () => {
           </DialogHeader>
 
           <div className='grid gap-5 px-6 py-5'>
+            <SettingSection title='Appearance'>
+              <SettingRow
+                id={`${id}-dark-mode`}
+                label='Dark mode'
+                description='Use dark colors for the interface and editor.'
+              >
+                <Switch
+                  id={`${id}-dark-mode`}
+                  checked={settings.colorMode === 'dark'}
+                  onCheckedChange={(checked) =>
+                    updateSettings({ colorMode: checked ? 'dark' : 'light' })
+                  }
+                />
+              </SettingRow>
+            </SettingSection>
+
             <SettingSection title='Display'>
               <SettingRow
                 id={`${id}-line-numbers`}
@@ -244,13 +261,15 @@ export const EditorSettingsDialog = () => {
                                   aria-hidden='true'
                                   className='border-border flex shrink-0 overflow-hidden rounded-sm border'
                                 >
-                                  {swatches.map((swatch) => (
-                                    <span
-                                      key={swatch}
-                                      className='h-3 w-3'
-                                      style={{ backgroundColor: swatch }}
-                                    />
-                                  ))}
+                                  {swatches[settings.colorMode].map(
+                                    (swatch) => (
+                                      <span
+                                        key={swatch}
+                                        className='h-3 w-3'
+                                        style={{ backgroundColor: swatch }}
+                                      />
+                                    )
+                                  )}
                                 </span>
                                 <span className='truncate'>{label}</span>
                               </span>

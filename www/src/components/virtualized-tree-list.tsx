@@ -92,9 +92,11 @@ export const VirtualizedTreeList = ({
           </div>
         </div>
       ) : root && visibleTree ? (
-        <p className='p-4 text-center text-gray-500'>No matching nodes</p>
+        <p className='text-muted-foreground p-4 text-center'>
+          No matching nodes
+        </p>
       ) : (
-        <p className='p-4 text-center text-gray-500'>
+        <p className='text-muted-foreground p-4 text-center'>
           No parsed tree available
         </p>
       )}

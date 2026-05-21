@@ -125,12 +125,9 @@
 }
 
 .cm-highlighted-node {
+  background-color: rgba(59, 130, 246, 0.15);
   outline: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 2px;
-  text-decoration-color: rgba(59, 130, 246, 0.65);
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
 }
 
 .editor-host .cm-ts-attribute,
@@ -180,12 +177,9 @@
 }
 
 .cm-query-capture {
+  background-color: rgba(16, 185, 129, 0.18);
   outline: 1px solid rgba(16, 185, 129, 0.35);
   border-radius: 2px;
-  text-decoration-color: rgba(16, 185, 129, 0.7);
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
 }
 
 .editor-host .cm-lintRange-error.cm-parse-error,

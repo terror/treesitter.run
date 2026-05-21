@@ -26,14 +26,6 @@ export const parseErrorKind = (
   return undefined;
 };
 
-export const parseErrorLabel = (node: SyntaxNode): string => {
-  if (node.isMissing) {
-    return `MISSING ${node.type}`;
-  }
-
-  return node.type;
-};
-
 export const collectParseErrors = (
   root: SyntaxNode,
   doc: Text

@@ -1,4 +1,4 @@
-import { parseErrorKind, parseErrorLabel } from '@/lib/parse-errors';
+import { parseErrorKind } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { cn, positionToOffset } from '@/lib/utils';
 import { Text } from '@codemirror/state';
@@ -43,7 +43,7 @@ export const TreeNode = ({
   toggleExpand,
 }: TreeNodeProps) => {
   const errorKind = parseErrorKind(node);
-  const label = parseErrorLabel(node);
+  const label = node.isMissing ? `MISSING ${node.type}` : node.type;
   const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const from = positionToOffset(node.startPosition, doc);

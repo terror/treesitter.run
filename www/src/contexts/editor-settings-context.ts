@@ -1,4 +1,5 @@
 import {
+  type ColorMode,
   type EditorSyntaxTheme,
   defaultSyntaxTheme,
 } from '@/lib/syntax-themes';
@@ -6,6 +7,7 @@ import { Language } from '@/lib/types';
 import { createContext, useContext } from 'react';
 
 export interface EditorSettings {
+  colorMode: ColorMode;
   fontSize: number;
   keybindings: 'default' | 'vim';
   language: Language;
@@ -16,6 +18,7 @@ export interface EditorSettings {
 }
 
 export const defaultSettings: EditorSettings = {
+  colorMode: 'light',
   fontSize: 14,
   keybindings: 'default',
   language: 'javascript',

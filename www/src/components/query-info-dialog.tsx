@@ -117,7 +117,7 @@ export const QueryInfoDialog = () => (
             <p className='text-muted-foreground text-xs leading-5'>
               {example.description}
             </p>
-            <pre className='overflow-auto rounded border bg-gray-50 p-2 font-mono text-xs'>
+            <pre className='bg-muted/40 overflow-auto rounded border p-2 font-mono text-xs'>
               <code>{example.query}</code>
             </pre>
           </div>

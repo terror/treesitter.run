@@ -13,6 +13,7 @@ import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
 import { EditorPane } from './components/editor-pane';
 import { StatusBar } from './components/status-bar';
+import { ThemeToggle } from './components/theme-toggle';
 import { TreePane } from './components/tree-pane';
 import { useCursorPosition } from './hooks/use-cursor-position';
 import { useEditorBuffer } from './hooks/use-editor-buffer';
@@ -122,7 +123,8 @@ const App = () => {
         <a href='/' className='cursor-pointer font-semibold'>
           treesitter.run
         </a>
-        <div className='ml-auto'>
+        <div className='ml-auto flex items-center gap-1'>
+          <ThemeToggle />
           <AboutDialog />
         </div>
       </div>

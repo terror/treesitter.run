@@ -13,18 +13,18 @@ export const StatusBar = ({ cursorPosition, errorCount }: StatusBarProps) => {
             errorCount === 1 ? 'error' : 'errors'
           }`,
           icon: AlertTriangle,
-          className: 'text-amber-700',
+          className: 'text-amber-700 dark:text-amber-400',
         }
       : {
           label: '',
           icon: CheckCircle2,
-          className: 'text-emerald-700',
+          className: 'text-emerald-700 dark:text-emerald-400',
         };
 
   const StatusIcon = status.icon;
 
   return (
-    <div className='flex min-h-7 items-center gap-x-3 overflow-x-auto border-t bg-gray-50 px-2 font-mono text-xs whitespace-nowrap text-gray-500'>
+    <div className='bg-muted/40 text-muted-foreground flex min-h-7 items-center gap-x-3 overflow-x-auto border-t px-2 font-mono text-xs whitespace-nowrap'>
       <div
         className={`flex items-center gap-x-1.5 font-medium ${status.className}`}
       >

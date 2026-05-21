@@ -1,4 +1,5 @@
-.editor-host {
+.editor-host,
+.editor-host.editor-theme-github {
   --editor-syntax-attribute: #116329;
   --editor-syntax-comment: #57606a;
   --editor-syntax-constant: #0550ae;
@@ -12,21 +13,22 @@
   --editor-syntax-variable: #24292f;
 }
 
-.editor-host.editor-theme-github-light {
-  --editor-syntax-attribute: #116329;
-  --editor-syntax-comment: #57606a;
-  --editor-syntax-constant: #0550ae;
-  --editor-syntax-foreground: #24292f;
-  --editor-syntax-function: #8250df;
-  --editor-syntax-keyword: #cf222e;
-  --editor-syntax-module: #116329;
-  --editor-syntax-punctuation: #57606a;
-  --editor-syntax-string: #0a3069;
-  --editor-syntax-type: #8250df;
-  --editor-syntax-variable: #24292f;
+.dark .editor-host,
+.dark .editor-host.editor-theme-github {
+  --editor-syntax-attribute: #7ee787;
+  --editor-syntax-comment: #8b949e;
+  --editor-syntax-constant: #79c0ff;
+  --editor-syntax-foreground: #c9d1d9;
+  --editor-syntax-function: #d2a8ff;
+  --editor-syntax-keyword: #ff7b72;
+  --editor-syntax-module: #7ee787;
+  --editor-syntax-punctuation: #8b949e;
+  --editor-syntax-string: #a5d6ff;
+  --editor-syntax-type: #d2a8ff;
+  --editor-syntax-variable: #c9d1d9;
 }
 
-.editor-host.editor-theme-github-light-default {
+.editor-host.editor-theme-github-default {
   --editor-syntax-attribute: #1a7f37;
   --editor-syntax-comment: #6e7781;
   --editor-syntax-constant: #0550ae;
@@ -40,7 +42,21 @@
   --editor-syntax-variable: #24292f;
 }
 
-.editor-host.editor-theme-light-plus {
+.dark .editor-host.editor-theme-github-default {
+  --editor-syntax-attribute: #7ee787;
+  --editor-syntax-comment: #8b949e;
+  --editor-syntax-constant: #79c0ff;
+  --editor-syntax-foreground: #c9d1d9;
+  --editor-syntax-function: #d2a8ff;
+  --editor-syntax-keyword: #ff7b72;
+  --editor-syntax-module: #58a6ff;
+  --editor-syntax-punctuation: #8b949e;
+  --editor-syntax-string: #a5d6ff;
+  --editor-syntax-type: #ffa657;
+  --editor-syntax-variable: #c9d1d9;
+}
+
+.editor-host.editor-theme-vscode {
   --editor-syntax-attribute: #795e26;
   --editor-syntax-comment: #008000;
   --editor-syntax-constant: #098658;
@@ -54,7 +70,21 @@
   --editor-syntax-variable: #001080;
 }
 
-.editor-host.editor-theme-one-light {
+.dark .editor-host.editor-theme-vscode {
+  --editor-syntax-attribute: #dcdcaa;
+  --editor-syntax-comment: #6a9955;
+  --editor-syntax-constant: #b5cea8;
+  --editor-syntax-foreground: #d4d4d4;
+  --editor-syntax-function: #dcdcaa;
+  --editor-syntax-keyword: #569cd6;
+  --editor-syntax-module: #4ec9b0;
+  --editor-syntax-punctuation: #d4d4d4;
+  --editor-syntax-string: #ce9178;
+  --editor-syntax-type: #4ec9b0;
+  --editor-syntax-variable: #9cdcfe;
+}
+
+.editor-host.editor-theme-one {
   --editor-syntax-attribute: #986801;
   --editor-syntax-comment: #a0a1a7;
   --editor-syntax-constant: #c18401;
@@ -68,7 +98,21 @@
   --editor-syntax-variable: #e45649;
 }
 
-.editor-host.editor-theme-catppuccin-latte {
+.dark .editor-host.editor-theme-one {
+  --editor-syntax-attribute: #e5c07b;
+  --editor-syntax-comment: #5c6370;
+  --editor-syntax-constant: #d19a66;
+  --editor-syntax-foreground: #abb2bf;
+  --editor-syntax-function: #61afef;
+  --editor-syntax-keyword: #c678dd;
+  --editor-syntax-module: #56b6c2;
+  --editor-syntax-punctuation: #abb2bf;
+  --editor-syntax-string: #98c379;
+  --editor-syntax-type: #e5c07b;
+  --editor-syntax-variable: #e06c75;
+}
+
+.editor-host.editor-theme-catppuccin {
   --editor-syntax-attribute: #179299;
   --editor-syntax-comment: #8c8fa1;
   --editor-syntax-constant: #fe640b;
@@ -82,7 +126,21 @@
   --editor-syntax-variable: #4c4f69;
 }
 
-.editor-host.editor-theme-rose-pine-dawn {
+.dark .editor-host.editor-theme-catppuccin {
+  --editor-syntax-attribute: #94e2d5;
+  --editor-syntax-comment: #6c7086;
+  --editor-syntax-constant: #fab387;
+  --editor-syntax-foreground: #cdd6f4;
+  --editor-syntax-function: #89b4fa;
+  --editor-syntax-keyword: #cba6f7;
+  --editor-syntax-module: #89dceb;
+  --editor-syntax-punctuation: #bac2de;
+  --editor-syntax-string: #a6e3a1;
+  --editor-syntax-type: #f9e2af;
+  --editor-syntax-variable: #cdd6f4;
+}
+
+.editor-host.editor-theme-rose-pine {
   --editor-syntax-attribute: #b4637a;
   --editor-syntax-comment: #9893a5;
   --editor-syntax-constant: #d7827e;
@@ -96,7 +154,21 @@
   --editor-syntax-variable: #575279;
 }
 
-.editor-host.editor-theme-tokyo-night-day {
+.dark .editor-host.editor-theme-rose-pine {
+  --editor-syntax-attribute: #eb6f92;
+  --editor-syntax-comment: #817c9c;
+  --editor-syntax-constant: #ebbcba;
+  --editor-syntax-foreground: #e0def4;
+  --editor-syntax-function: #9ccfd8;
+  --editor-syntax-keyword: #c4a7e7;
+  --editor-syntax-module: #ea9a97;
+  --editor-syntax-punctuation: #908caa;
+  --editor-syntax-string: #f6c177;
+  --editor-syntax-type: #3e8fb0;
+  --editor-syntax-variable: #e0def4;
+}
+
+.editor-host.editor-theme-tokyo-night {
   --editor-syntax-attribute: #007197;
   --editor-syntax-comment: #6172b0;
   --editor-syntax-constant: #b15c00;
@@ -110,7 +182,21 @@
   --editor-syntax-variable: #3760bf;
 }
 
-.editor-host.editor-theme-ayu-light {
+.dark .editor-host.editor-theme-tokyo-night {
+  --editor-syntax-attribute: #2ac3de;
+  --editor-syntax-comment: #565f89;
+  --editor-syntax-constant: #ff9e64;
+  --editor-syntax-foreground: #c0caf5;
+  --editor-syntax-function: #7aa2f7;
+  --editor-syntax-keyword: #bb9af7;
+  --editor-syntax-module: #7dcfff;
+  --editor-syntax-punctuation: #a9b1d6;
+  --editor-syntax-string: #9ece6a;
+  --editor-syntax-type: #2ac3de;
+  --editor-syntax-variable: #c0caf5;
+}
+
+.editor-host.editor-theme-ayu {
   --editor-syntax-attribute: #f07171;
   --editor-syntax-comment: #abb0b6;
   --editor-syntax-constant: #a37acc;
@@ -124,21 +210,21 @@
   --editor-syntax-variable: #5c6166;
 }
 
-.editor-host.editor-theme-base16-seti {
-  --editor-syntax-attribute: #8a553f;
-  --editor-syntax-comment: #41535b;
-  --editor-syntax-constant: #cd3f45;
-  --editor-syntax-foreground: #151718;
-  --editor-syntax-function: #287fa2;
-  --editor-syntax-keyword: #7d4f9e;
-  --editor-syntax-module: #168f7b;
-  --editor-syntax-punctuation: #41535b;
-  --editor-syntax-string: #668c24;
-  --editor-syntax-type: #3b758c;
-  --editor-syntax-variable: #151718;
+.dark .editor-host.editor-theme-ayu {
+  --editor-syntax-attribute: #f28779;
+  --editor-syntax-comment: #5c6773;
+  --editor-syntax-constant: #d2a6ff;
+  --editor-syntax-foreground: #b3b1ad;
+  --editor-syntax-function: #ffd173;
+  --editor-syntax-keyword: #ff8f40;
+  --editor-syntax-module: #73d0ff;
+  --editor-syntax-punctuation: #b3b1ad;
+  --editor-syntax-string: #aad94c;
+  --editor-syntax-type: #59c2ff;
+  --editor-syntax-variable: #b3b1ad;
 }
 
-.editor-host.editor-theme-solarized-light {
+.editor-host.editor-theme-solarized {
   --editor-syntax-attribute: #b58900;
   --editor-syntax-comment: #93a1a1;
   --editor-syntax-constant: #d33682;
@@ -152,7 +238,21 @@
   --editor-syntax-variable: #657b83;
 }
 
-.editor-host.editor-theme-gruvbox-light {
+.dark .editor-host.editor-theme-solarized {
+  --editor-syntax-attribute: #b58900;
+  --editor-syntax-comment: #586e75;
+  --editor-syntax-constant: #d33682;
+  --editor-syntax-foreground: #839496;
+  --editor-syntax-function: #268bd2;
+  --editor-syntax-keyword: #859900;
+  --editor-syntax-module: #2aa198;
+  --editor-syntax-punctuation: #839496;
+  --editor-syntax-string: #2aa198;
+  --editor-syntax-type: #b58900;
+  --editor-syntax-variable: #839496;
+}
+
+.editor-host.editor-theme-gruvbox {
   --editor-syntax-attribute: #b57614;
   --editor-syntax-comment: #928374;
   --editor-syntax-constant: #8f3f71;
@@ -166,7 +266,21 @@
   --editor-syntax-variable: #3c3836;
 }
 
-.editor-host.editor-theme-kanagawa-lotus {
+.dark .editor-host.editor-theme-gruvbox {
+  --editor-syntax-attribute: #fabd2f;
+  --editor-syntax-comment: #928374;
+  --editor-syntax-constant: #d3869b;
+  --editor-syntax-foreground: #ebdbb2;
+  --editor-syntax-function: #83a598;
+  --editor-syntax-keyword: #fb4934;
+  --editor-syntax-module: #8ec07c;
+  --editor-syntax-punctuation: #ebdbb2;
+  --editor-syntax-string: #b8bb26;
+  --editor-syntax-type: #fabd2f;
+  --editor-syntax-variable: #ebdbb2;
+}
+
+.editor-host.editor-theme-kanagawa {
   --editor-syntax-attribute: #b35b79;
   --editor-syntax-comment: #8a8980;
   --editor-syntax-constant: #c84053;
@@ -178,4 +292,18 @@
   --editor-syntax-string: #6f894e;
   --editor-syntax-type: #b35b79;
   --editor-syntax-variable: #545464;
+}
+
+.dark .editor-host.editor-theme-kanagawa {
+  --editor-syntax-attribute: #d27e99;
+  --editor-syntax-comment: #727169;
+  --editor-syntax-constant: #ff5d62;
+  --editor-syntax-foreground: #dcd7ba;
+  --editor-syntax-function: #7e9cd8;
+  --editor-syntax-keyword: #957fb8;
+  --editor-syntax-module: #7aa89f;
+  --editor-syntax-punctuation: #dcd7ba;
+  --editor-syntax-string: #98bb6c;
+  --editor-syntax-type: #ffa066;
+  --editor-syntax-variable: #dcd7ba;
 }

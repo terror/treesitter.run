@@ -85,15 +85,15 @@ export const TreeNode = ({
         <ContextMenuTrigger asChild>
           <div
             className={cn(
-              'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50',
+              'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50 dark:hover:bg-blue-950/50',
               queryMatch &&
-                'bg-emerald-50 text-emerald-900 hover:bg-emerald-100',
+                'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-200 dark:hover:bg-emerald-950/60',
               searchMatches.has(node) &&
-                'bg-yellow-50 text-yellow-900 hover:bg-yellow-100',
+                'bg-yellow-50 text-yellow-900 hover:bg-yellow-100 dark:bg-yellow-950/40 dark:text-yellow-200 dark:hover:bg-yellow-950/60',
               errorKind === 'error' &&
-                'border-red-500 bg-red-50 text-red-800 hover:bg-red-100',
+                'border-red-500 bg-red-50 text-red-800 hover:bg-red-100 dark:bg-red-950/40 dark:text-red-200 dark:hover:bg-red-950/60',
               errorKind === 'missing' &&
-                'border-amber-500 bg-amber-50 text-amber-800 hover:bg-amber-100'
+                'border-amber-500 bg-amber-50 text-amber-800 hover:bg-amber-100 dark:bg-amber-950/40 dark:text-amber-200 dark:hover:bg-amber-950/60'
             )}
             style={{ paddingLeft: `${level * 16 + 4}px` }}
             onMouseEnter={handleMouseEnter}
@@ -122,7 +122,7 @@ export const TreeNode = ({
             ))}
             <span
               className={cn(
-                'ml-2 text-xs text-gray-500',
+                'text-muted-foreground ml-2 text-xs',
                 errorKind === 'error' && 'text-red-500',
                 errorKind === 'missing' && 'text-amber-600'
               )}

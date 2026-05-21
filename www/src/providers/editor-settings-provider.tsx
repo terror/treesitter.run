@@ -17,7 +17,7 @@ export const EditorSettingsProvider = ({
   );
 
   const updateSettings = (newSettings: Partial<EditorSettings>) => {
-    setSettings((prevSettings) => ({ ...prevSettings, ...newSettings }));
+    setSettings(newSettings);
   };
 
   useEffect(() => {
@@ -26,6 +26,15 @@ export const EditorSettingsProvider = ({
       `${settings.fontSize}px`
     );
   }, [settings.fontSize]);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle(
+      'dark',
+      settings.colorMode === 'dark'
+    );
+
+    document.documentElement.style.colorScheme = settings.colorMode;
+  }, [settings.colorMode]);
 
   return (
     <EditorSettingsContext.Provider value={{ settings, updateSettings }}>

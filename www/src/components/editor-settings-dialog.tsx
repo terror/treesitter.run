@@ -244,13 +244,15 @@ export const EditorSettingsDialog = () => {
                                   aria-hidden='true'
                                   className='border-border flex shrink-0 overflow-hidden rounded-sm border'
                                 >
-                                  {swatches.map((swatch) => (
-                                    <span
-                                      key={swatch}
-                                      className='h-3 w-3'
-                                      style={{ backgroundColor: swatch }}
-                                    />
-                                  ))}
+                                  {swatches[settings.colorMode].map(
+                                    (swatch) => (
+                                      <span
+                                        key={swatch}
+                                        className='h-3 w-3'
+                                        style={{ backgroundColor: swatch }}
+                                      />
+                                    )
+                                  )}
                                 </span>
                                 <span className='truncate'>{label}</span>
                               </span>

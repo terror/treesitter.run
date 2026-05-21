@@ -1,6 +1,6 @@
 import { type ParseErrorRange, collectParseErrors } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
-import { parse } from '@/lib/utils';
+import { parse, syntaxNodeKey } from '@/lib/utils';
 import type { Text } from '@codemirror/state';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
@@ -20,7 +20,7 @@ interface UseSyntaxTree {
   tree: Tree | null;
   root: SyntaxNode | undefined;
   parseErrors: ParseErrorRange[];
-  expandedNodes: Set<SyntaxNode>;
+  expandedNodes: Set<string>;
   toggleExpand: (node: SyntaxNode) => void;
 }
 
@@ -57,36 +57,41 @@ export function useSyntaxTree({
     return collectParseErrors(root, doc);
   }, [doc, root]);
 
-  const [expandedNodes, setExpandedNodes] = useState<Set<SyntaxNode>>(
+  const [collapsedNodes, setCollapsedNodes] = useState<Set<string>>(
     () => new Set()
   );
 
-  useEffect(() => {
+  const expandedNodes = useMemo(() => {
+    const expandedNodes = new Set<string>();
+
     if (!root) {
-      setExpandedNodes(new Set());
-      return;
+      return expandedNodes;
     }
 
-    const expandedNodes = new Set<SyntaxNode>();
-
     const walk = (node: SyntaxNode) => {
-      expandedNodes.add(node);
+      const key = syntaxNodeKey(node);
+
+      if (!collapsedNodes.has(key)) {
+        expandedNodes.add(key);
+      }
+
       node.children.forEach(walk);
     };
 
     walk(root);
 
-    setExpandedNodes(expandedNodes);
-  }, [root]);
+    return expandedNodes;
+  }, [collapsedNodes, root]);
 
   const toggleExpand = useCallback((node: SyntaxNode) => {
-    setExpandedNodes((prev) => {
-      const next = new Set(prev);
+    setCollapsedNodes((collapsedNodes) => {
+      const key = syntaxNodeKey(node);
+      const next = new Set(collapsedNodes);
 
-      if (next.has(node)) {
-        next.delete(node);
+      if (next.has(key)) {
+        next.delete(key);
       } else {
-        next.add(node);
+        next.add(key);
       }
 
       return next;

@@ -1,4 +1,4 @@
-import { parseErrorKind, parseErrorLabel } from '@/lib/parse-errors';
+import { parseErrorKind } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { cn, positionToOffset } from '@/lib/utils';
 import { Text } from '@codemirror/state';
@@ -42,12 +42,14 @@ export const TreeNode = ({
   searchMatches,
   toggleExpand,
 }: TreeNodeProps) => {
-  const errorKind = parseErrorKind(node);
-  const label = parseErrorLabel(node);
-  const searchMatch = searchMatches.has(node);
   const [inspectorOpen, setInspectorOpen] = useState(false);
+
+  const errorKind = parseErrorKind(node);
+  const label = node.isMissing ? `MISSING ${node.type}` : node.type;
+
   const from = positionToOffset(node.startPosition, doc);
   const to = positionToOffset(node.endPosition, doc);
+
   const deletable = from !== null && to !== null && from < to;
 
   const handleMouseEnter = () => {
@@ -86,7 +88,8 @@ export const TreeNode = ({
               'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50',
               queryMatch &&
                 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100',
-              searchMatch && 'bg-yellow-50 text-yellow-900 hover:bg-yellow-100',
+              searchMatches.has(node) &&
+                'bg-yellow-50 text-yellow-900 hover:bg-yellow-100',
               errorKind === 'error' &&
                 'border-red-500 bg-red-50 text-red-800 hover:bg-red-100',
               errorKind === 'missing' &&

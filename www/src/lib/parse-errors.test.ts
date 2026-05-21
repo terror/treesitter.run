@@ -1,11 +1,7 @@
 import { Text } from '@codemirror/state';
 import { describe, expect, it } from 'bun:test';
 
-import {
-  collectParseErrors,
-  parseErrorKind,
-  parseErrorLabel,
-} from './parse-errors';
+import { collectParseErrors, parseErrorKind } from './parse-errors';
 import type { SyntaxNode } from './types';
 
 const node = ({
@@ -50,16 +46,6 @@ describe('parse errors', () => {
     expect(parseErrorKind(node({ isError: true }))).toBe('error');
     expect(parseErrorKind(node({ isMissing: true }))).toBe('missing');
     expect(parseErrorKind(node({ type: 'identifier' }))).toBeUndefined();
-  });
-
-  it('labels missing nodes', () => {
-    expect(parseErrorLabel(node({ type: ';', isMissing: true }))).toBe(
-      'MISSING ;'
-    );
-
-    expect(parseErrorLabel(node({ type: 'ERROR', isError: true }))).toBe(
-      'ERROR'
-    );
   });
 
   it('collects sorted parse error ranges', () => {

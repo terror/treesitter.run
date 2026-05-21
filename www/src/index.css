@@ -130,6 +130,14 @@
   border-radius: 2px;
 }
 
+.dark .cm-highlighted-node {
+  background-color: rgba(96, 165, 250, 0.24);
+  outline: 1px solid rgba(147, 197, 253, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.12) inset,
+    0 0 0 2px rgba(96, 165, 250, 0.08);
+}
+
 .editor-host .cm-ts-attribute,
 .editor-host .cm-ts-property {
   color: var(--editor-syntax-attribute);
@@ -180,6 +188,14 @@
   background-color: rgba(16, 185, 129, 0.18);
   outline: 1px solid rgba(16, 185, 129, 0.35);
   border-radius: 2px;
+}
+
+.dark .cm-query-capture {
+  background-color: rgba(52, 211, 153, 0.26);
+  outline: 1px solid rgba(110, 231, 183, 0.54);
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.14) inset,
+    0 0 0 2px rgba(52, 211, 153, 0.08);
 }
 
 .editor-host .cm-lintRange-error.cm-parse-error,

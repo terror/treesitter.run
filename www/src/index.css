@@ -184,12 +184,9 @@
 
 .editor-host .cm-lintRange-error.cm-parse-error,
 .editor-host .cm-lintRange-error.cm-parse-missing {
+  background-color: rgba(239, 68, 68, 0.1);
   outline: 1px solid rgba(239, 68, 68, 0.25);
   border-radius: 2px;
-  text-decoration-color: rgba(239, 68, 68, 0.75);
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-underline-offset: 2px;
 }
 
 .editor-host .cm-editor {

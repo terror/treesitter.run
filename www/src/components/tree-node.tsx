@@ -87,7 +87,7 @@ export const TreeNode = ({
             className={cn(
               'tree-node flex cursor-pointer items-center border-l-2 border-transparent py-1 font-mono text-sm whitespace-nowrap hover:bg-blue-50 dark:hover:bg-blue-950/50',
               queryMatch &&
-                'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-200 dark:hover:bg-emerald-950/60',
+                'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 dark:border-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-100 dark:hover:bg-emerald-900/50',
               searchMatches.has(node) &&
                 'bg-yellow-50 text-yellow-900 hover:bg-yellow-100 dark:bg-yellow-950/40 dark:text-yellow-200 dark:hover:bg-yellow-950/60',
               errorKind === 'error' &&

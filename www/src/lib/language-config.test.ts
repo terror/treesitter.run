@@ -4,6 +4,17 @@ import { Language, Parser, Query } from 'web-tree-sitter';
 import { languageConfig } from './language-config';
 
 describe('languageConfig', () => {
+  test('configured highlight queries exist', async () => {
+    for (const config of Object.values(languageConfig)) {
+      const path = new URL(
+        `../../public/${config.highlightQueryPath}`,
+        import.meta.url
+      ).pathname;
+
+      expect(await Bun.file(path).exists(), config.name).toBe(true);
+    }
+  });
+
   test('sample code parses without errors', async () => {
     await Parser.init({
       locateFile(scriptName: string) {
@@ -84,6 +95,13 @@ describe('languageConfig', () => {
       if (!(await file.exists())) {
         continue;
       }
+
+      expect(config.highlightQueryPath, config.name).toBe(
+        `tree-sitter-${config.name}.highlights.scm`
+      );
+      expect(config.wasmPath, config.name).toBe(
+        `tree-sitter-${config.name}.wasm`
+      );
 
       const language = await Language.load(
         new URL(`../../public/${config.wasmPath}`, import.meta.url).pathname

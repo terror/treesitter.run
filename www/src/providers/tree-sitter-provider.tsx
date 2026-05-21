@@ -1,8 +1,11 @@
-import { TreeSitterContext } from '@/contexts/tree-sitter-context';
+import {
+  type LoadedTreeSitterLanguage,
+  TreeSitterContext,
+} from '@/contexts/tree-sitter-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { Parser, Language as TSLanguage } from 'web-tree-sitter';
+import { Parser, Query, Language as TSLanguage } from 'web-tree-sitter';
 
 export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<string | undefined>(undefined);
@@ -14,13 +17,13 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const [loadedLanguages, setLoadedLanguages] = useState<
-    Partial<Record<Language, TSLanguage>>
+    Partial<Record<Language, LoadedTreeSitterLanguage>>
   >({});
 
   const loadedLanguagesRef = useRef(loadedLanguages);
 
   const pendingLanguages = useRef<
-    Partial<Record<Language, Promise<TSLanguage>>>
+    Partial<Record<Language, Promise<LoadedTreeSitterLanguage>>>
   >({});
 
   useEffect(() => {
@@ -46,10 +49,10 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
         if (!canceled) {
           setParser(parserInstance);
         }
-      } catch (err) {
+      } catch (error) {
         if (!canceled) {
           setError(
-            `Failed to initialize parser: ${err instanceof Error ? err.message : String(err)}`
+            `Failed to initialize parser: ${error instanceof Error ? error.message : String(error)}`
           );
         }
       } finally {
@@ -67,6 +70,10 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
       if (parserInstance) {
         parserInstance.delete();
       }
+
+      for (const loadedLanguage of Object.values(loadedLanguagesRef.current)) {
+        loadedLanguage?.query?.delete();
+      }
     };
   }, []);
 
@@ -80,7 +87,33 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
         return;
       }
 
-      const promise = TSLanguage.load(languageConfig[languageName].wasmPath);
+      const promise = (async (): Promise<LoadedTreeSitterLanguage> => {
+        const config = languageConfig[languageName];
+
+        const language = await TSLanguage.load(config.wasmPath);
+
+        let query: Query | null = null;
+
+        try {
+          const response = await fetch(config.highlightQueryPath);
+
+          if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
+          }
+
+          const source = await response.text();
+
+          query = source.trim() ? new Query(language, source) : null;
+        } catch (error) {
+          console.warn(
+            `Failed to load highlights query ${languageName}: ${
+              error instanceof Error ? error.message : String(error)
+            }`
+          );
+        }
+
+        return { language, query };
+      })();
 
       pendingLanguages.current[languageName] = promise;
 
@@ -91,16 +124,22 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
       });
 
       try {
-        const language = await promise;
+        const loadedLanguage = await promise;
 
-        setLoadedLanguages((loadedLanguages) => ({
-          ...loadedLanguages,
-          [languageName]: language,
-        }));
-      } catch (err) {
+        setLoadedLanguages((previous) => {
+          const loadedLanguages = {
+            ...previous,
+            [languageName]: loadedLanguage,
+          };
+
+          loadedLanguagesRef.current = loadedLanguages;
+
+          return loadedLanguages;
+        });
+      } catch (error) {
         setError(
           `Failed to load language ${languageName}: ${
-            err instanceof Error ? err.message : String(err)
+            error instanceof Error ? error.message : String(error)
           }`
         );
       } finally {

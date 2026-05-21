@@ -11,7 +11,9 @@ import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -20,6 +22,7 @@ import {
   defaultSettings,
   useEditorSettings,
 } from '@/contexts/editor-settings-context';
+import { type EditorSyntaxTheme, syntaxThemes } from '@/lib/syntax-themes';
 import { RotateCcw, Settings } from 'lucide-react';
 import { type ReactNode, useId, useState } from 'react';
 
@@ -28,6 +31,7 @@ const editorDefaults = {
   keybindings: defaultSettings.keybindings,
   lineNumbers: defaultSettings.lineNumbers,
   lineWrapping: defaultSettings.lineWrapping,
+  syntaxTheme: defaultSettings.syntaxTheme,
   tabSize: defaultSettings.tabSize,
 };
 
@@ -206,6 +210,57 @@ export const EditorSettingsDialog = () => {
                   </SelectContent>
                 </Select>
               </SettingRow>
+            </SettingSection>
+
+            <SettingSection title='Syntax'>
+              <div className='grid gap-3 p-3'>
+                <Label htmlFor={`${id}-syntax-theme`} className='grid gap-1'>
+                  <span className='text-sm font-medium'>Theme</span>
+                  <span className='text-muted-foreground text-xs font-normal'>
+                    Choose the syntax highlighting color palette.
+                  </span>
+                </Label>
+                <Select
+                  value={settings.syntaxTheme}
+                  onValueChange={(value) =>
+                    updateSettings({ syntaxTheme: value as EditorSyntaxTheme })
+                  }
+                >
+                  <SelectTrigger id={`${id}-syntax-theme`} className='w-full'>
+                    <SelectValue placeholder='Syntax theme' />
+                  </SelectTrigger>
+                  <SelectContent className='w-[var(--radix-select-trigger-width)]'>
+                    {Array.from(
+                      new Set(syntaxThemes.map((theme) => theme.family))
+                    ).map((family) => (
+                      <SelectGroup key={family}>
+                        <SelectLabel>{family}</SelectLabel>
+                        {syntaxThemes
+                          .filter((theme) => theme.family === family)
+                          .map(({ label, swatches, value }) => (
+                            <SelectItem key={value} value={value}>
+                              <span className='flex min-w-0 items-center gap-2'>
+                                <span
+                                  aria-hidden='true'
+                                  className='border-border flex shrink-0 overflow-hidden rounded-sm border'
+                                >
+                                  {swatches.map((swatch) => (
+                                    <span
+                                      key={swatch}
+                                      className='h-3 w-3'
+                                      style={{ backgroundColor: swatch }}
+                                    />
+                                  ))}
+                                </span>
+                                <span className='truncate'>{label}</span>
+                              </span>
+                            </SelectItem>
+                          ))}
+                      </SelectGroup>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </SettingSection>
           </div>
 

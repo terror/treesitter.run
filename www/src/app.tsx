@@ -24,7 +24,13 @@ import { useTreeWorkbench } from './hooks/use-tree-workbench';
 
 const App = () => {
   const { settings, updateSettings } = useEditorSettings();
-  const { parser, language, loading, error } = useTreeSitter(settings.language);
+  const {
+    parser,
+    language,
+    query: highlightQuery,
+    loading,
+    error,
+  } = useTreeSitter(settings.language);
 
   const ready = Boolean(parser && language);
   const loaded = useHasLoaded(ready);
@@ -50,6 +56,7 @@ const App = () => {
     queryError,
     root,
     setQuery,
+    tree,
     toggleExpand,
   } = useTreeWorkbench({
     code,
@@ -87,9 +94,11 @@ const App = () => {
 
   const extensions = useEditorExtensions({
     selectedNodeRange: highlight,
+    syntaxHighlightQuery: highlightQuery,
     queryText: query,
     queryCaptures,
     parseErrors,
+    tree,
   });
 
   if (error) {

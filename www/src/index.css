@@ -130,6 +130,52 @@
   border-radius: 2px;
 }
 
+.editor-host .cm-ts-attribute,
+.editor-host .cm-ts-property {
+  color: var(--editor-syntax-attribute);
+}
+
+.editor-host .cm-ts-comment {
+  color: var(--editor-syntax-comment);
+  font-style: italic;
+}
+
+.editor-host .cm-ts-constant,
+.editor-host .cm-ts-number {
+  color: var(--editor-syntax-constant);
+}
+
+.editor-host .cm-ts-function {
+  color: var(--editor-syntax-function);
+}
+
+.editor-host .cm-ts-keyword,
+.editor-host .cm-ts-label,
+.editor-host .cm-ts-operator {
+  color: var(--editor-syntax-keyword);
+}
+
+.editor-host .cm-ts-module,
+.editor-host .cm-ts-tag {
+  color: var(--editor-syntax-module);
+}
+
+.editor-host .cm-ts-punctuation {
+  color: var(--editor-syntax-punctuation);
+}
+
+.editor-host .cm-ts-string {
+  color: var(--editor-syntax-string);
+}
+
+.editor-host .cm-ts-type {
+  color: var(--editor-syntax-type);
+}
+
+.editor-host .cm-ts-variable {
+  color: var(--editor-syntax-variable);
+}
+
 .cm-query-capture {
   background-color: rgba(16, 185, 129, 0.18);
   outline: 1px solid rgba(16, 185, 129, 0.35);
@@ -158,6 +204,7 @@
 
 .editor-host .cm-content {
   padding: 10px 0;
+  color: var(--editor-syntax-foreground);
 }
 
 .editor-host .cm-line {
@@ -170,9 +217,13 @@
   padding-right: 8px;
 }
 
-.editor-host .cm-activeLineGutter,
-.editor-host .cm-activeLine {
+.editor-host .cm-activeLineGutter {
   background-color: rgba(59, 130, 246, 0.1);
+}
+
+.editor-host .cm-activeLine {
+  background-color: transparent;
+  box-shadow: inset 2px 0 rgba(59, 130, 246, 0.35);
 }
 
 .editor-host .cm-fat-cursor {

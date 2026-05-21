@@ -20,12 +20,13 @@ export function useTreeWorkbench({
 }: UseTreeWorkbenchOptions) {
   const doc = useMemo(() => Text.of(code.split('\n')), [code]);
 
-  const { root, parseErrors, expandedNodes, toggleExpand } = useSyntaxTree({
-    code,
-    doc,
-    language: treeSitterLanguage,
-    parser,
-  });
+  const { tree, root, parseErrors, expandedNodes, toggleExpand } =
+    useSyntaxTree({
+      code,
+      doc,
+      language: treeSitterLanguage,
+      parser,
+    });
 
   const {
     captures: queryCaptures,
@@ -50,6 +51,7 @@ export function useTreeWorkbench({
     queryError,
     root,
     setQuery,
+    tree,
     toggleExpand,
   };
 }

@@ -1,3 +1,7 @@
+import {
+  type EditorSyntaxTheme,
+  defaultSyntaxTheme,
+} from '@/lib/syntax-themes';
 import { Language } from '@/lib/types';
 import { createContext, useContext } from 'react';
 
@@ -7,6 +11,7 @@ export interface EditorSettings {
   language: Language;
   lineNumbers: boolean;
   lineWrapping: boolean;
+  syntaxTheme: EditorSyntaxTheme;
   tabSize: number;
 }
 
@@ -16,6 +21,7 @@ export const defaultSettings: EditorSettings = {
   language: 'javascript',
   lineNumbers: true,
   lineWrapping: true,
+  syntaxTheme: defaultSyntaxTheme,
   tabSize: 2,
 };
 

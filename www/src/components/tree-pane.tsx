@@ -57,7 +57,6 @@ export const TreePane = ({
   const { activeFilterCount, filters, setFilters } = useTreeFilters();
 
   const { rootVisible, visibleRows, visibleTree } = useVisibleTreeRows({
-    activeFilterCount,
     expandedNodes,
     filters,
     root,

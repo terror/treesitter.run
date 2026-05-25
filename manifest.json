@@ -117,7 +117,7 @@
   {
     "name": "dart",
     "repository": "https://github.com/usernobody14/tree-sitter-dart",
-    "revision": "507c5546dc73667c03d36803ee9bd4df0bbe4b0b"
+    "revision": "a9bdfa3db2fbc9b9f12c93450d04a671f33a5102"
   },
   {
     "name": "diff",

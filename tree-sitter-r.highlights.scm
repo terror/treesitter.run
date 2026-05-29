@@ -75,9 +75,12 @@
 (function_definition name: "function" @keyword.function)
 (function_definition name: "\\" @operator)
 
+(call
+  function: (identifier) @keyword
+  (#eq? @keyword "return"))
+
 [
   "in"
-  (return)
   (next)
   (break)
 ] @keyword

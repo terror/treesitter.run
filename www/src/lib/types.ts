@@ -18,6 +18,7 @@ export type Language =
   | 'caddy'
   | 'cairo'
   | 'capnp'
+  | 'cel'
   | 'chatito'
   | 'clojure'
   | 'cmake'

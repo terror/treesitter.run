@@ -1,4 +1,5 @@
 export type Language =
+  | 'ada'
   | 'agda'
   | 'arduino'
   | 'astro'

@@ -1,5 +1,10 @@
 [
   {
+    "name": "ada",
+    "repository": "https://github.com/briot/tree-sitter-ada",
+    "revision": "6b58259a08b1a22ba0247a7ce30be384db618da6"
+  },
+  {
     "name": "agda",
     "repository": "https://github.com/tree-sitter/tree-sitter-agda",
     "revision": "e8d47a6987effe34d5595baf321d82d3519a8527"

@@ -167,6 +167,7 @@ export type Language =
   | 'vim'
   | 'wgsl'
   | 'wgsl-bevy'
+  | 'wit'
   | 'xcompose'
   | 'yaml'
   | 'toml'

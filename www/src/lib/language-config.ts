@@ -223,6 +223,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'DOT',
     sampleCode: 'digraph foo {\n  bar -> baz\n}',
   },
+  editorconfig: {
+    name: 'editorconfig',
+    displayName: 'EditorConfig',
+    sampleCode: 'root = true\n\n[foo]\nindent_style = space\n',
+  },
   eex: {
     name: 'eex',
     displayName: 'EEx',

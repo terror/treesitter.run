@@ -202,6 +202,11 @@
     "revision": "80327abbba6f47530edeb0df9f11bd5d5c93c14d"
   },
   {
+    "name": "editorconfig",
+    "repository": "https://github.com/ValdezFOmar/tree-sitter-editorconfig",
+    "revision": "9d843ad4cf118e007792de26d7f173c670a4fbd6"
+  },
+  {
     "name": "eex",
     "repository": "https://github.com/connorlay/tree-sitter-eex",
     "revision": "f742f2fe327463335e8671a87c0b9b396905d1d1"

@@ -22,6 +22,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Astro',
     sampleCode: '---\nconst foo = "bar";\n---\n<div>{foo}</div>',
   },
+  authzed: {
+    name: 'authzed',
+    displayName: 'Authzed',
+    sampleCode:
+      'definition user {}\ndefinition document {\n  relation viewer: user\n}',
+  },
   awk: {
     name: 'awk',
     displayName: 'Awk',

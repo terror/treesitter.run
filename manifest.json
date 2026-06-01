@@ -15,6 +15,11 @@
     "revision": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee"
   },
   {
+    "name": "authzed",
+    "repository": "https://github.com/mleonidas/tree-sitter-authzed",
+    "revision": "83e5c26a8687eb4688fe91d690c735cc3d21ad81"
+  },
+  {
     "name": "awk",
     "repository": "https://github.com/Beaglefoot/tree-sitter-awk",
     "revision": "34bbdc7cce8e803096f47b625979e34c1be38127"

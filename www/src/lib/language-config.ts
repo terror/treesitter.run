@@ -542,6 +542,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Markdown',
     sampleCode: '# Foo\n\nbar baz',
   },
+  matlab: {
+    name: 'matlab',
+    displayName: 'MATLAB',
+    sampleCode: 'function y = foo(x)\ny = x + 1;\nend\n',
+  },
   mermaid: {
     name: 'mermaid',
     displayName: 'Mermaid',

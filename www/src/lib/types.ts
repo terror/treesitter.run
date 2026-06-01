@@ -1,6 +1,7 @@
 export type Language =
   | 'agda'
   | 'arduino'
+  | 'asm'
   | 'astro'
   | 'awk'
   | 'bash'

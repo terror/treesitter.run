@@ -17,6 +17,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'void setup() {\n  pinMode(13, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n}',
   },
+  asm: {
+    name: 'asm',
+    displayName: 'Assembly',
+    sampleCode: 'section .text\nfoo:\n  nop\n',
+  },
   astro: {
     name: 'astro',
     displayName: 'Astro',

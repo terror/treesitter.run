@@ -198,6 +198,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Dart',
     sampleCode: "void main() {\n  print('foo');\n}",
   },
+  devicetree: {
+    name: 'devicetree',
+    displayName: 'Device Tree',
+    sampleCode: '/dts-v1/;\n/ {\n  compatible = "foo";\n};\n',
+  },
   diff: {
     name: 'diff',
     displayName: 'Diff',

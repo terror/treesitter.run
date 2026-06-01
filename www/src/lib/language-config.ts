@@ -6,6 +6,11 @@ type BaseLanguageConfig = Omit<
 >;
 
 const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
+  ada: {
+    name: 'ada',
+    displayName: 'Ada',
+    sampleCode: 'procedure Foo is\nbegin\n  null;\nend Foo;',
+  },
   agda: {
     name: 'agda',
     displayName: 'Agda',

@@ -809,6 +809,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       '<h1>{foo}</h1>',
   },
+  systemverilog: {
+    name: 'systemverilog',
+    displayName: 'SystemVerilog',
+    sampleCode: 'module foo;\nendmodule\n',
+  },
   tablegen: {
     name: 'tablegen',
     displayName: 'TableGen',

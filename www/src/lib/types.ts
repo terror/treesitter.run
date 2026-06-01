@@ -5,6 +5,7 @@ export type Language =
   | 'arduino'
   | 'asm'
   | 'astro'
+  | 'authzed'
   | 'awk'
   | 'bash'
   | 'beancount'

@@ -77,6 +77,7 @@ export type Language =
   | 'ispc'
   | 'java'
   | 'javascript'
+  | 'jinja'
   | 'jq'
   | 'jsdoc'
   | 'json'

@@ -432,6 +432,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'JavaScript',
     sampleCode: 'console.log("hello, world");',
   },
+  jinja: {
+    name: 'jinja',
+    displayName: 'Jinja',
+    sampleCode: '{% set foo = "bar" %}{{ foo }}',
+  },
   jq: {
     name: 'jq',
     displayName: 'jq',

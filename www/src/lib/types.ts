@@ -67,6 +67,7 @@ export type Language =
   | 'hare'
   | 'haskell'
   | 'hcl'
+  | 'heex'
   | 'hlsl'
   | 'html'
   | 'http'

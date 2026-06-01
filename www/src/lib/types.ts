@@ -10,6 +10,7 @@ export type Language =
   | 'bitbake'
   | 'c'
   | 'c-sharp'
+  | 'caddy'
   | 'cairo'
   | 'capnp'
   | 'chatito'

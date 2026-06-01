@@ -132,6 +132,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'cmake_minimum_required(VERSION 3.20)\nproject(foo)\nadd_executable(bar bar.c)',
   },
+  comment: {
+    name: 'comment',
+    displayName: 'Comment',
+    sampleCode: '// foo\n',
+  },
   commonlisp: {
     name: 'commonlisp',
     displayName: 'Common Lisp',

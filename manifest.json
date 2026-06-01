@@ -318,6 +318,11 @@
     "revision": "df5b88d1d24dcfc02e64919d2d20491359abe4c8"
   },
   {
+    "name": "groovy",
+    "repository": "https://github.com/murtaza64/tree-sitter-groovy",
+    "revision": "deb0dcf8c4544f07564060f6e9b9f6e4b0bfc27d"
+  },
+  {
     "name": "gstlaunch",
     "repository": "https://github.com/theHamsta/tree-sitter-gstlaunch",
     "revision": "549aef253fd38a53995cda1bf55c501174372bf7"

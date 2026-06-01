@@ -848,6 +848,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       'console.log(message.text);',
   },
+  typst: {
+    name: 'typst',
+    displayName: 'Typst',
+    sampleCode: '#let foo = "bar"\n#foo\n',
+  },
   udev: {
     name: 'udev',
     displayName: 'udev',

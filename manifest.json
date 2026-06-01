@@ -298,6 +298,11 @@
     "revision": "27816eb6b7315746ae9fcf711e4e1396dc1cf237"
   },
   {
+    "name": "gomod",
+    "repository": "https://github.com/camdencheek/tree-sitter-go-mod",
+    "revision": "2e886870578eeba1927a2dc4bd2e2b3f598c5f9a"
+  },
+  {
     "name": "gowork",
     "repository": "https://github.com/omertuc/tree-sitter-go-work",
     "revision": "949a8a470559543857a62102c84700d291fc984c"

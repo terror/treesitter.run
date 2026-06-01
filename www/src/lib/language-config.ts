@@ -658,6 +658,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Properties',
     sampleCode: 'foo=bar',
   },
+  proto: {
+    name: 'proto',
+    displayName: 'Protocol Buffers',
+    sampleCode: 'syntax = "proto3";\nmessage Foo {\n  string bar = 1;\n}\n',
+  },
   pug: {
     name: 'pug',
     displayName: 'Pug',

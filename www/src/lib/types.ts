@@ -151,6 +151,7 @@ export type Language =
   | 'solidity'
   | 'squirrel'
   | 'svelte'
+  | 'systemverilog'
   | 'tablegen'
   | 'terraform'
   | 'thrift'

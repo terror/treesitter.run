@@ -902,6 +902,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
   },
+  wit: {
+    name: 'wit',
+    displayName: 'WIT',
+    sampleCode: 'package foo:bar;\ninterface baz {\n  qux: func();\n}\n',
+  },
   xcompose: {
     name: 'xcompose',
     displayName: 'XCompose',

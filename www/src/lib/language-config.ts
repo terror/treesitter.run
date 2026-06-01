@@ -326,6 +326,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'go.sum',
     sampleCode: 'foo v1.0.0 h1:bar',
   },
+  gomod: {
+    name: 'gomod',
+    displayName: 'go.mod',
+    sampleCode: 'module foo\n\ngo 1.22\n',
+  },
   gowork: {
     name: 'gowork',
     displayName: 'go.work',

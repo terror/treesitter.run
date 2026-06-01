@@ -492,6 +492,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Kotlin',
     sampleCode: 'fun main() {\n  println("foo")\n}',
   },
+  lean: {
+    name: 'lean',
+    displayName: 'Lean',
+    sampleCode: 'def foo : Nat := 1\n',
+  },
   linkerscript: {
     name: 'linkerscript',
     displayName: 'Linker Script',

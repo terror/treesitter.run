@@ -456,6 +456,11 @@
     "revision": "f66d2908542e93c0204c6c241f794afe4e9cd5d1"
   },
   {
+    "name": "lean",
+    "repository": "https://github.com/Julian/tree-sitter-lean",
+    "revision": "1941d160719daabc7d9854539d59e5911ac3b152"
+  },
+  {
     "name": "linkerscript",
     "repository": "https://github.com/amaanq/tree-sitter-linkerscript",
     "revision": "f99011a3554213b654985a4b0a65b3b032ec4621"

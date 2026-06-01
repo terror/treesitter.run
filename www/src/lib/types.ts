@@ -20,6 +20,7 @@ export type Language =
   | 'cpp'
   | 'css'
   | 'cuda'
+  | 'cue'
   | 'cyberchef'
   | 'd'
   | 'dart'

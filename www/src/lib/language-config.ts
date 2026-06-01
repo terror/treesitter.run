@@ -371,6 +371,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'HCL',
     sampleCode: 'resource "foo" "bar" {\n  name = "baz"\n}',
   },
+  heex: {
+    name: 'heex',
+    displayName: 'HEEx',
+    sampleCode: '<div><%= @foo %></div>',
+  },
   hlsl: {
     name: 'hlsl',
     displayName: 'HLSL',

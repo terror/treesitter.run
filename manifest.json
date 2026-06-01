@@ -343,6 +343,11 @@
     "revision": "64ad62785d442eb4d45df3a1764962dafd5bc98b"
   },
   {
+    "name": "heex",
+    "repository": "https://github.com/connorlay/tree-sitter-heex",
+    "revision": "5842537f734d7c12685bf27d6005313e3e5a47a0"
+  },
+  {
     "name": "hlsl",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-hlsl",
     "revision": "bab9111922d53d43668fabb61869bec51bbcb915"

@@ -879,6 +879,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'module foo(input bar, output baz);\n  assign baz = bar;\nendmodule',
   },
+  vhdl: {
+    name: 'vhdl',
+    displayName: 'VHDL',
+    sampleCode:
+      'entity foo is\nend entity;\narchitecture bar of foo is\nbegin\nend architecture;\n',
+  },
   vim: {
     name: 'vim',
     displayName: 'Vimscript',

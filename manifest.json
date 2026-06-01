@@ -193,7 +193,7 @@
   {
     "name": "gdscript",
     "repository": "https://github.com/PrestonKnopp/tree-sitter-gdscript",
-    "revision": "89e66b6bdc002ab976283f277cbb48b780c5d0e9"
+    "revision": "495cf07da02e5381f8147645c080bc56a13d8655"
   },
   {
     "name": "gitattributes",

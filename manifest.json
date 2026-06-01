@@ -21,6 +21,11 @@
     "revision": "11dd46c9ae25135c473c0003a133bb06a484af0c"
   },
   {
+    "name": "asm",
+    "repository": "https://github.com/RubixDev/tree-sitter-asm",
+    "revision": "839741fef4dab5128952334624905c82b40c7133"
+  },
+  {
     "name": "astro",
     "repository": "https://github.com/virchau13/tree-sitter-astro",
     "revision": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee"

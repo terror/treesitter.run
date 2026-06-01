@@ -3,6 +3,7 @@ export type Language =
   | 'agda'
   | 'apex'
   | 'arduino'
+  | 'asm'
   | 'astro'
   | 'awk'
   | 'bash'

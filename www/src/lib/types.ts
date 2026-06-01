@@ -12,6 +12,7 @@ export type Language =
   | 'c-sharp'
   | 'cairo'
   | 'capnp'
+  | 'cel'
   | 'chatito'
   | 'clojure'
   | 'cmake'

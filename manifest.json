@@ -65,6 +65,11 @@
     "revision": "7b0883c03e5edd34ef7bcf703194204299d7099f"
   },
   {
+    "name": "cel",
+    "repository": "https://github.com/bufbuild/tree-sitter-cel",
+    "revision": "fd2e8efaa07e71e46dcc1d5c4c85556a742d8c36"
+  },
+  {
     "name": "chatito",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-chatito",
     "revision": "c0ed82c665b732395073f635c74c300f09530a7f"

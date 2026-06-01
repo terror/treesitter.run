@@ -80,6 +80,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: "Cap'n Proto",
     sampleCode: '@0xabcdefabcdefabcd;\nstruct Foo {\n  bar @0 :Text;\n}',
   },
+  cel: {
+    name: 'cel',
+    displayName: 'CEL',
+    sampleCode: 'foo == "bar"',
+  },
   chatito: {
     name: 'chatito',
     displayName: 'Chatito',

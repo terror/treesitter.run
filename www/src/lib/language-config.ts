@@ -663,6 +663,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Protocol Buffers',
     sampleCode: 'syntax = "proto3";\nmessage Foo {\n  string bar = 1;\n}\n',
   },
+  psv: {
+    name: 'psv',
+    displayName: 'PSV',
+    sampleCode: 'foo|bar\nbaz|qux\n',
+  },
   pug: {
     name: 'pug',
     displayName: 'Pug',

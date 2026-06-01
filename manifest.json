@@ -629,6 +629,12 @@
     "revision": "e9f6b43f6844bd2189b50a422d4e2094313f6aa3"
   },
   {
+    "name": "psv",
+    "path": "psv",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-csv",
+    "revision": "f6bf6e35eb0b95fbadea4bb39cb9709507fcb181"
+  },
+  {
     "name": "pug",
     "repository": "https://github.com/zealot128/tree-sitter-pug",
     "revision": "13e9195370172c86a8b88184cc358b23b677cc46"

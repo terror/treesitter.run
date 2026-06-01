@@ -123,6 +123,7 @@ export type Language =
   | 'promql'
   | 'properties'
   | 'proto'
+  | 'psv'
   | 'pug'
   | 'puppet'
   | 'purescript'

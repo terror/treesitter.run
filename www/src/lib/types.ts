@@ -15,6 +15,7 @@ export type Language =
   | 'chatito'
   | 'clojure'
   | 'cmake'
+  | 'comment'
   | 'commonlisp'
   | 'cpon'
   | 'cpp'

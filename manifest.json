@@ -80,6 +80,11 @@
     "revision": "c7b2a71e7f8ecb167fad4c97227c838439280175"
   },
   {
+    "name": "comment",
+    "repository": "https://github.com/stsewd/tree-sitter-comment",
+    "revision": "66272d2b6c73fb61157541b69dd0a7ce7b42a5ad"
+  },
+  {
     "name": "commonlisp",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-commonlisp",
     "revision": "32323509b3d9fe96607d151c2da2c9009eb13a2f"

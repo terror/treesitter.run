@@ -16,6 +16,7 @@ export type Language =
   | 'clojure'
   | 'cmake'
   | 'commonlisp'
+  | 'cooklang'
   | 'cpon'
   | 'cpp'
   | 'css'

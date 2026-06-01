@@ -85,6 +85,11 @@
     "revision": "32323509b3d9fe96607d151c2da2c9009eb13a2f"
   },
   {
+    "name": "cooklang",
+    "repository": "https://github.com/addcninblue/tree-sitter-cooklang",
+    "revision": "4ebe237c1cf64cf3826fc249e9ec0988fe07e58e"
+  },
+  {
     "name": "cpon",
     "repository": "https://github.com/amaanq/tree-sitter-cpon",
     "revision": "594289eadfec719198e560f9d7fd243c4db678d5"

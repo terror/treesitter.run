@@ -705,6 +705,11 @@
     "revision": "b2ac15e27fce703d2f37a79ccd94a5c0cbe9720b"
   },
   {
+    "name": "rego",
+    "repository": "https://github.com/FallenAngel97/tree-sitter-rego",
+    "revision": "ddd39af81fe8b0288102a7cb97959dfce723e0f3"
+  },
+  {
     "name": "requirements",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-requirements",
     "revision": "2c3bb291f497258ba417d052faa14a2dfee6d401"

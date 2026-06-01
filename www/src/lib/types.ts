@@ -30,6 +30,7 @@ export type Language =
   | 'css'
   | 'csv'
   | 'cuda'
+  | 'cue'
   | 'cyberchef'
   | 'd'
   | 'dart'

@@ -157,6 +157,11 @@
     "revision": "48b066f334f4cf2174e05a50218ce2ed98b6fd01"
   },
   {
+    "name": "cue",
+    "repository": "https://github.com/eonpatapon/tree-sitter-cue",
+    "revision": "dd7b90e0770ff18070c515937ba3c3d6d93db00e"
+  },
+  {
     "name": "cyberchef",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-cyberchef",
     "revision": "8bad395b98253324085b4b5227b14d4988f374b7"

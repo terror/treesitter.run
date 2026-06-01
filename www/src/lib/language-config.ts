@@ -178,6 +178,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'CUDA',
     sampleCode: '__global__ void foo(int *bar) {\n  bar[threadIdx.x] = 1;\n}',
   },
+  cue: {
+    name: 'cue',
+    displayName: 'CUE',
+    sampleCode: 'foo: "bar"\n',
+  },
   cyberchef: {
     name: 'cyberchef',
     displayName: 'CyberChef',

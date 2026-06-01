@@ -122,6 +122,7 @@ export type Language =
   | 'prisma'
   | 'promql'
   | 'properties'
+  | 'proto'
   | 'pug'
   | 'puppet'
   | 'purescript'

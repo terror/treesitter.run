@@ -648,6 +648,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Prisma',
     sampleCode: 'model Foo {\n  id Int @id\n  bar String\n}',
   },
+  promql: {
+    name: 'promql',
+    displayName: 'PromQL',
+    sampleCode: 'foo{bar="baz"}',
+  },
   properties: {
     name: 'properties',
     displayName: 'Properties',

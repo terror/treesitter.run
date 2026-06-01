@@ -738,6 +738,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Regex',
     sampleCode: '^(foo|bar)+$',
   },
+  rego: {
+    name: 'rego',
+    displayName: 'Rego',
+    sampleCode: 'package foo\n\nallow {\n  input.bar\n}\n',
+  },
   requirements: {
     name: 'requirements',
     displayName: 'Requirements',

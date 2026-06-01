@@ -138,6 +138,7 @@ export type Language =
   | 're2c'
   | 'readline'
   | 'regex'
+  | 'rego'
   | 'requirements'
   | 'rescript'
   | 'ron'

@@ -15,6 +15,7 @@ export type Language =
   | 'brightscript'
   | 'c'
   | 'c-sharp'
+  | 'caddy'
   | 'cairo'
   | 'capnp'
   | 'chatito'

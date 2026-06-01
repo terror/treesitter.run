@@ -96,6 +96,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'using System;\n\nclass Foo {\n  static void Main() {\n    Console.WriteLine("bar");\n  }\n}',
   },
+  caddy: {
+    name: 'caddy',
+    displayName: 'Caddy',
+    sampleCode: 'example.com {\n  respond "foo"\n}\n',
+  },
   cairo: {
     name: 'cairo',
     displayName: 'Cairo',

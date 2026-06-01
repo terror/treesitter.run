@@ -120,6 +120,7 @@ export type Language =
   | 'powershell'
   | 'printf'
   | 'prisma'
+  | 'promql'
   | 'properties'
   | 'pug'
   | 'puppet'

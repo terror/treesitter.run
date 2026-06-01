@@ -74,6 +74,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'BitBake',
     sampleCode: 'FOO = "bar"\n',
   },
+  brightscript: {
+    name: 'brightscript',
+    displayName: 'BrightScript',
+    sampleCode: 'function foo()\n  print "bar"\nend function',
+  },
   c: {
     name: 'c',
     displayName: 'C',

@@ -567,6 +567,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Nginx',
     sampleCode: 'server {\n  listen 80;\n  server_name foo;\n}\n',
   },
+  nim: {
+    name: 'nim',
+    displayName: 'Nim',
+    sampleCode: 'proc foo(): string =\n  "bar"\n',
+  },
   nix: {
     name: 'nix',
     displayName: 'Nix',

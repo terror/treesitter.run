@@ -399,6 +399,12 @@
     "revision": "40bec50a9a0f1228226ed53be3f87f01da94a959"
   },
   {
+    "name": "jinja-inline",
+    "path": "tree-sitter-jinja_inline",
+    "repository": "https://github.com/cathaysia/tree-sitter-jinja",
+    "revision": "40bec50a9a0f1228226ed53be3f87f01da94a959"
+  },
+  {
     "name": "jq",
     "repository": "https://github.com/flurie/tree-sitter-jq",
     "revision": "c204e36d2c3c6fce1f57950b12cabcc24e5cc4d9"

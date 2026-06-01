@@ -532,6 +532,11 @@
     "revision": "47ade644d754cce57974aac44d2c9450e823d4f4"
   },
   {
+    "name": "nim",
+    "repository": "https://github.com/alaviss/tree-sitter-nim",
+    "revision": "3878440d9398515ae053c6f6024986e69868bb74"
+  },
+  {
     "name": "nix",
     "repository": "https://github.com/nix-community/tree-sitter-nix",
     "revision": "69fbfb02896cdd27cb7ff3cd61f7f3f6bde4f017"

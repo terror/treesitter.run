@@ -113,6 +113,7 @@ export type Language =
   | 'odin'
   | 'pem'
   | 'php'
+  | 'pkl'
   | 'po'
   | 'poe-filter'
   | 'pony'

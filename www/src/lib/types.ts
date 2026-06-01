@@ -23,6 +23,7 @@ export type Language =
   | 'cyberchef'
   | 'd'
   | 'dart'
+  | 'devicetree'
   | 'diff'
   | 'dockerfile'
   | 'dot'

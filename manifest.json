@@ -547,6 +547,11 @@
     "revision": "14e6da1627aaef21d2b2aa0c37d04269766dcc1d"
   },
   {
+    "name": "nu",
+    "repository": "https://github.com/nushell/tree-sitter-nu",
+    "revision": "348b787d8b0409091d85fe9d4eb007fe9f3406bb"
+  },
+  {
     "name": "objc",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-objc",
     "revision": "181a81b8f23a2d593e7ab4259981f50122909fda"

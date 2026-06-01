@@ -107,6 +107,7 @@ export type Language =
   | 'nim'
   | 'nix'
   | 'nqc'
+  | 'nu'
   | 'objc'
   | 'ocaml'
   | 'odin'

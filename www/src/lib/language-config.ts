@@ -582,6 +582,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'NQC',
     sampleCode: 'task main() {\n  OnFwd(OUT_A, 75);\n}',
   },
+  nu: {
+    name: 'nu',
+    displayName: 'Nushell',
+    sampleCode: 'def foo [] { echo bar }\n',
+  },
   objc: {
     name: 'objc',
     displayName: 'Objective-C',

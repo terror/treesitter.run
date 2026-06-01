@@ -437,6 +437,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Jinja',
     sampleCode: '{% set foo = "bar" %}{{ foo }}',
   },
+  'jinja-inline': {
+    name: 'jinja-inline',
+    displayName: 'Jinja Inline',
+    sampleCode: '{# foo #}',
+  },
   jq: {
     name: 'jq',
     displayName: 'jq',

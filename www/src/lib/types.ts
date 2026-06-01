@@ -8,6 +8,7 @@ export type Language =
   | 'bicep'
   | 'bibtex'
   | 'bitbake'
+  | 'brightscript'
   | 'c'
   | 'c-sharp'
   | 'cairo'

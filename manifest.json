@@ -5,6 +5,12 @@
     "revision": "e8d47a6987effe34d5595baf321d82d3519a8527"
   },
   {
+    "name": "apex",
+    "path": "apex",
+    "repository": "https://github.com/aheber/tree-sitter-sfapex",
+    "revision": "27a3091a1a444ce19d6099e00cd3788f019d0c2b"
+  },
+  {
     "name": "arduino",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-arduino",
     "revision": "11dd46c9ae25135c473c0003a133bb06a484af0c"

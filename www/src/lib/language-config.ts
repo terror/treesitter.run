@@ -11,6 +11,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Agda',
     sampleCode: 'module Foo where\n\ndata Bar : Set where\n  baz : Bar',
   },
+  apex: {
+    name: 'apex',
+    displayName: 'Apex',
+    sampleCode: 'public class Foo {\n  public void bar() {}\n}',
+  },
   arduino: {
     name: 'arduino',
     displayName: 'Arduino',

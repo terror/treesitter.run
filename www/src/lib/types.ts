@@ -1,5 +1,6 @@
 export type Language =
   | 'agda'
+  | 'apex'
   | 'arduino'
   | 'astro'
   | 'awk'

@@ -182,6 +182,11 @@
     "revision": "e78bf56f206cb47bee28a217423acb651e076848"
   },
   {
+    "name": "dhall",
+    "repository": "https://github.com/jbellerb/tree-sitter-dhall",
+    "revision": "62013259b26ac210d5de1abf64cf1b047ef88000"
+  },
+  {
     "name": "diff",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-diff",
     "revision": "2520c3f934b3179bb540d23e0ef45f75304b5fed"

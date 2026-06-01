@@ -35,6 +35,7 @@ export type Language =
   | 'd'
   | 'dart'
   | 'devicetree'
+  | 'dhall'
   | 'diff'
   | 'dockerfile'
   | 'dot'

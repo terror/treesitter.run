@@ -203,6 +203,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Device Tree',
     sampleCode: '/dts-v1/;\n/ {\n  compatible = "foo";\n};\n',
   },
+  dhall: {
+    name: 'dhall',
+    displayName: 'Dhall',
+    sampleCode: 'let foo = "bar" in foo',
+  },
   diff: {
     name: 'diff',
     displayName: 'Diff',

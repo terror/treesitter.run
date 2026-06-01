@@ -19,6 +19,7 @@ export type Language =
   | 'cpon'
   | 'cpp'
   | 'css'
+  | 'csv'
   | 'cuda'
   | 'cyberchef'
   | 'd'

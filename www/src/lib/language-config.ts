@@ -122,6 +122,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'CSS',
     sampleCode: 'body::before {\n  content: "hello, world";\n}',
   },
+  csv: {
+    name: 'csv',
+    displayName: 'CSV',
+    sampleCode: 'foo,bar\nbaz,qux\n',
+  },
   cuda: {
     name: 'cuda',
     displayName: 'CUDA',

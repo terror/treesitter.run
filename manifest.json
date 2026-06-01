@@ -100,6 +100,12 @@
     "revision": "dda5cfc5722c429eaba1c910ca32c2c0c5bb1a3f"
   },
   {
+    "name": "csv",
+    "path": "csv",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-csv",
+    "revision": "f6bf6e35eb0b95fbadea4bb39cb9709507fcb181"
+  },
+  {
     "name": "cuda",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-cuda",
     "revision": "48b066f334f4cf2174e05a50218ce2ed98b6fd01"

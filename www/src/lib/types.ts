@@ -163,6 +163,7 @@ export type Language =
   | 'uxntal'
   | 'vala'
   | 'verilog'
+  | 'vhdl'
   | 'vim'
   | 'wgsl'
   | 'wgsl-bevy'

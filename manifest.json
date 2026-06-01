@@ -864,6 +864,11 @@
     "revision": "227d277b6a1a5e2bf818d6206935722a7503de08"
   },
   {
+    "name": "vhdl",
+    "repository": "https://github.com/jpt13653903/tree-sitter-vhdl",
+    "revision": "b8e31d110c6b039899d0f307792bdb0ff50ece2c"
+  },
+  {
     "name": "vim",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-vim",
     "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"

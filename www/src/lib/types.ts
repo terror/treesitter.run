@@ -24,6 +24,7 @@ export type Language =
   | 'cmake'
   | 'comment'
   | 'commonlisp'
+  | 'cooklang'
   | 'cpon'
   | 'cpp'
   | 'css'

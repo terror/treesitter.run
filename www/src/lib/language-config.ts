@@ -142,6 +142,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Common Lisp',
     sampleCode: '(defun foo (bar)\n  (print bar))',
   },
+  cooklang: {
+    name: 'cooklang',
+    displayName: 'Cooklang',
+    sampleCode: 'Add @foo{1%bar}\n',
+  },
   cpon: {
     name: 'cpon',
     displayName: 'CPON',

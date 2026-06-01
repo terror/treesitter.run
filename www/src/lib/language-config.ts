@@ -346,6 +346,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'GraphQL',
     sampleCode: 'query Foo {\n  bar {\n    baz\n  }\n}',
   },
+  groovy: {
+    name: 'groovy',
+    displayName: 'Groovy',
+    sampleCode: "def foo() {\n  println 'bar'\n}\n",
+  },
   gstlaunch: {
     name: 'gstlaunch',
     displayName: 'GStreamer Launch',

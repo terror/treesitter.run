@@ -453,7 +453,7 @@
   {
     "name": "kotlin",
     "repository": "https://github.com/fwcd/tree-sitter-kotlin",
-    "revision": "f66d2908542e93c0204c6c241f794afe4e9cd5d1"
+    "revision": "c8ac3d2627240160b999a2c100de3babbdb8f419"
   },
   {
     "name": "lean",

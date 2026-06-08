@@ -78,7 +78,7 @@
   {
     "name": "c-sharp",
     "repository": "https://github.com/tree-sitter/tree-sitter-c-sharp",
-    "revision": "cac6d5fb595f5811a076336682d5d595ac1c9e85"
+    "revision": "af29416d729b7a6603101b513604392d8f675e3b"
   },
   {
     "name": "caddy",

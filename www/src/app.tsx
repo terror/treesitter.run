@@ -6,12 +6,13 @@ import {
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import type { Language } from '@/lib/types';
-import { Loader2, TentTree } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { useCallback } from 'react';
 
 import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
 import { EditorPane } from './components/editor-pane';
+import { Logo } from './components/logo';
 import { StatusBar } from './components/status-bar';
 import { ThemeToggle } from './components/theme-toggle';
 import { TreePane } from './components/tree-pane';
@@ -131,7 +132,7 @@ const App = () => {
       <CommandMenu onResetPaneLayout={resetPaneLayout} />
 
       <div className='flex items-center gap-x-2 px-4 pt-4 pb-2'>
-        <TentTree className='h-4 w-4' />
+        <Logo className='h-4 w-4' />
         <a href='/' className='cursor-pointer font-semibold'>
           treesitter.run
         </a>

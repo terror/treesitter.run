@@ -4,48 +4,34 @@
   height="24"
   viewBox="0 0 24 24"
   fill="none"
-  stroke-linecap="round"
-  stroke-linejoin="round"
   role="img"
-  aria-label="Tent tree logo"
+  aria-label="Tree logo"
 >
   <style>
     :root {
-      --logo-fg: #24292f;
-      --logo-halo: #ffffff;
+      --logo-canopy: #059669;
+      --logo-trunk: #24292f;
+    }
+
+    .canopy {
+      fill: var(--logo-canopy);
+    }
+
+    .trunk {
+      fill: var(--logo-trunk);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --logo-fg: #f0f6fc;
-        --logo-halo: #0d1117;
+        --logo-canopy: #34d399;
+        --logo-trunk: #f0f6fc;
       }
-    }
-
-    .halo {
-      stroke: var(--logo-halo);
-      stroke-width: 4.75;
-      opacity: 0.95;
-    }
-
-    .mark {
-      stroke: var(--logo-fg);
-      stroke-width: 2.25;
     }
   </style>
 
-  <defs>
-    <g id="logo-mark">
-      <circle cx="4" cy="4" r="2" />
-      <path d="m14 5 3-3 3 3" />
-      <path d="m14 10 3-3 3 3" />
-      <path d="M17 14V2" />
-      <path d="M17 14H7l-5 8h20Z" />
-      <path d="M8 14v8" />
-      <path d="m9 14 5 8" />
-    </g>
-  </defs>
-
-  <use href="#logo-mark" class="halo" />
-  <use href="#logo-mark" class="mark" />
+  <path
+    class="canopy"
+    d="M12 2.5 7.2 10.15h2.7L5.65 16.8h12.7l-4.25-6.65h2.7Z"
+  />
+  <path class="trunk" d="M10.55 16.8h2.9v4.2h-2.9Z" />
 </svg>

@@ -275,7 +275,7 @@
   {
     "name": "gleam",
     "repository": "https://github.com/gleam-lang/tree-sitter-gleam",
-    "revision": "0ae061fea67cb39639b47c7acc46cbf5d109fda1"
+    "revision": "c610c282ef73f830d80c1f0999dce8e83f024ef5"
   },
   {
     "name": "glsl",

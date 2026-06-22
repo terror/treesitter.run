@@ -169,7 +169,7 @@
   {
     "name": "d",
     "repository": "https://github.com/gdamore/tree-sitter-d",
-    "revision": "8bcb13dbddf16ca44a42f8e98e8cf3d86b2b2e48"
+    "revision": "64f27931b4e6fdd75af1102c79bacbca68a8dacc"
   },
   {
     "name": "dart",

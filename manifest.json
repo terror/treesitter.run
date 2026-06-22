@@ -458,7 +458,7 @@
   {
     "name": "lean",
     "repository": "https://github.com/Julian/tree-sitter-lean",
-    "revision": "463a9d8a509c935f4e10854b5078bbe2839b274c"
+    "revision": "30f05c80eab5b7ec8de9e0c7dbc23db58e6123c8"
   },
   {
     "name": "linkerscript",

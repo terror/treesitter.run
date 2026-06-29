@@ -519,7 +519,7 @@
   {
     "name": "meson",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-meson",
-    "revision": "c84f3540624b81fc44067030afce2ff78d6ede05"
+    "revision": "aa8d472034956f94f51f2ef2cbfec4cc07efbfde"
   },
   {
     "name": "move",

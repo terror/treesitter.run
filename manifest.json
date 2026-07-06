@@ -687,7 +687,7 @@
   {
     "name": "racket",
     "repository": "https://github.com/6cdh/tree-sitter-racket",
-    "revision": "54649be8b939341d2d5410b594ab954fe8814bd0"
+    "revision": "e2b8064b32ab1dfa30532aeac1577ae4c1cc3df5"
   },
   {
     "name": "re2c",

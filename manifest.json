@@ -534,7 +534,7 @@
   {
     "name": "nim",
     "repository": "https://github.com/alaviss/tree-sitter-nim",
-    "revision": "3878440d9398515ae053c6f6024986e69868bb74"
+    "revision": "ac72ba30d16edf0be021588a9301ede4accd6cf4"
   },
   {
     "name": "nix",

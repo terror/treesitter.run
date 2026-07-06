@@ -396,7 +396,7 @@
     "name": "jinja",
     "path": "tree-sitter-jinja",
     "repository": "https://github.com/cathaysia/tree-sitter-jinja",
-    "revision": "40bec50a9a0f1228226ed53be3f87f01da94a959"
+    "revision": "c213d3745ccdcaaa858869181c7b1bf9557a025f"
   },
   {
     "name": "jinja-inline",

@@ -682,7 +682,7 @@
   {
     "name": "r",
     "repository": "https://github.com/r-lib/tree-sitter-r",
-    "revision": "09ed09def8ddb4fcea65f43e8c3f9cbd28008228"
+    "revision": "58a22794466c0fc15b0d3b40531db751593721e8"
   },
   {
     "name": "racket",

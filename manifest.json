@@ -214,7 +214,7 @@
   {
     "name": "elixir",
     "repository": "https://github.com/elixir-lang/tree-sitter-elixir",
-    "revision": "7937d3b4d65fa574163cfa59394515d3c1cf16f4"
+    "revision": "c4f9f5a15ddad8635ba59a5b99c2e9124e74ad91"
   },
   {
     "name": "elm",

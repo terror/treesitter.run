@@ -677,7 +677,7 @@
   {
     "name": "query",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-query",
-    "revision": "15e00db655cf1708cf8e4b172b2f321d9b7b98c1"
+    "revision": "8e9e223812ff30854fbc912adbec696ba5f0e023"
   },
   {
     "name": "r",

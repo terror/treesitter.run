@@ -174,7 +174,7 @@
   {
     "name": "dart",
     "repository": "https://github.com/usernobody14/tree-sitter-dart",
-    "revision": "a9bdfa3db2fbc9b9f12c93450d04a671f33a5102"
+    "revision": "be07cf7118d3dba06236a3f19541685a68209934"
   },
   {
     "name": "devicetree",

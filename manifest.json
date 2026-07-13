@@ -672,7 +672,7 @@
   {
     "name": "qmljs",
     "repository": "https://github.com/yuja/tree-sitter-qmljs",
-    "revision": "606a66b96a13ef30ed5c7ec7e5adc20a9a40157a"
+    "revision": "de96ed62abded51fcdfcbeaaa120e0dd0d20c697"
   },
   {
     "name": "query",

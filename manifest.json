@@ -772,7 +772,7 @@
   {
     "name": "ssh-config",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-ssh-config",
-    "revision": "71d2693deadaca8cdc09e38ba41d2f6042da1616"
+    "revision": "b7db80ee4c8a29543904f14fb3ae3eb24f047925"
   },
   {
     "name": "starlark",

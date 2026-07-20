@@ -504,7 +504,7 @@
     "name": "markdown",
     "path": "tree-sitter-markdown",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-markdown",
-    "revision": "c3570720f7f7bbad22fe96603f106276618e0cf5"
+    "revision": "a0a00f817d02412bd92c54d316f164d827b57b5c"
   },
   {
     "name": "matlab",

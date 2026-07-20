@@ -2,7 +2,8 @@
   (id)) @type
 
 (package_decl
-  (id) @module)
+  (decl_head
+    (id) @module))
 
 (version) @string.special
 
@@ -13,10 +14,11 @@
   ] @punctuation.delimiter)
 
 (package_decl
-  [
-    "@"
-    "/"
-  ] @punctuation.delimiter)
+  (decl_head
+    [
+      "@"
+      "/"
+    ] @punctuation.delimiter))
 
 ; feature gates with leading `@`
 (_

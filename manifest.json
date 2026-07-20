@@ -189,7 +189,7 @@
   {
     "name": "diff",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-diff",
-    "revision": "2520c3f934b3179bb540d23e0ef45f75304b5fed"
+    "revision": "7d20331b97a008daf2dd0055da8c609f03424105"
   },
   {
     "name": "dockerfile",

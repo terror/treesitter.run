@@ -787,7 +787,7 @@
   {
     "name": "systemverilog",
     "repository": "https://github.com/gmlarumbe/tree-sitter-systemverilog",
-    "revision": "aa09b9004478cea0f46d877608910dc153b277b6"
+    "revision": "4e7525a777290e341b8a5ad880bd20bb4f291845"
   },
   {
     "name": "tablegen",

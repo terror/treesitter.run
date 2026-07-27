@@ -229,7 +229,7 @@
   {
     "name": "erlang",
     "repository": "https://github.com/WhatsApp/tree-sitter-erlang",
-    "revision": "836aa2b6c3af2c7cef3f84049b0ed6d44485a870"
+    "revision": "4749fba80bff85bced0c9ce471decce96d43ab55"
   },
   {
     "name": "fennel",

@@ -219,7 +219,7 @@
   {
     "name": "elm",
     "repository": "https://github.com/elm-tooling/tree-sitter-elm",
-    "revision": "6bf155821d8d18f1e9d0c951fe77202daa7eb9c2"
+    "revision": "e1e8fea161a1e66f3997855d316be2a43e4e956f"
   },
   {
     "name": "embedded-template",

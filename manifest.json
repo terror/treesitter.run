@@ -866,7 +866,7 @@
   {
     "name": "vhdl",
     "repository": "https://github.com/jpt13653903/tree-sitter-vhdl",
-    "revision": "e97406d6ddfbed73dd8cdfcc3cf4c7b200b4211d"
+    "revision": "ec2569db2da2129f83d486240d2fa63a353c4616"
   },
   {
     "name": "vim",

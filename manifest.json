@@ -2,7 +2,7 @@
   {
     "name": "ada",
     "repository": "https://github.com/briot/tree-sitter-ada",
-    "revision": "6b58259a08b1a22ba0247a7ce30be384db618da6"
+    "revision": "dd5fa4cdb3aba91abc687aa68fb1431396fce6a6"
   },
   {
     "name": "agda",

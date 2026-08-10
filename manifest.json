@@ -886,7 +886,7 @@
   {
     "name": "wit",
     "repository": "https://github.com/bytecodealliance/tree-sitter-wit",
-    "revision": "da195e4e3a670187abdddee948a115dbe30ebc21"
+    "revision": "cdf07263b136054b413cab449ac7a1d059c27542"
   },
   {
     "name": "xcompose",

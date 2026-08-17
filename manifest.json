@@ -315,7 +315,7 @@
   {
     "name": "graphql",
     "repository": "https://github.com/joowani/tree-sitter-graphql",
-    "revision": "df5b88d1d24dcfc02e64919d2d20491359abe4c8"
+    "revision": "43c7f575a26740c1fee85cf52bf5ac1bbd7226ce"
   },
   {
     "name": "groovy",

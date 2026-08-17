@@ -549,7 +549,7 @@
   {
     "name": "nu",
     "repository": "https://github.com/nushell/tree-sitter-nu",
-    "revision": "9467420d184bd2c510378f4cda624eca35dd4590"
+    "revision": "64613ef22f4116862d7997939c8d1794ceb1f856"
   },
   {
     "name": "objc",

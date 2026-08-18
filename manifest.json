@@ -737,7 +737,7 @@
   {
     "name": "scala",
     "repository": "https://github.com/tree-sitter/tree-sitter-scala",
-    "revision": "cd589ed1f00beb6867ef005a16255b17f13e609d"
+    "revision": "b4c6409ead8a80ab8de7bf0a53a35bfd1ba7a207"
   },
   {
     "name": "scss",

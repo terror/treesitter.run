@@ -707,7 +707,7 @@
   {
     "name": "rego",
     "repository": "https://github.com/FallenAngel97/tree-sitter-rego",
-    "revision": "7f8a43138951a13832919312290147bd175180cd"
+    "revision": "da2a1f63cd877efb05d56de61fe516e90012b9a7"
   },
   {
     "name": "requirements",

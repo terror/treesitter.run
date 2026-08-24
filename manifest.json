@@ -417,7 +417,7 @@
   {
     "name": "json",
     "repository": "https://github.com/tree-sitter/tree-sitter-json",
-    "revision": "001c28d7a29832b06b0e831ec77845553c89b56d"
+    "revision": "254c42a6476413b776221e03982ac8ae159eeb72"
   },
   {
     "name": "json5",

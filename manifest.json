@@ -509,7 +509,7 @@
   {
     "name": "matlab",
     "repository": "https://github.com/acristoffers/tree-sitter-matlab",
-    "revision": "c9ef947ec67fb6b500d5def4f5e09b56990a9f91"
+    "revision": "f03d0347acd8bb05d4edd8c845ac1718729e1fad"
   },
   {
     "name": "mermaid",

@@ -83,7 +83,7 @@
   {
     "name": "caddy",
     "repository": "https://github.com/opa-oz/tree-sitter-caddy",
-    "revision": "9b3fde99d3d74345b85b655a6d8065e004fbe26f"
+    "revision": "2b0dd9066900568a3d6b33dc51d2e271cb48bd92"
   },
   {
     "name": "cairo",

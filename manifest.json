@@ -1586,6 +1586,11 @@
     "revision": "2c0e6be8dd4dcb961c345fa35c309ad4f5bd3502"
   },
   {
+    "name": "yuck",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-yuck",
+    "revision": "e877f6ade4b77d5ef8787075141053631ba12318"
+  },
+  {
     "name": "zig",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zig",
     "revision": "6479aa13f32f701c383083d8b28360ebd682fb7d"

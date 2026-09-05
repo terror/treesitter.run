@@ -1644,6 +1644,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'module foo {\n  namespace "urn:foo";\n  prefix foo;\n  leaf bar { type string; }\n}',
   },
+  yuck: {
+    name: 'yuck',
+    displayName: 'Yuck',
+    sampleCode: '(defwidget foo []\n  (label :text "bar"))',
+  },
   zig: {
     name: 'zig',
     displayName: 'Zig',

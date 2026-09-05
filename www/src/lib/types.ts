@@ -70,6 +70,7 @@ export type Language =
   | 'firrtl'
   | 'fish'
   | 'foam'
+  | 'forth'
   | 'fortran'
   | 'fsh'
   | 'fsharp'

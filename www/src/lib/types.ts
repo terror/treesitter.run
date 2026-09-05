@@ -241,6 +241,7 @@ export type Language =
   | 'wgsl'
   | 'wgsl-bevy'
   | 'wit'
+  | 'wxml'
   | 'xcompose'
   | 'yaml'
   | 'toml'

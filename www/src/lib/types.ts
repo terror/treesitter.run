@@ -195,6 +195,7 @@ export type Language =
   | 'runescript'
   | 'rust'
   | 'scala'
+  | 'scfg'
   | 'scss'
   | 'slang'
   | 'smali'

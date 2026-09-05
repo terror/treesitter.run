@@ -1029,6 +1029,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'object Foo {\n  def main(args: Array[String]): Unit = {\n    println("bar")\n  }\n}',
   },
+  scfg: {
+    name: 'scfg',
+    displayName: 'SCFG',
+    sampleCode: 'foo bar {\n  baz qux\n}\n',
+  },
   scss: {
     name: 'scss',
     displayName: 'SCSS',

@@ -217,6 +217,7 @@ export type Language =
   | 'tsv'
   | 'twig'
   | 'typescript'
+  | 'typoscript'
   | 'typst'
   | 'udev'
   | 'ungrammar'

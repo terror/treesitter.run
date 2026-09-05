@@ -1153,6 +1153,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       'console.log(message.text);',
   },
+  typoscript: {
+    name: 'typoscript',
+    displayName: 'TypoScript',
+    sampleCode: 'foo = TEXT\nfoo.value = bar\n',
+  },
   typst: {
     name: 'typst',
     displayName: 'Typst',

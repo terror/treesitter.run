@@ -1385,6 +1385,11 @@
     "revision": "94d40865c15ebbaff9ed11dde5d6490b0f5de092"
   },
   {
+    "name": "tera",
+    "repository": "https://github.com/uncenter/tree-sitter-tera",
+    "revision": "3a38c368e806268daac9923a27e72bcafbbc16bb"
+  },
+  {
     "name": "terraform",
     "path": "dialects/terraform",
     "repository": "https://github.com/MichaHoffmann/tree-sitter-hcl",

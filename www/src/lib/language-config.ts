@@ -1403,6 +1403,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Templ',
     sampleCode: 'package foo\n\ntempl bar() {\n  <div>baz</div>\n}\n',
   },
+  tera: {
+    name: 'tera',
+    displayName: 'Tera',
+    sampleCode: '{% if foo %}{{ bar }}{% endif %}',
+  },
   terraform: {
     name: 'terraform',
     displayName: 'Terraform',

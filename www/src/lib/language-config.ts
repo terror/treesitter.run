@@ -141,6 +141,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Chatito',
     sampleCode: '%[foo]\n    bar\n',
   },
+  circom: {
+    name: 'circom',
+    displayName: 'Circom',
+    sampleCode:
+      'pragma circom 2.0.0;\ntemplate Foo() {\n  signal input bar;\n  signal output baz;\n  baz <== bar;\n}',
+  },
   clojure: {
     name: 'clojure',
     displayName: 'Clojure',

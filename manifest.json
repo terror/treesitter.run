@@ -126,6 +126,11 @@
     "revision": "c0ed82c665b732395073f635c74c300f09530a7f"
   },
   {
+    "name": "circom",
+    "repository": "https://github.com/Decurity/tree-sitter-circom",
+    "revision": "02150524228b1e6afef96949f2d6b7cc0aaf999e"
+  },
+  {
     "name": "clojure",
     "repository": "https://github.com/sogaiu/tree-sitter-clojure",
     "revision": "e43eff80d17cf34852dcd92ca5e6986d23a7040f"

@@ -24,6 +24,7 @@ export type Language =
   | 'capnp'
   | 'cel'
   | 'chatito'
+  | 'circom'
   | 'clojure'
   | 'cmake'
   | 'comment'

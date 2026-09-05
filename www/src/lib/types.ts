@@ -258,6 +258,7 @@ export type Language =
   | 'thrift'
   | 'tiger'
   | 'tsv'
+  | 'turtle'
   | 'twig'
   | 'typescript'
   | 'typoscript'

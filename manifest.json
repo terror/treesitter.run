@@ -1013,6 +1013,11 @@
     "revision": "1dbcc4abc7b3cdd663eb03d93031167d6ed19f56"
   },
   {
+    "name": "slim",
+    "repository": "https://github.com/theoo/tree-sitter-slim",
+    "revision": "d4ff7e388eb271c04662f2176c08548c9c51078f"
+  },
+  {
     "name": "smali",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-smali",
     "revision": "fdfa6a1febc43c7467aa7e937b87b607956f2346"

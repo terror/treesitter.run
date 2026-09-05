@@ -1049,6 +1049,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Slang',
     sampleCode: 'void foo() {}',
   },
+  slim: {
+    name: 'slim',
+    displayName: 'Slim',
+    sampleCode: 'div\n  p foo\n',
+  },
   smali: {
     name: 'smali',
     displayName: 'Smali',

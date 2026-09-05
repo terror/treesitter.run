@@ -199,6 +199,7 @@ export type Language =
   | 'scss'
   | 'sflog'
   | 'slang'
+  | 'slim'
   | 'smali'
   | 'solidity'
   | 'squirrel'

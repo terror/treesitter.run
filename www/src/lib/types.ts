@@ -175,6 +175,7 @@ export type Language =
   | 'pascal'
   | 'pem'
   | 'php'
+  | 'php-only'
   | 'phpdoc'
   | 'pkl'
   | 'po'

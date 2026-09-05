@@ -926,6 +926,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'PHP',
     sampleCode: '<?php\n\necho "hello, world\\n";\n',
   },
+  'php-only': {
+    name: 'php-only',
+    displayName: 'PHP Only',
+    sampleCode: 'function foo($bar) {\n  return $bar;\n}',
+  },
   phpdoc: {
     name: 'phpdoc',
     displayName: 'PHPDoc',

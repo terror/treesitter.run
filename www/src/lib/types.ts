@@ -181,6 +181,7 @@ export type Language =
   | 'python'
   | 'ql'
   | 'ql-dbscheme'
+  | 'qmldir'
   | 'qmljs'
   | 'query'
   | 'r'

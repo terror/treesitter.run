@@ -957,6 +957,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'QL Dbscheme',
     sampleCode: '@foo = @bar | @baz;',
   },
+  qmldir: {
+    name: 'qmldir',
+    displayName: 'QML Directory',
+    sampleCode: 'module Foo\nBar 1.0 Bar.qml\n',
+  },
   qmljs: {
     name: 'qmljs',
     displayName: 'QMLJS',

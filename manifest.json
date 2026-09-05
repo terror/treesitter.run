@@ -795,6 +795,11 @@
     "revision": "042119eca2e18a60e56317fb06ee3ba5c32cb447"
   },
   {
+    "name": "passwd",
+    "repository": "https://github.com/ath3/tree-sitter-passwd",
+    "revision": "20239395eacdc2e0923a7e5683ad3605aee7b716"
+  },
+  {
     "name": "pem",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-pem",
     "revision": "e525b177a229b1154fd81bc0691f943028d9e685"

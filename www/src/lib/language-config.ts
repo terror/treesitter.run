@@ -831,6 +831,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Pascal',
     sampleCode: "program foo;\nbegin\n  writeln('bar');\nend.\n",
   },
+  passwd: {
+    name: 'passwd',
+    displayName: 'Passwd',
+    sampleCode: 'foo:x:1000:1000:bar:/home/foo:/bin/sh\n',
+  },
   pem: {
     name: 'pem',
     displayName: 'PEM',

@@ -238,6 +238,7 @@ export type Language =
   | 'snakemake'
   | 'snl'
   | 'solidity'
+  | 'soql'
   | 'sosl'
   | 'sparql'
   | 'sproto'

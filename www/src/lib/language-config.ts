@@ -1246,6 +1246,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Solidity',
     sampleCode: 'contract Foo {\n  function bar() public {}\n}',
   },
+  soql: {
+    name: 'soql',
+    displayName: 'SOQL',
+    sampleCode: "SELECT Id FROM Foo WHERE Bar = 'baz'",
+  },
   sosl: {
     name: 'sosl',
     displayName: 'SOSL',

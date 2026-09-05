@@ -551,6 +551,11 @@
     "revision": "73a3947324f6efddf9e17c0ea58d454843590cc0"
   },
   {
+    "name": "htmldjango",
+    "repository": "https://github.com/interdependence/tree-sitter-htmldjango",
+    "revision": "a10318892603d9a0b925df7cc7771a840304b997"
+  },
+  {
     "name": "http",
     "repository": "https://github.com/rest-nvim/tree-sitter-http",
     "revision": "db8b4398de90b6d0b6c780aba96aaa2cd8e9202c"

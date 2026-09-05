@@ -108,6 +108,7 @@ export type Language =
   | 'hocon'
   | 'hoon'
   | 'html'
+  | 'htmldjango'
   | 'http'
   | 'hurl'
   | 'hyprlang'

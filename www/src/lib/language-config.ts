@@ -585,6 +585,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '  </body>\n' +
       '</html>',
   },
+  htmldjango: {
+    name: 'htmldjango',
+    displayName: 'Django HTML',
+    sampleCode: '<div>{% if foo %}{{ bar }}{% endif %}</div>',
+  },
   http: {
     name: 'http',
     displayName: 'HTTP',

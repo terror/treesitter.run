@@ -780,6 +780,11 @@
     "revision": "6902a86ab5b3b80c622030210aae2d8cb95eb775"
   },
   {
+    "name": "ocamllex",
+    "repository": "https://github.com/atom-ocaml/tree-sitter-ocamllex",
+    "revision": "33722b8be73079946a7c6dd9598e3f57956ed36d"
+  },
+  {
     "name": "odin",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-odin",
     "revision": "d2ca8efb4487e156a60d5bd6db2598b872629403"

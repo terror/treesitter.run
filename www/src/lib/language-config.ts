@@ -816,6 +816,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'OCaml',
     sampleCode: 'let foo bar =\n  print_endline bar\n\nlet () = foo "baz"',
   },
+  ocamllex: {
+    name: 'ocamllex',
+    displayName: 'OCamllex',
+    sampleCode: 'rule foo = parse\n  | "bar" { () }\n',
+  },
   odin: {
     name: 'odin',
     displayName: 'Odin',

@@ -153,6 +153,7 @@ export type Language =
   | 'objc'
   | 'objdump'
   | 'ocaml'
+  | 'ocamllex'
   | 'odin'
   | 'pem'
   | 'php'

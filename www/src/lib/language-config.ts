@@ -494,6 +494,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Haskell',
     sampleCode: 'module Main where\n\nmain :: IO ()\nmain = putStrLn "foo"',
   },
+  'haskell-persistent': {
+    name: 'haskell-persistent',
+    displayName: 'Haskell Persistent',
+    sampleCode: 'Foo\n  bar Text\n',
+  },
   hcl: {
     name: 'hcl',
     displayName: 'HCL',

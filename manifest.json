@@ -734,6 +734,11 @@
     "revision": "e8d41cbaca867aa1b0213e1fc1caeaf593da7bf7"
   },
   {
+    "name": "lalrpop",
+    "repository": "https://github.com/traxys/tree-sitter-lalrpop",
+    "revision": "27b0f7bb55b4cabd8f01a933d9ee6a49dbfc2192"
+  },
+  {
     "name": "lean",
     "repository": "https://github.com/Julian/tree-sitter-lean",
     "revision": "86c2bcb379fe0b2ad13d8b3411400deff75b2785"

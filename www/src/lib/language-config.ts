@@ -770,6 +770,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Koto',
     sampleCode: 'foo = |bar| bar\nfoo "baz"\n',
   },
+  lalrpop: {
+    name: 'lalrpop',
+    displayName: 'LALRPOP',
+    sampleCode: 'grammar;\npub Foo: () = "bar" => ();',
+  },
   lean: {
     name: 'lean',
     displayName: 'Lean',

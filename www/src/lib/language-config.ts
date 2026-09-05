@@ -952,6 +952,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'OCaml',
     sampleCode: 'let foo bar =\n  print_endline bar\n\nlet () = foo "baz"',
   },
+  'ocaml-interface': {
+    name: 'ocaml-interface',
+    displayName: 'OCaml Interface',
+    sampleCode: 'val foo : string -> string\n',
+  },
   ocamllex: {
     name: 'ocamllex',
     displayName: 'OCamllex',

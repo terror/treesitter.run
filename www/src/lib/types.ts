@@ -180,6 +180,7 @@ export type Language =
   | 'objc'
   | 'objdump'
   | 'ocaml'
+  | 'ocaml-interface'
   | 'ocamllex'
   | 'odin'
   | 'pascal'

@@ -10,6 +10,11 @@
     "revision": "e8d47a6987effe34d5595baf321d82d3519a8527"
   },
   {
+    "name": "angular",
+    "repository": "https://github.com/dlvandenberg/tree-sitter-angular",
+    "revision": "38a8014ed5452cd6b7cf1399c00177a1f5374256"
+  },
+  {
     "name": "apex",
     "path": "apex",
     "repository": "https://github.com/aheber/tree-sitter-sfapex",

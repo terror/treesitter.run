@@ -1,6 +1,7 @@
 export type Language =
   | 'ada'
   | 'agda'
+  | 'angular'
   | 'apex'
   | 'arduino'
   | 'asm'

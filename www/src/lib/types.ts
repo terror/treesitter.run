@@ -268,6 +268,7 @@ export type Language =
   | 'textproto'
   | 'thrift'
   | 'tiger'
+  | 'todotxt'
   | 'tsv'
   | 'turtle'
   | 'twig'

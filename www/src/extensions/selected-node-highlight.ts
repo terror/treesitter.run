@@ -9,34 +9,24 @@ export const selectedNodeHighlightExtension = (
   range: { from: number; to: number } | undefined,
   scroll = true
 ): Extension => {
-  if (!range) {
+  if (!range || range.to < range.from) {
     return [];
   }
 
-  const { from, to } = range;
+  const extensions: Extension[] = [
+    EditorView.decorations.of((view) => {
+      const from = Math.max(0, Math.min(range.from, view.state.doc.length));
+      const to = Math.max(0, Math.min(range.to, view.state.doc.length));
 
-  if (to < from) {
-    return [];
-  }
-
-  if (!scroll) {
-    if (from === to) {
-      return [];
-    }
-
-    return EditorView.decorations.of(() =>
-      Decoration.set([highlightMark.range(from, to)])
-    );
-  }
-
-  if (from === to) {
-    return [scrollIntoViewExtension(from)];
-  }
-
-  return [
-    EditorView.decorations.of(() =>
-      Decoration.set([highlightMark.range(from, to)])
-    ),
-    scrollIntoViewExtension(from),
+      return from < to
+        ? Decoration.set([highlightMark.range(from, to)])
+        : Decoration.none;
+    }),
   ];
+
+  if (scroll) {
+    extensions.push(scrollIntoViewExtension(range.from));
+  }
+
+  return extensions;
 };

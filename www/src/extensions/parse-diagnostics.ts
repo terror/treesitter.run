@@ -7,17 +7,23 @@ export const parseDiagnosticsExtension = (
   parseErrors: ParseErrorRange[]
 ): Extension =>
   linter(
-    () =>
-      parseErrors.map(
-        ({ kind, type, from, to }): Diagnostic => ({
-          from,
-          to,
-          severity: 'error',
-          source: 'tree-sitter',
-          message: kind === 'missing' ? `Missing ${type}` : 'Parse error',
-          markClass: kind === 'missing' ? 'cm-parse-missing' : 'cm-parse-error',
-        })
-      ),
+    (view) =>
+      parseErrors
+        .filter(
+          ({ from, to }) =>
+            from >= 0 && from <= to && to <= view.state.doc.length
+        )
+        .map(
+          ({ kind, type, from, to }): Diagnostic => ({
+            from,
+            to,
+            severity: 'error',
+            source: 'tree-sitter',
+            message: kind === 'missing' ? `Missing ${type}` : 'Parse error',
+            markClass:
+              kind === 'missing' ? 'cm-parse-missing' : 'cm-parse-error',
+          })
+        ),
     {
       delay: 100,
     }

@@ -1,20 +1,17 @@
 import { collectParseErrors } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { parse } from '@/lib/utils';
-import type { Text } from '@codemirror/state';
 import { useEffect, useMemo } from 'react';
 import type { Language, Parser } from 'web-tree-sitter';
 
 export interface UseParsedTreeOptions {
   code: string;
-  doc: Text;
   language: Language | undefined;
   parser: Parser | undefined;
 }
 
 export function useParsedTree({
   code,
-  doc,
   language,
   parser,
 }: UseParsedTreeOptions) {
@@ -42,8 +39,8 @@ export function useParsedTree({
       return [];
     }
 
-    return collectParseErrors(root, doc);
-  }, [doc, root]);
+    return collectParseErrors(root);
+  }, [root]);
 
   return { tree, root, parseErrors };
 }

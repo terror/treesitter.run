@@ -1,7 +1,6 @@
 import { usePersistedState } from '@/hooks/use-persisted-state';
 import type { Language, QueryCapture, SyntaxNode } from '@/lib/types';
-import { positionToOffset, syntaxNodeKey } from '@/lib/utils';
-import type { Text } from '@codemirror/state';
+import { syntaxNodeKey } from '@/lib/utils';
 import { useCallback, useMemo } from 'react';
 import {
   Query,
@@ -11,7 +10,6 @@ import {
 } from 'web-tree-sitter';
 
 interface UseTreeQueryOptions {
-  doc: Text;
   language: Language;
   root: SyntaxNode | undefined;
   treeSitterLanguage: TSLanguage | undefined;
@@ -20,7 +18,6 @@ interface UseTreeQueryOptions {
 const TREE_QUERY_STORAGE_KEY = 'treesitter.run:tree-query';
 
 export function useTreeQuery({
-  doc,
   language,
   root,
   treeSitterLanguage,
@@ -59,23 +56,14 @@ export function useTreeQuery({
 
       const captures = treeQuery
         .captures(root as unknown as TSNode)
-        .flatMap((capture: TSQueryCapture) => {
+        .map((capture: TSQueryCapture) => {
           const node = capture.node as unknown as SyntaxNode;
 
-          const from = positionToOffset(node.startPosition, doc);
-          const to = positionToOffset(node.endPosition, doc);
-
-          if (from === null || to === null) {
-            return [];
-          }
-
-          return [
-            {
-              name: capture.name,
-              node,
-              range: { from, to },
-            },
-          ];
+          return {
+            name: capture.name,
+            node,
+            range: { from: node.startIndex, to: node.endIndex },
+          };
         });
 
       return {
@@ -90,7 +78,7 @@ export function useTreeQuery({
     } finally {
       treeQuery?.delete();
     }
-  }, [doc, query, root, treeSitterLanguage]);
+  }, [query, root, treeSitterLanguage]);
 
   const queryCaptureNamesByKey = useMemo(() => {
     const namesByKey = new Map<string, string[]>();

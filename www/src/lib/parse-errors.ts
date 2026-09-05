@@ -1,7 +1,4 @@
-import type { Text } from '@codemirror/state';
-
 import type { SyntaxNode } from './types';
-import { positionToOffset } from './utils';
 
 export type ParseErrorKind = 'error' | 'missing';
 
@@ -26,27 +23,19 @@ export const parseErrorKind = (
   return undefined;
 };
 
-export const collectParseErrors = (
-  root: SyntaxNode,
-  doc: Text
-): ParseErrorRange[] => {
+export const collectParseErrors = (root: SyntaxNode): ParseErrorRange[] => {
   const ranges: ParseErrorRange[] = [];
 
   const walk = (node: SyntaxNode) => {
     const kind = parseErrorKind(node);
 
     if (kind) {
-      const from = positionToOffset(node.startPosition, doc);
-      const to = positionToOffset(node.endPosition, doc);
-
-      if (from !== null && to !== null) {
-        ranges.push({
-          kind,
-          type: node.type,
-          from,
-          to,
-        });
-      }
+      ranges.push({
+        kind,
+        type: node.type,
+        from: node.startIndex,
+        to: node.endIndex,
+      });
     }
 
     node.children.forEach(walk);

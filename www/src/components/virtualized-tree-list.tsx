@@ -2,7 +2,6 @@ import type { TreeRow } from '@/hooks/use-visible-tree-rows';
 import type { VisibleTreeNodes } from '@/lib/tree-filter';
 import type { SyntaxNode } from '@/lib/types';
 import { syntaxNodeKey } from '@/lib/utils';
-import type { Text } from '@codemirror/state';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Loader2 } from 'lucide-react';
 import { useRef } from 'react';
@@ -10,7 +9,6 @@ import { useRef } from 'react';
 import { TreeNode } from './tree-node';
 
 interface VirtualizedTreeListProps {
-  doc: Text;
   loading: boolean;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
@@ -23,7 +21,6 @@ interface VirtualizedTreeListProps {
 }
 
 export const VirtualizedTreeList = ({
-  doc,
   loading,
   onDeleteRange,
   onHighlightChange,
@@ -74,7 +71,6 @@ export const VirtualizedTreeList = ({
                   }}
                 >
                   <TreeNode
-                    doc={doc}
                     hasChildren={row.hasChildren}
                     isExpanded={row.isExpanded}
                     level={row.level}

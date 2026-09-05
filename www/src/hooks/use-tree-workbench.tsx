@@ -1,8 +1,6 @@
 import { useSyntaxTree } from '@/hooks/use-syntax-tree';
 import { useTreeQuery } from '@/hooks/use-tree-query';
 import type { Language } from '@/lib/types';
-import { Text } from '@codemirror/state';
-import { useMemo } from 'react';
 import { Parser, type Language as TSLanguage } from 'web-tree-sitter';
 
 interface UseTreeWorkbenchOptions {
@@ -18,12 +16,9 @@ export function useTreeWorkbench({
   parser,
   treeSitterLanguage,
 }: UseTreeWorkbenchOptions) {
-  const doc = useMemo(() => Text.of(code.split('\n')), [code]);
-
   const { tree, root, parseErrors, expandedNodes, toggleExpand } =
     useSyntaxTree({
       code,
-      doc,
       language: treeSitterLanguage,
       parser,
     });
@@ -35,14 +30,12 @@ export function useTreeWorkbench({
     queryCaptureNamesByKey,
     setQuery,
   } = useTreeQuery({
-    doc,
     language,
     root,
     treeSitterLanguage,
   });
 
   return {
-    doc,
     expandedNodes,
     parseErrors,
     query,

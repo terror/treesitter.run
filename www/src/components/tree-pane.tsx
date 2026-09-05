@@ -1,7 +1,7 @@
 import { useTreeFilters } from '@/hooks/use-tree-filters';
 import { useVisibleTreeRows } from '@/hooks/use-visible-tree-rows';
 import type { Language, QueryCapture, SyntaxNode } from '@/lib/types';
-import type { Extension, Text } from '@codemirror/state';
+import type { Extension } from '@codemirror/state';
 import { useRef, useState } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 
@@ -15,7 +15,6 @@ import {
 import { VirtualizedTreeList } from './virtualized-tree-list';
 
 interface TreePaneProps {
-  doc: Text;
   expandedNodes: Set<string>;
   language: Language;
   loading: boolean;
@@ -34,7 +33,6 @@ interface TreePaneProps {
 const TREE_QUERY_LAYOUT_STORAGE_KEY = 'treesitter.run:tree-query-layout';
 
 export const TreePane = ({
-  doc,
   expandedNodes,
   language,
   loading,
@@ -82,7 +80,6 @@ export const TreePane = ({
       >
         <ResizablePanel id='syntax-tree' defaultSize={70} minSize={25}>
           <VirtualizedTreeList
-            doc={doc}
             loading={loading}
             onDeleteRange={onDeleteRange}
             onHighlightChange={onHighlightChange}

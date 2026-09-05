@@ -7,9 +7,10 @@ export const scrollIntoViewExtension = (from: number): Extension =>
       constructor(view: EditorView) {
         queueMicrotask(() => {
           view.dispatch({
-            effects: EditorView.scrollIntoView(from, {
-              y: 'center',
-            }),
+            effects: EditorView.scrollIntoView(
+              Math.max(0, Math.min(from, view.state.doc.length)),
+              { y: 'center' }
+            ),
           });
         });
       }

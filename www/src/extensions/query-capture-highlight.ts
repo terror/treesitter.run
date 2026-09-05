@@ -17,8 +17,8 @@ export const queryCaptureHighlightExtension = (
     EditorView.decorations.of((view) => {
       return Decoration.set(
         ranges.flatMap((range) => {
-          const from = Math.min(range.from, view.state.doc.length);
-          const to = Math.min(range.to, view.state.doc.length);
+          const from = Math.max(0, Math.min(range.from, view.state.doc.length));
+          const to = Math.max(0, Math.min(range.to, view.state.doc.length));
 
           if (to <= from) {
             return [];

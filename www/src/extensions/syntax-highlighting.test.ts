@@ -31,13 +31,14 @@ afterAll(() => {
 
 describe('highlightRanges', () => {
   it('uses tree-sitter node offsets directly', () => {
-    const code = 'const é = foo;';
+    const code = 'const é = "😀";\nfoo;';
 
     const query = new Query(
       language,
       `
         "const" @keyword
         (identifier) @variable.builtin
+        (string) @string
       `
     );
 
@@ -47,7 +48,8 @@ describe('highlightRanges', () => {
       expect(highlightRanges({ query, tree })).toEqual([
         { className: 'cm-ts-keyword', from: 0, to: 5 },
         { className: 'cm-ts-variable', from: 6, to: 7 },
-        { className: 'cm-ts-variable', from: 10, to: 13 },
+        { className: 'cm-ts-string', from: 10, to: 14 },
+        { className: 'cm-ts-variable', from: 16, to: 19 },
       ]);
     } finally {
       query.delete();

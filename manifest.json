@@ -849,6 +849,11 @@
     "revision": "debd26fed283d80456ebafa33a06957b0c52e451"
   },
   {
+    "name": "unison",
+    "repository": "https://github.com/kylegoetz/tree-sitter-unison",
+    "revision": "10365cc70ab2b2de85ea7ab35cf6b7636c36ce8b"
+  },
+  {
     "name": "uxntal",
     "repository": "https://github.com/amaanq/tree-sitter-uxntal",
     "revision": "ad9b638b914095320de85d59c49ab271603af048"

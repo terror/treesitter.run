@@ -863,6 +863,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Ungrammar',
     sampleCode: "Foo = 'bar'\n",
   },
+  unison: {
+    name: 'unison',
+    displayName: 'Unison',
+    sampleCode: 'foo = "bar"\n',
+  },
   uxntal: {
     name: 'uxntal',
     displayName: 'Uxntal',

@@ -239,6 +239,7 @@ export type Language =
   | 'svelte'
   | 'swift'
   | 'sxhkdrc'
+  | 'systemtap'
   | 'systemverilog'
   | 't32'
   | 'tablegen'

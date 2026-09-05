@@ -1233,6 +1233,11 @@
     "revision": "440d5f913d9465c9c776a1bd92334d32febcf065"
   },
   {
+    "name": "systemtap",
+    "repository": "https://github.com/ok-ryoko/tree-sitter-systemtap",
+    "revision": "f2b378a9af0b7e1192cff67a5fb45508c927205d"
+  },
+  {
     "name": "systemverilog",
     "repository": "https://github.com/gmlarumbe/tree-sitter-systemverilog",
     "revision": "4e7525a777290e341b8a5ad880bd20bb4f291845"

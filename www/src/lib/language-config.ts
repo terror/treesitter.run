@@ -962,6 +962,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Racket',
     sampleCode: '#lang racket\n\n(define (foo bar)\n  bar)',
   },
+  ralph: {
+    name: 'ralph',
+    displayName: 'Ralph',
+    sampleCode:
+      'Contract Foo() {\n  pub fn bar() -> U256 {\n    return 1\n  }\n}',
+  },
   re2c: {
     name: 're2c',
     displayName: 're2c',

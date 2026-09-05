@@ -201,6 +201,7 @@ export type Language =
   | 'slang'
   | 'slim'
   | 'smali'
+  | 'snakemake'
   | 'solidity'
   | 'squirrel'
   | 'svelte'

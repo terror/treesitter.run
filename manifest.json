@@ -1023,6 +1023,11 @@
     "revision": "fdfa6a1febc43c7467aa7e937b87b607956f2346"
   },
   {
+    "name": "snakemake",
+    "repository": "https://github.com/osthomas/tree-sitter-snakemake",
+    "revision": "68010430c3e51c0e84c1ce21c6551df0e2469f51"
+  },
+  {
     "name": "solidity",
     "repository": "https://github.com/JoranHonig/tree-sitter-solidity",
     "revision": "048fe686cb1fde267243739b8bdbec8fc3a55272"

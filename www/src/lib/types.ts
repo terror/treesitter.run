@@ -148,6 +148,7 @@ export type Language =
   | 'scss'
   | 'slang'
   | 'smali'
+  | 'snakemake'
   | 'solidity'
   | 'squirrel'
   | 'svelte'

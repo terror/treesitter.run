@@ -789,6 +789,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Smali',
     sampleCode: '.class public Lfoo;\n.super Ljava/lang/Object;\n',
   },
+  snakemake: {
+    name: 'snakemake',
+    displayName: 'Snakemake',
+    sampleCode: 'rule foo:\n    output: "bar"\n    shell: "touch {output}"\n',
+  },
   solidity: {
     name: 'solidity',
     displayName: 'Solidity',

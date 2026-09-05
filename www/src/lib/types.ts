@@ -147,6 +147,7 @@ export type Language =
   | 'kotlin'
   | 'koto'
   | 'lalrpop'
+  | 'latex'
   | 'lean'
   | 'ledger'
   | 'leo'

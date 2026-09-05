@@ -786,6 +786,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'LALRPOP',
     sampleCode: 'grammar;\npub Foo: () = "bar" => ();',
   },
+  latex: {
+    name: 'latex',
+    displayName: 'LaTeX',
+    sampleCode:
+      '\\documentclass{article}\n\\begin{document}\nfoo \\textbf{bar}\n\\end{document}\n',
+  },
   lean: {
     name: 'lean',
     displayName: 'Lean',

@@ -1245,6 +1245,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'entity foo is\nend entity;\narchitecture bar of foo is\nbegin\nend architecture;\n',
   },
+  vhs: {
+    name: 'vhs',
+    displayName: 'VHS',
+    sampleCode: 'Output foo.gif\nType "echo bar"\nEnter\nSleep 1s\n',
+  },
   vim: {
     name: 'vim',
     displayName: 'Vimscript',

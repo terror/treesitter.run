@@ -1228,6 +1228,11 @@
     "revision": "3fd99cd6681d3f3be00d05171c0d24551073c0a6"
   },
   {
+    "name": "vhs",
+    "repository": "https://github.com/charmbracelet/tree-sitter-vhs",
+    "revision": "0c6fae9d2cfc5b217bfd1fe84a7678f5917116db"
+  },
+  {
     "name": "vim",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-vim",
     "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"

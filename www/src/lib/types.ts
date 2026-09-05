@@ -235,6 +235,7 @@ export type Language =
   | 'vento'
   | 'verilog'
   | 'vhdl'
+  | 'vhs'
   | 'vim'
   | 'wgsl'
   | 'wgsl-bevy'

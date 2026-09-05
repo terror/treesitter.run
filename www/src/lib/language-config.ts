@@ -320,6 +320,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Erlang',
     sampleCode: '-module(foo).\n-export([bar/0]).\nbar() -> ok.',
   },
+  facility: {
+    name: 'facility',
+    displayName: 'Facility',
+    sampleCode: 'service Foo {\n  method bar {}: {}\n}',
+  },
   fennel: {
     name: 'fennel',
     displayName: 'Fennel',

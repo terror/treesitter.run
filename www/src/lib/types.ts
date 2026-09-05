@@ -58,6 +58,7 @@ export type Language =
   | 'embedded-template'
   | 'enforce'
   | 'erlang'
+  | 'facility'
   | 'fennel'
   | 'firrtl'
   | 'fish'

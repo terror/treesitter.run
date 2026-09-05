@@ -81,6 +81,7 @@ export type Language =
   | 'git-rebase'
   | 'gitattributes'
   | 'gitcommit'
+  | 'gitignore'
   | 'gleam'
   | 'glimmer'
   | 'glimmer-javascript'

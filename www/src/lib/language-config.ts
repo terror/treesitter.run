@@ -602,6 +602,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Odin',
     sampleCode: 'package foo\n\nbar :: proc() {}',
   },
+  pascal: {
+    name: 'pascal',
+    displayName: 'Pascal',
+    sampleCode: "program foo;\nbegin\n  writeln('bar');\nend.\n",
+  },
   pem: {
     name: 'pem',
     displayName: 'PEM',

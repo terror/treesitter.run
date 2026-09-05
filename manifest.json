@@ -568,6 +568,11 @@
     "revision": "d2ca8efb4487e156a60d5bd6db2598b872629403"
   },
   {
+    "name": "pascal",
+    "repository": "https://github.com/Isopod/tree-sitter-pascal",
+    "revision": "042119eca2e18a60e56317fb06ee3ba5c32cb447"
+  },
+  {
     "name": "pem",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-pem",
     "revision": "e525b177a229b1154fd81bc0691f943028d9e685"

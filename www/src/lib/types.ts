@@ -111,6 +111,7 @@ export type Language =
   | 'objc'
   | 'ocaml'
   | 'odin'
+  | 'pascal'
   | 'pem'
   | 'php'
   | 'pkl'

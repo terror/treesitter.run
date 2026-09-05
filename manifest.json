@@ -867,6 +867,12 @@
     "revision": "6902a86ab5b3b80c622030210aae2d8cb95eb775"
   },
   {
+    "name": "ocaml-interface",
+    "path": "grammars/interface",
+    "repository": "https://github.com/tree-sitter/tree-sitter-ocaml",
+    "revision": "a4ce49a6c17e88e7ca8350cfb666749d9a5c6630"
+  },
+  {
     "name": "ocamllex",
     "repository": "https://github.com/atom-ocaml/tree-sitter-ocamllex",
     "revision": "33722b8be73079946a7c6dd9598e3f57956ed36d"

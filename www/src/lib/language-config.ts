@@ -381,6 +381,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'HLSL',
     sampleCode: 'float4 foo() : SV_Target {\n  return float4(1, 0, 0, 1);\n}',
   },
+  hocon: {
+    name: 'hocon',
+    displayName: 'HOCON',
+    sampleCode: 'foo {\n  bar = "baz"\n}',
+  },
   html: {
     name: 'html',
     displayName: 'HTML',

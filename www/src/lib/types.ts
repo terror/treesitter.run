@@ -69,6 +69,7 @@ export type Language =
   | 'hcl'
   | 'heex'
   | 'hlsl'
+  | 'hocon'
   | 'html'
   | 'http'
   | 'hurl'

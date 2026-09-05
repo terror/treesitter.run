@@ -66,6 +66,7 @@ export type Language =
   | 'gstlaunch'
   | 'hare'
   | 'haskell'
+  | 'haskell-persistent'
   | 'hcl'
   | 'heex'
   | 'hlsl'

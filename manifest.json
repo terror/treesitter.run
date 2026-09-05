@@ -338,6 +338,11 @@
     "revision": "0975ef72fc3c47b530309ca93937d7d143523628"
   },
   {
+    "name": "haskell-persistent",
+    "repository": "https://github.com/MercuryTechnologies/tree-sitter-haskell-persistent",
+    "revision": "577259b4068b2c281c9ebf94c109bd50a74d5857"
+  },
+  {
     "name": "hcl",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-hcl",
     "revision": "64ad62785d442eb4d45df3a1764962dafd5bc98b"

@@ -134,6 +134,7 @@ export type Language =
   | 'kconfig'
   | 'kdl'
   | 'kitty'
+  | 'kos'
   | 'kotlin'
   | 'koto'
   | 'lean'

@@ -437,6 +437,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Glimmer JavaScript',
     sampleCode: 'const foo = <template><div>bar</div></template>;',
   },
+  'glimmer-typescript': {
+    name: 'glimmer-typescript',
+    displayName: 'Glimmer TypeScript',
+    sampleCode: 'const foo = <template><div>bar</div></template>;',
+  },
   glsl: {
     name: 'glsl',
     displayName: 'GLSL',

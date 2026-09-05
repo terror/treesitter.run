@@ -81,6 +81,7 @@ export type Language =
   | 'gleam'
   | 'glimmer'
   | 'glimmer-javascript'
+  | 'glimmer-typescript'
   | 'glsl'
   | 'gn'
   | 'gnuplot'

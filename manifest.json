@@ -451,6 +451,11 @@
     "revision": "b37e3d58e5c5cf8d739b315d6114e02d42e66664"
   },
   {
+    "name": "kitty",
+    "repository": "https://github.com/OXY2DEV/tree-sitter-kitty",
+    "revision": "0e3eca6e786356bd37b1633f5e8b5a1c864333c1"
+  },
+  {
     "name": "kotlin",
     "repository": "https://github.com/fwcd/tree-sitter-kotlin",
     "revision": "1852ea17b7f60fb3f9d84e0b1555d56b46b39fb1"

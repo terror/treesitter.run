@@ -88,6 +88,7 @@ export type Language =
   | 'just'
   | 'kconfig'
   | 'kdl'
+  | 'kitty'
   | 'kotlin'
   | 'lean'
   | 'linkerscript'

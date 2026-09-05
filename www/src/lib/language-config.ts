@@ -434,6 +434,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'go.sum',
     sampleCode: 'foo v1.0.0 h1:bar',
   },
+  goctl: {
+    name: 'goctl',
+    displayName: 'goctl',
+    sampleCode: 'syntax = "v1"\n\ntype Foo {\n  Bar string\n}\n',
+  },
   gomod: {
     name: 'gomod',
     displayName: 'go.mod',

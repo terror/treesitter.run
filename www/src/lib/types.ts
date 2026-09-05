@@ -79,6 +79,7 @@ export type Language =
   | 'gnuplot'
   | 'go'
   | 'go-sum'
+  | 'goctl'
   | 'gomod'
   | 'gowork'
   | 'gpg-config'

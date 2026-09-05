@@ -155,6 +155,7 @@ export type Language =
   | 'tablegen'
   | 'terraform'
   | 'thrift'
+  | 'tiger'
   | 'tsv'
   | 'typescript'
   | 'typst'

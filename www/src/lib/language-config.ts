@@ -330,6 +330,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Fennel',
     sampleCode: '(fn foo [bar]\n  (print bar))',
   },
+  fidl: {
+    name: 'fidl',
+    displayName: 'FIDL',
+    sampleCode: 'library foo.bar;',
+  },
   firrtl: {
     name: 'firrtl',
     displayName: 'FIRRTL',

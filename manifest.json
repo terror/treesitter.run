@@ -308,6 +308,11 @@
     "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"
   },
   {
+    "name": "fidl",
+    "repository": "https://github.com/google/tree-sitter-fidl",
+    "revision": "0a8910f293268e27ff554357c229ba172b0eaed2"
+  },
+  {
     "name": "firrtl",
     "repository": "https://github.com/amaanq/tree-sitter-firrtl",
     "revision": "8503d3a0fe0f9e427863cb0055699ff2d29ae5f5"

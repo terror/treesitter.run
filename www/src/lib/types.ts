@@ -60,6 +60,7 @@ export type Language =
   | 'erlang'
   | 'facility'
   | 'fennel'
+  | 'fidl'
   | 'firrtl'
   | 'fish'
   | 'fortran'

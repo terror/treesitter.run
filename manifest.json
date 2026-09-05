@@ -434,6 +434,11 @@
     "revision": "1abcd628084f2fd8b1e74081b5552acfd2c21cd6"
   },
   {
+    "name": "gren",
+    "repository": "https://github.com/MaeBrooks/tree-sitter-gren",
+    "revision": "cecd8ce9b18f1803d37682f33b6224978fd04d31"
+  },
+  {
     "name": "groovy",
     "repository": "https://github.com/murtaza64/tree-sitter-groovy",
     "revision": "deb0dcf8c4544f07564060f6e9b9f6e4b0bfc27d"

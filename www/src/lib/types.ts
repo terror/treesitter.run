@@ -85,6 +85,7 @@ export type Language =
   | 'gowork'
   | 'gpg-config'
   | 'graphql'
+  | 'gren'
   | 'groovy'
   | 'gstlaunch'
   | 'hare'

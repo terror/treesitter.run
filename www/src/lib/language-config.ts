@@ -422,6 +422,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Git Commit',
     sampleCode: 'foo\n\nbar\n',
   },
+  gitignore: {
+    name: 'gitignore',
+    displayName: 'Git Ignore',
+    sampleCode: 'foo/\n*.bar\n!baz.bar\n',
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

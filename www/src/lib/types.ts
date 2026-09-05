@@ -153,6 +153,7 @@ export type Language =
   | 'svelte'
   | 'systemverilog'
   | 'tablegen'
+  | 'tact'
   | 'terraform'
   | 'thrift'
   | 'tsv'

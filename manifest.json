@@ -795,6 +795,11 @@
     "revision": "b1170880c61355aaf38fc06f4af7d3c55abdabc4"
   },
   {
+    "name": "tact",
+    "repository": "https://github.com/tact-lang/tree-sitter-tact",
+    "revision": "1c689f0a8bbe5910db628a62bfc26d37f54bf9be"
+  },
+  {
     "name": "tcl",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-tcl",
     "revision": "850a72ab6436e06645b33b11cfa60cbdb04b1f01"

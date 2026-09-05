@@ -189,6 +189,7 @@ export type Language =
   | 'rego'
   | 'requirements'
   | 'rescript'
+  | 'robot'
   | 'ron'
   | 'ruby'
   | 'rust'

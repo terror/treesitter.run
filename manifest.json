@@ -962,6 +962,11 @@
     "revision": "19ed8a8e6bcc844b71c37e9edaffc60c77f74d7c"
   },
   {
+    "name": "robot",
+    "repository": "https://github.com/Hubro/tree-sitter-robot",
+    "revision": "8f1a8d8c3875db2cd29865b5a1db7716b4eab4c3"
+  },
+  {
     "name": "ron",
     "repository": "https://github.com/amaanq/tree-sitter-ron",
     "revision": "78938553b93075e638035f624973083451b29055"

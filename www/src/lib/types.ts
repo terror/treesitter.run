@@ -258,6 +258,7 @@ export type Language =
   | 'sway'
   | 'swift'
   | 'sxhkdrc'
+  | 'systemtap'
   | 'systemverilog'
   | 't32'
   | 'tablegen'

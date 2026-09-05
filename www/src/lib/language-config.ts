@@ -1353,6 +1353,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'sxhkdrc',
     sampleCode: 'super + f\n    echo foo\n',
   },
+  systemtap: {
+    name: 'systemtap',
+    displayName: 'SystemTap',
+    sampleCode: 'probe begin {\n  printf("foo\\n")\n  exit()\n}',
+  },
   systemverilog: {
     name: 'systemverilog',
     displayName: 'SystemVerilog',

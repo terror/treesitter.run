@@ -162,6 +162,7 @@ export type Language =
   | 'ungrammar'
   | 'uxntal'
   | 'vala'
+  | 'vento'
   | 'verilog'
   | 'vhdl'
   | 'vim'

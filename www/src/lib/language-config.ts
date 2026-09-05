@@ -873,6 +873,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Vala',
     sampleCode: 'void main() {\n  print("foo");\n}',
   },
+  vento: {
+    name: 'vento',
+    displayName: 'Vento',
+    sampleCode: '{{ if foo }}{{ bar }}{{ /if }}',
+  },
   verilog: {
     name: 'verilog',
     displayName: 'Verilog',

@@ -143,6 +143,7 @@ export type Language =
   | 'rescript'
   | 'ron'
   | 'ruby'
+  | 'runescript'
   | 'rust'
   | 'scala'
   | 'scss'

@@ -763,6 +763,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Ruby',
     sampleCode: 'def foo(bar)\n  puts bar\nend\n\nfoo("baz")',
   },
+  runescript: {
+    name: 'runescript',
+    displayName: 'RuneScript',
+    sampleCode: '[proc,foo]\nreturn;\n',
+  },
   rust: {
     name: 'rust',
     displayName: 'Rust',

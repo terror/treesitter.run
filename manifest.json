@@ -232,6 +232,11 @@
     "revision": "ada384ac7bfc1307f32de474620120add29998fb"
   },
   {
+    "name": "disassembly",
+    "repository": "https://github.com/ColinKennedy/tree-sitter-disassembly",
+    "revision": "0229c0211dba909c5d45129ac784a3f4d49c243a"
+  },
+  {
     "name": "dockerfile",
     "repository": "https://github.com/camdencheek/tree-sitter-dockerfile",
     "revision": "971acdd908568b4531b0ba28a445bf0bb720aba5"

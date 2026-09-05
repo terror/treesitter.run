@@ -254,6 +254,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Diff',
     sampleCode: 'diff --git a/foo b/foo\n+bar',
   },
+  disassembly: {
+    name: 'disassembly',
+    displayName: 'Disassembly',
+    sampleCode: '0x00000000: nop\n',
+  },
   dockerfile: {
     name: 'dockerfile',
     displayName: 'Dockerfile',

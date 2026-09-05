@@ -250,6 +250,7 @@ export type Language =
   | 'tsv'
   | 'twig'
   | 'typescript'
+  | 'typespec'
   | 'typoscript'
   | 'typst'
   | 'udev'

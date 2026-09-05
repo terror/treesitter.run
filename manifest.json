@@ -1307,6 +1307,11 @@
     "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f"
   },
   {
+    "name": "typespec",
+    "repository": "https://github.com/happenslol/tree-sitter-typespec",
+    "revision": "395bef1e1eb4dd18365401642beb534e8a244056"
+  },
+  {
     "name": "typoscript",
     "repository": "https://github.com/Teddytrombone/tree-sitter-typoscript",
     "revision": "b5d0162b328ec52cf300054a8a23d47f84f55cb4"

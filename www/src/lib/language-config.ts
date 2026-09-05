@@ -1320,6 +1320,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       'console.log(message.text);',
   },
+  typespec: {
+    name: 'typespec',
+    displayName: 'TypeSpec',
+    sampleCode: 'model Foo {\n  bar: string;\n}',
+  },
   typoscript: {
     name: 'typoscript',
     displayName: 'TypoScript',

@@ -96,6 +96,11 @@
     "revision": "9150f7d56bb47f1a809fa23623f1ba1413e93fa9"
   },
   {
+    "name": "c3",
+    "repository": "https://github.com/c3lang/tree-sitter-c3",
+    "revision": "805f776dcfbfef5c9baf4270ec942b3e8dc7ff16"
+  },
+  {
     "name": "caddy",
     "repository": "https://github.com/opa-oz/tree-sitter-caddy",
     "revision": "2b0dd9066900568a3d6b33dc51d2e271cb48bd92"

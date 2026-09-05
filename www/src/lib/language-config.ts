@@ -58,6 +58,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Bash',
     sampleCode: 'for name in foo bar; do\n  echo "hello, $name"\ndone',
   },
+  bass: {
+    name: 'bass',
+    displayName: 'Bass',
+    sampleCode: '(def foo "bar")',
+  },
   beancount: {
     name: 'beancount',
     displayName: 'Beancount',

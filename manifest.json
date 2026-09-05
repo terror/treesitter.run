@@ -1101,6 +1101,11 @@
     "revision": "f6d81bf7a4599c77388035439cf5801cd461ff77"
   },
   {
+    "name": "rasi",
+    "repository": "https://github.com/Fymyte/tree-sitter-rasi",
+    "revision": "e735c6881d8b475aaa4ef8f0a2bdfd825b438143"
+  },
+  {
     "name": "razor",
     "repository": "https://github.com/tris203/tree-sitter-razor",
     "revision": "d4664e409caaea12f73c9525484e3cf88b1cf718"

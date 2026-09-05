@@ -310,6 +310,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Embedded Template',
     sampleCode: '<p><%= foo %></p>',
   },
+  enforce: {
+    name: 'enforce',
+    displayName: 'Enforce Script',
+    sampleCode: 'class Foo {\n  void Bar() {}\n}',
+  },
   erlang: {
     name: 'erlang',
     displayName: 'Erlang',

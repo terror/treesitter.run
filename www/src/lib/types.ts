@@ -56,6 +56,7 @@ export type Language =
   | 'elm'
   | 'elsa'
   | 'embedded-template'
+  | 'enforce'
   | 'erlang'
   | 'fennel'
   | 'firrtl'

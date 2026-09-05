@@ -261,6 +261,7 @@ export type Language =
   | 'turtle'
   | 'twig'
   | 'typescript'
+  | 'typespec'
   | 'typoscript'
   | 'typst'
   | 'udev'

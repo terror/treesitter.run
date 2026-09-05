@@ -142,6 +142,7 @@ export type Language =
   | 'requirements'
   | 'rescript'
   | 'ron'
+  | 'rst'
   | 'ruby'
   | 'rust'
   | 'scala'

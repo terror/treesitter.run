@@ -197,6 +197,7 @@ export type Language =
   | 'scala'
   | 'scfg'
   | 'scss'
+  | 'sflog'
   | 'slang'
   | 'smali'
   | 'solidity'

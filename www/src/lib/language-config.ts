@@ -1039,6 +1039,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'SCSS',
     sampleCode: '$foo: #fff;\n.bar {\n  color: $foo;\n}',
   },
+  sflog: {
+    name: 'sflog',
+    displayName: 'Salesforce Log',
+    sampleCode: '60.0 APEX_CODE,DEBUG\n12:00:00.0 (1)|EXECUTION_STARTED\n',
+  },
   slang: {
     name: 'slang',
     displayName: 'Slang',

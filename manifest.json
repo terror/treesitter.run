@@ -1002,6 +1002,12 @@
     "revision": "c478c6868648eff49eb04a4df90d703dc45b312a"
   },
   {
+    "name": "sflog",
+    "path": "sflog",
+    "repository": "https://github.com/aheber/tree-sitter-sfapex",
+    "revision": "da568eee10ce4724a40f368b2b7e795dacb4f1ba"
+  },
+  {
     "name": "slang",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-slang",
     "revision": "1dbcc4abc7b3cdd663eb03d93031167d6ed19f56"

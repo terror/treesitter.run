@@ -1129,6 +1129,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'Contract Foo() {\n  pub fn bar() -> U256 {\n    return 1\n  }\n}',
   },
+  rasi: {
+    name: 'rasi',
+    displayName: 'Rasi',
+    sampleCode: '* {\n  background-color: #ffffff;\n}',
+  },
   razor: {
     name: 'razor',
     displayName: 'Razor',

@@ -150,6 +150,7 @@ export type Language =
   | 'smali'
   | 'solidity'
   | 'squirrel'
+  | 'styled'
   | 'svelte'
   | 'systemverilog'
   | 'tablegen'

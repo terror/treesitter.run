@@ -799,6 +799,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Squirrel',
     sampleCode: 'function foo(bar) {\n  return bar\n}',
   },
+  styled: {
+    name: 'styled',
+    displayName: 'Styled Components',
+    sampleCode: 'color: red;\n.foo { display: block; }',
+  },
   svelte: {
     name: 'svelte',
     displayName: 'Svelte',

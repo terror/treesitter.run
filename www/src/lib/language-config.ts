@@ -1185,6 +1185,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Smali',
     sampleCode: '.class public Lfoo;\n.super Ljava/lang/Object;\n',
   },
+  smithy: {
+    name: 'smithy',
+    displayName: 'Smithy',
+    sampleCode:
+      '$version: "2"\nnamespace foo\n\nstructure Bar {\n  baz: String\n}',
+  },
   snakemake: {
     name: 'snakemake',
     displayName: 'Snakemake',

@@ -103,6 +103,7 @@ export type Language =
   | 'mermaid'
   | 'meson'
   | 'move'
+  | 'nasm'
   | 'nginx'
   | 'nim'
   | 'nix'

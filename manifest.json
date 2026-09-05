@@ -527,6 +527,11 @@
     "revision": "b8ca25518749be10562455fd081a3dab30b93b8b"
   },
   {
+    "name": "nasm",
+    "repository": "https://github.com/naclsn/tree-sitter-nasm",
+    "revision": "d1b3638d017f2a8585e26dcfc66fe1df94185e30"
+  },
+  {
     "name": "nginx",
     "repository": "https://github.com/opa-oz/tree-sitter-nginx",
     "revision": "7cdf006ed1addef698fc680ae31721950f85e5e9"

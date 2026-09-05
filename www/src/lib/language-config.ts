@@ -562,6 +562,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Move',
     sampleCode: 'module 0x1::foo {\n  fun bar() {}\n}\n',
   },
+  nasm: {
+    name: 'nasm',
+    displayName: 'NASM',
+    sampleCode: 'section .text\nfoo:\n  mov eax, 1\n  ret\n',
+  },
   nginx: {
     name: 'nginx',
     displayName: 'Nginx',

@@ -70,6 +70,7 @@ export type Language =
   | 'func'
   | 'gap'
   | 'gdscript'
+  | 'gdshader'
   | 'gitattributes'
   | 'gleam'
   | 'glsl'

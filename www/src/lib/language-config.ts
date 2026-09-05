@@ -1003,6 +1003,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Robot Framework',
     sampleCode: '*** Test Cases ***\nFoo\n    Log    bar\n',
   },
+  roc: {
+    name: 'roc',
+    displayName: 'Roc',
+    sampleCode: 'foo = "bar"\n',
+  },
   ron: {
     name: 'ron',
     displayName: 'RON',

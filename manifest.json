@@ -967,6 +967,11 @@
     "revision": "8f1a8d8c3875db2cd29865b5a1db7716b4eab4c3"
   },
   {
+    "name": "roc",
+    "repository": "https://github.com/faldor20/tree-sitter-roc",
+    "revision": "2760de95b87004ed537151f2467377a6ddafdef0"
+  },
+  {
     "name": "ron",
     "repository": "https://github.com/amaanq/tree-sitter-ron",
     "revision": "78938553b93075e638035f624973083451b29055"

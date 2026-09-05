@@ -190,6 +190,7 @@ export type Language =
   | 'requirements'
   | 'rescript'
   | 'robot'
+  | 'roc'
   | 'ron'
   | 'ruby'
   | 'runescript'

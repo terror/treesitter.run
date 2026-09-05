@@ -219,6 +219,7 @@ export type Language =
   | 'requirements'
   | 'rescript'
   | 'robot'
+  | 'robots-txt'
   | 'roc'
   | 'ron'
   | 'rst'

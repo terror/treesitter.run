@@ -1115,6 +1115,11 @@
     "revision": "8f1a8d8c3875db2cd29865b5a1db7716b4eab4c3"
   },
   {
+    "name": "robots-txt",
+    "repository": "https://github.com/opa-oz/tree-sitter-robots-txt",
+    "revision": "0c066107e3548de79316a6a4ec771e2f7cf7c468"
+  },
+  {
     "name": "roc",
     "repository": "https://github.com/faldor20/tree-sitter-roc",
     "revision": "2760de95b87004ed537151f2467377a6ddafdef0"

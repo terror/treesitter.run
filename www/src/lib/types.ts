@@ -225,6 +225,7 @@ export type Language =
   | 'slint'
   | 'smali'
   | 'snakemake'
+  | 'snl'
   | 'solidity'
   | 'sparql'
   | 'squirrel'

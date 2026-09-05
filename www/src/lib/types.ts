@@ -118,6 +118,7 @@ export type Language =
   | 'jsonnet'
   | 'julia'
   | 'just'
+  | 'kcl'
   | 'kconfig'
   | 'kdl'
   | 'kotlin'

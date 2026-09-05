@@ -640,6 +640,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Just',
     sampleCode: 'default:\n  echo "hello, world"',
   },
+  kcl: {
+    name: 'kcl',
+    displayName: 'KCL',
+    sampleCode: 'schema Foo:\n    bar: str\n\nfoo = Foo {bar = "baz"}\n',
+  },
   kconfig: {
     name: 'kconfig',
     displayName: 'Kconfig',

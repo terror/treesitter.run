@@ -8,7 +8,7 @@ import { syntaxNodeKey } from '@/lib/utils';
 import { useMemo } from 'react';
 
 interface UseVisibleTreeRowsOptions {
-  expandedNodes: Set<string>;
+  collapsedNodes: Set<string>;
   filters: TreeNodeFilters;
   root: SyntaxNode | undefined;
   search: string;
@@ -22,11 +22,11 @@ export interface TreeRow {
 }
 
 export function collectVisibleTreeRows({
-  expandedNodes,
+  collapsedNodes,
   root,
   visibleTree,
 }: {
-  expandedNodes: Set<string>;
+  collapsedNodes: Set<string>;
   root: SyntaxNode;
   visibleTree: VisibleTreeNodes;
 }) {
@@ -41,7 +41,7 @@ export function collectVisibleTreeRows({
     }
 
     const { node, level } = row;
-    const isExpanded = expandedNodes.has(syntaxNodeKey(node));
+    const isExpanded = !collapsedNodes.has(syntaxNodeKey(node));
 
     const hasChildren = node.children.some((child) =>
       visibleTree.visibleNodes.has(child)
@@ -69,7 +69,7 @@ export function collectVisibleTreeRows({
 }
 
 export function useVisibleTreeRows({
-  expandedNodes,
+  collapsedNodes,
   filters,
   root,
   search,
@@ -93,8 +93,8 @@ export function useVisibleTreeRows({
       return [];
     }
 
-    return collectVisibleTreeRows({ expandedNodes, root, visibleTree });
-  }, [expandedNodes, root, visibleTree]);
+    return collectVisibleTreeRows({ collapsedNodes, root, visibleTree });
+  }, [collapsedNodes, root, visibleTree]);
 
   return {
     rootVisible,

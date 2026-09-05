@@ -5,14 +5,14 @@ import {
 import type { ParseErrorRange } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
 import { syntaxNodeKey } from '@/lib/utils';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import type { Tree } from 'web-tree-sitter';
 
 interface UseSyntaxTree {
   tree: Tree | null;
   root: SyntaxNode | undefined;
   parseErrors: ParseErrorRange[];
-  expandedNodes: Set<string>;
+  collapsedNodes: Set<string>;
   toggleExpand: (node: SyntaxNode) => void;
 }
 
@@ -22,28 +22,6 @@ export function useSyntaxTree(options: UseParsedTreeOptions): UseSyntaxTree {
   const [collapsedNodes, setCollapsedNodes] = useState<Set<string>>(
     () => new Set()
   );
-
-  const expandedNodes = useMemo(() => {
-    const expandedNodes = new Set<string>();
-
-    if (!root) {
-      return expandedNodes;
-    }
-
-    const walk = (node: SyntaxNode) => {
-      const key = syntaxNodeKey(node);
-
-      if (!collapsedNodes.has(key)) {
-        expandedNodes.add(key);
-      }
-
-      node.children.forEach(walk);
-    };
-
-    walk(root);
-
-    return expandedNodes;
-  }, [collapsedNodes, root]);
 
   const toggleExpand = useCallback((node: SyntaxNode) => {
     setCollapsedNodes((collapsedNodes) => {
@@ -60,5 +38,5 @@ export function useSyntaxTree(options: UseParsedTreeOptions): UseSyntaxTree {
     });
   }, []);
 
-  return { tree, root, parseErrors, expandedNodes, toggleExpand };
+  return { tree, root, parseErrors, collapsedNodes, toggleExpand };
 }

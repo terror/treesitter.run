@@ -53,7 +53,7 @@ const App = () => {
   const { code, resetCode, setCode } = useEditorBuffer(settings.language);
 
   const {
-    expandedNodes,
+    collapsedNodes,
     parseErrors,
     query,
     queryCaptureNamesByKey,
@@ -166,7 +166,7 @@ const App = () => {
 
             <ResizablePanel id='tree-panel' defaultSize={50} minSize={30}>
               <TreePane
-                expandedNodes={expandedNodes}
+                collapsedNodes={collapsedNodes}
                 language={settings.language}
                 loading={loading || !language}
                 onDeleteRange={handleDeleteRange}

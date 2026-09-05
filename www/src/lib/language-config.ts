@@ -274,6 +274,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'DTD',
     sampleCode: '<!ELEMENT foo (#PCDATA)>',
   },
+  ebnf: {
+    name: 'ebnf',
+    displayName: 'EBNF',
+    sampleCode: 'foo = "bar" ;',
+  },
   editorconfig: {
     name: 'editorconfig',
     displayName: 'EditorConfig',

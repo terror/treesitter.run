@@ -1073,6 +1073,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'Contract Foo() {\n  pub fn bar() -> U256 {\n    return 1\n  }\n}',
   },
+  razor: {
+    name: 'razor',
+    displayName: 'Razor',
+    sampleCode: '<div>@foo</div>',
+  },
   re2c: {
     name: 're2c',
     displayName: 're2c',

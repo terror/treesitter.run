@@ -1040,6 +1040,11 @@
     "revision": "f6d81bf7a4599c77388035439cf5801cd461ff77"
   },
   {
+    "name": "razor",
+    "repository": "https://github.com/tris203/tree-sitter-razor",
+    "revision": "d4664e409caaea12f73c9525484e3cf88b1cf718"
+  },
+  {
     "name": "re2c",
     "repository": "https://github.com/amaanq/tree-sitter-re2c",
     "revision": "c18a3c2f4b6665e35b7e50d6048ea3cff770c572"

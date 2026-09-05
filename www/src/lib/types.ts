@@ -34,6 +34,7 @@ export type Language =
   | 'cyberchef'
   | 'd'
   | 'dart'
+  | 'desktop'
   | 'devicetree'
   | 'dhall'
   | 'diff'

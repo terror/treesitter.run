@@ -198,6 +198,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Dart',
     sampleCode: "void main() {\n  print('foo');\n}",
   },
+  desktop: {
+    name: 'desktop',
+    displayName: 'Desktop Entry',
+    sampleCode: '[Desktop Entry]\nType=Application\nName=foo\nExec=bar\n',
+  },
   devicetree: {
     name: 'devicetree',
     displayName: 'Device Tree',

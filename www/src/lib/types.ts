@@ -237,6 +237,7 @@ export type Language =
   | 'styled'
   | 'superhtml'
   | 'svelte'
+  | 'sway'
   | 'swift'
   | 'sxhkdrc'
   | 'systemverilog'

@@ -1223,6 +1223,11 @@
     "revision": "ae5199db47757f785e43a14b332118a5474de1a2"
   },
   {
+    "name": "sway",
+    "repository": "https://github.com/FuelLabs/tree-sitter-sway",
+    "revision": "9b7845ce06ecb38b040c3940970b4fd0adc331d1"
+  },
+  {
     "name": "swift",
     "repository": "https://github.com/alex-pinkus/tree-sitter-swift",
     "revision": "f47512c92fb3183b5b56c9ef40a442fdeb942853"

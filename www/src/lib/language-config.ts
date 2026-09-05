@@ -1159,6 +1159,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Thrift',
     sampleCode: 'namespace rs foo\nstruct Bar {\n  1: string baz\n}\n',
   },
+  tiger: {
+    name: 'tiger',
+    displayName: 'Tiger',
+    sampleCode: 'let\n  var foo := "bar"\nin\n  print(foo)\nend',
+  },
   tsv: {
     name: 'tsv',
     displayName: 'TSV',

@@ -1139,6 +1139,11 @@
     "revision": "68fd0d80943a828d9e6f49c58a74be1e9ca142cf"
   },
   {
+    "name": "tiger",
+    "repository": "https://github.com/ambroisie/tree-sitter-tiger",
+    "revision": "4a77b2d7a004587646bddc4e854779044b6db459"
+  },
+  {
     "name": "toml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-toml",
     "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41"

@@ -220,6 +220,7 @@ export type Language =
   | 'terraform'
   | 'textproto'
   | 'thrift'
+  | 'tiger'
   | 'tsv'
   | 'twig'
   | 'typescript'

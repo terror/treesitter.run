@@ -572,6 +572,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Nim',
     sampleCode: 'proc foo(): string =\n  "bar"\n',
   },
+  ninja: {
+    name: 'ninja',
+    displayName: 'Ninja',
+    sampleCode: 'rule foo\n  command = echo bar\nbuild baz: foo\n',
+  },
   nix: {
     name: 'nix',
     displayName: 'Nix',

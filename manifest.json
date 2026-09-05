@@ -537,6 +537,11 @@
     "revision": "ac72ba30d16edf0be021588a9301ede4accd6cf4"
   },
   {
+    "name": "ninja",
+    "repository": "https://github.com/alemuller/tree-sitter-ninja",
+    "revision": "0a95cfdc0745b6ae82f60d3a339b37f19b7b9267"
+  },
+  {
     "name": "nix",
     "repository": "https://github.com/nix-community/tree-sitter-nix",
     "revision": "3d0173d903e630b6e14d17f1cf79488791379ded"

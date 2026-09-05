@@ -105,6 +105,7 @@ export type Language =
   | 'move'
   | 'nginx'
   | 'nim'
+  | 'ninja'
   | 'nix'
   | 'nqc'
   | 'nu'

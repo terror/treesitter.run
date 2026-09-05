@@ -532,6 +532,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Luau',
     sampleCode: 'local function foo(bar)\n  return bar\nend',
   },
+  m68k: {
+    name: 'm68k',
+    displayName: 'Motorola 68000',
+    sampleCode: 'foo:\n  move.l #1,d0\n  rts\n',
+  },
   make: {
     name: 'make',
     displayName: 'Make',

@@ -97,6 +97,7 @@ export type Language =
   | 'luadoc'
   | 'luap'
   | 'luau'
+  | 'm68k'
   | 'make'
   | 'markdown'
   | 'matlab'

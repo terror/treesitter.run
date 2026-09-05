@@ -202,6 +202,12 @@
     "revision": "80327abbba6f47530edeb0df9f11bd5d5c93c14d"
   },
   {
+    "name": "dtd",
+    "path": "dtd",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-xml",
+    "revision": "5000ae8f22d11fbe93939b05c1e37cf21117162d"
+  },
+  {
     "name": "editorconfig",
     "repository": "https://github.com/ValdezFOmar/tree-sitter-editorconfig",
     "revision": "1882c3f165aa6b56c4c7af91388d97b00ca1afe3"

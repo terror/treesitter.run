@@ -39,6 +39,7 @@ export type Language =
   | 'diff'
   | 'dockerfile'
   | 'dot'
+  | 'dtd'
   | 'editorconfig'
   | 'eex'
   | 'elixir'

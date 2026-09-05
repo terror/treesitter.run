@@ -253,6 +253,7 @@ export type Language =
   | 'strace'
   | 'styled'
   | 'superhtml'
+  | 'surface'
   | 'svelte'
   | 'swift'
   | 'sxhkdrc'

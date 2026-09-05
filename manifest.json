@@ -740,6 +740,11 @@
     "revision": "db390f312a54b04b13790e1767bfac32665c17ac"
   },
   {
+    "name": "scfg",
+    "repository": "https://github.com/rockorager/tree-sitter-scfg",
+    "revision": "d850fd470445d73de318a21d734d1e09e29b773c"
+  },
+  {
     "name": "scss",
     "repository": "https://github.com/serenadeai/tree-sitter-scss",
     "revision": "c478c6868648eff49eb04a4df90d703dc45b312a"

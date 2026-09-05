@@ -145,6 +145,7 @@ export type Language =
   | 'ruby'
   | 'rust'
   | 'scala'
+  | 'scfg'
   | 'scss'
   | 'slang'
   | 'smali'

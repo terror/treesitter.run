@@ -205,6 +205,7 @@ export type Language =
   | 'solidity'
   | 'sparql'
   | 'squirrel'
+  | 'styled'
   | 'svelte'
   | 'systemverilog'
   | 'tablegen'

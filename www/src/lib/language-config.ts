@@ -309,6 +309,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'GN',
     sampleCode: 'executable("foo") {\n  sources = [ "bar.cc" ]\n}',
   },
+  gnuplot: {
+    name: 'gnuplot',
+    displayName: 'Gnuplot',
+    sampleCode: 'set title "foo"\nplot sin(x)\n',
+  },
   go: {
     name: 'go',
     displayName: 'Go',

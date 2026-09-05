@@ -56,6 +56,7 @@ export type Language =
   | 'gleam'
   | 'glsl'
   | 'gn'
+  | 'gnuplot'
   | 'go'
   | 'go-sum'
   | 'gomod'

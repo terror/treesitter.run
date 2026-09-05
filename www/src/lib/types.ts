@@ -200,6 +200,7 @@ export type Language =
   | 'sflog'
   | 'slang'
   | 'slim'
+  | 'slint'
   | 'smali'
   | 'snakemake'
   | 'solidity'

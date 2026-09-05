@@ -1054,6 +1054,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Slim',
     sampleCode: 'div\n  p foo\n',
   },
+  slint: {
+    name: 'slint',
+    displayName: 'Slint',
+    sampleCode:
+      'export component Foo inherits Window {\n  Text { text: "bar"; }\n}',
+  },
   smali: {
     name: 'smali',
     displayName: 'Smali',

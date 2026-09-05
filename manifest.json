@@ -375,6 +375,11 @@
     "revision": "96fe2e49745ecd62b80cd19dca01fb52b83f93a1"
   },
   {
+    "name": "gaptst",
+    "repository": "https://github.com/gap-system/tree-sitter-gaptst",
+    "revision": "69086d7627c03e1f4baf766bcef14c60d9e92331"
+  },
+  {
     "name": "gdscript",
     "repository": "https://github.com/PrestonKnopp/tree-sitter-gdscript",
     "revision": "c5c8fa4861b5a4f04a7e60d97587fc3b6cc5639e"

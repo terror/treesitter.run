@@ -148,6 +148,7 @@ export type Language =
   | 'koto'
   | 'kusto'
   | 'lalrpop'
+  | 'latex'
   | 'lean'
   | 'ledger'
   | 'leo'

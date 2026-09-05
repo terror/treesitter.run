@@ -754,6 +754,11 @@
     "revision": "27b0f7bb55b4cabd8f01a933d9ee6a49dbfc2192"
   },
   {
+    "name": "latex",
+    "repository": "https://github.com/latex-lsp/tree-sitter-latex",
+    "revision": "a6c812704b3d3e1541b0853aa0d6d561301320e1"
+  },
+  {
     "name": "lean",
     "repository": "https://github.com/Julian/tree-sitter-lean",
     "revision": "86c2bcb379fe0b2ad13d8b3411400deff75b2785"

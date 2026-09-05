@@ -243,6 +243,7 @@ export type Language =
   | 'wit'
   | 'wxml'
   | 'xcompose'
+  | 'xresources'
   | 'yaml'
   | 'toml'
   | 'xml'

@@ -1274,6 +1274,11 @@
     "revision": "5000ae8f22d11fbe93939b05c1e37cf21117162d"
   },
   {
+    "name": "xresources",
+    "repository": "https://github.com/ValdezFOmar/tree-sitter-xresources",
+    "revision": "d5fa4f427d4828c2c2685b8bdad406cabc4e72a8"
+  },
+  {
     "name": "yaml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-yaml",
     "revision": "a1c4812a73ec5e089de8e441fdea3a921e8d5079"

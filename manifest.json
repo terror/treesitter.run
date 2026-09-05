@@ -719,6 +719,11 @@
     "revision": "aa8d472034956f94f51f2ef2cbfec4cc07efbfde"
   },
   {
+    "name": "mlir",
+    "repository": "https://github.com/artagnon/tree-sitter-mlir",
+    "revision": "08c51d88284ada36a5c2847ebeb94297f032adec"
+  },
+  {
     "name": "move",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-move",
     "revision": "b8ca25518749be10562455fd081a3dab30b93b8b"

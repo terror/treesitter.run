@@ -141,6 +141,7 @@ export type Language =
   | 'menhir'
   | 'mermaid'
   | 'meson'
+  | 'mlir'
   | 'move'
   | 'nginx'
   | 'nim'

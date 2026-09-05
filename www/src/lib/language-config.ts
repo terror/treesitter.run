@@ -756,6 +756,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Meson',
     sampleCode: "project('foo', 'c')\nexecutable('bar', 'bar.c')",
   },
+  mlir: {
+    name: 'mlir',
+    displayName: 'MLIR',
+    sampleCode: 'module {\n  func.func @foo() {\n    return\n  }\n}',
+  },
   move: {
     name: 'move',
     displayName: 'Move',

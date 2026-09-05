@@ -1510,6 +1510,11 @@
     "revision": "23daa416c1ff5d15f59a1aa648f031d6e3ee15c5"
   },
   {
+    "name": "vrl",
+    "repository": "https://github.com/belltoy/tree-sitter-vrl",
+    "revision": "274b3ce63f72aa8ffea18e7fc280d3062d28f0ba"
+  },
+  {
     "name": "vue",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-vue",
     "revision": "7505e166fa2bf15dd58baa74015ec31c815fbbcc"

@@ -1525,6 +1525,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Vim Help',
     sampleCode: '*foo*\n\nbar |baz|\n\n',
   },
+  vrl: {
+    name: 'vrl',
+    displayName: 'VRL',
+    sampleCode: '.foo = "bar"\n',
+  },
   vue: {
     name: 'vue',
     displayName: 'Vue',

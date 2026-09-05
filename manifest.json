@@ -156,6 +156,11 @@
     "revision": "4ebe237c1cf64cf3826fc249e9ec0988fe07e58e"
   },
   {
+    "name": "corn",
+    "repository": "https://github.com/jakestanger/tree-sitter-corn",
+    "revision": "464654742cbfd3a3de560aba120998f1d5dfa844"
+  },
+  {
     "name": "cpon",
     "repository": "https://github.com/amaanq/tree-sitter-cpon",
     "revision": "594289eadfec719198e560f9d7fd243c4db678d5"

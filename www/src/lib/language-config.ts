@@ -173,6 +173,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Cooklang',
     sampleCode: 'Add @foo{1%bar}\n',
   },
+  corn: {
+    name: 'corn',
+    displayName: 'Corn',
+    sampleCode: '{ foo = "bar" }',
+  },
   cpon: {
     name: 'cpon',
     displayName: 'CPON',

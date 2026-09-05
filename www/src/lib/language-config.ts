@@ -1064,6 +1064,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Snakemake',
     sampleCode: 'rule foo:\n    output: "bar"\n    shell: "touch {output}"\n',
   },
+  snl: {
+    name: 'snl',
+    displayName: 'SNL',
+    sampleCode:
+      'program foo\nss bar {\n  state baz {\n    when () {} state baz\n  }\n}\n',
+  },
   solidity: {
     name: 'solidity',
     displayName: 'Solidity',

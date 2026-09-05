@@ -202,6 +202,7 @@ export type Language =
   | 'slim'
   | 'smali'
   | 'snakemake'
+  | 'snl'
   | 'solidity'
   | 'sparql'
   | 'squirrel'

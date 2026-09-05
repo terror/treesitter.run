@@ -1028,6 +1028,11 @@
     "revision": "68010430c3e51c0e84c1ce21c6551df0e2469f51"
   },
   {
+    "name": "snl",
+    "repository": "https://github.com/minijackson/tree-sitter-snl",
+    "revision": "846e2d6809ac5863a15b5494f20fd267c21221c8"
+  },
+  {
     "name": "solidity",
     "repository": "https://github.com/JoranHonig/tree-sitter-solidity",
     "revision": "048fe686cb1fde267243739b8bdbec8fc3a55272"

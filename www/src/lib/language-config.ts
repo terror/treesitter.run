@@ -1335,6 +1335,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Unison',
     sampleCode: 'foo = "bar"\n',
   },
+  usd: {
+    name: 'usd',
+    displayName: 'USD',
+    sampleCode:
+      '#usda 1.0\ndef Xform "Foo" {\n  custom string bar = "baz"\n}\n',
+  },
   uxntal: {
     name: 'uxntal',
     displayName: 'Uxntal',

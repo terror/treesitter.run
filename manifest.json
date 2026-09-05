@@ -1322,6 +1322,11 @@
     "revision": "10365cc70ab2b2de85ea7ab35cf6b7636c36ce8b"
   },
   {
+    "name": "usd",
+    "repository": "https://github.com/ColinKennedy/tree-sitter-usd",
+    "revision": "7bbe1e8dc991bd488e6a96f7931316f55a401589"
+  },
+  {
     "name": "uxntal",
     "repository": "https://github.com/amaanq/tree-sitter-uxntal",
     "revision": "ad9b638b914095320de85d59c49ab271603af048"

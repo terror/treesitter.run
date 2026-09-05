@@ -1131,6 +1131,11 @@
     "revision": "19ed8a8e6bcc844b71c37e9edaffc60c77f74d7c"
   },
   {
+    "name": "rifleconf",
+    "repository": "https://github.com/purarue/tree-sitter-rifleconf",
+    "revision": "6389ef0fc0d48f0397ec233109c074a0cb685e36"
+  },
+  {
     "name": "robot",
     "repository": "https://github.com/Hubro/tree-sitter-robot",
     "revision": "8f1a8d8c3875db2cd29865b5a1db7716b4eab4c3"

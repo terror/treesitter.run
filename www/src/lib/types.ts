@@ -222,6 +222,7 @@ export type Language =
   | 'rego'
   | 'requirements'
   | 'rescript'
+  | 'rifleconf'
   | 'robot'
   | 'robots-txt'
   | 'roc'

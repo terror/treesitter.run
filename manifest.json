@@ -1058,6 +1058,11 @@
     "revision": "a453dbf3ba433db0e5ec621a38a7e59d72e4dc69"
   },
   {
+    "name": "strace",
+    "repository": "https://github.com/sigmaSd/tree-sitter-strace",
+    "revision": "7fedc1c49758d5672e7e67ebcb3182b5b2e50815"
+  },
+  {
     "name": "styled",
     "repository": "https://github.com/mskelton/tree-sitter-styled",
     "revision": "319cdcaa0346ba6db668a222d938e5c3569e2a51"

@@ -205,6 +205,7 @@ export type Language =
   | 'solidity'
   | 'sparql'
   | 'squirrel'
+  | 'strace'
   | 'styled'
   | 'svelte'
   | 'sxhkdrc'

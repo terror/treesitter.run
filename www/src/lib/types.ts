@@ -90,6 +90,7 @@ export type Language =
   | 'kdl'
   | 'kotlin'
   | 'lean'
+  | 'leo'
   | 'linkerscript'
   | 'liquid'
   | 'llvm'

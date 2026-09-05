@@ -1094,6 +1094,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       '<h1>{foo}</h1>',
   },
+  swift: {
+    name: 'swift',
+    displayName: 'Swift',
+    sampleCode: 'func foo(_ bar: String) -> String {\n  return bar\n}\n',
+  },
   sxhkdrc: {
     name: 'sxhkdrc',
     displayName: 'sxhkdrc',

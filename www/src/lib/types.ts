@@ -25,6 +25,7 @@ export type Language =
   | 'comment'
   | 'commonlisp'
   | 'cooklang'
+  | 'corn'
   | 'cpon'
   | 'cpp'
   | 'css'

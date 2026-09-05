@@ -169,6 +169,7 @@ export type Language =
   | 'wgsl-bevy'
   | 'wit'
   | 'xcompose'
+  | 'xresources'
   | 'yaml'
   | 'toml'
   | 'xml'

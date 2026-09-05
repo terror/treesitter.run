@@ -912,6 +912,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'XCompose',
     sampleCode: '<Multi_key> <f> <o> <o> : "foo"\n',
   },
+  xresources: {
+    name: 'xresources',
+    displayName: 'X Resources',
+    sampleCode: 'Foo.bar: baz\n',
+  },
   yaml: {
     name: 'yaml',
     displayName: 'YAML',

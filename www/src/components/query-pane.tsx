@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import type { Extension } from '@codemirror/state';
 import { ChevronUp } from 'lucide-react';
 
-import { QueryEditor } from './query-editor';
+import { Editor } from './editor';
 import { QueryInfoDialog } from './query-info-dialog';
 
 interface QueryPaneProps {
@@ -68,10 +68,12 @@ export const QueryPane = ({
     <QueryBar captures={captures} error={error} />
 
     <div className='min-h-0 flex-1 overflow-hidden'>
-      <QueryEditor
+      <Editor
         value={query}
         onChange={onQueryChange}
         extensions={extensions}
+        placeholder='(function_item name: (identifier) @name)'
+        aria-label='Tree-sitter query'
       />
     </div>
   </div>

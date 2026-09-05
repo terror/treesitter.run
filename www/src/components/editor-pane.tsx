@@ -17,6 +17,7 @@ import {
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
 import { Extension } from '@codemirror/state';
+import type { ViewUpdate } from '@codemirror/view';
 import { RotateCcw } from 'lucide-react';
 import { useState } from 'react';
 
@@ -44,6 +45,20 @@ export const EditorPane = ({
 }: EditorPaneProps) => {
   const [resetOpen, setResetOpen] = useState<boolean>(false);
   const displayName = languageConfig[language].displayName;
+
+  const handleUpdate = (update: ViewUpdate) => {
+    if (!update.selectionSet && !update.docChanged) {
+      return;
+    }
+
+    const head = update.state.selection.main.head;
+    const line = update.state.doc.lineAt(head);
+
+    onCursorPositionChange({
+      row: line.number,
+      column: head - line.from + 1,
+    });
+  };
 
   const resetCode = () => {
     onResetCode(language);
@@ -106,7 +121,7 @@ export const EditorPane = ({
         <Editor
           value={value}
           onChange={onChange}
-          onCursorPositionChange={onCursorPositionChange}
+          onUpdate={handleUpdate}
           extensions={extensions}
         />
       </div>

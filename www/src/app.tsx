@@ -18,11 +18,11 @@ import { ThemeToggle } from './components/theme-toggle';
 import { TreePane } from './components/tree-pane';
 import { useCursorPosition } from './hooks/use-cursor-position';
 import { useEditorBuffer } from './hooks/use-editor-buffer';
-import { useEditorExtensions } from './hooks/use-editor-extensions';
 import { useEditorHighlights } from './hooks/use-editor-highlights';
 import { useHasLoaded } from './hooks/use-has-loaded';
 import { usePanelLayout } from './hooks/use-panel-layout';
 import { useQueryEditorExtensions } from './hooks/use-query-editor-extensions';
+import { useSourceEditorExtensions } from './hooks/use-source-editor-extensions';
 import { useTreeWorkbench } from './hooks/use-tree-workbench';
 
 const App = () => {
@@ -98,7 +98,7 @@ const App = () => {
     [clearHighlights, resetCode]
   );
 
-  const extensions = useEditorExtensions({
+  const extensions = useSourceEditorExtensions({
     selectedNodeRange: highlight,
     syntaxHighlightQuery: highlightQuery,
     queryText: query,

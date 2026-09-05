@@ -41,6 +41,7 @@ export type Language =
   | 'cylc'
   | 'd'
   | 'dart'
+  | 'desktop'
   | 'devicetree'
   | 'dhall'
   | 'diff'

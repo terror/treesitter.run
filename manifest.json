@@ -212,6 +212,11 @@
     "revision": "be07cf7118d3dba06236a3f19541685a68209934"
   },
   {
+    "name": "desktop",
+    "repository": "https://github.com/ValdezFOmar/tree-sitter-desktop",
+    "revision": "89210af12afabb71a2c9f3d56a964ff0844027dc"
+  },
+  {
     "name": "devicetree",
     "repository": "https://github.com/joelspadin/tree-sitter-devicetree",
     "revision": "e78bf56f206cb47bee28a217423acb651e076848"

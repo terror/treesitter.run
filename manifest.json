@@ -910,6 +910,12 @@
     "revision": "6479aa13f32f701c383083d8b28360ebd682fb7d"
   },
   {
+    "name": "ziggy-schema",
+    "path": "tree-sitter-ziggy-schema",
+    "repository": "https://github.com/kristoff-it/ziggy",
+    "revision": "be51f4dfd95590eae7c8674d660c1f16edef116b"
+  },
+  {
     "name": "zsh",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zsh",
     "revision": "47e2caf4ed7e466f51cfbb13a860a192c300506f"

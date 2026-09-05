@@ -1034,6 +1034,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'SCFG',
     sampleCode: 'foo bar {\n  baz qux\n}\n',
   },
+  scheme: {
+    name: 'scheme',
+    displayName: 'Scheme',
+    sampleCode: '(define (foo bar)\n  bar)\n',
+  },
   scss: {
     name: 'scss',
     displayName: 'SCSS',

@@ -507,6 +507,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Liquid',
     sampleCode: '{% assign foo = "bar" %}\n{{ foo }}',
   },
+  liquidsoap: {
+    name: 'liquidsoap',
+    displayName: 'Liquidsoap',
+    sampleCode: 'foo = "bar"\nprint(foo)\n',
+  },
   llvm: {
     name: 'llvm',
     displayName: 'LLVM',

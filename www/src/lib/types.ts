@@ -92,6 +92,7 @@ export type Language =
   | 'lean'
   | 'linkerscript'
   | 'liquid'
+  | 'liquidsoap'
   | 'llvm'
   | 'lua'
   | 'luadoc'

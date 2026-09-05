@@ -471,6 +471,11 @@
     "revision": "e45dbac8c5fa95b1f0e00e7e0c04bc8855823391"
   },
   {
+    "name": "liquidsoap",
+    "repository": "https://github.com/savonet/tree-sitter-liquidsoap",
+    "revision": "fa565a337b673050ba4f1131d21a1d259153140b"
+  },
+  {
     "name": "llvm",
     "repository": "https://github.com/benwilliamgraham/tree-sitter-llvm",
     "revision": "2914786ae6774d4c4e25a230f4afe16aa68fe1c1"

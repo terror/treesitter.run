@@ -1221,6 +1221,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Styled Components',
     sampleCode: 'color: red;\n.foo { display: block; }',
   },
+  superhtml: {
+    name: 'superhtml',
+    displayName: 'SuperHTML',
+    sampleCode: '<div :text="$foo">bar</div>',
+  },
   svelte: {
     name: 'svelte',
     displayName: 'Svelte',

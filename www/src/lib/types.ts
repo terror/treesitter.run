@@ -233,6 +233,7 @@ export type Language =
   | 'squirrel'
   | 'strace'
   | 'styled'
+  | 'superhtml'
   | 'svelte'
   | 'swift'
   | 'sxhkdrc'

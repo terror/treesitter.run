@@ -63,6 +63,7 @@ export type Language =
   | 'fidl'
   | 'firrtl'
   | 'fish'
+  | 'foam'
   | 'fortran'
   | 'fsharp'
   | 'func'

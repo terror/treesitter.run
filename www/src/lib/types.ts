@@ -68,6 +68,7 @@ export type Language =
   | 'haskell'
   | 'hcl'
   | 'heex'
+  | 'hjson'
   | 'hlsl'
   | 'html'
   | 'http'

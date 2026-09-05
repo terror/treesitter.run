@@ -235,6 +235,7 @@ export type Language =
   | 'squirrel'
   | 'strace'
   | 'styled'
+  | 'supercollider'
   | 'superhtml'
   | 'svelte'
   | 'swift'

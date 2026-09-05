@@ -110,6 +110,7 @@ export type Language =
   | 'javascript'
   | 'jinja'
   | 'jinja-inline'
+  | 'jjdescription'
   | 'jq'
   | 'jsdoc'
   | 'json'

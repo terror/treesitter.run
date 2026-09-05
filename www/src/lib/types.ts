@@ -192,6 +192,7 @@ export type Language =
   | 'robot'
   | 'ron'
   | 'ruby'
+  | 'runescript'
   | 'rust'
   | 'scala'
   | 'scss'

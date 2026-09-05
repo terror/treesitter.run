@@ -405,6 +405,11 @@
     "revision": "c213d3745ccdcaaa858869181c7b1bf9557a025f"
   },
   {
+    "name": "jjdescription",
+    "repository": "https://github.com/ribru17/tree-sitter-jjdescription",
+    "revision": "ec8fd0aa193353f4089f76cf2968f70ff6ccf0b0"
+  },
+  {
     "name": "jq",
     "repository": "https://github.com/flurie/tree-sitter-jq",
     "revision": "c204e36d2c3c6fce1f57950b12cabcc24e5cc4d9"

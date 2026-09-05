@@ -442,6 +442,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Jinja Inline',
     sampleCode: '{# foo #}',
   },
+  jjdescription: {
+    name: 'jjdescription',
+    displayName: 'Jujutsu Description',
+    sampleCode: 'foo\n\nJJ: bar\n',
+  },
   jq: {
     name: 'jq',
     displayName: 'jq',

@@ -102,6 +102,7 @@ export type Language =
   | 'matlab'
   | 'mermaid'
   | 'meson'
+  | 'mlir'
   | 'move'
   | 'nginx'
   | 'nim'

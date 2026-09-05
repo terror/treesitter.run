@@ -610,6 +610,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'IDL',
     sampleCode: 'module Foo {\n  interface Bar {\n    void baz();\n  };\n};',
   },
+  idris: {
+    name: 'idris',
+    displayName: 'Idris',
+    sampleCode: 'module Foo\n\nfoo : String\nfoo = "bar"\n',
+  },
   ini: {
     name: 'ini',
     displayName: 'INI',

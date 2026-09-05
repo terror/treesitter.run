@@ -576,6 +576,11 @@
     "revision": "b5ecf511e542e43313ba4602bdb206a08cb06232"
   },
   {
+    "name": "idris",
+    "repository": "https://github.com/kayhide/tree-sitter-idris",
+    "revision": "c56a25cf57c68ff929356db25505c1cc4c7820f6"
+  },
+  {
     "name": "ini",
     "repository": "https://github.com/justinmk/tree-sitter-ini",
     "revision": "e4018b5176132b4f3c5d6e61cea383f42288d0f5"

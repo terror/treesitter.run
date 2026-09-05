@@ -50,6 +50,7 @@ export type Language =
   | 'dot'
   | 'dtd'
   | 'editorconfig'
+  | 'eds'
   | 'eex'
   | 'elixir'
   | 'elm'

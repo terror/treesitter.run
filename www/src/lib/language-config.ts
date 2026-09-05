@@ -279,6 +279,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'EditorConfig',
     sampleCode: 'root = true\n\n[foo]\nindent_style = space\n',
   },
+  eds: {
+    name: 'eds',
+    displayName: 'EDS',
+    sampleCode: '[FileInfo]\nFileName=foo.eds\n',
+  },
   eex: {
     name: 'eex',
     displayName: 'EEx',

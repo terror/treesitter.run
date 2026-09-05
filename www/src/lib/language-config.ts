@@ -570,6 +570,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'ISPC',
     sampleCode: 'export void foo(uniform int bar) {\n  int baz = bar;\n}',
   },
+  'janet-simple': {
+    name: 'janet-simple',
+    displayName: 'Janet',
+    sampleCode: '(def foo "bar")\n(print foo)',
+  },
   java: {
     name: 'java',
     displayName: 'Java',

@@ -105,6 +105,7 @@ export type Language =
   | 'ini'
   | 'inko'
   | 'ispc'
+  | 'janet-simple'
   | 'java'
   | 'javascript'
   | 'jinja'

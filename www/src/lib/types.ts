@@ -38,6 +38,7 @@ export type Language =
   | 'cuda'
   | 'cue'
   | 'cyberchef'
+  | 'cylc'
   | 'd'
   | 'dart'
   | 'devicetree'

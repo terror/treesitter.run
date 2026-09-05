@@ -197,6 +197,11 @@
     "revision": "8bad395b98253324085b4b5227b14d4988f374b7"
   },
   {
+    "name": "cylc",
+    "repository": "https://github.com/elliotfontaine/tree-sitter-cylc",
+    "revision": "6d1d81137112299324b526477ce1db989ab58fb8"
+  },
+  {
     "name": "d",
     "repository": "https://github.com/gdamore/tree-sitter-d",
     "revision": "64f27931b4e6fdd75af1102c79bacbca68a8dacc"

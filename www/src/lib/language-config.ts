@@ -1069,6 +1069,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Solidity',
     sampleCode: 'contract Foo {\n  function bar() public {}\n}',
   },
+  sosl: {
+    name: 'sosl',
+    displayName: 'SOSL',
+    sampleCode: 'FIND {foo} IN ALL FIELDS RETURNING Account(Name)',
+  },
   sparql: {
     name: 'sparql',
     displayName: 'SPARQL',

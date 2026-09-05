@@ -407,6 +407,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'shader_type canvas_item;\nvoid fragment() {\n  COLOR = vec4(1.0);\n}',
   },
+  'git-config': {
+    name: 'git-config',
+    displayName: 'Git Config',
+    sampleCode: '[foo]\n  bar = baz\n',
+  },
   'git-rebase': {
     name: 'git-rebase',
     displayName: 'Git Rebase',

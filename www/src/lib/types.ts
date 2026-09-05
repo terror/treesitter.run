@@ -75,6 +75,7 @@ export type Language =
   | 'gap'
   | 'gdscript'
   | 'gdshader'
+  | 'git-config'
   | 'git-rebase'
   | 'gitattributes'
   | 'gitcommit'

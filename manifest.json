@@ -1063,6 +1063,12 @@
     "revision": "319cdcaa0346ba6db668a222d938e5c3569e2a51"
   },
   {
+    "name": "superhtml",
+    "path": "tree-sitter-superhtml",
+    "repository": "https://github.com/kristoff-it/superhtml",
+    "revision": "23ef2f44ca0df2d2e05a0be3874370553c5b591d"
+  },
+  {
     "name": "svelte",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-svelte",
     "revision": "ae5199db47757f785e43a14b332118a5474de1a2"

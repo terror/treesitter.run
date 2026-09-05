@@ -206,6 +206,7 @@ export type Language =
   | 'sparql'
   | 'squirrel'
   | 'styled'
+  | 'superhtml'
   | 'svelte'
   | 'sxhkdrc'
   | 'systemverilog'

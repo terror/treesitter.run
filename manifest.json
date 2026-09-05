@@ -622,6 +622,11 @@
     "revision": "0e3eca6e786356bd37b1633f5e8b5a1c864333c1"
   },
   {
+    "name": "kos",
+    "repository": "https://github.com/kos-lang/tree-sitter-kos",
+    "revision": "a7338629da17c5246dc2129cd2a493a6ee59e922"
+  },
+  {
     "name": "kotlin",
     "repository": "https://github.com/fwcd/tree-sitter-kotlin",
     "revision": "1852ea17b7f60fb3f9d84e0b1555d56b46b39fb1"

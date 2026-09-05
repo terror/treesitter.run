@@ -660,6 +660,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Kitty Config',
     sampleCode: 'font_family foo\nfont_size 12\n',
   },
+  kos: {
+    name: 'kos',
+    displayName: 'Kos',
+    sampleCode: 'const foo = "bar";',
+  },
   kotlin: {
     name: 'kotlin',
     displayName: 'Kotlin',

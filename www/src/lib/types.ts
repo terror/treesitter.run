@@ -146,6 +146,7 @@ export type Language =
   | 'rust'
   | 'scala'
   | 'scss'
+  | 'sflog'
   | 'slang'
   | 'smali'
   | 'solidity'

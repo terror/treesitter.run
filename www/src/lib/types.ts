@@ -195,6 +195,7 @@ export type Language =
   | 'rescript'
   | 'robot'
   | 'ron'
+  | 'rst'
   | 'ruby'
   | 'runescript'
   | 'rust'

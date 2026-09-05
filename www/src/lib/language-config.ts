@@ -1028,6 +1028,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'RON',
     sampleCode: '(foo: "bar")',
   },
+  rst: {
+    name: 'rst',
+    displayName: 'reStructuredText',
+    sampleCode: 'Foo\n===\n\n**bar**\n',
+  },
   ruby: {
     name: 'ruby',
     displayName: 'Ruby',

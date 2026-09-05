@@ -58,6 +58,7 @@ export type Language =
   | 'gn'
   | 'go'
   | 'go-sum'
+  | 'goctl'
   | 'gomod'
   | 'gowork'
   | 'gpg-config'

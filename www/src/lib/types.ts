@@ -15,6 +15,7 @@ export type Language =
   | 'bibtex'
   | 'bitbake'
   | 'blade'
+  | 'bp'
   | 'bpftrace'
   | 'brightscript'
   | 'c'

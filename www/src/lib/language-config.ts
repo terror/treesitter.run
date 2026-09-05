@@ -89,6 +89,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Blade',
     sampleCode: '@if ($foo)\n  {{ $bar }}\n@endif',
   },
+  bp: {
+    name: 'bp',
+    displayName: 'Blueprint',
+    sampleCode: 'cc_library {\n  name: "foo",\n  srcs: ["bar.c"],\n}',
+  },
   bpftrace: {
     name: 'bpftrace',
     displayName: 'bpftrace',

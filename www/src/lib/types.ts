@@ -51,6 +51,7 @@ export type Language =
   | 'fortran'
   | 'fsharp'
   | 'func'
+  | 'gap'
   | 'gdscript'
   | 'gitattributes'
   | 'gleam'

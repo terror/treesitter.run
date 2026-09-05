@@ -284,6 +284,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'FunC',
     sampleCode: '() recv_internal() {\n}',
   },
+  gap: {
+    name: 'gap',
+    displayName: 'GAP',
+    sampleCode: 'foo := function(bar)\n  return bar;\nend;\n',
+  },
   gdscript: {
     name: 'gdscript',
     displayName: 'GDScript',

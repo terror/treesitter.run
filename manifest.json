@@ -884,6 +884,11 @@
     "revision": "d9306a798ede627001a8e5752f775858c8edd7e4"
   },
   {
+    "name": "wing",
+    "repository": "https://github.com/winglang/tree-sitter-wing",
+    "revision": "76e0c25844a66ebc6e866d690fcc5f4e90698947"
+  },
+  {
     "name": "wit",
     "repository": "https://github.com/bytecodealliance/tree-sitter-wit",
     "revision": "cdf07263b136054b413cab449ac7a1d059c27542"

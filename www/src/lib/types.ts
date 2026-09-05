@@ -110,6 +110,7 @@ export type Language =
   | 'nu'
   | 'objc'
   | 'ocaml'
+  | 'ocamllex'
   | 'odin'
   | 'pem'
   | 'php'

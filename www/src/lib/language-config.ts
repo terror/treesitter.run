@@ -188,6 +188,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'CyberChef',
     sampleCode: 'From_Hex()\nTo_Base64()\n',
   },
+  cylc: {
+    name: 'cylc',
+    displayName: 'Cylc',
+    sampleCode: '[scheduler]\n    allow implicit tasks = True\n',
+  },
   d: {
     name: 'd',
     displayName: 'D',

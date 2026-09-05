@@ -333,6 +333,11 @@
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"
   },
   {
+    "name": "fsh",
+    "repository": "https://github.com/mgramigna/tree-sitter-fsh",
+    "revision": "fad2e175099a45efbc98f000cc196d3674cc45e0"
+  },
+  {
     "name": "fsharp",
     "path": "fsharp",
     "repository": "https://github.com/ionide/tree-sitter-fsharp",

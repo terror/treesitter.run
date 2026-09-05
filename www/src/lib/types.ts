@@ -65,6 +65,7 @@ export type Language =
   | 'fish'
   | 'foam'
   | 'fortran'
+  | 'fsh'
   | 'fsharp'
   | 'func'
   | 'gdscript'

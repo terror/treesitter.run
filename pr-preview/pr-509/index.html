@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      try {
+        const settings = JSON.parse(
+          localStorage.getItem('editor-settings') || '{}'
+        );
+
+        if (settings.colorMode === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      } catch {}
+    </script>
+    <title>treesitter.run</title>
+    <script type="module" crossorigin src="./assets/index-016d0453.js"></script>
+    <link rel="stylesheet" href="./assets/index-fd9452ec.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+  </body>
+</html>

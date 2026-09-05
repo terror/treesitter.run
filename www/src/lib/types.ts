@@ -147,6 +147,7 @@ export type Language =
   | 'scala'
   | 'scss'
   | 'slang'
+  | 'slim'
   | 'smali'
   | 'solidity'
   | 'squirrel'

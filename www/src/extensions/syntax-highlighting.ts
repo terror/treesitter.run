@@ -128,11 +128,16 @@ export const syntaxHighlightingExtension = ({
     return [];
   }
 
-  const decorations = Decoration.set(
-    ranges.map(({ className, from, to }) =>
-      Decoration.mark({ class: className }).range(from, to)
+  return EditorView.decorations.of((view) =>
+    Decoration.set(
+      ranges.flatMap((range) => {
+        const from = Math.max(0, Math.min(range.from, view.state.doc.length));
+        const to = Math.max(0, Math.min(range.to, view.state.doc.length));
+
+        return from < to
+          ? [Decoration.mark({ class: range.className }).range(from, to)]
+          : [];
+      })
     )
   );
-
-  return EditorView.decorations.of(() => decorations);
 };

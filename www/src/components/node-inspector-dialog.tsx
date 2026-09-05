@@ -61,8 +61,8 @@ const metadataDetails = (node: SyntaxNode): Detail[] => [
 const rangeDetails = (node: SyntaxNode): Detail[] => [
   { label: 'Start point', value: formatPosition(node.startPosition) },
   { label: 'End point', value: formatPosition(node.endPosition) },
-  { label: 'Start byte', value: node.startIndex },
-  { label: 'End byte', value: node.endIndex },
+  { label: 'Start offset', value: node.startIndex },
+  { label: 'End offset', value: node.endIndex },
 ];
 
 const DetailGrid = ({ details }: { details: Detail[] }) => (

@@ -1,15 +1,39 @@
-import { Text } from '@codemirror/state';
-import { describe, expect, it } from 'bun:test';
+import { afterAll, beforeAll, describe, expect, it } from 'bun:test';
+import { Language, Parser } from 'web-tree-sitter';
 
-import { collectParseErrors, parseErrorKind } from './parse-errors';
+import {
+  type ParseErrorRange,
+  collectParseErrors,
+  parseErrorKind,
+} from './parse-errors';
 import type { SyntaxNode } from './types';
+
+const publicPath = (path: string): string =>
+  new URL(`../../public/${path}`, import.meta.url).pathname;
+
+let parser: Parser;
+
+beforeAll(async () => {
+  await Parser.init({ locateFile: publicPath });
+
+  const language = await Language.load(
+    publicPath('tree-sitter-javascript.wasm')
+  );
+
+  parser = new Parser();
+  parser.setLanguage(language);
+});
+
+afterAll(() => {
+  parser.delete();
+});
 
 const node = ({
   type = 'program',
   isError = false,
   isMissing = false,
-  startPosition = { row: 0, column: 0 },
-  endPosition = { row: 0, column: 0 },
+  startIndex = 0,
+  endIndex = 0,
   children = [],
 }: Partial<SyntaxNode>): SyntaxNode => ({
   id: 0,
@@ -24,10 +48,10 @@ const node = ({
   isMissing,
   hasError: isError || isMissing || children.some((child) => child.hasError),
   hasChanges: false,
-  startIndex: 0,
-  endIndex: 0,
-  startPosition,
-  endPosition,
+  startIndex,
+  endIndex,
+  startPosition: { row: 0, column: 0 },
+  endPosition: { row: 0, column: 0 },
   parseState: 0,
   nextParseState: 0,
   childCount: children.length,
@@ -49,26 +73,24 @@ describe('parse errors', () => {
   });
 
   it('collects sorted parse error ranges', () => {
-    const doc = Text.of(['foo bar', 'baz']);
-
     const root = node({
       children: [
         node({
           type: 'ERROR',
           isError: true,
-          startPosition: { row: 0, column: 4 },
-          endPosition: { row: 0, column: 7 },
+          startIndex: 4,
+          endIndex: 7,
         }),
         node({
           type: ';',
           isMissing: true,
-          startPosition: { row: 0, column: 3 },
-          endPosition: { row: 0, column: 3 },
+          startIndex: 3,
+          endIndex: 3,
         }),
       ],
     });
 
-    expect(collectParseErrors(root, doc)).toEqual([
+    expect(collectParseErrors(root)).toEqual([
       {
         kind: 'missing',
         type: ';',
@@ -81,6 +103,31 @@ describe('parse errors', () => {
         from: 4,
         to: 7,
       },
+    ]);
+  });
+
+  it('uses node offsets after multiline non-ASCII text', () => {
+    const check = (code: string, expected: ParseErrorRange[]) => {
+      const tree = parser.parse(code);
+
+      if (!tree) {
+        throw new Error('Parse failed');
+      }
+
+      try {
+        expect(
+          collectParseErrors(tree.rootNode as unknown as SyntaxNode)
+        ).toEqual(expected);
+      } finally {
+        tree.delete();
+      }
+    };
+
+    check('const foo = "é😀";\nconst bar = ;', [
+      { kind: 'error', type: 'ERROR', from: 29, to: 30 },
+    ]);
+    check('const foo = "é😀";\n{bar;', [
+      { kind: 'missing', type: '}', from: 24, to: 24 },
     ]);
   });
 });

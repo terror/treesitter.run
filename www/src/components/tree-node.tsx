@@ -1,7 +1,6 @@
 import { parseErrorKind } from '@/lib/parse-errors';
 import type { SyntaxNode } from '@/lib/types';
-import { cn, positionToOffset } from '@/lib/utils';
-import { Text } from '@codemirror/state';
+import { cn } from '@/lib/utils';
 import { ChevronDown, ChevronRight, Copy, Info, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -16,7 +15,6 @@ import {
 } from './ui/context-menu';
 
 interface TreeNodeProps {
-  doc: Text;
   hasChildren: boolean;
   isExpanded: boolean;
   level: number;
@@ -30,7 +28,6 @@ interface TreeNodeProps {
 }
 
 export const TreeNode = ({
-  doc,
   hasChildren,
   isExpanded,
   level,
@@ -47,15 +44,13 @@ export const TreeNode = ({
   const errorKind = parseErrorKind(node);
   const label = node.isMissing ? `MISSING ${node.type}` : node.type;
 
-  const from = positionToOffset(node.startPosition, doc);
-  const to = positionToOffset(node.endPosition, doc);
+  const from = node.startIndex;
+  const to = node.endIndex;
 
-  const deletable = from !== null && to !== null && from < to;
+  const deletable = from < to;
 
   const handleMouseEnter = () => {
-    if (from !== null && to !== null) {
-      onHighlightChange({ from, to });
-    }
+    onHighlightChange({ from, to });
   };
 
   const copyNodeLabel = async () => {
@@ -73,7 +68,7 @@ export const TreeNode = ({
   };
 
   const deleteNode = () => {
-    if (from !== null && to !== null && from < to) {
+    if (deletable) {
       onDeleteRange({ from, to });
       toast.success('Deleted node text');
     }

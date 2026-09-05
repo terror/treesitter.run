@@ -569,6 +569,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'HOCON',
     sampleCode: 'foo {\n  bar = "baz"\n}',
   },
+  hoon: {
+    name: 'hoon',
+    displayName: 'Hoon',
+    sampleCode: '|=  foo=@\n(add foo 1)\n',
+  },
   html: {
     name: 'html',
     displayName: 'HTML',

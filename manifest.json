@@ -541,6 +541,11 @@
     "revision": "c390f10519ae69fdb03b3e5764f5592fb6924bcc"
   },
   {
+    "name": "hoon",
+    "repository": "https://github.com/urbit-pilled/tree-sitter-hoon",
+    "revision": "1545137aadcc63660c47db9ad98d02fa602655d0"
+  },
+  {
     "name": "html",
     "repository": "https://github.com/tree-sitter/tree-sitter-html",
     "revision": "73a3947324f6efddf9e17c0ea58d454843590cc0"

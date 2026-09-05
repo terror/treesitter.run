@@ -207,6 +207,7 @@ export type Language =
   | 'squirrel'
   | 'styled'
   | 'svelte'
+  | 'sxhkdrc'
   | 'systemverilog'
   | 'tablegen'
   | 'terraform'

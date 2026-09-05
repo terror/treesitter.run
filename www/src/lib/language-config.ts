@@ -1094,6 +1094,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       '<h1>{foo}</h1>',
   },
+  sxhkdrc: {
+    name: 'sxhkdrc',
+    displayName: 'sxhkdrc',
+    sampleCode: 'super + f\n    echo foo\n',
+  },
   systemverilog: {
     name: 'systemverilog',
     displayName: 'SystemVerilog',

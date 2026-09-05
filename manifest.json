@@ -1068,6 +1068,11 @@
     "revision": "ae5199db47757f785e43a14b332118a5474de1a2"
   },
   {
+    "name": "sxhkdrc",
+    "repository": "https://github.com/RaafatTurki/tree-sitter-sxhkdrc",
+    "revision": "440d5f913d9465c9c776a1bd92334d32febcf065"
+  },
+  {
     "name": "systemverilog",
     "repository": "https://github.com/gmlarumbe/tree-sitter-systemverilog",
     "revision": "4e7525a777290e341b8a5ad880bd20bb4f291845"

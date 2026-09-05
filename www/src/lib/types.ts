@@ -45,6 +45,7 @@ export type Language =
   | 'elm'
   | 'embedded-template'
   | 'erlang'
+  | 'facility'
   | 'fennel'
   | 'firrtl'
   | 'fish'

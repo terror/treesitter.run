@@ -232,6 +232,11 @@
     "revision": "6ba4c762eb3065495e3db85697ffeecdf364ce35"
   },
   {
+    "name": "facility",
+    "repository": "https://github.com/FacilityApi/tree-sitter-facility",
+    "revision": "e4bfd3e960de9f4b4648acb1c92e9b95b47d8cfb"
+  },
+  {
     "name": "fennel",
     "repository": "https://github.com/alexmozaidze/tree-sitter-fennel",
     "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"

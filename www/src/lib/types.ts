@@ -49,6 +49,7 @@ export type Language =
   | 'dockerfile'
   | 'dot'
   | 'dtd'
+  | 'ebnf'
   | 'editorconfig'
   | 'eds'
   | 'eex'

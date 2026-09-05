@@ -72,7 +72,7 @@ describe('languageConfig', () => {
 
       highlightQuery.delete();
     }
-  });
+  }, 15_000);
 
   test('local highlight queries compile', async () => {
     await Parser.init({

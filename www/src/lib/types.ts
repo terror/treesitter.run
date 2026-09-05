@@ -213,6 +213,7 @@ export type Language =
   | 'squirrel'
   | 'styled'
   | 'svelte'
+  | 'swift'
   | 'sxhkdrc'
   | 'systemverilog'
   | 't32'

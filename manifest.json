@@ -1098,6 +1098,11 @@
     "revision": "ae5199db47757f785e43a14b332118a5474de1a2"
   },
   {
+    "name": "swift",
+    "repository": "https://github.com/alex-pinkus/tree-sitter-swift",
+    "revision": "f47512c92fb3183b5b56c9ef40a442fdeb942853"
+  },
+  {
     "name": "sxhkdrc",
     "repository": "https://github.com/RaafatTurki/tree-sitter-sxhkdrc",
     "revision": "440d5f913d9465c9c776a1bd92334d32febcf065"

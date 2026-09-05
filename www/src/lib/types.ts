@@ -119,6 +119,7 @@ export type Language =
   | 'hurl'
   | 'hyprlang'
   | 'idl'
+  | 'idris'
   | 'ini'
   | 'inko'
   | 'ispc'

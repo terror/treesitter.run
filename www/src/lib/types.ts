@@ -125,6 +125,7 @@ export type Language =
   | 'kotlin'
   | 'koto'
   | 'lean'
+  | 'leo'
   | 'linkerscript'
   | 'liquid'
   | 'llvm'

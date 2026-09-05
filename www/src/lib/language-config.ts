@@ -675,6 +675,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Lean',
     sampleCode: 'def foo : Nat := 1\n',
   },
+  leo: {
+    name: 'leo',
+    displayName: 'Leo',
+    sampleCode:
+      'program foo.aleo {\n  transition bar(public baz: u32) -> u32 {\n    return baz;\n  }\n}',
+  },
   linkerscript: {
     name: 'linkerscript',
     displayName: 'Linker Script',

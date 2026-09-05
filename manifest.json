@@ -637,6 +637,11 @@
     "revision": "86c2bcb379fe0b2ad13d8b3411400deff75b2785"
   },
   {
+    "name": "leo",
+    "repository": "https://github.com/r001/tree-sitter-leo",
+    "revision": "6bc5564917edacd070afc4d33cf5e2e677831ea9"
+  },
+  {
     "name": "linkerscript",
     "repository": "https://github.com/amaanq/tree-sitter-linkerscript",
     "revision": "f99011a3554213b654985a4b0a65b3b032ec4621"

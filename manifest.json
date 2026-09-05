@@ -441,6 +441,11 @@
     "revision": "4381cccfeeab79a700f817d56823e40cc959ee88"
   },
   {
+    "name": "kcl",
+    "repository": "https://github.com/kcl-lang/tree-sitter-kcl",
+    "revision": "6a5cc921928660cd6756cd6e0d636d9e24ea348e"
+  },
+  {
     "name": "kconfig",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-kconfig",
     "revision": "9ac99fe4c0c27a35dc6f757cef534c646e944881"

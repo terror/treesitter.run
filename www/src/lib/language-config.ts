@@ -1104,6 +1104,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'SystemVerilog',
     sampleCode: 'module foo;\nendmodule\n',
   },
+  t32: {
+    name: 't32',
+    displayName: 'TRACE32',
+    sampleCode: 'PRINT "foo"\nENDDO\n',
+  },
   tablegen: {
     name: 'tablegen',
     displayName: 'TableGen',

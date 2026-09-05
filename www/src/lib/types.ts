@@ -209,6 +209,7 @@ export type Language =
   | 'svelte'
   | 'sxhkdrc'
   | 'systemverilog'
+  | 't32'
   | 'tablegen'
   | 'terraform'
   | 'thrift'

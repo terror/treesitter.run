@@ -12,6 +12,7 @@ export type Language =
   | 'bicep'
   | 'bibtex'
   | 'bitbake'
+  | 'blade'
   | 'brightscript'
   | 'c'
   | 'c-sharp'

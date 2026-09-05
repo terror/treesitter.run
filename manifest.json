@@ -66,6 +66,11 @@
     "revision": "a5d04fdb5a69a02b8fa8eb5525a60dfb5309b73b"
   },
   {
+    "name": "blade",
+    "repository": "https://github.com/EmranMR/tree-sitter-blade",
+    "revision": "b5291d1ba207a8ebb8383b2ecb8a8a6535210a50"
+  },
+  {
     "name": "brightscript",
     "repository": "https://github.com/ajdelcimmuto/tree-sitter-brightscript",
     "revision": "0c534d56bb04778d0a3510bed5e720d1fe15cb76"

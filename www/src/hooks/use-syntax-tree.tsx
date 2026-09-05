@@ -1,20 +1,12 @@
-import { type ParseErrorRange, collectParseErrors } from '@/lib/parse-errors';
-import type { SyntaxNode } from '@/lib/types';
-import { parse, syntaxNodeKey } from '@/lib/utils';
-import type { Text } from '@codemirror/state';
-import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
-  type Parser,
-  type Language as TSLanguage,
-  type Tree,
-} from 'web-tree-sitter';
-
-interface UseSyntaxTreeOptions {
-  code: string;
-  doc: Text;
-  language: TSLanguage | undefined;
-  parser: Parser | undefined;
-}
+  type UseParsedTreeOptions,
+  useParsedTree,
+} from '@/hooks/use-parsed-tree';
+import type { ParseErrorRange } from '@/lib/parse-errors';
+import type { SyntaxNode } from '@/lib/types';
+import { syntaxNodeKey } from '@/lib/utils';
+import { useCallback, useMemo, useState } from 'react';
+import type { Tree } from 'web-tree-sitter';
 
 interface UseSyntaxTree {
   tree: Tree | null;
@@ -24,38 +16,8 @@ interface UseSyntaxTree {
   toggleExpand: (node: SyntaxNode) => void;
 }
 
-export function useSyntaxTree({
-  code,
-  doc,
-  language,
-  parser,
-}: UseSyntaxTreeOptions): UseSyntaxTree {
-  const tree = useMemo(() => {
-    if (!parser || !language) {
-      return null;
-    }
-
-    return parse({ parser, language, code });
-  }, [parser, language, code]);
-
-  useEffect(
-    () => () => {
-      tree?.delete();
-    },
-    [tree]
-  );
-
-  const root = useMemo(() => {
-    return (tree?.rootNode as unknown as SyntaxNode) ?? undefined;
-  }, [tree]);
-
-  const parseErrors = useMemo(() => {
-    if (!root) {
-      return [];
-    }
-
-    return collectParseErrors(root, doc);
-  }, [doc, root]);
+export function useSyntaxTree(options: UseParsedTreeOptions): UseSyntaxTree {
+  const { tree, root, parseErrors } = useParsedTree(options);
 
   const [collapsedNodes, setCollapsedNodes] = useState<Set<string>>(
     () => new Set()

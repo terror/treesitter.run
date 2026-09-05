@@ -1,37 +1,27 @@
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { cn } from '@/lib/utils';
-import { Extension } from '@codemirror/state';
+import type { Extension } from '@codemirror/state';
 import type { ViewUpdate } from '@codemirror/view';
 import CodeMirror from '@uiw/react-codemirror';
 
 interface EditorProps {
   value: string;
   onChange: (value: string) => void;
-  onCursorPositionChange: (position: { row: number; column: number }) => void;
+  onUpdate?: (update: ViewUpdate) => void;
+  placeholder?: string;
+  'aria-label'?: string;
   extensions: Extension[];
 }
 
 export const Editor = ({
   value,
   onChange,
-  onCursorPositionChange,
+  onUpdate,
+  placeholder,
+  'aria-label': ariaLabel,
   extensions,
 }: EditorProps) => {
   const { settings } = useEditorSettings();
-
-  const handleUpdate = (update: ViewUpdate) => {
-    if (!update.selectionSet && !update.docChanged) {
-      return;
-    }
-
-    const head = update.state.selection.main.head;
-    const line = update.state.doc.lineAt(head);
-
-    onCursorPositionChange({
-      row: line.number,
-      column: head - line.from + 1,
-    });
-  };
 
   return (
     <div
@@ -57,9 +47,11 @@ export const Editor = ({
           highlightSelectionMatches: false,
         }}
         onChange={onChange}
-        onUpdate={handleUpdate}
+        onUpdate={onUpdate}
         height='100%'
         style={{ height: '100%' }}
+        placeholder={placeholder}
+        aria-label={ariaLabel}
       />
     </div>
   );

@@ -253,6 +253,7 @@ export type Language =
   | 'tcl'
   | 'tsx'
   | 'zig'
+  | 'ziggy-schema'
   | 'zsh';
 
 export interface LanguageConfig {

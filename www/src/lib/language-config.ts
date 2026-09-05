@@ -1349,6 +1349,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'const std = @import("std");\n\npub fn main() void {\n  std.debug.print("foo\\n", .{});\n}',
   },
+  'ziggy-schema': {
+    name: 'ziggy-schema',
+    displayName: 'Ziggy Schema',
+    sampleCode: '$ = Foo\nstruct Foo {\n  bar: bytes,\n}\n',
+  },
   zsh: {
     name: 'zsh',
     displayName: 'Zsh',

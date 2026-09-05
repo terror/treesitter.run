@@ -149,6 +149,7 @@ export type Language =
   | 'slang'
   | 'smali'
   | 'solidity'
+  | 'sparql'
   | 'squirrel'
   | 'svelte'
   | 'systemverilog'

@@ -492,6 +492,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Kotlin',
     sampleCode: 'fun main() {\n  println("foo")\n}',
   },
+  koto: {
+    name: 'koto',
+    displayName: 'Koto',
+    sampleCode: 'foo = |bar| bar\nfoo "baz"\n',
+  },
   lean: {
     name: 'lean',
     displayName: 'Lean',

@@ -456,6 +456,11 @@
     "revision": "1852ea17b7f60fb3f9d84e0b1555d56b46b39fb1"
   },
   {
+    "name": "koto",
+    "repository": "https://github.com/koto-lang/tree-sitter-koto",
+    "revision": "e8d41cbaca867aa1b0213e1fc1caeaf593da7bf7"
+  },
+  {
     "name": "lean",
     "repository": "https://github.com/Julian/tree-sitter-lean",
     "revision": "86c2bcb379fe0b2ad13d8b3411400deff75b2785"

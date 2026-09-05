@@ -89,6 +89,7 @@ export type Language =
   | 'kconfig'
   | 'kdl'
   | 'kotlin'
+  | 'koto'
   | 'lean'
   | 'linkerscript'
   | 'liquid'

@@ -159,6 +159,7 @@ export type Language =
   | 'pem'
   | 'php'
   | 'phpdoc'
+  | 'pioasm'
   | 'pkl'
   | 'po'
   | 'poe-filter'

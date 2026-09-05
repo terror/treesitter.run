@@ -89,6 +89,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Blade',
     sampleCode: '@if ($foo)\n  {{ $bar }}\n@endif',
   },
+  bpftrace: {
+    name: 'bpftrace',
+    displayName: 'bpftrace',
+    sampleCode: 'BEGIN {\n  printf("foo\\n");\n}',
+  },
   brightscript: {
     name: 'brightscript',
     displayName: 'BrightScript',

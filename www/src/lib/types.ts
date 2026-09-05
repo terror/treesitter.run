@@ -231,6 +231,7 @@ export type Language =
   | 'sparql'
   | 'sproto'
   | 'squirrel'
+  | 'strace'
   | 'styled'
   | 'svelte'
   | 'swift'

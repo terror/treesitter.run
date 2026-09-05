@@ -8,6 +8,7 @@ export type Language =
   | 'authzed'
   | 'awk'
   | 'bash'
+  | 'bass'
   | 'beancount'
   | 'bicep'
   | 'bibtex'

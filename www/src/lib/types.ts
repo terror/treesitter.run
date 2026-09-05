@@ -247,6 +247,7 @@ export type Language =
   | 'textproto'
   | 'thrift'
   | 'tiger'
+  | 'todotxt'
   | 'tsv'
   | 'twig'
   | 'typescript'

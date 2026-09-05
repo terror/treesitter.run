@@ -1296,6 +1296,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Tiger',
     sampleCode: 'let\n  var foo := "bar"\nin\n  print(foo)\nend',
   },
+  todotxt: {
+    name: 'todotxt',
+    displayName: 'Todo.txt',
+    sampleCode: '(A) foo +bar @baz\n',
+  },
   tsv: {
     name: 'tsv',
     displayName: 'TSV',

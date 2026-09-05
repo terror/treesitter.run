@@ -1279,6 +1279,11 @@
     "revision": "4a77b2d7a004587646bddc4e854779044b6db459"
   },
   {
+    "name": "todotxt",
+    "repository": "https://github.com/arnarg/tree-sitter-todotxt",
+    "revision": "3937c5cd105ec4127448651a21aef45f52d19609"
+  },
+  {
     "name": "toml",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-toml",
     "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41"

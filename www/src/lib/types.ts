@@ -246,6 +246,7 @@ export type Language =
   | 'solidity'
   | 'soql'
   | 'sosl'
+  | 'sourcepawn'
   | 'sparql'
   | 'sproto'
   | 'squirrel'

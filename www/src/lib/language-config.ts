@@ -1288,6 +1288,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'SOSL',
     sampleCode: 'FIND {foo} IN ALL FIELDS RETURNING Account(Name)',
   },
+  sourcepawn: {
+    name: 'sourcepawn',
+    displayName: 'SourcePawn',
+    sampleCode: 'public void foo() {\n  PrintToServer("bar");\n}',
+  },
   sparql: {
     name: 'sparql',
     displayName: 'SPARQL',

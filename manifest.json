@@ -1254,6 +1254,11 @@
     "revision": "da568eee10ce4724a40f368b2b7e795dacb4f1ba"
   },
   {
+    "name": "sourcepawn",
+    "repository": "https://github.com/nilshelmig/tree-sitter-sourcepawn",
+    "revision": "2ef2d389c29b952f8b23909783f7d3c7972046f5"
+  },
+  {
     "name": "sparql",
     "repository": "https://github.com/GordianDziwis/tree-sitter-sparql",
     "revision": "1ef52d35a73a2a5f2e433ecfd1c751c1360a923b"

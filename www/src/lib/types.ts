@@ -282,6 +282,7 @@ export type Language =
   | 'tsx'
   | 'yang'
   | 'zig'
+  | 'ziggy'
   | 'ziggy-schema'
   | 'zsh';
 

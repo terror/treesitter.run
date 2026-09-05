@@ -806,6 +806,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Objective-C',
     sampleCode: '@interface Foo\n- (void)bar;\n@end',
   },
+  objdump: {
+    name: 'objdump',
+    displayName: 'Objdump',
+    sampleCode: '0000000000000000 <foo>:\n   0:\t90\tnop\n',
+  },
   ocaml: {
     name: 'ocaml',
     displayName: 'OCaml',

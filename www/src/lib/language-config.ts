@@ -289,6 +289,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'GDScript',
     sampleCode: 'func foo(bar):\n  print(bar)',
   },
+  gdshader: {
+    name: 'gdshader',
+    displayName: 'GDShader',
+    sampleCode:
+      'shader_type canvas_item;\nvoid fragment() {\n  COLOR = vec4(1.0);\n}',
+  },
   gitattributes: {
     name: 'gitattributes',
     displayName: 'Git Attributes',

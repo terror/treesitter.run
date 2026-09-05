@@ -52,6 +52,7 @@ export type Language =
   | 'fsharp'
   | 'func'
   | 'gdscript'
+  | 'gdshader'
   | 'gitattributes'
   | 'gleam'
   | 'glsl'

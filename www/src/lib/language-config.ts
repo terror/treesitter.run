@@ -325,6 +325,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Facility',
     sampleCode: 'service Foo {\n  method bar {}: {}\n}',
   },
+  faust: {
+    name: 'faust',
+    displayName: 'Faust',
+    sampleCode: 'foo = 1;\nprocess = foo;',
+  },
   fennel: {
     name: 'fennel',
     displayName: 'Fennel',

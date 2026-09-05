@@ -303,6 +303,11 @@
     "revision": "e4bfd3e960de9f4b4648acb1c92e9b95b47d8cfb"
   },
   {
+    "name": "faust",
+    "repository": "https://github.com/khiner/tree-sitter-faust",
+    "revision": "6074204d3511392fd0b9c4fa1cef347ded65b246"
+  },
+  {
     "name": "fennel",
     "repository": "https://github.com/alexmozaidze/tree-sitter-fennel",
     "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"

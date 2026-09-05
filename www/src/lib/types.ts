@@ -59,6 +59,7 @@ export type Language =
   | 'enforce'
   | 'erlang'
   | 'facility'
+  | 'faust'
   | 'fennel'
   | 'fidl'
   | 'firrtl'

@@ -20,90 +20,31 @@ defaults:
 jobs:
   parsers:
     outputs:
-      parsers: ${{ steps.parsers.outputs.parsers }}
+      batches: ${{ steps.parsers.outputs.batches }}
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
       uses: actions/checkout@v6
 
-    - name: List Parsers
+    - name: List Parser Batches
       id: parsers
-      run: echo "parsers=$(jq -c '[.[].name]' manifest.json)" >> "$GITHUB_OUTPUT"
+      run: |
+        parser_batches=$(jq -c -f .github/scripts/parser-batches.jq manifest.json)
+        echo "batches=$parser_batches" >> "$GITHUB_OUTPUT"
 
   update:
+    name: Update Parser Batch ${{ strategy.job-index }}
     needs: parsers
+    if: needs.parsers.outputs.batches != '[]'
 
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 1
       matrix:
-        parser: ${{ fromJson(needs.parsers.outputs.parsers) }}
+        batch: ${{ fromJson(needs.parsers.outputs.batches) }}
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-
-    - name: Setup Rust
-      uses: actions-rust-lang/setup-rust-toolchain@v1
-      with:
-        cache: false
-
-    - name: Cache Rust
-      uses: Swatinem/rust-cache@v2
-      with:
-        cache-bin: false
-        prefix-key: v1-rust
-
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v2
-      with:
-        bun-version: latest
-
-    - name: Install Web Dependencies
-      working-directory: ./www
-      run: bun install
-
-    - name: Update Parser
-      id: update
-      run: |
-        cargo run -- update --parsers "${{ matrix.parser }}"
-
-        if git diff --quiet -- manifest.json; then
-          echo "changed=false" >> "$GITHUB_OUTPUT"
-        else
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-        fi
-
-    - name: Compile Parser
-      if: steps.update.outputs.changed == 'true'
-      run: cargo run -- compile --parsers "${{ matrix.parser }}"
-
-    - name: Check Parser
-      if: steps.update.outputs.changed == 'true'
-      run: cargo run -- check --parsers "${{ matrix.parser }}"
-
-    - name: Generate Pull Request Token
-      id: pr-token
-      uses: actions/create-github-app-token@v2
-      with:
-        app-id: ${{ secrets.UPDATE_PARSERS_APP_ID }}
-        private-key: ${{ secrets.UPDATE_PARSERS_APP_PRIVATE_KEY }}
-
-    - name: Create Pull Request
-      id: pr
-      uses: peter-evans/create-pull-request@v8
-      with:
-        token: ${{ steps.pr-token.outputs.token }}
-        add-paths: |
-          manifest.json
-          www/public/tree-sitter-${{ matrix.parser }}.wasm
-          www/public/tree-sitter.wasm
-        branch: update-parser-${{ matrix.parser }}
-        commit-message: Update `${{ matrix.parser }}` parser
-        sign-commits: true
-        delete-branch: true
-        title: Update `${{ matrix.parser }}` parser
-        body: Updates the `${{ matrix.parser }}` parser to the latest upstream revision and rebuilds its WASM artifact.
+    uses: ./.github/workflows/update-parser-batch.yaml
+    with:
+      parsers: ${{ matrix.batch }}
+    secrets: inherit

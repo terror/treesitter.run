@@ -1166,6 +1166,12 @@
     "revision": "048fe686cb1fde267243739b8bdbec8fc3a55272"
   },
   {
+    "name": "soql",
+    "path": "soql",
+    "repository": "https://github.com/aheber/tree-sitter-sfapex",
+    "revision": "da568eee10ce4724a40f368b2b7e795dacb4f1ba"
+  },
+  {
     "name": "sosl",
     "path": "sosl",
     "repository": "https://github.com/aheber/tree-sitter-sfapex",

@@ -754,6 +754,11 @@
     "revision": "a8914d6c1fc5131f8e1c13f769fa704c9f5eb02f"
   },
   {
+    "name": "m68k",
+    "repository": "https://github.com/grahambates/tree-sitter-m68k",
+    "revision": "ab9f2ad96db56619d05a6474a52e3dbdd705a637"
+  },
+  {
     "name": "make",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-make",
     "revision": "70613f3d812cbabbd7f38d104d60a409c4008b43"

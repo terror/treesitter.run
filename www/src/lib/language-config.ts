@@ -274,6 +274,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Fortran',
     sampleCode: 'program foo\n  print *, "bar"\nend program foo',
   },
+  fsh: {
+    name: 'fsh',
+    displayName: 'FHIR Shorthand',
+    sampleCode: 'Alias: $foo = http://example.com/bar\n',
+  },
   fsharp: {
     name: 'fsharp',
     displayName: 'F#',

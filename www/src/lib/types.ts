@@ -49,6 +49,7 @@ export type Language =
   | 'firrtl'
   | 'fish'
   | 'fortran'
+  | 'fsh'
   | 'fsharp'
   | 'func'
   | 'gdscript'

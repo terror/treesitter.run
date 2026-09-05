@@ -744,6 +744,11 @@
     "revision": "e8d41cbaca867aa1b0213e1fc1caeaf593da7bf7"
   },
   {
+    "name": "kusto",
+    "repository": "https://github.com/Willem-J-an/tree-sitter-kusto",
+    "revision": "8353a1296607d6ba33db7c7e312226e5fc83e8ce"
+  },
+  {
     "name": "lalrpop",
     "repository": "https://github.com/traxys/tree-sitter-lalrpop",
     "revision": "27b0f7bb55b4cabd8f01a933d9ee6a49dbfc2192"

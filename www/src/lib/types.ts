@@ -232,6 +232,7 @@ export type Language =
   | 'uxntal'
   | 'v'
   | 'vala'
+  | 'vento'
   | 'verilog'
   | 'vhdl'
   | 'vim'

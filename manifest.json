@@ -1213,6 +1213,11 @@
     "revision": "97e6db3c8c73b15a9541a458d8e797a07f588ef4"
   },
   {
+    "name": "vento",
+    "repository": "https://github.com/ventojs/tree-sitter-vento",
+    "revision": "4569bc1fb81f050ca4ef3ceefdd31cfeb35c4f0a"
+  },
+  {
     "name": "verilog",
     "repository": "https://github.com/tree-sitter/tree-sitter-verilog",
     "revision": "227d277b6a1a5e2bf818d6206935722a7503de08"

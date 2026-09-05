@@ -218,6 +218,7 @@ export type Language =
   | 'tablegen'
   | 'tact'
   | 'terraform'
+  | 'textproto'
   | 'thrift'
   | 'tsv'
   | 'twig'

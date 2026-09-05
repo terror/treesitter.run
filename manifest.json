@@ -247,6 +247,11 @@
     "revision": "b7f1d682941e0c62dfcd6bf9ef481638351bab16"
   },
   {
+    "name": "foam",
+    "repository": "https://github.com/FoamScience/tree-sitter-foam",
+    "revision": "f72e493dadcca6a334c113b4cbaf864460541de4"
+  },
+  {
     "name": "fortran",
     "repository": "https://github.com/stadelmanma/tree-sitter-fortran",
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"

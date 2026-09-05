@@ -269,6 +269,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'fish',
     sampleCode: 'function foo\n  echo bar\nend\n',
   },
+  foam: {
+    name: 'foam',
+    displayName: 'OpenFOAM',
+    sampleCode:
+      'FoamFile\n{\n  version 2.0;\n  format ascii;\n  class dictionary;\n  object foo;\n}\n',
+  },
   fortran: {
     name: 'fortran',
     displayName: 'Fortran',

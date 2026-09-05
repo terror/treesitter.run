@@ -48,6 +48,7 @@ export type Language =
   | 'fennel'
   | 'firrtl'
   | 'fish'
+  | 'foam'
   | 'fortran'
   | 'fsharp'
   | 'func'

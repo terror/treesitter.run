@@ -1115,6 +1115,11 @@
     "revision": "d850fd470445d73de318a21d734d1e09e29b773c"
   },
   {
+    "name": "scheme",
+    "repository": "https://github.com/6cdh/tree-sitter-scheme",
+    "revision": "c6cb7c7d7a04b3f5d999c28e2e9c0c31b2d50ece"
+  },
+  {
     "name": "scss",
     "repository": "https://github.com/serenadeai/tree-sitter-scss",
     "revision": "c478c6868648eff49eb04a4df90d703dc45b312a"

@@ -219,6 +219,7 @@ export type Language =
   | 'rust'
   | 'scala'
   | 'scfg'
+  | 'scheme'
   | 'scss'
   | 'sflog'
   | 'slang'

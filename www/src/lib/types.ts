@@ -161,6 +161,7 @@ export type Language =
   | 'udev'
   | 'ungrammar'
   | 'uxntal'
+  | 'v'
   | 'vala'
   | 'verilog'
   | 'vhdl'

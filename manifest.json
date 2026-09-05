@@ -854,6 +854,12 @@
     "revision": "ad9b638b914095320de85d59c49ab271603af048"
   },
   {
+    "name": "v",
+    "path": "tree_sitter_v",
+    "repository": "https://github.com/vlang/v-analyzer",
+    "revision": "925d4570d1668746762a2cdf0ecb9a25be704a67"
+  },
+  {
     "name": "vala",
     "repository": "https://github.com/vala-lang/tree-sitter-vala",
     "revision": "97e6db3c8c73b15a9541a458d8e797a07f588ef4"

@@ -868,6 +868,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Uxntal',
     sampleCode: '|0100 @foo BRK\n',
   },
+  v: {
+    name: 'v',
+    displayName: 'V',
+    sampleCode: 'module main\n\nfn main() {\n  println("foo")\n}',
+  },
   vala: {
     name: 'vala',
     displayName: 'Vala',

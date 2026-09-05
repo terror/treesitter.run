@@ -1439,6 +1439,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Tiger',
     sampleCode: 'let\n  var foo := "bar"\nin\n  print(foo)\nend',
   },
+  tlaplus: {
+    name: 'tlaplus',
+    displayName: 'TLA+',
+    sampleCode: '---- MODULE Foo ----\nCONSTANT bar\nBaz == bar\n====\n',
+  },
   todotxt: {
     name: 'todotxt',
     displayName: 'Todo.txt',

@@ -1421,6 +1421,11 @@
     "revision": "4a77b2d7a004587646bddc4e854779044b6db459"
   },
   {
+    "name": "tlaplus",
+    "repository": "https://github.com/tlaplus-community/tree-sitter-tlaplus",
+    "revision": "add40814fda369f6efd989977b2c498aaddde984"
+  },
+  {
     "name": "todotxt",
     "repository": "https://github.com/arnarg/tree-sitter-todotxt",
     "revision": "3937c5cd105ec4127448651a21aef45f52d19609"

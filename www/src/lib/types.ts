@@ -275,6 +275,7 @@ export type Language =
   | 'textproto'
   | 'thrift'
   | 'tiger'
+  | 'tlaplus'
   | 'todotxt'
   | 'tsv'
   | 'turtle'

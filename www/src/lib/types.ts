@@ -177,6 +177,7 @@ export type Language =
   | 'php'
   | 'php-only'
   | 'phpdoc'
+  | 'pioasm'
   | 'pkl'
   | 'po'
   | 'poe-filter'

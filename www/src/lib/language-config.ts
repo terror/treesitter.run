@@ -936,6 +936,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'PHPDoc',
     sampleCode: '/**\n * @param string $foo\n * @return string\n */',
   },
+  pioasm: {
+    name: 'pioasm',
+    displayName: 'PIO Assembly',
+    sampleCode: '.program foo\n    set pins, 1\n',
+  },
   pkl: {
     name: 'pkl',
     displayName: 'Pkl',

@@ -904,6 +904,11 @@
     "revision": "12d50307e6c02e5f4f876fa6cf2edea1f7808c0d"
   },
   {
+    "name": "pioasm",
+    "repository": "https://github.com/leo60228/tree-sitter-pioasm",
+    "revision": "afece58efdb30440bddd151ef1347fa8d6f744a9"
+  },
+  {
     "name": "pkl",
     "repository": "https://github.com/apple/tree-sitter-pkl",
     "revision": "65f4483b9e8a5960a4d8948421ef3a8992013517"

@@ -1338,6 +1338,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '\n' +
       '<h1>{foo}</h1>',
   },
+  sway: {
+    name: 'sway',
+    displayName: 'Sway',
+    sampleCode: 'script;\nfn main() -> u64 {\n  1\n}',
+  },
   swift: {
     name: 'swift',
     displayName: 'Swift',

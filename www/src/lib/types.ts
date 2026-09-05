@@ -255,6 +255,7 @@ export type Language =
   | 'superhtml'
   | 'surface'
   | 'svelte'
+  | 'sway'
   | 'swift'
   | 'sxhkdrc'
   | 'systemverilog'

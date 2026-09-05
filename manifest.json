@@ -512,6 +512,11 @@
     "revision": "f03d0347acd8bb05d4edd8c845ac1718729e1fad"
   },
   {
+    "name": "menhir",
+    "repository": "https://github.com/Kerl13/tree-sitter-menhir",
+    "revision": "be8866a6bcc2b563ab0de895af69daeffa88fe70"
+  },
+  {
     "name": "mermaid",
     "repository": "https://github.com/monaqa/tree-sitter-mermaid",
     "revision": "90ae195b31933ceb9d079abfa8a3ad0a36fee4cc"

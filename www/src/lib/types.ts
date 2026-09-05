@@ -100,6 +100,7 @@ export type Language =
   | 'make'
   | 'markdown'
   | 'matlab'
+  | 'menhir'
   | 'mermaid'
   | 'meson'
   | 'move'

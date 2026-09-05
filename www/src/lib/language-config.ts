@@ -740,6 +740,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Lean',
     sampleCode: 'def foo : Nat := 1\n',
   },
+  ledger: {
+    name: 'ledger',
+    displayName: 'Ledger',
+    sampleCode: '2026/01/01 foo\n    bar    1 USD\n    baz\n',
+  },
   leo: {
     name: 'leo',
     displayName: 'Leo',

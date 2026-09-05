@@ -104,6 +104,7 @@ export type Language =
   | 'meson'
   | 'move'
   | 'nginx'
+  | 'nickel'
   | 'nim'
   | 'nix'
   | 'nqc'

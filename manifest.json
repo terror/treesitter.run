@@ -532,6 +532,11 @@
     "revision": "7cdf006ed1addef698fc680ae31721950f85e5e9"
   },
   {
+    "name": "nickel",
+    "repository": "https://github.com/nickel-lang/tree-sitter-nickel",
+    "revision": "fd65591d3c7812b0e3e733506f3f08a354a38ea6"
+  },
+  {
     "name": "nim",
     "repository": "https://github.com/alaviss/tree-sitter-nim",
     "revision": "ac72ba30d16edf0be021588a9301ede4accd6cf4"

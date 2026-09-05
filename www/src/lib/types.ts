@@ -101,6 +101,7 @@ export type Language =
   | 'http'
   | 'hurl'
   | 'hyprlang'
+  | 'idl'
   | 'ini'
   | 'inko'
   | 'ispc'

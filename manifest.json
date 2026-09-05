@@ -514,6 +514,11 @@
     "revision": "cecd6b748107d9da1f7b4ca03ef95f1f71d93b8f"
   },
   {
+    "name": "idl",
+    "repository": "https://github.com/cathaysia/tree-sitter-idl",
+    "revision": "b5ecf511e542e43313ba4602bdb206a08cb06232"
+  },
+  {
     "name": "ini",
     "repository": "https://github.com/justinmk/tree-sitter-ini",
     "revision": "e4018b5176132b4f3c5d6e61cea383f42288d0f5"

@@ -741,6 +741,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'MATLAB',
     sampleCode: 'function y = foo(x)\ny = x + 1;\nend\n',
   },
+  menhir: {
+    name: 'menhir',
+    displayName: 'Menhir',
+    sampleCode: '%token FOO\n%start <unit> foo\n%%\nfoo: FOO { () }\n',
+  },
   mermaid: {
     name: 'mermaid',
     displayName: 'Mermaid',

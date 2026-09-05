@@ -138,6 +138,7 @@ export type Language =
   | 'markdown'
   | 'markdown-inline'
   | 'matlab'
+  | 'menhir'
   | 'mermaid'
   | 'meson'
   | 'move'

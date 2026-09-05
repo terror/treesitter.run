@@ -155,6 +155,7 @@ export type Language =
   | 'ocaml'
   | 'ocamllex'
   | 'odin'
+  | 'pascal'
   | 'pem'
   | 'php'
   | 'pkl'

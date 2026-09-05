@@ -1360,6 +1360,11 @@
     "revision": "850a72ab6436e06645b33b11cfa60cbdb04b1f01"
   },
   {
+    "name": "templ",
+    "repository": "https://github.com/vrischmann/tree-sitter-templ",
+    "revision": "94d40865c15ebbaff9ed11dde5d6490b0f5de092"
+  },
+  {
     "name": "terraform",
     "path": "dialects/terraform",
     "repository": "https://github.com/MichaHoffmann/tree-sitter-hcl",

@@ -281,6 +281,7 @@ export type Language =
   | 'tcl'
   | 'tsx'
   | 'yang'
+  | 'yuck'
   | 'zig'
   | 'ziggy-schema'
   | 'zsh';

@@ -240,6 +240,7 @@ export type Language =
   | 'slim'
   | 'slint'
   | 'smali'
+  | 'smithy'
   | 'snakemake'
   | 'snl'
   | 'solidity'

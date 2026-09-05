@@ -211,6 +211,7 @@ export type Language =
   | 'systemverilog'
   | 't32'
   | 'tablegen'
+  | 'tact'
   | 'terraform'
   | 'thrift'
   | 'tsv'

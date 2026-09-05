@@ -1114,6 +1114,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'TableGen',
     sampleCode: 'class Foo<string bar> {\n  string baz = bar;\n}',
   },
+  tact: {
+    name: 'tact',
+    displayName: 'Tact',
+    sampleCode: 'contract Foo {\n  init() {}\n}',
+  },
   terraform: {
     name: 'terraform',
     displayName: 'Terraform',

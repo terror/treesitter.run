@@ -1301,6 +1301,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'TSV',
     sampleCode: 'foo\tbar\nbaz\tqux\n',
   },
+  turtle: {
+    name: 'turtle',
+    displayName: 'Turtle',
+    sampleCode: '@prefix foo: <http://example.com/> .\nfoo:bar foo:baz "qux" .',
+  },
   twig: {
     name: 'twig',
     displayName: 'Twig',

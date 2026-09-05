@@ -1296,6 +1296,11 @@
     "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f"
   },
   {
+    "name": "turtle",
+    "repository": "https://github.com/GordianDziwis/tree-sitter-turtle",
+    "revision": "7f789ea7ef765080f71a298fc96b7c957fa24422"
+  },
+  {
     "name": "twig",
     "repository": "https://github.com/gbprod/tree-sitter-twig",
     "revision": "2208d2a3c3ee7ef378e97df2e51c18feb7ee9dfc"

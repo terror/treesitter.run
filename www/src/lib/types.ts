@@ -157,6 +157,7 @@ export type Language =
   | 'thrift'
   | 'tsv'
   | 'typescript'
+  | 'typoscript'
   | 'typst'
   | 'udev'
   | 'ungrammar'

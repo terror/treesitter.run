@@ -834,6 +834,11 @@
     "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f"
   },
   {
+    "name": "typoscript",
+    "repository": "https://github.com/Teddytrombone/tree-sitter-typoscript",
+    "revision": "b5d0162b328ec52cf300054a8a23d47f84f55cb4"
+  },
+  {
     "name": "typst",
     "repository": "https://github.com/uben0/tree-sitter-typst",
     "revision": "46cf4ded12ee974a70bf8457263b67ad7ee0379d"

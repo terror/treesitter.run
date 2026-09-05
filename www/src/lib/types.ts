@@ -297,6 +297,7 @@ export type Language =
   | 'vhs'
   | 'vim'
   | 'vimdoc'
+  | 'vrl'
   | 'vue'
   | 'wgsl'
   | 'wgsl-bevy'

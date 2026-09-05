@@ -227,6 +227,7 @@ export type Language =
   | 'snakemake'
   | 'snl'
   | 'solidity'
+  | 'sosl'
   | 'sparql'
   | 'squirrel'
   | 'styled'

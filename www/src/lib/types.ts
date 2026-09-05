@@ -121,6 +121,7 @@ export type Language =
   | 'kcl'
   | 'kconfig'
   | 'kdl'
+  | 'kitty'
   | 'kotlin'
   | 'lean'
   | 'linkerscript'

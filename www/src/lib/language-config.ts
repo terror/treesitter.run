@@ -655,6 +655,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'KDL',
     sampleCode: 'foo bar="baz"\n',
   },
+  kitty: {
+    name: 'kitty',
+    displayName: 'Kitty Config',
+    sampleCode: 'font_family foo\nfont_size 12\n',
+  },
   kotlin: {
     name: 'kotlin',
     displayName: 'Kotlin',

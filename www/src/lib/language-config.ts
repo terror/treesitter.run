@@ -1404,6 +1404,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Tact',
     sampleCode: 'contract Foo {\n  init() {}\n}',
   },
+  teal: {
+    name: 'teal',
+    displayName: 'Teal',
+    sampleCode: 'local foo: string = "bar"\nprint(foo)\n',
+  },
   templ: {
     name: 'templ',
     displayName: 'Templ',

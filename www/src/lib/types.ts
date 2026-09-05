@@ -268,6 +268,7 @@ export type Language =
   | 't32'
   | 'tablegen'
   | 'tact'
+  | 'teal'
   | 'templ'
   | 'tera'
   | 'terraform'

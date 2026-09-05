@@ -1167,6 +1167,11 @@
     "revision": "1ef52d35a73a2a5f2e433ecfd1c751c1360a923b"
   },
   {
+    "name": "sproto",
+    "repository": "https://github.com/hanxi/tree-sitter-sproto",
+    "revision": "d554c1456e35e7b2690552d52921c987d0cf6799"
+  },
+  {
     "name": "sql",
     "repository": "https://github.com/wippyai/tree-sitter-sql",
     "revision": "f7491fe853198c1ea81d743244ad9c2aa3eab157"

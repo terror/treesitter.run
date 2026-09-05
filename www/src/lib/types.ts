@@ -229,6 +229,7 @@ export type Language =
   | 'solidity'
   | 'sosl'
   | 'sparql'
+  | 'sproto'
   | 'squirrel'
   | 'styled'
   | 'svelte'

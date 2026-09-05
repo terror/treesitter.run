@@ -1201,6 +1201,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'SPARQL',
     sampleCode: 'SELECT ?foo WHERE {\n  ?foo ?bar ?baz .\n}',
   },
+  sproto: {
+    name: 'sproto',
+    displayName: 'Sproto',
+    sampleCode: '.Foo {\n  bar 0 : string\n}\n',
+  },
   squirrel: {
     name: 'squirrel',
     displayName: 'Squirrel',

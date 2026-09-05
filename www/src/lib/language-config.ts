@@ -1318,6 +1318,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Styled Components',
     sampleCode: 'color: red;\n.foo { display: block; }',
   },
+  supercollider: {
+    name: 'supercollider',
+    displayName: 'SuperCollider',
+    sampleCode: 'var foo = "bar";\nfoo.postln;',
+  },
   superhtml: {
     name: 'superhtml',
     displayName: 'SuperHTML',

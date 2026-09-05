@@ -1299,6 +1299,11 @@
     "revision": "319cdcaa0346ba6db668a222d938e5c3569e2a51"
   },
   {
+    "name": "supercollider",
+    "repository": "https://github.com/madskjeldgaard/tree-sitter-supercollider",
+    "revision": "9bb316d1e6e4569331ff1206efe009cadedda619"
+  },
+  {
     "name": "superhtml",
     "path": "tree-sitter-superhtml",
     "repository": "https://github.com/kristoff-it/superhtml",

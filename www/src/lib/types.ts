@@ -51,6 +51,7 @@ export type Language =
   | 'dockerfile'
   | 'dot'
   | 'dtd'
+  | 'earthfile'
   | 'ebnf'
   | 'editorconfig'
   | 'eds'

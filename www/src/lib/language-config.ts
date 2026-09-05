@@ -284,6 +284,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'DTD',
     sampleCode: '<!ELEMENT foo (#PCDATA)>',
   },
+  earthfile: {
+    name: 'earthfile',
+    displayName: 'Earthfile',
+    sampleCode: 'VERSION 0.8\nfoo:\n    FROM alpine\n    RUN echo bar\n',
+  },
   ebnf: {
     name: 'ebnf',
     displayName: 'EBNF',

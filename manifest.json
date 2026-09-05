@@ -263,6 +263,11 @@
     "revision": "5000ae8f22d11fbe93939b05c1e37cf21117162d"
   },
   {
+    "name": "earthfile",
+    "repository": "https://github.com/glehmann/tree-sitter-earthfile",
+    "revision": "5baef88717ad0156fd29a8b12d0d8245bb1096a8"
+  },
+  {
     "name": "ebnf",
     "path": "crates/tree-sitter-ebnf",
     "repository": "https://github.com/RubixDev/ebnf",

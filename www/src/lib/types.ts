@@ -81,6 +81,7 @@ export type Language =
   | 'go-sum'
   | 'goctl'
   | 'gomod'
+  | 'gotmpl'
   | 'gowork'
   | 'gpg-config'
   | 'graphql'

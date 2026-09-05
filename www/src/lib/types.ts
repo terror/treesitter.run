@@ -173,6 +173,7 @@ export type Language =
   | 'ocamllex'
   | 'odin'
   | 'pascal'
+  | 'passwd'
   | 'pem'
   | 'php'
   | 'php-only'

@@ -43,6 +43,7 @@ export type Language =
   | 'eex'
   | 'elixir'
   | 'elm'
+  | 'elsa'
   | 'embedded-template'
   | 'erlang'
   | 'fennel'

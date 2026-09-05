@@ -76,6 +76,7 @@ export type Language =
   | 'ini'
   | 'ispc'
   | 'java'
+  | 'javadoc'
   | 'javascript'
   | 'jinja'
   | 'jinja-inline'

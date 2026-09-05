@@ -427,6 +427,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '  }\n' +
       '}',
   },
+  javadoc: {
+    name: 'javadoc',
+    displayName: 'Javadoc',
+    sampleCode: '/**\n * foo\n * @param bar baz\n */',
+  },
   javascript: {
     name: 'javascript',
     displayName: 'JavaScript',

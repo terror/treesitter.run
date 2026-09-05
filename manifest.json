@@ -81,6 +81,11 @@
     "revision": "b5291d1ba207a8ebb8383b2ecb8a8a6535210a50"
   },
   {
+    "name": "bp",
+    "repository": "https://github.com/ambroisie/tree-sitter-bp",
+    "revision": "ee641d15390183d7535777947ce0f2f1fbcee69f"
+  },
+  {
     "name": "bpftrace",
     "repository": "https://github.com/sgruszka/tree-sitter-bpftrace",
     "revision": "ce507ff578efa222c694bb05399c76b3a8590454"

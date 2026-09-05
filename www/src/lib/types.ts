@@ -169,6 +169,7 @@ export type Language =
   | 'promql'
   | 'properties'
   | 'proto'
+  | 'prql'
   | 'psv'
   | 'pug'
   | 'puppet'

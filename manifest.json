@@ -227,6 +227,11 @@
     "revision": "3499d85f0a0d937c507a4a65368f2f63772786e1"
   },
   {
+    "name": "enforce",
+    "repository": "https://github.com/simonvic/tree-sitter-enforce",
+    "revision": "d222ea5d2f047e67a16234237cfc1c8489aac2fb"
+  },
+  {
     "name": "erlang",
     "repository": "https://github.com/WhatsApp/tree-sitter-erlang",
     "revision": "6ba4c762eb3065495e3db85697ffeecdf364ce35"

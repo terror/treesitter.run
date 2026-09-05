@@ -44,6 +44,7 @@ export type Language =
   | 'elixir'
   | 'elm'
   | 'embedded-template'
+  | 'enforce'
   | 'erlang'
   | 'fennel'
   | 'firrtl'

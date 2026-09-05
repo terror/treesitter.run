@@ -1419,6 +1419,11 @@
     "revision": "a1c4812a73ec5e089de8e441fdea3a921e8d5079"
   },
   {
+    "name": "yang",
+    "repository": "https://github.com/Hubro/tree-sitter-yang",
+    "revision": "2c0e6be8dd4dcb961c345fa35c309ad4f5bd3502"
+  },
+  {
     "name": "zig",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-zig",
     "revision": "6479aa13f32f701c383083d8b28360ebd682fb7d"

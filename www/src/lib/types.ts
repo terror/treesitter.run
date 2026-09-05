@@ -278,6 +278,7 @@ export type Language =
   | 'starlark'
   | 'tcl'
   | 'tsx'
+  | 'yang'
   | 'zig'
   | 'ziggy-schema'
   | 'zsh';

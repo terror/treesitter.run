@@ -1476,6 +1476,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
       '  return <span>{text}</span>;\n' +
       '}',
   },
+  yang: {
+    name: 'yang',
+    displayName: 'YANG',
+    sampleCode:
+      'module foo {\n  namespace "urn:foo";\n  prefix foo;\n  leaf bar { type string; }\n}',
+  },
   zig: {
     name: 'zig',
     displayName: 'Zig',

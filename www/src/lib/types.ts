@@ -40,6 +40,7 @@ export type Language =
   | 'dockerfile'
   | 'dot'
   | 'editorconfig'
+  | 'eds'
   | 'eex'
   | 'elixir'
   | 'elm'

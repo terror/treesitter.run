@@ -96,6 +96,7 @@ export type Language =
   | 'heex'
   | 'hjson'
   | 'hlsl'
+  | 'hocon'
   | 'html'
   | 'http'
   | 'hurl'

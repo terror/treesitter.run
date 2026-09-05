@@ -1400,6 +1400,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       '@fragment\nfn foo() -> @location(0) vec4<f32> {\n  return vec4<f32>(1.0);\n}',
   },
+  wing: {
+    name: 'wing',
+    displayName: 'Wing',
+    sampleCode: 'let foo = "bar";\nlog(foo);',
+  },
   wit: {
     name: 'wit',
     displayName: 'WIT',

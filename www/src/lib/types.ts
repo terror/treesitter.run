@@ -265,6 +265,7 @@ export type Language =
   | 'vimdoc'
   | 'wgsl'
   | 'wgsl-bevy'
+  | 'wing'
   | 'wit'
   | 'wxml'
   | 'xcompose'

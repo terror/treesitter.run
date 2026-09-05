@@ -16,7 +16,7 @@ export function useTreeWorkbench({
   parser,
   treeSitterLanguage,
 }: UseTreeWorkbenchOptions) {
-  const { tree, root, parseErrors, expandedNodes, toggleExpand } =
+  const { tree, root, parseErrors, collapsedNodes, toggleExpand } =
     useSyntaxTree({
       code,
       language: treeSitterLanguage,
@@ -36,7 +36,7 @@ export function useTreeWorkbench({
   });
 
   return {
-    expandedNodes,
+    collapsedNodes,
     parseErrors,
     query,
     queryCaptureNamesByKey,

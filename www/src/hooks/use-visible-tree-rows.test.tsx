@@ -65,19 +65,15 @@ describe('visible tree rows', () => {
       search: '',
     });
 
-    const check = (expandedNodes: Set<string>, expected: string[]) => {
+    const check = (collapsedNodes: Set<string>, expected: string[]) => {
       expect(
-        collectVisibleTreeRows({ expandedNodes, root, visibleTree }).map(
+        collectVisibleTreeRows({ collapsedNodes, root, visibleTree }).map(
           (row) => row.node.type
         )
       ).toEqual(expected);
     };
 
-    check(new Set([syntaxNodeKey(root)]), ['root', 'foo']);
-    check(new Set([syntaxNodeKey(root), syntaxNodeKey(parent)]), [
-      'root',
-      'foo',
-      'bar',
-    ]);
+    check(new Set([syntaxNodeKey(parent)]), ['root', 'foo']);
+    check(new Set(), ['root', 'foo', 'bar']);
   });
 });

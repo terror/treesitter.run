@@ -15,7 +15,7 @@ import {
 import { VirtualizedTreeList } from './virtualized-tree-list';
 
 interface TreePaneProps {
-  expandedNodes: Set<string>;
+  collapsedNodes: Set<string>;
   language: Language;
   loading: boolean;
   onDeleteRange: (range: { from: number; to: number }) => void;
@@ -33,7 +33,7 @@ interface TreePaneProps {
 const TREE_QUERY_LAYOUT_STORAGE_KEY = 'treesitter.run:tree-query-layout';
 
 export const TreePane = ({
-  expandedNodes,
+  collapsedNodes,
   language,
   loading,
   onDeleteRange,
@@ -55,7 +55,7 @@ export const TreePane = ({
   const { activeFilterCount, filters, setFilters } = useTreeFilters();
 
   const { rootVisible, visibleRows, visibleTree } = useVisibleTreeRows({
-    expandedNodes,
+    collapsedNodes,
     filters,
     root,
     search,

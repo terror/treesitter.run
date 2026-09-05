@@ -1620,6 +1620,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'const std = @import("std");\n\npub fn main() void {\n  std.debug.print("foo\\n", .{});\n}',
   },
+  ziggy: {
+    name: 'ziggy',
+    displayName: 'Ziggy',
+    sampleCode: '.foo = "bar",\n',
+  },
   'ziggy-schema': {
     name: 'ziggy-schema',
     displayName: 'Ziggy Schema',

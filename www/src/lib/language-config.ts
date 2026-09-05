@@ -16,6 +16,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Agda',
     sampleCode: 'module Foo where\n\ndata Bar : Set where\n  baz : Bar',
   },
+  angular: {
+    name: 'angular',
+    displayName: 'Angular',
+    sampleCode: '<div>{{ foo }}</div>',
+  },
   apex: {
     name: 'apex',
     displayName: 'Apex',

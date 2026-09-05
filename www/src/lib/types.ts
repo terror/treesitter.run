@@ -144,6 +144,7 @@ export type Language =
   | 'mlir'
   | 'move'
   | 'nginx'
+  | 'nickel'
   | 'nim'
   | 'nix'
   | 'nqc'

@@ -102,6 +102,7 @@ export type Language =
   | 'haskell-persistent'
   | 'hcl'
   | 'heex'
+  | 'helm'
   | 'hjson'
   | 'hlsl'
   | 'hocon'

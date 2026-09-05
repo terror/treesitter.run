@@ -874,6 +874,11 @@
     "revision": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b"
   },
   {
+    "name": "vimdoc",
+    "repository": "https://github.com/neovim/tree-sitter-vimdoc",
+    "revision": "23daa416c1ff5d15f59a1aa648f031d6e3ee15c5"
+  },
+  {
     "name": "wgsl",
     "repository": "https://github.com/szebniok/tree-sitter-wgsl",
     "revision": "40259f3c77ea856841a4e0c4c807705f3e4a2b65"

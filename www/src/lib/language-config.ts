@@ -890,6 +890,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Vimscript',
     sampleCode: 'function Foo(bar)\n  echo a:bar\nendfunction\n',
   },
+  vimdoc: {
+    name: 'vimdoc',
+    displayName: 'Vim Help',
+    sampleCode: '*foo*\n\nbar |baz|\n\n',
+  },
   wgsl: {
     name: 'wgsl',
     displayName: 'WGSL',

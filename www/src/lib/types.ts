@@ -165,6 +165,7 @@ export type Language =
   | 'verilog'
   | 'vhdl'
   | 'vim'
+  | 'vimdoc'
   | 'wgsl'
   | 'wgsl-bevy'
   | 'wit'

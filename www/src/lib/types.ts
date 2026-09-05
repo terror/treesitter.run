@@ -154,6 +154,7 @@ export type Language =
   | 'systemverilog'
   | 'tablegen'
   | 'terraform'
+  | 'textproto'
   | 'thrift'
   | 'tsv'
   | 'typescript'

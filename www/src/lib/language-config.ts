@@ -824,6 +824,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Terraform',
     sampleCode: 'resource "foo" "bar" {\n  baz = "qux"\n}',
   },
+  textproto: {
+    name: 'textproto',
+    displayName: 'Text Proto',
+    sampleCode: 'foo: "bar"\nbaz { qux: 1 }',
+  },
   thrift: {
     name: 'thrift',
     displayName: 'Thrift',

@@ -806,6 +806,11 @@
     "revision": "64ad62785d442eb4d45df3a1764962dafd5bc98b"
   },
   {
+    "name": "textproto",
+    "repository": "https://github.com/PorterAtGoogle/tree-sitter-textproto",
+    "revision": "568471b80fd8793d37ed01865d8c2208a9fefd1b"
+  },
+  {
     "name": "thrift",
     "repository": "https://github.com/duskmoon314/tree-sitter-thrift",
     "revision": "68fd0d80943a828d9e6f49c58a74be1e9ca142cf"

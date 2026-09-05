@@ -37,6 +37,7 @@ export type Language =
   | 'devicetree'
   | 'dhall'
   | 'diff'
+  | 'disassembly'
   | 'dockerfile'
   | 'dot'
   | 'editorconfig'

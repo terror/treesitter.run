@@ -509,6 +509,12 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'goctl',
     sampleCode: 'syntax = "v1"\n\ntype Foo {\n  Bar string\n}\n',
   },
+  'godot-resource': {
+    name: 'godot-resource',
+    displayName: 'Godot Resource',
+    sampleCode:
+      '[gd_resource type="Resource" format=3]\n\n[resource]\nresource_name = "foo"\n',
+  },
   gomod: {
     name: 'gomod',
     displayName: 'go.mod',

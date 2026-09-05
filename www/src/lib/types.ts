@@ -76,6 +76,7 @@ export type Language =
   | 'fsharp'
   | 'func'
   | 'gap'
+  | 'gaptst'
   | 'gdscript'
   | 'gdshader'
   | 'git-config'

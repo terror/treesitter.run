@@ -411,6 +411,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'GAP',
     sampleCode: 'foo := function(bar)\n  return bar;\nend;\n',
   },
+  gaptst: {
+    name: 'gaptst',
+    displayName: 'GAP Test',
+    sampleCode: 'gap> foo := 1;\n1\n',
+  },
   gdscript: {
     name: 'gdscript',
     displayName: 'GDScript',

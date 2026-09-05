@@ -374,6 +374,11 @@
     "revision": "cefbd6863983b4df3214b7934bde5e9ca63d5b7f"
   },
   {
+    "name": "glimmer",
+    "repository": "https://github.com/ember-tooling/tree-sitter-glimmer",
+    "revision": "bcce263de3e6f0bdd115efee08b0f896180db813"
+  },
+  {
     "name": "glimmer-javascript",
     "repository": "https://github.com/NullVoxPopuli/tree-sitter-glimmer-javascript",
     "revision": "d9cf7a2f1dad3c6b660148eaf77e955d418fdb8b"

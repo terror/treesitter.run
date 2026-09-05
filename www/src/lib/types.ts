@@ -73,6 +73,7 @@ export type Language =
   | 'gdshader'
   | 'gitattributes'
   | 'gleam'
+  | 'glimmer'
   | 'glimmer-javascript'
   | 'glsl'
   | 'gn'

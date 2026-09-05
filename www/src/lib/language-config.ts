@@ -356,6 +356,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'GStreamer Launch',
     sampleCode: 'videotestsrc ! autovideosink',
   },
+  hack: {
+    name: 'hack',
+    displayName: 'Hack',
+    sampleCode: '<?hh\nfunction foo(): string {\n  return "bar";\n}\n',
+  },
   hare: {
     name: 'hare',
     displayName: 'Hare',

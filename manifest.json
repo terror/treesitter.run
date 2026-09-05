@@ -328,6 +328,11 @@
     "revision": "549aef253fd38a53995cda1bf55c501174372bf7"
   },
   {
+    "name": "hack",
+    "repository": "https://github.com/slackhq/tree-sitter-hack",
+    "revision": "1a7ded90288189746c54861ac144ede97df95081"
+  },
+  {
     "name": "hare",
     "repository": "https://github.com/amaanq/tree-sitter-hare",
     "revision": "eed7ddf6a66b596906aa8ca3d40521b8278adc6f"

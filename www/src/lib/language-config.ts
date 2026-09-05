@@ -305,6 +305,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Elsa',
     sampleCode: 'let foo = \\bar -> bar',
   },
+  elvish: {
+    name: 'elvish',
+    displayName: 'Elvish',
+    sampleCode: 'var foo = bar\necho $foo',
+  },
   'embedded-template': {
     name: 'embedded-template',
     displayName: 'Embedded Template',

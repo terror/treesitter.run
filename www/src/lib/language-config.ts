@@ -300,6 +300,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Elm',
     sampleCode: 'module Foo exposing (bar)\n\nbar =\n    "baz"',
   },
+  elsa: {
+    name: 'elsa',
+    displayName: 'Elsa',
+    sampleCode: 'let foo = \\bar -> bar',
+  },
   'embedded-template': {
     name: 'embedded-template',
     displayName: 'Embedded Template',

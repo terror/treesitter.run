@@ -889,6 +889,11 @@
     "revision": "cdf07263b136054b413cab449ac7a1d059c27542"
   },
   {
+    "name": "wxml",
+    "repository": "https://github.com/BlockLune/tree-sitter-wxml",
+    "revision": "1cc1761c8c11cacab5516dbe64e20ee689aa4428"
+  },
+  {
     "name": "xcompose",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-xcompose",
     "revision": "a51d6366f041dbefec4da39a7eb3168a9b1cbc0e"

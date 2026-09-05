@@ -907,6 +907,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'WIT',
     sampleCode: 'package foo:bar;\ninterface baz {\n  qux: func();\n}\n',
   },
+  wxml: {
+    name: 'wxml',
+    displayName: 'WXML',
+    sampleCode: '<view>{{foo}}</view>',
+  },
   xcompose: {
     name: 'xcompose',
     displayName: 'XCompose',

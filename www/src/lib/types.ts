@@ -53,6 +53,7 @@ export type Language =
   | 'func'
   | 'gdscript'
   | 'gitattributes'
+  | 'gitcommit'
   | 'gleam'
   | 'glsl'
   | 'gn'

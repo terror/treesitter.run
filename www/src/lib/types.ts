@@ -87,6 +87,7 @@ export type Language =
   | 'go'
   | 'go-sum'
   | 'goctl'
+  | 'godot-resource'
   | 'gomod'
   | 'gotmpl'
   | 'gowork'

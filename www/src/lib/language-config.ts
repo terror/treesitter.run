@@ -407,6 +407,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Hyprlang',
     sampleCode: '$foo = bar\nmonitor = , preferred, auto, 1\n',
   },
+  idl: {
+    name: 'idl',
+    displayName: 'IDL',
+    sampleCode: 'module Foo {\n  interface Bar {\n    void baz();\n  };\n};',
+  },
   ini: {
     name: 'ini',
     displayName: 'INI',

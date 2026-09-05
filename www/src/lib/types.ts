@@ -73,6 +73,7 @@ export type Language =
   | 'http'
   | 'hurl'
   | 'hyprlang'
+  | 'idl'
   | 'ini'
   | 'ispc'
   | 'java'

@@ -108,6 +108,7 @@ export type Language =
   | 'ispc'
   | 'janet-simple'
   | 'java'
+  | 'javadoc'
   | 'javascript'
   | 'jinja'
   | 'jinja-inline'

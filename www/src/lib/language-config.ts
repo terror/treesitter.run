@@ -1398,6 +1398,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Vim Help',
     sampleCode: '*foo*\n\nbar |baz|\n\n',
   },
+  vue: {
+    name: 'vue',
+    displayName: 'Vue',
+    sampleCode: '<template>\n  <div>{{ foo }}</div>\n</template>',
+  },
   wgsl: {
     name: 'wgsl',
     displayName: 'WGSL',

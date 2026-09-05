@@ -222,6 +222,7 @@ export type Language =
   | 'udev'
   | 'ungrammar'
   | 'unison'
+  | 'usd'
   | 'uxntal'
   | 'vala'
   | 'verilog'

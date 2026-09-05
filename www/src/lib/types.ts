@@ -264,6 +264,7 @@ export type Language =
   | 'tablegen'
   | 'tact'
   | 'templ'
+  | 'tera'
   | 'terraform'
   | 'textproto'
   | 'thrift'

@@ -1103,6 +1103,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'ReScript',
     sampleCode: 'let foo = bar => bar',
   },
+  rifleconf: {
+    name: 'rifleconf',
+    displayName: 'Rifle Config',
+    sampleCode: 'ext foo = bar "$@"\n',
+  },
   robot: {
     name: 'robot',
     displayName: 'Robot Framework',

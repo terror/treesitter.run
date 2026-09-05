@@ -210,6 +210,7 @@ export type Language =
   | 'rego'
   | 'requirements'
   | 'rescript'
+  | 'rifleconf'
   | 'robot'
   | 'roc'
   | 'ron'

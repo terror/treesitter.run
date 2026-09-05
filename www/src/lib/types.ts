@@ -216,6 +216,7 @@ export type Language =
   | 'racket'
   | 'ralph'
   | 'razor'
+  | 'rbs'
   | 're2c'
   | 'readline'
   | 'regex'

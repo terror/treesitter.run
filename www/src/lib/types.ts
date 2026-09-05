@@ -146,6 +146,7 @@ export type Language =
   | 'nginx'
   | 'nickel'
   | 'nim'
+  | 'ninja'
   | 'nix'
   | 'nqc'
   | 'nu'

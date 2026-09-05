@@ -87,6 +87,7 @@ export type Language =
   | 'graphql'
   | 'gren'
   | 'groovy'
+  | 'groq'
   | 'gstlaunch'
   | 'hare'
   | 'haskell'

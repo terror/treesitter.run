@@ -444,6 +444,11 @@
     "revision": "deb0dcf8c4544f07564060f6e9b9f6e4b0bfc27d"
   },
   {
+    "name": "groq",
+    "repository": "https://github.com/ajrussellaudio/tree-sitter-groq",
+    "revision": "1fa1ab0eb391a270957e8ad8c731b492e3645649"
+  },
+  {
     "name": "gstlaunch",
     "repository": "https://github.com/theHamsta/tree-sitter-gstlaunch",
     "revision": "549aef253fd38a53995cda1bf55c501174372bf7"

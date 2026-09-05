@@ -474,6 +474,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Groovy',
     sampleCode: "def foo() {\n  println 'bar'\n}\n",
   },
+  groq: {
+    name: 'groq',
+    displayName: 'GROQ',
+    sampleCode: '*[_type == "foo"] { bar }',
+  },
   gstlaunch: {
     name: 'gstlaunch',
     displayName: 'GStreamer Launch',

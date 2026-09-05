@@ -177,6 +177,7 @@ export type Language =
   | 'starlark'
   | 'tcl'
   | 'tsx'
+  | 'yang'
   | 'zig'
   | 'zsh';
 

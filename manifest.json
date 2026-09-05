@@ -278,6 +278,11 @@
     "revision": "cefbd6863983b4df3214b7934bde5e9ca63d5b7f"
   },
   {
+    "name": "glimmer-javascript",
+    "repository": "https://github.com/NullVoxPopuli/tree-sitter-glimmer-javascript",
+    "revision": "d9cf7a2f1dad3c6b660148eaf77e955d418fdb8b"
+  },
+  {
     "name": "glsl",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-glsl",
     "revision": "24a6c8ef698e4480fecf8340d771fbcb5de8fbb4"

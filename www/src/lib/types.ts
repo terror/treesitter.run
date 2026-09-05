@@ -54,6 +54,7 @@ export type Language =
   | 'gdscript'
   | 'gitattributes'
   | 'gleam'
+  | 'glimmer-javascript'
   | 'glsl'
   | 'gn'
   | 'go'

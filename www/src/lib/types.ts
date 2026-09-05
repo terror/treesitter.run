@@ -218,6 +218,7 @@ export type Language =
   | 'ralph'
   | 'rasi'
   | 'razor'
+  | 'rbs'
   | 're2c'
   | 'readline'
   | 'regex'

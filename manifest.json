@@ -1111,6 +1111,11 @@
     "revision": "d4664e409caaea12f73c9525484e3cf88b1cf718"
   },
   {
+    "name": "rbs",
+    "repository": "https://github.com/joker1007/tree-sitter-rbs",
+    "revision": "5282e2f36d4109f5315c1d9486b5b0c2044622bb"
+  },
+  {
     "name": "re2c",
     "repository": "https://github.com/amaanq/tree-sitter-re2c",
     "revision": "c18a3c2f4b6665e35b7e50d6048ea3cff770c572"

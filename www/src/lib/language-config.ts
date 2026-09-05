@@ -1144,6 +1144,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Razor',
     sampleCode: '<div>@foo</div>',
   },
+  rbs: {
+    name: 'rbs',
+    displayName: 'RBS',
+    sampleCode: 'class Foo\n  def bar: (String) -> String\nend\n',
+  },
   re2c: {
     name: 're2c',
     displayName: 're2c',

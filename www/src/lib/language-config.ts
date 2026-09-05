@@ -1069,6 +1069,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Solidity',
     sampleCode: 'contract Foo {\n  function bar() public {}\n}',
   },
+  sparql: {
+    name: 'sparql',
+    displayName: 'SPARQL',
+    sampleCode: 'SELECT ?foo WHERE {\n  ?foo ?bar ?baz .\n}',
+  },
   squirrel: {
     name: 'squirrel',
     displayName: 'Squirrel',

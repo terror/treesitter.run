@@ -203,6 +203,7 @@ export type Language =
   | 'smali'
   | 'snakemake'
   | 'solidity'
+  | 'sparql'
   | 'squirrel'
   | 'svelte'
   | 'systemverilog'

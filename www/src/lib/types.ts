@@ -230,6 +230,7 @@ export type Language =
   | 'ungrammar'
   | 'unison'
   | 'uxntal'
+  | 'v'
   | 'vala'
   | 'verilog'
   | 'vhdl'

@@ -94,6 +94,7 @@ export type Language =
   | 'haskell-persistent'
   | 'hcl'
   | 'heex'
+  | 'hjson'
   | 'hlsl'
   | 'html'
   | 'http'

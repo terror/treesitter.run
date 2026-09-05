@@ -509,6 +509,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'HEEx',
     sampleCode: '<div><%= @foo %></div>',
   },
+  hjson: {
+    name: 'hjson',
+    displayName: 'Hjson',
+    sampleCode: '{\n  "foo": "bar"\n  "baz": 1\n}',
+  },
   hlsl: {
     name: 'hlsl',
     displayName: 'HLSL',

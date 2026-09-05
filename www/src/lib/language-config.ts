@@ -84,6 +84,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'BitBake',
     sampleCode: 'FOO = "bar"\n',
   },
+  blade: {
+    name: 'blade',
+    displayName: 'Blade',
+    sampleCode: '@if ($foo)\n  {{ $bar }}\n@endif',
+  },
   brightscript: {
     name: 'brightscript',
     displayName: 'BrightScript',

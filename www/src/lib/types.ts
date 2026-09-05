@@ -46,6 +46,7 @@ export type Language =
   | 'embedded-template'
   | 'erlang'
   | 'fennel'
+  | 'fidl'
   | 'firrtl'
   | 'fish'
   | 'fortran'

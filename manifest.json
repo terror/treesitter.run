@@ -303,6 +303,11 @@
     "revision": "2e886870578eeba1927a2dc4bd2e2b3f598c5f9a"
   },
   {
+    "name": "gotmpl",
+    "repository": "https://github.com/ngalaiko/tree-sitter-go-template",
+    "revision": "aa71f63de226c5592dfbfc1f29949522d7c95fac"
+  },
+  {
     "name": "gowork",
     "repository": "https://github.com/omertuc/tree-sitter-go-work",
     "revision": "949a8a470559543857a62102c84700d291fc984c"

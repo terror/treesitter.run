@@ -331,6 +331,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'go.mod',
     sampleCode: 'module foo\n\ngo 1.22\n',
   },
+  gotmpl: {
+    name: 'gotmpl',
+    displayName: 'Go Template',
+    sampleCode: '{{ range .Foo }}{{ .Bar }}{{ end }}',
+  },
   gowork: {
     name: 'gowork',
     displayName: 'go.work',

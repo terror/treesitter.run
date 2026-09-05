@@ -204,6 +204,7 @@ export type Language =
   | 'snakemake'
   | 'solidity'
   | 'sparql'
+  | 'sproto'
   | 'squirrel'
   | 'styled'
   | 'svelte'

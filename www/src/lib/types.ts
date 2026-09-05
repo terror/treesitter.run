@@ -76,6 +76,7 @@ export type Language =
   | 'glimmer-javascript'
   | 'glsl'
   | 'gn'
+  | 'gnuplot'
   | 'go'
   | 'go-sum'
   | 'gomod'

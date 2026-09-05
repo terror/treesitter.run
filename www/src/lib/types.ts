@@ -128,6 +128,7 @@ export type Language =
   | 'leo'
   | 'linkerscript'
   | 'liquid'
+  | 'liquidsoap'
   | 'llvm'
   | 'lua'
   | 'luadoc'

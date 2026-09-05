@@ -349,6 +349,11 @@
     "revision": "f72e493dadcca6a334c113b4cbaf864460541de4"
   },
   {
+    "name": "forth",
+    "repository": "https://github.com/AlexanderBrevig/tree-sitter-forth",
+    "revision": "7190f2173060d19a2174c96bfb5b7c6f9745512b"
+  },
+  {
     "name": "fortran",
     "repository": "https://github.com/stadelmanma/tree-sitter-fortran",
     "revision": "7edacd2b21aa80057d9725384a1304a1c758e0f8"

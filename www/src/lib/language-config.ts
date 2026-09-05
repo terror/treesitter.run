@@ -371,6 +371,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     sampleCode:
       'FoamFile\n{\n  version 2.0;\n  format ascii;\n  class dictionary;\n  object foo;\n}\n',
   },
+  forth: {
+    name: 'forth',
+    displayName: 'Forth',
+    sampleCode: ': foo 1 2 + ;\nfoo .\n',
+  },
   fortran: {
     name: 'fortran',
     displayName: 'Fortran',

@@ -731,6 +731,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Markdown',
     sampleCode: '# Foo\n\nbar baz',
   },
+  'markdown-inline': {
+    name: 'markdown-inline',
+    displayName: 'Markdown Inline',
+    sampleCode: '*foo* and [bar](https://example.com)',
+  },
   matlab: {
     name: 'matlab',
     displayName: 'MATLAB',

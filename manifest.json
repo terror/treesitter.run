@@ -693,6 +693,12 @@
     "revision": "a0a00f817d02412bd92c54d316f164d827b57b5c"
   },
   {
+    "name": "markdown-inline",
+    "path": "tree-sitter-markdown-inline",
+    "repository": "https://github.com/tree-sitter-grammars/tree-sitter-markdown",
+    "revision": "a0a00f817d02412bd92c54d316f164d827b57b5c"
+  },
+  {
     "name": "matlab",
     "repository": "https://github.com/acristoffers/tree-sitter-matlab",
     "revision": "f03d0347acd8bb05d4edd8c845ac1718729e1fad"

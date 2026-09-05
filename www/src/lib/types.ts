@@ -230,6 +230,7 @@ export type Language =
   | 'snl'
   | 'solidity'
   | 'sosl'
+  | 'sourcepawn'
   | 'sparql'
   | 'sproto'
   | 'squirrel'

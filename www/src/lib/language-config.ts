@@ -753,6 +753,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'ReScript',
     sampleCode: 'let foo = bar => bar',
   },
+  robot: {
+    name: 'robot',
+    displayName: 'Robot Framework',
+    sampleCode: '*** Test Cases ***\nFoo\n    Log    bar\n',
+  },
   ron: {
     name: 'ron',
     displayName: 'RON',

@@ -56,6 +56,7 @@ export type Language =
   | 'elixir'
   | 'elm'
   | 'elsa'
+  | 'elvish'
   | 'embedded-template'
   | 'enforce'
   | 'erlang'

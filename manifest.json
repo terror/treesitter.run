@@ -289,6 +289,11 @@
     "revision": "0a66b2b3f3c1915e67ad2ef9f7dbd2a84820d9d7"
   },
   {
+    "name": "elvish",
+    "repository": "https://github.com/elves/tree-sitter-elvish",
+    "revision": "5e7210d945425b77f82cbaebc5af4dd3e1ad40f5"
+  },
+  {
     "name": "embedded-template",
     "repository": "https://github.com/tree-sitter/tree-sitter-embedded-template",
     "revision": "3499d85f0a0d937c507a4a65368f2f63772786e1"

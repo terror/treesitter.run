@@ -99,6 +99,7 @@ export type Language =
   | 'luau'
   | 'make'
   | 'markdown'
+  | 'markdown-inline'
   | 'matlab'
   | 'mermaid'
   | 'meson'

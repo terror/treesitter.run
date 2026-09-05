@@ -781,6 +781,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Nim',
     sampleCode: 'proc foo(): string =\n  "bar"\n',
   },
+  'nim-format-string': {
+    name: 'nim-format-string',
+    displayName: 'Nim Format String',
+    sampleCode: 'foo {bar}',
+  },
   ninja: {
     name: 'ninja',
     displayName: 'Ninja',

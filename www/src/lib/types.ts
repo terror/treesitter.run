@@ -109,6 +109,7 @@ export type Language =
   | 'nqc'
   | 'nu'
   | 'objc'
+  | 'objdump'
   | 'ocaml'
   | 'odin'
   | 'pem'

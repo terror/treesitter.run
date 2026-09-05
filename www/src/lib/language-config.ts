@@ -346,6 +346,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'GraphQL',
     sampleCode: 'query Foo {\n  bar {\n    baz\n  }\n}',
   },
+  gren: {
+    name: 'gren',
+    displayName: 'Gren',
+    sampleCode: 'module Foo exposing (bar)\n\nbar = "baz"\n',
+  },
   groovy: {
     name: 'groovy',
     displayName: 'Groovy',

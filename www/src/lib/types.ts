@@ -89,6 +89,7 @@ export type Language =
   | 'groovy'
   | 'groq'
   | 'gstlaunch'
+  | 'hack'
   | 'hare'
   | 'haskell'
   | 'haskell-persistent'

@@ -826,6 +826,11 @@
     "revision": "ac72ba30d16edf0be021588a9301ede4accd6cf4"
   },
   {
+    "name": "nim-format-string",
+    "repository": "https://github.com/aMOPel/tree-sitter-nim-format-string",
+    "revision": "d45f75022d147cda056e98bfba68222c9c8eca3a"
+  },
+  {
     "name": "ninja",
     "repository": "https://github.com/alemuller/tree-sitter-ninja",
     "revision": "0a95cfdc0745b6ae82f60d3a339b37f19b7b9267"

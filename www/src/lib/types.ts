@@ -162,6 +162,7 @@ export type Language =
   | 'nginx'
   | 'nickel'
   | 'nim'
+  | 'nim-format-string'
   | 'ninja'
   | 'nix'
   | 'nqc'

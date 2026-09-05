@@ -135,6 +135,7 @@ export type Language =
   | 'query'
   | 'r'
   | 'racket'
+  | 'ralph'
   | 're2c'
   | 'readline'
   | 'regex'

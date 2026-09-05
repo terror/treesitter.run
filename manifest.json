@@ -690,6 +690,11 @@
     "revision": "b3cbbde75ce2de3079e33c7fe90bd41b1d45be48"
   },
   {
+    "name": "ralph",
+    "repository": "https://github.com/alephium/tree-sitter-ralph",
+    "revision": "f6d81bf7a4599c77388035439cf5801cd461ff77"
+  },
+  {
     "name": "re2c",
     "repository": "https://github.com/amaanq/tree-sitter-re2c",
     "revision": "c18a3c2f4b6665e35b7e50d6048ea3cff770c572"

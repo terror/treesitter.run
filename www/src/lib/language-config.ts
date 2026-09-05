@@ -1276,6 +1276,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Tact',
     sampleCode: 'contract Foo {\n  init() {}\n}',
   },
+  templ: {
+    name: 'templ',
+    displayName: 'Templ',
+    sampleCode: 'package foo\n\ntempl bar() {\n  <div>baz</div>\n}\n',
+  },
   terraform: {
     name: 'terraform',
     displayName: 'Terraform',

@@ -781,6 +781,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Koto',
     sampleCode: 'foo = |bar| bar\nfoo "baz"\n',
   },
+  kusto: {
+    name: 'kusto',
+    displayName: 'Kusto',
+    sampleCode: 'foo\n| where bar == "baz"',
+  },
   lalrpop: {
     name: 'lalrpop',
     displayName: 'LALRPOP',

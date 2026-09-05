@@ -146,6 +146,7 @@ export type Language =
   | 'kos'
   | 'kotlin'
   | 'koto'
+  | 'kusto'
   | 'lalrpop'
   | 'lean'
   | 'ledger'

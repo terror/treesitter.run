@@ -841,6 +841,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'PHP',
     sampleCode: '<?php\n\necho "hello, world\\n";\n',
   },
+  phpdoc: {
+    name: 'phpdoc',
+    displayName: 'PHPDoc',
+    sampleCode: '/**\n * @param string $foo\n * @return string\n */',
+  },
   pkl: {
     name: 'pkl',
     displayName: 'Pkl',

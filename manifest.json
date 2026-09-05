@@ -806,6 +806,11 @@
     "revision": "3f2465c217d0a966d41e584b42d75522f2a3149e"
   },
   {
+    "name": "phpdoc",
+    "repository": "https://github.com/claytonrcarter/tree-sitter-phpdoc",
+    "revision": "12d50307e6c02e5f4f876fa6cf2edea1f7808c0d"
+  },
+  {
     "name": "pkl",
     "repository": "https://github.com/apple/tree-sitter-pkl",
     "revision": "65f4483b9e8a5960a4d8948421ef3a8992013517"

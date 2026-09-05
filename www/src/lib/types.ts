@@ -158,6 +158,7 @@ export type Language =
   | 'pascal'
   | 'pem'
   | 'php'
+  | 'phpdoc'
   | 'pkl'
   | 'po'
   | 'poe-filter'

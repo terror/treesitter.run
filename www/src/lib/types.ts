@@ -63,6 +63,7 @@ export type Language =
   | 'gpg-config'
   | 'graphql'
   | 'groovy'
+  | 'groq'
   | 'gstlaunch'
   | 'hare'
   | 'haskell'

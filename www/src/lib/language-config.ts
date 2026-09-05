@@ -834,6 +834,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'TSV',
     sampleCode: 'foo\tbar\nbaz\tqux\n',
   },
+  twig: {
+    name: 'twig',
+    displayName: 'Twig',
+    sampleCode: '{% if foo %}{{ bar }}{% endif %}',
+  },
   typescript: {
     name: 'typescript',
     displayName: 'TypeScript',

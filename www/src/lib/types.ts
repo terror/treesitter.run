@@ -156,6 +156,7 @@ export type Language =
   | 'terraform'
   | 'thrift'
   | 'tsv'
+  | 'twig'
   | 'typescript'
   | 'typst'
   | 'udev'

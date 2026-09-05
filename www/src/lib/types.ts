@@ -68,6 +68,7 @@ export type Language =
   | 'fsh'
   | 'fsharp'
   | 'func'
+  | 'gap'
   | 'gdscript'
   | 'gitattributes'
   | 'gleam'

@@ -349,6 +349,11 @@
     "revision": "f780ca55e65e7d7360d0229331763e16c452fc98"
   },
   {
+    "name": "gap",
+    "repository": "https://github.com/gap-system/tree-sitter-gap",
+    "revision": "96fe2e49745ecd62b80cd19dca01fb52b83f93a1"
+  },
+  {
     "name": "gdscript",
     "repository": "https://github.com/PrestonKnopp/tree-sitter-gdscript",
     "revision": "c5c8fa4861b5a4f04a7e60d97587fc3b6cc5639e"

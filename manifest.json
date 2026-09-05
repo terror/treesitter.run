@@ -1131,6 +1131,11 @@
     "revision": "d4ff7e388eb271c04662f2176c08548c9c51078f"
   },
   {
+    "name": "slint",
+    "repository": "https://github.com/slint-ui/tree-sitter-slint",
+    "revision": "f0c59d1507a4221b521a772296f7b3adf87b44ed"
+  },
+  {
     "name": "smali",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-smali",
     "revision": "fdfa6a1febc43c7467aa7e937b87b607956f2346"

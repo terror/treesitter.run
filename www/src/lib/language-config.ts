@@ -422,6 +422,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'INI',
     sampleCode: '[foo]\nbar = baz\n',
   },
+  inko: {
+    name: 'inko',
+    displayName: 'Inko',
+    sampleCode: 'let foo = "bar"',
+  },
   ispc: {
     name: 'ispc',
     displayName: 'ISPC',

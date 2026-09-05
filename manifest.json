@@ -388,6 +388,11 @@
     "revision": "e4018b5176132b4f3c5d6e61cea383f42288d0f5"
   },
   {
+    "name": "inko",
+    "repository": "https://github.com/inko-lang/tree-sitter-inko",
+    "revision": "8fc8f6cd1abddc3279f63e062e8c706cbe39c9f0"
+  },
+  {
     "name": "ispc",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-ispc",
     "revision": "ba1bb38ac8ddfa6aa7571cbfe9b4d029f7f77447"

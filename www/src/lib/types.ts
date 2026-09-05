@@ -76,6 +76,7 @@ export type Language =
   | 'hurl'
   | 'hyprlang'
   | 'ini'
+  | 'inko'
   | 'ispc'
   | 'java'
   | 'javascript'

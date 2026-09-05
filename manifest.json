@@ -790,6 +790,11 @@
     "revision": "4e7525a777290e341b8a5ad880bd20bb4f291845"
   },
   {
+    "name": "t32",
+    "repository": "https://github.com/xasc/tree-sitter-t32",
+    "revision": "acc92b00d8564421f9c9c05ececfd2c7c942fe47"
+  },
+  {
     "name": "tablegen",
     "repository": "https://github.com/amaanq/tree-sitter-tablegen",
     "revision": "b1170880c61355aaf38fc06f4af7d3c55abdabc4"

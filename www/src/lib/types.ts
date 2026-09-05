@@ -152,6 +152,7 @@ export type Language =
   | 'squirrel'
   | 'svelte'
   | 'systemverilog'
+  | 't32'
   | 'tablegen'
   | 'terraform'
   | 'thrift'

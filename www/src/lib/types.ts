@@ -71,6 +71,7 @@ export type Language =
   | 'gap'
   | 'gdscript'
   | 'gdshader'
+  | 'git-rebase'
   | 'gitattributes'
   | 'gleam'
   | 'glimmer-javascript'

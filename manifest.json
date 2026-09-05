@@ -364,6 +364,11 @@
     "revision": "68268631c8b6dc093985f1246b099f81b30ea7d1"
   },
   {
+    "name": "git-rebase",
+    "repository": "https://github.com/the-mikedavis/tree-sitter-git-rebase",
+    "revision": "32686d6b72980b36f876ae2d07719c9c3ed154e2"
+  },
+  {
     "name": "gitattributes",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gitattributes",
     "revision": "1b7af09d45b579f9f288453b95ad555f1f431645"

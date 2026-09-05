@@ -123,6 +123,7 @@ export type Language =
   | 'kdl'
   | 'kitty'
   | 'kotlin'
+  | 'koto'
   | 'lean'
   | 'linkerscript'
   | 'liquid'

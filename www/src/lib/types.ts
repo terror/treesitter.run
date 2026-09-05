@@ -164,6 +164,7 @@ export type Language =
   | 'vala'
   | 'verilog'
   | 'vhdl'
+  | 'vhs'
   | 'vim'
   | 'wgsl'
   | 'wgsl-bevy'

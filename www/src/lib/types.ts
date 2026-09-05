@@ -75,6 +75,7 @@ export type Language =
   | 'hyprlang'
   | 'ini'
   | 'ispc'
+  | 'janet-simple'
   | 'java'
   | 'javascript'
   | 'jinja'

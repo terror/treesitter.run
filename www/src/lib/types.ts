@@ -145,6 +145,7 @@ export type Language =
   | 'meson'
   | 'mlir'
   | 'move'
+  | 'nasm'
   | 'nginx'
   | 'nickel'
   | 'nim'

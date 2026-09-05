@@ -269,6 +269,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'DOT',
     sampleCode: 'digraph foo {\n  bar -> baz\n}',
   },
+  dtd: {
+    name: 'dtd',
+    displayName: 'DTD',
+    sampleCode: '<!ELEMENT foo (#PCDATA)>',
+  },
   editorconfig: {
     name: 'editorconfig',
     displayName: 'EditorConfig',

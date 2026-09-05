@@ -48,6 +48,7 @@ export type Language =
   | 'disassembly'
   | 'dockerfile'
   | 'dot'
+  | 'dtd'
   | 'editorconfig'
   | 'eex'
   | 'elixir'

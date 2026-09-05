@@ -79,6 +79,7 @@ export type Language =
   | 'gitattributes'
   | 'gitcommit'
   | 'gleam'
+  | 'glimmer'
   | 'glimmer-javascript'
   | 'glsl'
   | 'gn'

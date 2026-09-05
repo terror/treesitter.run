@@ -427,6 +427,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Gleam',
     sampleCode: 'pub fn main() {\n  "foo"\n}',
   },
+  glimmer: {
+    name: 'glimmer',
+    displayName: 'Glimmer',
+    sampleCode: '<div>{{foo}}</div>',
+  },
   'glimmer-javascript': {
     name: 'glimmer-javascript',
     displayName: 'Glimmer JavaScript',

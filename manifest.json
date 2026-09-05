@@ -1218,6 +1218,11 @@
     "revision": "23ef2f44ca0df2d2e05a0be3874370553c5b591d"
   },
   {
+    "name": "surface",
+    "repository": "https://github.com/connorlay/tree-sitter-surface",
+    "revision": "f4586b35ac8548667a9aaa4eae44456c1f43d032"
+  },
+  {
     "name": "svelte",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-svelte",
     "revision": "ae5199db47757f785e43a14b332118a5474de1a2"

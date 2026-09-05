@@ -1236,6 +1236,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'SuperHTML',
     sampleCode: '<div :text="$foo">bar</div>',
   },
+  surface: {
+    name: 'surface',
+    displayName: 'Surface',
+    sampleCode: '<div>{ @foo }</div>',
+  },
   svelte: {
     name: 'svelte',
     displayName: 'Svelte',

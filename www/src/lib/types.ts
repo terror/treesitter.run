@@ -70,6 +70,7 @@ export type Language =
   | 'heex'
   | 'hlsl'
   | 'html'
+  | 'htmldjango'
   | 'http'
   | 'hurl'
   | 'hyprlang'

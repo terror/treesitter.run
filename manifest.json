@@ -369,6 +369,11 @@
     "revision": "1b7af09d45b579f9f288453b95ad555f1f431645"
   },
   {
+    "name": "gitcommit",
+    "repository": "https://github.com/gbprod/tree-sitter-gitcommit",
+    "revision": "523a1a4f0f674eff7fbf46addfa6ef7644151aae"
+  },
+  {
     "name": "gleam",
     "repository": "https://github.com/gleam-lang/tree-sitter-gleam",
     "revision": "cefbd6863983b4df3214b7934bde5e9ca63d5b7f"

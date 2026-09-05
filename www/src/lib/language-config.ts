@@ -392,6 +392,11 @@ const baseLanguageConfig: Record<Language, BaseLanguageConfig> = {
     displayName: 'Git Attributes',
     sampleCode: '*.foo text\n',
   },
+  gitcommit: {
+    name: 'gitcommit',
+    displayName: 'Git Commit',
+    sampleCode: 'foo\n\nbar\n',
+  },
   gleam: {
     name: 'gleam',
     displayName: 'Gleam',

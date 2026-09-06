@@ -1,6 +1,8 @@
-import { useSyntaxTree } from '@/hooks/use-syntax-tree';
+import { useParsedTree } from '@/hooks/use-parsed-tree';
 import { useTreeQuery } from '@/hooks/use-tree-query';
-import type { Language } from '@/lib/types';
+import type { Language, SyntaxNode } from '@/lib/types';
+import { syntaxNodeKey } from '@/lib/utils';
+import { useCallback, useState } from 'react';
 import { Parser, type Language as TSLanguage } from 'web-tree-sitter';
 
 interface UseTreeWorkbenchOptions {
@@ -16,12 +18,30 @@ export function useTreeWorkbench({
   parser,
   treeSitterLanguage,
 }: UseTreeWorkbenchOptions) {
-  const { tree, root, parseErrors, collapsedNodes, toggleExpand } =
-    useSyntaxTree({
-      code,
-      language: treeSitterLanguage,
-      parser,
+  const { tree, root, parseErrors } = useParsedTree({
+    code,
+    language: treeSitterLanguage,
+    parser,
+  });
+
+  const [collapsedNodes, setCollapsedNodes] = useState<Set<string>>(
+    () => new Set()
+  );
+
+  const toggleExpand = useCallback((node: SyntaxNode) => {
+    setCollapsedNodes((collapsedNodes) => {
+      const key = syntaxNodeKey(node);
+      const next = new Set(collapsedNodes);
+
+      if (next.has(key)) {
+        next.delete(key);
+      } else {
+        next.add(key);
+      }
+
+      return next;
     });
+  }, []);
 
   const {
     captures: queryCaptures,

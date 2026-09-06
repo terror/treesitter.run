@@ -4,7 +4,7 @@ import { parse } from '@/lib/utils';
 import { useEffect, useMemo } from 'react';
 import type { Language, Parser } from 'web-tree-sitter';
 
-export interface UseParsedTreeOptions {
+interface UseParsedTreeOptions {
   code: string;
   language: Language | undefined;
   parser: Parser | undefined;

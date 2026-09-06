@@ -5,9 +5,9 @@ import {
 } from '@/components/ui/resizable';
 import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { useTreeSitter } from '@/contexts/tree-sitter-context';
-import type { Language } from '@/lib/types';
+import type { Language, SyntaxRange } from '@/lib/types';
 import { Loader2 } from 'lucide-react';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
@@ -18,7 +18,6 @@ import { ThemeToggle } from './components/theme-toggle';
 import { TreePane } from './components/tree-pane';
 import { useCursorPosition } from './hooks/use-cursor-position';
 import { useEditorBuffer } from './hooks/use-editor-buffer';
-import { useEditorHighlights } from './hooks/use-editor-highlights';
 import { useHasLoaded } from './hooks/use-has-loaded';
 import { usePanelLayout } from './hooks/use-panel-layout';
 import { useQueryEditorExtensions } from './hooks/use-query-editor-extensions';
@@ -70,31 +69,32 @@ const App = () => {
     treeSitterLanguage: language,
   });
 
-  const { clearHighlights, highlight, onHighlightChange } =
-    useEditorHighlights();
+  const [highlight, setHighlight] = useState<SyntaxRange | undefined>(
+    undefined
+  );
 
   const handleDeleteRange = useCallback(
     ({ from, to }: { from: number; to: number }) => {
       setCode(`${code.slice(0, from)}${code.slice(to)}`);
-      clearHighlights();
+      setHighlight(undefined);
     },
-    [clearHighlights, code, setCode]
+    [code, setCode]
   );
 
   const handleLanguageChange = useCallback(
     (language: Language) => {
       updateSettings({ language });
-      clearHighlights();
+      setHighlight(undefined);
     },
-    [clearHighlights, updateSettings]
+    [updateSettings]
   );
 
   const handleResetCode = useCallback(
     (language: Language) => {
       resetCode(language);
-      clearHighlights();
+      setHighlight(undefined);
     },
-    [clearHighlights, resetCode]
+    [resetCode]
   );
 
   const extensions = useSourceEditorExtensions({
@@ -170,7 +170,7 @@ const App = () => {
                 language={settings.language}
                 loading={loading || !language}
                 onDeleteRange={handleDeleteRange}
-                onHighlightChange={onHighlightChange}
+                onHighlightChange={setHighlight}
                 query={query}
                 queryCaptureNamesByKey={queryCaptureNamesByKey}
                 queryCaptures={queryCaptures}

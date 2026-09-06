@@ -7,7 +7,7 @@ import { useEditorSettings } from '@/contexts/editor-settings-context';
 import { useTreeSitter } from '@/contexts/tree-sitter-context';
 import type { Language } from '@/lib/types';
 import { Loader2 } from 'lucide-react';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { AboutDialog } from './components/about-dialog';
 import { CommandMenu } from './components/command-menu';
@@ -16,7 +16,6 @@ import { Logo } from './components/logo';
 import { StatusBar } from './components/status-bar';
 import { ThemeToggle } from './components/theme-toggle';
 import { TreePane } from './components/tree-pane';
-import { useCursorPosition } from './hooks/use-cursor-position';
 import { useEditorBuffer } from './hooks/use-editor-buffer';
 import { useEditorHighlights } from './hooks/use-editor-highlights';
 import { useHasLoaded } from './hooks/use-has-loaded';
@@ -49,7 +48,10 @@ const App = () => {
     resetPaneLayout,
   } = usePanelLayout();
 
-  const { cursorPosition, setCursorPosition } = useCursorPosition();
+  const [cursorPosition, setCursorPosition] = useState({
+    row: 1,
+    column: 1,
+  });
   const { code, resetCode, setCode } = useEditorBuffer(settings.language);
 
   const {

@@ -1367,7 +1367,7 @@
   {
     "name": "t32",
     "repository": "https://github.com/xasc/tree-sitter-t32",
-    "revision": "acc92b00d8564421f9c9c05ececfd2c7c942fe47"
+    "revision": "11947ac01ba681fb6f62667cb1447354833f4a5b"
   },
   {
     "name": "tablegen",

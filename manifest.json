@@ -148,7 +148,7 @@
   {
     "name": "cmake",
     "repository": "https://github.com/uyha/tree-sitter-cmake",
-    "revision": "ca627bb5828616b6246aafdc3c3222789e728e37"
+    "revision": "58993af75218bc99a1f5a04c832a5937e7c422cb"
   },
   {
     "name": "comment",

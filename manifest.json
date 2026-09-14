@@ -721,7 +721,7 @@
   {
     "name": "kdl",
     "repository": "https://github.com/amaanq/tree-sitter-kdl",
-    "revision": "b37e3d58e5c5cf8d739b315d6114e02d42e66664"
+    "revision": "e8ff98a113e175b84b92ec2096820517c1e10a66"
   },
   {
     "name": "kitty",

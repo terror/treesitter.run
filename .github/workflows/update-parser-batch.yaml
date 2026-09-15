@@ -82,6 +82,7 @@ jobs:
         token: ${{ steps.pr-token.outputs.token }}
         add-paths: |
           manifest.json
+          www/public/tree-sitter-${{ matrix.parser }}.highlights.scm
           www/public/tree-sitter-${{ matrix.parser }}.wasm
           www/public/tree-sitter.wasm
         branch: update-parser-${{ matrix.parser }}

@@ -935,7 +935,7 @@
   {
     "name": "ocamllex",
     "repository": "https://github.com/atom-ocaml/tree-sitter-ocamllex",
-    "revision": "33722b8be73079946a7c6dd9598e3f57956ed36d"
+    "revision": "64d543e98b4092e2efe5d0c93d78ff4db9cbff39"
   },
   {
     "name": "odin",

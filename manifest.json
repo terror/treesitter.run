@@ -1234,7 +1234,7 @@
   {
     "name": "slint",
     "repository": "https://github.com/slint-ui/tree-sitter-slint",
-    "revision": "f0c59d1507a4221b521a772296f7b3adf87b44ed"
+    "revision": "7f3e775941f0268334c5219586d5811229ffcf34"
   },
   {
     "name": "smali",

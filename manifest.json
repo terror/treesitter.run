@@ -316,7 +316,7 @@
   {
     "name": "enforce",
     "repository": "https://github.com/simonvic/tree-sitter-enforce",
-    "revision": "d222ea5d2f047e67a16234237cfc1c8489aac2fb"
+    "revision": "f6daeccf744141c13b4a94c39d7de22307173735"
   },
   {
     "name": "erlang",

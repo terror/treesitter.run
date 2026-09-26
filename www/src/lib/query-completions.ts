@@ -87,19 +87,6 @@ export const collectQueryCompletionBuckets = ({
   };
 };
 
-export const collectQueryCompletions = (
-  options: QueryCompletionOptions
-): Completion[] => {
-  const buckets = collectQueryCompletionBuckets(options);
-
-  return [
-    ...buckets.namedNodes,
-    ...buckets.fields,
-    ...buckets.anonymousNodes,
-    ...buckets.captures,
-  ];
-};
-
 export const queryCompletionSource =
   (options: QueryCompletionOptions): CompletionSource =>
   (context: CompletionContext): CompletionResult | null => {

@@ -1,4 +1,4 @@
-import { Extension } from '@codemirror/state';
+import type { Extension } from '@codemirror/state';
 import { Decoration, EditorView } from '@codemirror/view';
 
 import { scrollIntoViewExtension } from './scroll-into-view';

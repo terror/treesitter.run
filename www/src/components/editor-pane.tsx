@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/select';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
-import { Extension } from '@codemirror/state';
+import type { Extension } from '@codemirror/state';
 import type { ViewUpdate } from '@codemirror/view';
 import { RotateCcw } from 'lucide-react';
 import { useState } from 'react';

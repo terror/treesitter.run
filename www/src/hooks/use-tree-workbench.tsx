@@ -3,11 +3,7 @@ import { useTreeQuery } from '@/hooks/use-tree-query';
 import type { Language } from '@/lib/types';
 import { syntaxNodeKey } from '@/lib/utils';
 import { useCallback, useState } from 'react';
-import {
-  type Node,
-  Parser,
-  type Language as TSLanguage,
-} from 'web-tree-sitter';
+import type { Node, Parser, Language as TSLanguage } from 'web-tree-sitter';
 
 interface UseTreeWorkbenchOptions {
   code: string;

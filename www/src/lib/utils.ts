@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Language, type Node, Parser, Tree } from 'web-tree-sitter';
+import type { Language, Node, Parser, Tree } from 'web-tree-sitter';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

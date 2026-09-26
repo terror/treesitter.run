@@ -1,10 +1,11 @@
+import type { EditorSettings } from '@/contexts/editor-settings-context';
 import {
-  EditorSettings,
   EditorSettingsContext,
   defaultSettings,
 } from '@/contexts/editor-settings-context';
 import { usePersistedState } from '@/hooks/use-persisted-state';
-import { ReactNode, useEffect } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 
 export const EditorSettingsProvider = ({
   children,

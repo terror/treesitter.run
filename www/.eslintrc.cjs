@@ -19,6 +19,7 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'error',
     '@typescript-eslint/no-misused-promises': 'error',
     'array-callback-return': 'error',
+    eqeqeq: 'error',
     'no-constant-binary-expression': 'error',
     'react-refresh/only-export-components': 'warn',
   },

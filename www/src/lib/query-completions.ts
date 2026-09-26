@@ -4,11 +4,10 @@ import type {
   CompletionResult,
   CompletionSource,
 } from '@codemirror/autocomplete';
-
-import type { SyntaxNode } from './types';
+import type { Node } from 'web-tree-sitter';
 
 interface QueryCompletionOptions {
-  root: SyntaxNode | undefined;
+  root: Node | undefined;
 }
 
 interface QueryCompletionBuckets {
@@ -32,7 +31,11 @@ export const collectQueryCompletionBuckets = ({
   const fields = new Set<string>();
   const namedNodes = new Set<string>();
 
-  const walk = (node: SyntaxNode) => {
+  const walk = (node: Node | null) => {
+    if (!node) {
+      return;
+    }
+
     if (node.isNamed) {
       namedNodes.add(node.type);
     } else {

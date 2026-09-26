@@ -194,7 +194,7 @@
   {
     "name": "cuda",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-cuda",
-    "revision": "fbafd28773ef10cb498771e642575b47fb15abe9"
+    "revision": "d58080a327756e4d1d16ec329ba7cb2048f6c6cd"
   },
   {
     "name": "cue",

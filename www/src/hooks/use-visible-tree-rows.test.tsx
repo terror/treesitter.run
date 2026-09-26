@@ -1,57 +1,27 @@
 import { describe, expect, it } from 'bun:test';
+import assert from 'node:assert/strict';
 
 import { collectVisibleTreeNodes } from '../lib/tree-filter';
-import type { SyntaxNode } from '../lib/types';
 import { syntaxNodeKey } from '../lib/utils';
-import { collectVisibleTreeRows } from './use-visible-tree-rows';
+import { createTestParser } from '../test/parser';
+import { type TreeRow, collectVisibleTreeRows } from './use-visible-tree-rows';
 
-let nextNodeId = 0;
-
-const node = ({
-  type = 'foo',
-  isNamed = true,
-  isExtra = false,
-  isError = false,
-  isMissing = false,
-  children = [],
-}: Partial<SyntaxNode>): SyntaxNode => {
-  const id = nextNodeId++;
-
-  return {
-    id,
-    typeId: id,
-    grammarId: 0,
-    grammarType: type,
-    type,
-    text: '',
-    isNamed,
-    isExtra,
-    isError,
-    isMissing,
-    hasError: false,
-    hasChanges: false,
-    startIndex: id,
-    endIndex: id + 1,
-    startPosition: { row: 0, column: 0 },
-    endPosition: { row: 0, column: 0 },
-    parseState: 0,
-    nextParseState: 0,
-    childCount: children.length,
-    namedChildCount: children.length,
-    descendantCount: children.length + 1,
-    parent: null,
-    children,
-    child: (index) => children[index] ?? null,
-    equals: (other) => other.id === id,
-    fieldNameForChild: () => null,
-  };
-};
+const parse = createTestParser();
 
 describe('visible tree rows', () => {
-  it('respects expansion state while filters are active', () => {
-    const child = node({ type: 'bar', isNamed: false });
-    const parent = node({ type: 'foo', children: [child] });
-    const root = node({ type: 'root', children: [parent] });
+  it('respects expansion state and skips null children while filters are active', () => {
+    const root = parse('foo;');
+    const parent = root.children[0];
+
+    assert(parent);
+
+    const child = parent.children[1];
+
+    assert(child);
+
+    root.children.unshift(null);
+    parent.children.push(null);
+    child.children.push(null);
 
     const visibleTree = collectVisibleTreeNodes({
       root,
@@ -65,15 +35,20 @@ describe('visible tree rows', () => {
       search: '',
     });
 
-    const check = (collapsedNodes: Set<string>, expected: string[]) => {
+    const check = (collapsedNodes: Set<string>, expected: TreeRow[]) => {
       expect(
-        collectVisibleTreeRows({ collapsedNodes, root, visibleTree }).map(
-          (row) => row.node.type
-        )
+        collectVisibleTreeRows({ collapsedNodes, root, visibleTree })
       ).toEqual(expected);
     };
 
-    check(new Set([syntaxNodeKey(parent)]), ['root', 'foo']);
-    check(new Set(), ['root', 'foo', 'bar']);
+    check(new Set([syntaxNodeKey(parent)]), [
+      { node: root, hasChildren: true, isExpanded: true, level: 0 },
+      { node: parent, hasChildren: true, isExpanded: false, level: 1 },
+    ]);
+    check(new Set(), [
+      { node: root, hasChildren: true, isExpanded: true, level: 0 },
+      { node: parent, hasChildren: true, isExpanded: true, level: 1 },
+      { node: child, hasChildren: false, isExpanded: true, level: 2 },
+    ]);
   });
 });

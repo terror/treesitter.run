@@ -47,7 +47,7 @@ export const useTreeSitter = (languageName: Language): UseTreeSitter => {
   const loadedLanguage = loadedLanguages[languageName];
 
   useEffect(() => {
-    loadLanguage(languageName);
+    void loadLanguage(languageName);
   }, [languageName, loadLanguage]);
 
   return {

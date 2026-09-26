@@ -1,82 +1,62 @@
 import { describe, expect, it } from 'bun:test';
+import assert from 'node:assert/strict';
 
+import { createTestParser } from '../test/parser';
 import {
   collectVisibleTreeNodes,
   defaultTreeNodeFilters,
   treeNodeMatchesFilters,
 } from './tree-filter';
-import type { SyntaxNode } from './types';
 
-const node = ({
-  type = 'foo',
-  isNamed = true,
-  isExtra = false,
-  isError = false,
-  isMissing = false,
-  children = [],
-}: Partial<SyntaxNode>): SyntaxNode => ({
-  id: 0,
-  typeId: 0,
-  grammarId: 0,
-  grammarType: type,
-  type,
-  text: '',
-  isNamed,
-  isExtra,
-  isError,
-  isMissing,
-  hasError: false,
-  hasChanges: false,
-  startIndex: 0,
-  endIndex: 0,
-  startPosition: { row: 0, column: 0 },
-  endPosition: { row: 0, column: 0 },
-  parseState: 0,
-  nextParseState: 0,
-  childCount: children.length,
-  namedChildCount: children.length,
-  descendantCount: children.length + 1,
-  parent: null,
-  children,
-  child: (index) => children[index] ?? null,
-  equals: (other) => other.id === 0,
-  fieldNameForChild: () => null,
-});
+const parse = createTestParser();
 
 describe('tree filters', () => {
   it('filters anonymous nodes without losing ancestor context', () => {
-    const anonymous = node({ type: 'bar', isNamed: false });
-    const named = node({ type: 'baz' });
-    const root = node({ type: 'root', children: [anonymous, named] });
+    const root = parse('foo;');
+    const parent = root.children[0];
 
-    const { visibleNodes } = collectVisibleTreeNodes({
-      root,
-      filters: {
-        named: false,
-        anonymous: true,
-        extra: false,
-        error: true,
-        missing: true,
-      },
-      search: '',
+    assert(parent);
+
+    const anonymous = parent.children[1];
+
+    assert(anonymous);
+
+    expect(
+      collectVisibleTreeNodes({
+        root,
+        filters: {
+          named: false,
+          anonymous: true,
+          extra: false,
+          error: true,
+          missing: true,
+        },
+        search: '',
+      })
+    ).toEqual({
+      visibleNodes: new Set([anonymous, parent, root]),
+      searchMatches: new Set(),
     });
-
-    expect(visibleNodes.has(root)).toBe(true);
-    expect(visibleNodes.has(anonymous)).toBe(true);
-    expect(visibleNodes.has(named)).toBe(false);
   });
 
-  it('keeps ancestors of search matches visible', () => {
-    const match = node({ type: 'bar' });
-    const parent = node({ type: 'foo', children: [match] });
-    const sibling = node({ type: 'baz' });
-    const root = node({ type: 'root', children: [parent, sibling] });
+  it('keeps ancestors of search matches visible and skips null children', () => {
+    const root = parse('foo; {}');
+    const parent = root.children[0];
+
+    assert(parent);
+
+    const match = parent.children[0];
+
+    assert(match);
+
+    root.children.unshift(null);
+    parent.children.push(null);
 
     expect(
       collectVisibleTreeNodes({
         root,
         filters: defaultTreeNodeFilters,
-        search: 'bar',
+        search: 'identifier',
       })
     ).toEqual({
       visibleNodes: new Set([match, parent, root]),
@@ -85,6 +65,15 @@ describe('tree filters', () => {
   });
 
   it('matches named, anonymous, and extra filters', () => {
+    const root = parse('foo; /* bar */');
+    const [named, extra] = root.children;
+
+    assert(named && extra);
+
+    const anonymous = named.children[1];
+
+    assert(anonymous);
+
     const filters = {
       named: true,
       anonymous: false,
@@ -93,16 +82,20 @@ describe('tree filters', () => {
       missing: true,
     };
 
-    expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
-    expect(treeNodeMatchesFilters(node({ isNamed: false }), filters)).toBe(
-      false
-    );
     expect(
-      treeNodeMatchesFilters(node({ isNamed: true, isExtra: true }), filters)
-    ).toBe(false);
+      [named, anonymous, extra].map((node) =>
+        treeNodeMatchesFilters(node, filters)
+      )
+    ).toEqual([true, false, false]);
   });
 
   it('matches error and missing filters before node kind filters', () => {
+    const root = parse('const foo = ; {bar;');
+    const error = root.descendantsOfType('ERROR')[0];
+    const missing = root.descendantsOfType('}')[0];
+
+    assert(error && missing);
+
     const filters = {
       named: true,
       anonymous: true,
@@ -111,37 +104,40 @@ describe('tree filters', () => {
       missing: false,
     };
 
-    expect(treeNodeMatchesFilters(node({ isError: true }), filters)).toBe(
-      false
-    );
-    expect(treeNodeMatchesFilters(node({ type: 'ERROR' }), filters)).toBe(
-      false
-    );
-    expect(treeNodeMatchesFilters(node({ isMissing: true }), filters)).toBe(
-      false
-    );
-    expect(treeNodeMatchesFilters(node({ isNamed: true }), filters)).toBe(true);
+    expect(
+      [error, missing, root].map((node) =>
+        treeNodeMatchesFilters(node, filters)
+      )
+    ).toEqual([false, false, true]);
   });
 
   it('filters error subtrees without keeping error nodes as ancestors', () => {
-    const child = node({ type: 'identifier' });
-    const error = node({ type: 'ERROR', children: [child] });
-    const root = node({ type: 'root', children: [error] });
+    const root = parse('foo bar');
+    const [error, statement] = root.children;
 
-    const { visibleNodes } = collectVisibleTreeNodes({
-      root,
-      filters: {
-        named: true,
-        anonymous: true,
-        extra: true,
-        error: false,
-        missing: true,
-      },
-      search: '',
+    assert(error && statement);
+
+    expect(error.isError).toBe(true);
+
+    expect(
+      collectVisibleTreeNodes({
+        root,
+        filters: {
+          named: true,
+          anonymous: true,
+          extra: true,
+          error: false,
+          missing: true,
+        },
+        search: '',
+      })
+    ).toEqual({
+      visibleNodes: new Set([
+        root,
+        statement,
+        ...statement.children.filter((node) => node !== null),
+      ]),
+      searchMatches: new Set(),
     });
-
-    expect(visibleNodes.has(root)).toBe(true);
-    expect(visibleNodes.has(error)).toBe(false);
-    expect(visibleNodes.has(child)).toBe(false);
   });
 });

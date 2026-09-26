@@ -1,18 +1,17 @@
 import { useEditorExtensions } from '@/hooks/use-editor-extensions';
 import { useParsedTree } from '@/hooks/use-parsed-tree';
 import { queryCompletionSource } from '@/lib/query-completions';
-import type { SyntaxNode } from '@/lib/types';
 import { autocompletion } from '@codemirror/autocomplete';
 import type { Extension } from '@codemirror/state';
 import { useMemo } from 'react';
-import type { Language, Parser, Query } from 'web-tree-sitter';
+import type { Language, Node, Parser, Query } from 'web-tree-sitter';
 
 interface UseQueryEditorExtensionsOptions {
   parser: Parser | undefined;
   queryHighlightQuery: Query | null | undefined;
   queryLanguage: Language | undefined;
   queryText: string;
-  root: SyntaxNode | undefined;
+  root: Node | undefined;
 }
 
 export function useQueryEditorExtensions({

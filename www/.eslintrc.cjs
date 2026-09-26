@@ -15,6 +15,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     '@typescript-eslint/no-floating-promises': 'error',
+    '@typescript-eslint/no-misused-promises': 'error',
     'react-refresh/only-export-components': 'warn',
   },
 };

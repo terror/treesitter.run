@@ -3,14 +3,14 @@ import {
   type VisibleTreeNodes,
   collectVisibleTreeNodes,
 } from '@/lib/tree-filter';
-import type { SyntaxNode } from '@/lib/types';
 import { syntaxNodeKey } from '@/lib/utils';
 import { useMemo } from 'react';
+import type { Node } from 'web-tree-sitter';
 
 interface UseVisibleTreeRowsOptions {
   collapsedNodes: Set<string>;
   filters: TreeNodeFilters;
-  root: SyntaxNode | undefined;
+  root: Node | undefined;
   search: string;
 }
 
@@ -18,7 +18,7 @@ export interface TreeRow {
   hasChildren: boolean;
   isExpanded: boolean;
   level: number;
-  node: SyntaxNode;
+  node: Node;
 }
 
 export function collectVisibleTreeRows({
@@ -27,7 +27,7 @@ export function collectVisibleTreeRows({
   visibleTree,
 }: {
   collapsedNodes: Set<string>;
-  root: SyntaxNode;
+  root: Node;
   visibleTree: VisibleTreeNodes;
 }) {
   const rows: TreeRow[] = [];
@@ -43,8 +43,8 @@ export function collectVisibleTreeRows({
     const { node, level } = row;
     const isExpanded = !collapsedNodes.has(syntaxNodeKey(node));
 
-    const hasChildren = node.children.some((child) =>
-      visibleTree.visibleNodes.has(child)
+    const hasChildren = node.children.some(
+      (child) => child !== null && visibleTree.visibleNodes.has(child)
     );
 
     rows.push({
@@ -58,7 +58,7 @@ export function collectVisibleTreeRows({
       for (let index = node.children.length - 1; index >= 0; index--) {
         const child = node.children[index];
 
-        if (visibleTree.visibleNodes.has(child)) {
+        if (child && visibleTree.visibleNodes.has(child)) {
           stack.push({ node: child, level: level + 1 });
         }
       }

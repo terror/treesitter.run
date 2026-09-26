@@ -1,9 +1,10 @@
 import { useTreeFilters } from '@/hooks/use-tree-filters';
 import { useVisibleTreeRows } from '@/hooks/use-visible-tree-rows';
-import type { Language, QueryCapture, SyntaxNode } from '@/lib/types';
+import type { Language, QueryCapture } from '@/lib/types';
 import type { Extension } from '@codemirror/state';
 import { useRef, useState } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
+import type { Node } from 'web-tree-sitter';
 
 import { QueryBar, QueryPane } from './query-pane';
 import { TreeToolbar } from './tree-toolbar';
@@ -25,9 +26,9 @@ interface TreePaneProps {
   queryCaptures: QueryCapture[];
   queryError: string | undefined;
   queryExtensions: Extension[];
-  root: SyntaxNode | undefined;
+  root: Node | undefined;
   setQuery: (query: string) => void;
-  toggleExpand: (node: SyntaxNode) => void;
+  toggleExpand: (node: Node) => void;
 }
 
 const TREE_QUERY_LAYOUT_STORAGE_KEY = 'treesitter.run:tree-query-layout';

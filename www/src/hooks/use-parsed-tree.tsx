@@ -1,5 +1,4 @@
 import { collectParseErrors } from '@/lib/parse-errors';
-import type { SyntaxNode } from '@/lib/types';
 import { parse } from '@/lib/utils';
 import { useEffect, useMemo } from 'react';
 import type { Language, Parser } from 'web-tree-sitter';
@@ -30,9 +29,7 @@ export function useParsedTree({
     [tree]
   );
 
-  const root = useMemo(() => {
-    return (tree?.rootNode as unknown as SyntaxNode) ?? undefined;
-  }, [tree]);
+  const root = useMemo(() => tree?.rootNode, [tree]);
 
   const parseErrors = useMemo(() => {
     if (!root) {

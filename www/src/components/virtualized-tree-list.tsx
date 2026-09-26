@@ -1,10 +1,10 @@
 import type { TreeRow } from '@/hooks/use-visible-tree-rows';
 import type { VisibleTreeNodes } from '@/lib/tree-filter';
-import type { SyntaxNode } from '@/lib/types';
 import { syntaxNodeKey } from '@/lib/utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Loader2 } from 'lucide-react';
 import { useRef } from 'react';
+import type { Node } from 'web-tree-sitter';
 
 import { TreeNode } from './tree-node';
 
@@ -13,9 +13,9 @@ interface VirtualizedTreeListProps {
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range: { from: number; to: number } | undefined) => void;
   queryCaptureNamesByKey: Map<string, string[]>;
-  root: SyntaxNode | undefined;
+  root: Node | undefined;
   rootVisible: boolean;
-  toggleExpand: (node: SyntaxNode) => void;
+  toggleExpand: (node: Node) => void;
   visibleRows: TreeRow[];
   visibleTree: VisibleTreeNodes | undefined;
 }

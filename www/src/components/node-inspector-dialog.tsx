@@ -4,10 +4,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import type { SyntaxNode } from '@/lib/types';
+import type { Node } from 'web-tree-sitter';
 
 interface NodeInspectorDialogProps {
-  node: SyntaxNode;
+  node: Node;
   onOpenChange: (open: boolean) => void;
   open: boolean;
 }
@@ -28,7 +28,7 @@ const inspectableText = (text: string) => {
   return `${text.slice(0, 1000)}...`;
 };
 
-const fieldName = (node: SyntaxNode): string => {
+const fieldName = (node: Node): string => {
   const { parent } = node;
 
   if (!parent) {
@@ -44,11 +44,11 @@ const fieldName = (node: SyntaxNode): string => {
   return 'None';
 };
 
-const metadataDetails = (node: SyntaxNode): Detail[] => [
+const metadataDetails = (node: Node): Detail[] => [
   { label: 'Type', value: node.type },
   { label: 'Grammar type', value: node.grammarType },
   { label: 'Field', value: fieldName(node) },
-  { label: 'Node id', value: node.id ?? 'None' },
+  { label: 'Node id', value: node.id },
   { label: 'Type id', value: node.typeId },
   { label: 'Grammar id', value: node.grammarId },
   { label: 'Child count', value: node.childCount },
@@ -58,7 +58,7 @@ const metadataDetails = (node: SyntaxNode): Detail[] => [
   { label: 'Next parse state', value: node.nextParseState },
 ];
 
-const rangeDetails = (node: SyntaxNode): Detail[] => [
+const rangeDetails = (node: Node): Detail[] => [
   { label: 'Start point', value: formatPosition(node.startPosition) },
   { label: 'End point', value: formatPosition(node.endPosition) },
   { label: 'Start offset', value: node.startIndex },

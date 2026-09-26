@@ -1,9 +1,9 @@
 import { parseErrorKind } from '@/lib/parse-errors';
-import type { SyntaxNode } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { ChevronDown, ChevronRight, Copy, Info, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import type { Node } from 'web-tree-sitter';
 
 import { NodeInspectorDialog } from './node-inspector-dialog';
 import {
@@ -18,13 +18,13 @@ interface TreeNodeProps {
   hasChildren: boolean;
   isExpanded: boolean;
   level: number;
-  node: SyntaxNode;
+  node: Node;
   onDeleteRange: (range: { from: number; to: number }) => void;
   onHighlightChange: (range?: { from: number; to: number }) => void;
   queryCaptureNames: string[];
   queryMatch: boolean;
-  searchMatches: Set<SyntaxNode>;
-  toggleExpand: (node: SyntaxNode) => void;
+  searchMatches: Set<Node>;
+  toggleExpand: (node: Node) => void;
 }
 
 export const TreeNode = ({

@@ -1,8 +1,9 @@
+import type { Node } from 'web-tree-sitter';
+
 import { parseErrorKind } from './parse-errors';
-import type { SyntaxNode } from './types';
 
 interface CollectVisibleTreeNodesOptions {
-  root: SyntaxNode;
+  root: Node;
   filters: TreeNodeFilters;
   search: string;
 }
@@ -16,8 +17,8 @@ export interface TreeNodeFilters {
 }
 
 export interface VisibleTreeNodes {
-  visibleNodes: Set<SyntaxNode>;
-  searchMatches: Set<SyntaxNode>;
+  visibleNodes: Set<Node>;
+  searchMatches: Set<Node>;
 }
 
 export const defaultTreeNodeFilters: TreeNodeFilters = {
@@ -52,10 +53,14 @@ export const collectVisibleTreeNodes = ({
 
   const searchActive = normalizedSearch.length > 0;
 
-  const visibleNodes = new Set<SyntaxNode>();
-  const searchMatches = new Set<SyntaxNode>();
+  const visibleNodes = new Set<Node>();
+  const searchMatches = new Set<Node>();
 
-  const walk = (node: SyntaxNode): boolean => {
+  const walk = (node: Node | null): boolean => {
+    if (!node) {
+      return false;
+    }
+
     const errorKind = parseErrorKind(node);
 
     const parseStateFilterDisabled =
@@ -105,7 +110,7 @@ export const collectVisibleTreeNodes = ({
  * @returns Whether the node should be considered visible before search is applied.
  */
 export const treeNodeMatchesFilters = (
-  node: SyntaxNode,
+  node: Node,
   filters: TreeNodeFilters
 ): boolean => {
   const errorKind = parseErrorKind(node);
@@ -140,10 +145,7 @@ export const treeNodeMatchesFilters = (
  * @param search - Raw search text entered by the user.
  * @returns Whether the node type contains the normalized search text.
  */
-export const treeNodeMatchesSearch = (
-  node: SyntaxNode,
-  search: string
-): boolean => {
+export const treeNodeMatchesSearch = (node: Node, search: string): boolean => {
   const normalizedSearch = search.trim().toLowerCase();
 
   return (

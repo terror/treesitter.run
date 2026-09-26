@@ -1,17 +1,12 @@
 import { usePersistedState } from '@/hooks/use-persisted-state';
-import type { Language, QueryCapture, SyntaxNode } from '@/lib/types';
+import type { Language, QueryCapture } from '@/lib/types';
 import { syntaxNodeKey } from '@/lib/utils';
 import { useCallback, useMemo } from 'react';
-import {
-  Query,
-  type Language as TSLanguage,
-  type Node as TSNode,
-  type QueryCapture as TSQueryCapture,
-} from 'web-tree-sitter';
+import { type Node, Query, type Language as TSLanguage } from 'web-tree-sitter';
 
 interface UseTreeQueryOptions {
   language: Language;
-  root: SyntaxNode | undefined;
+  root: Node | undefined;
   treeSitterLanguage: TSLanguage | undefined;
 }
 
@@ -54,17 +49,11 @@ export function useTreeQuery({
     try {
       treeQuery = new Query(treeSitterLanguage, query);
 
-      const captures = treeQuery
-        .captures(root as unknown as TSNode)
-        .map((capture: TSQueryCapture) => {
-          const node = capture.node as unknown as SyntaxNode;
-
-          return {
-            name: capture.name,
-            node,
-            range: { from: node.startIndex, to: node.endIndex },
-          };
-        });
+      const captures = treeQuery.captures(root).map(({ name, node }) => ({
+        name,
+        node,
+        range: { from: node.startIndex, to: node.endIndex },
+      }));
 
       return {
         captures,

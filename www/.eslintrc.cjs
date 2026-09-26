@@ -9,11 +9,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     jsxPragma: null,
+    project: true,
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
   },
   plugins: ['react-refresh'],
   rules: {
     '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-misused-promises': 'error',
     'react-refresh/only-export-components': 'warn',
   },
 };

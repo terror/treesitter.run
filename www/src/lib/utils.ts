@@ -1,8 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import type { Language, Parser, Tree } from 'web-tree-sitter';
-
-import type { SyntaxNode } from './types';
+import type { Language, Node, Parser, Tree } from 'web-tree-sitter';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -21,5 +19,5 @@ export const parse = ({
   return parser.parse(code);
 };
 
-export const syntaxNodeKey = (node: SyntaxNode): string =>
+export const syntaxNodeKey = (node: Node): string =>
   `${node.typeId}:${node.startIndex}:${node.endIndex}`;

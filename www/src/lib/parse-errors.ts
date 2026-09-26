@@ -1,4 +1,4 @@
-import type { SyntaxNode } from './types';
+import type { Node } from 'web-tree-sitter';
 
 export type ParseErrorKind = 'error' | 'missing';
 
@@ -9,9 +9,7 @@ export interface ParseErrorRange {
   to: number;
 }
 
-export const parseErrorKind = (
-  node: SyntaxNode
-): ParseErrorKind | undefined => {
+export const parseErrorKind = (node: Node): ParseErrorKind | undefined => {
   if (node.isMissing) {
     return 'missing';
   }
@@ -23,10 +21,14 @@ export const parseErrorKind = (
   return undefined;
 };
 
-export const collectParseErrors = (root: SyntaxNode): ParseErrorRange[] => {
+export const collectParseErrors = (root: Node): ParseErrorRange[] => {
   const ranges: ParseErrorRange[] = [];
 
-  const walk = (node: SyntaxNode) => {
+  const walk = (node: Node | null) => {
+    if (!node) {
+      return;
+    }
+
     const kind = parseErrorKind(node);
 
     if (kind) {

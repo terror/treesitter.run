@@ -898,7 +898,7 @@
   {
     "name": "nix",
     "repository": "https://github.com/nix-community/tree-sitter-nix",
-    "revision": "1369da96020f14d0a1c58200464901fb40c47997"
+    "revision": "545766491895dd1b7696fa4d6efba982c10dea56"
   },
   {
     "name": "nqc",

@@ -4,7 +4,8 @@ import {
 } from '@/contexts/tree-sitter-context';
 import { languageConfig } from '@/lib/language-config';
 import type { Language } from '@/lib/types';
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Parser, Query, Language as TSLanguage } from 'web-tree-sitter';
 
 export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {

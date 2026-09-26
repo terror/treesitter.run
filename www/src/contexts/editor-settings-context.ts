@@ -3,7 +3,7 @@ import {
   type EditorSyntaxTheme,
   defaultSyntaxTheme,
 } from '@/lib/syntax-themes';
-import { Language } from '@/lib/types';
+import type { Language } from '@/lib/types';
 import { createContext, useContext } from 'react';
 
 export interface EditorSettings {

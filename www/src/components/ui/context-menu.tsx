@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { ContextMenu as ContextMenuPrimitive } from 'radix-ui';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import * as React from 'react';
 
 function ContextMenu({

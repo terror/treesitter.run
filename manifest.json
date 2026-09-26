@@ -432,7 +432,7 @@
   {
     "name": "gleam",
     "repository": "https://github.com/gleam-lang/tree-sitter-gleam",
-    "revision": "cefbd6863983b4df3214b7934bde5e9ca63d5b7f"
+    "revision": "fa6d0d94804f1b342e175865a3dbeb316ee5115e"
   },
   {
     "name": "glimmer",

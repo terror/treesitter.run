@@ -72,20 +72,16 @@ describe('tree filters', () => {
     const sibling = node({ type: 'baz' });
     const root = node({ type: 'root', children: [parent, sibling] });
 
-    const { visibleNodes, searchMatches, searchActive } =
+    expect(
       collectVisibleTreeNodes({
         root,
         filters: defaultTreeNodeFilters,
         search: 'bar',
-      });
-
-    expect(searchActive).toBe(true);
-    expect(visibleNodes.has(root)).toBe(true);
-    expect(visibleNodes.has(parent)).toBe(true);
-    expect(visibleNodes.has(match)).toBe(true);
-    expect(visibleNodes.has(sibling)).toBe(false);
-    expect(searchMatches.has(match)).toBe(true);
-    expect(searchMatches.has(parent)).toBe(false);
+      })
+    ).toEqual({
+      visibleNodes: new Set([match, parent, root]),
+      searchMatches: new Set([match]),
+    });
   });
 
   it('matches named, anonymous, and extra filters', () => {

@@ -18,7 +18,6 @@ export interface TreeNodeFilters {
 export interface VisibleTreeNodes {
   visibleNodes: Set<SyntaxNode>;
   searchMatches: Set<SyntaxNode>;
-  searchActive: boolean;
 }
 
 export const defaultTreeNodeFilters: TreeNodeFilters = {
@@ -89,7 +88,6 @@ export const collectVisibleTreeNodes = ({
   return {
     visibleNodes,
     searchMatches,
-    searchActive,
   };
 };
 

@@ -63,7 +63,7 @@ export const TreeSitterProvider = ({ children }: { children: ReactNode }) => {
       }
     };
 
-    initialize();
+    void initialize();
 
     return () => {
       canceled = true;

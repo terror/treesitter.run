@@ -766,7 +766,7 @@
   {
     "name": "ledger",
     "repository": "https://github.com/cbarrete/tree-sitter-ledger",
-    "revision": "22a1ab8195c1f6e808679f803007756fe7638c6f"
+    "revision": "d5f3973cfe2d42f98819336ce6334ada75b7696f"
   },
   {
     "name": "leo",

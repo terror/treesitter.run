@@ -1625,7 +1625,7 @@
     "name": "ziggy-schema",
     "path": "tree-sitter-ziggy-schema",
     "repository": "https://github.com/kristoff-it/ziggy",
-    "revision": "be51f4dfd95590eae7c8674d660c1f16edef116b"
+    "revision": "a170fe892d29087344244dec24888710f507f490"
   },
   {
     "name": "zsh",

@@ -517,7 +517,7 @@
   {
     "name": "groovy",
     "repository": "https://github.com/murtaza64/tree-sitter-groovy",
-    "revision": "deb0dcf8c4544f07564060f6e9b9f6e4b0bfc27d"
+    "revision": "2a6ddd558b6aa39c5b77d8db9fe9baf817486b2c"
   },
   {
     "name": "groq",

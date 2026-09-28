@@ -982,7 +982,7 @@
   {
     "name": "pkl",
     "repository": "https://github.com/apple/tree-sitter-pkl",
-    "revision": "9eaf196bb1cb9ce862036ed28b188ab6664a2492"
+    "revision": "c95d8284940f5e1da2cd0d8f1ee45d7ef9ef75d1"
   },
   {
     "name": "po",

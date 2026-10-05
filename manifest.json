@@ -507,7 +507,7 @@
   {
     "name": "graphql",
     "repository": "https://github.com/joowani/tree-sitter-graphql",
-    "revision": "1abcd628084f2fd8b1e74081b5552acfd2c21cd6"
+    "revision": "b1d368c339806d971818a4ca2099763a6c561f56"
   },
   {
     "name": "gren",

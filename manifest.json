@@ -563,7 +563,7 @@
     "name": "helm",
     "path": "dialects/helm",
     "repository": "https://github.com/ngalaiko/tree-sitter-go-template",
-    "revision": "aa71f63de226c5592dfbfc1f29949522d7c95fac"
+    "revision": "06b2fd2ac32a7be71cdcf925eeeb868a68e2acde"
   },
   {
     "name": "hjson",

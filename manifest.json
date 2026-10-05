@@ -1397,7 +1397,7 @@
   {
     "name": "tera",
     "repository": "https://github.com/uncenter/tree-sitter-tera",
-    "revision": "3a38c368e806268daac9923a27e72bcafbbc16bb"
+    "revision": "54b3f8b43aecdbcf12a7366920f0bc8274af1dd0"
   },
   {
     "name": "terraform",

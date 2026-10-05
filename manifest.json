@@ -341,7 +341,7 @@
   {
     "name": "fidl",
     "repository": "https://github.com/google/tree-sitter-fidl",
-    "revision": "0a8910f293268e27ff554357c229ba172b0eaed2"
+    "revision": "bd81f6429a1539b05f52a4344bc9f6ac11d73d1f"
   },
   {
     "name": "firrtl",

@@ -1118,7 +1118,7 @@
   {
     "name": "rbs",
     "repository": "https://github.com/joker1007/tree-sitter-rbs",
-    "revision": "5282e2f36d4109f5315c1d9486b5b0c2044622bb"
+    "revision": "ff2d91789c0edec421b5c51bad79f59a2abfa81e"
   },
   {
     "name": "re2c",

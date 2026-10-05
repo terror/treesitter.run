@@ -761,7 +761,7 @@
   {
     "name": "lean",
     "repository": "https://github.com/Julian/tree-sitter-lean",
-    "revision": "259a2daf7a699cc047221f1e043e4d045fcd6be2"
+    "revision": "916c44f4d89c970f66dd34a49e7ce848f4d29e72"
   },
   {
     "name": "ledger",

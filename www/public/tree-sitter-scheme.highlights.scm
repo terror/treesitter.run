@@ -1,9 +1,13 @@
-["(" ")" "[" "]" "{" "}"] @punctuation.bracket
+["(" ")" "[" "]"] @punctuation.bracket
+(dot) @punctuation.delimiter
 
 (number) @number
+(datum_label_id) @number
 (character) @constant.builtin
 (boolean) @constant.builtin
+(keyword) @constant
 (symbol) @variable
+(datum_reference) @variable
 
 (string) @string
 
@@ -12,14 +16,6 @@
 (list
   .
   (symbol) @function)
-
-(list
-  .
-  "["
-  .
-  (symbol)+ @variable
-  .
-  "]")
 
 ((symbol) @operator
  (#match? @operator "^(\\+|-|\\*|/|=|>|<|>=|<=)$"))
@@ -50,18 +46,21 @@
 (quote
   (_ (_ (_ _* @constant))))
 
-(comment
-  _ @comment)
+(syntax_quote
+  _ @constant)
 
-(comment
-  (_ _* @comment))
+(syntax_quote
+  (_ _* @constant))
 
-(comment
-  (_ (_ _* @comment)))
+(syntax_quote
+  (_ (_ _* @constant)))
 
-(comment
-  (_ (_ (_ _ @comment))))
+(syntax_quote
+  (_ (_ (_ _* @constant))))
 
-[(comment)
- (block_comment)
- (directive)] @comment
+[
+  (comment)
+  (block_comment)
+  (sexp_comment)
+  (directive)
+] @comment

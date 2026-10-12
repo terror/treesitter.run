@@ -1392,7 +1392,7 @@
   {
     "name": "templ",
     "repository": "https://github.com/vrischmann/tree-sitter-templ",
-    "revision": "94d40865c15ebbaff9ed11dde5d6490b0f5de092"
+    "revision": "2c0a72e907d2a95a7b6dd29703e38c95818e956a"
   },
   {
     "name": "tera",

@@ -1,0 +1,163 @@
+(identifier) @variable
+
+(interpolation) @none
+
+(import_stmt
+  (dotted_name
+    (identifier) @module))
+
+(import_stmt
+  (dotted_name
+    (identifier) @module)
+  (identifier) @module)
+
+(basic_type) @type
+
+(schema_type
+  (dotted_name
+    (identifier) @type))
+
+(schema_type
+  (dotted_name
+    (identifier) @module
+    (identifier) @type))
+
+(schema_expr
+  (identifier) @type)
+
+(protocol_stmt
+  (identifier) @type)
+
+(rule_stmt
+    (identifier) @type)
+
+(schema_stmt
+  (identifier) @type)
+
+(lambda_expr
+  (typed_parameter (identifier) @variable.parameter))
+
+(lambda_expr
+  (identifier) @variable.parameter)
+
+(selector_expr
+  (select_suffix
+    (identifier) @property))
+
+(comment) @comment
+(string) @string
+(escape_sequence) @string.escape
+
+(schema_stmt
+  body: (block
+    .
+    (string
+      (string_content) @string.documentation)))
+
+(decorator
+  (identifier) @attribute)
+
+(call_expr
+  function: (identifier) @function)
+
+(call_expr
+  function: (selector_expr
+    (select_suffix
+      (identifier) @function)))
+
+[
+  (integer)
+  (float)
+] @number
+
+[
+  (true)
+  (false)
+  (none)
+  (undefined)
+] @constant.builtin
+
+[
+  "all"
+  "any"
+  "assert"
+  "as"
+  "check"
+  "elif"
+  "else"
+  "filter"
+  "for"
+  "if"
+  "import"
+  "lambda"
+  "map"
+  "mixin"
+  "protocol"
+  "rule"
+  "schema"
+  "type"
+] @keyword
+
+[
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
+] @punctuation.bracket
+
+(interpolation
+  "${" @punctuation.special
+  "}" @punctuation.special)
+
+[
+  "+"
+  "-"
+  "*"
+  "**"
+  "/"
+  "//"
+  "%"
+  "<<"
+  ">>"
+  "&"
+  "|"
+  "^"
+  "<"
+  ">"
+  "~"
+  "<="
+  ">="
+  "=="
+  "!="
+  "@"
+  "and"
+  "or"
+  "not"
+  "in"
+  "is"
+  "="
+  ":"
+] @operator
+
+(call_expr
+  function: (selector_expr
+    (identifier) @_regex)
+  arguments: (argument_list
+    (_)
+    .
+    (string
+      (string_content) @string.regexp))
+  (#eq? @_regex "regex"))
+
+(call_expr
+  .
+  function: (selector_expr
+    (identifier) @_regex
+    (select_suffix
+      (identifier) @_fn (#eq? @_fn "compile")))
+  arguments: (argument_list
+    (string
+      (string_content) @string.regexp))
+  (#eq? @_regex "regex"))

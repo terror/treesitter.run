@@ -224,7 +224,7 @@
   {
     "name": "desktop",
     "repository": "https://github.com/ValdezFOmar/tree-sitter-desktop",
-    "revision": "89210af12afabb71a2c9f3d56a964ff0844027dc"
+    "revision": "808dcf17dff1f3525ebee141f457b1620747df9a"
   },
   {
     "name": "devicetree",

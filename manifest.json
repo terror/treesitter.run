@@ -276,7 +276,7 @@
   {
     "name": "editorconfig",
     "repository": "https://github.com/ValdezFOmar/tree-sitter-editorconfig",
-    "revision": "1882c3f165aa6b56c4c7af91388d97b00ca1afe3"
+    "revision": "492c3fdcdd93edf71d9b40a0953925ad25a89fe2"
   },
   {
     "name": "eds",

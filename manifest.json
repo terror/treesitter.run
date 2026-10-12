@@ -613,7 +613,7 @@
   {
     "name": "idl",
     "repository": "https://github.com/cathaysia/tree-sitter-idl",
-    "revision": "b5ecf511e542e43313ba4602bdb206a08cb06232"
+    "revision": "bba2a7b82ee5a6619463da9871adf4bdc7ff08c6"
   },
   {
     "name": "idris",

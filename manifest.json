@@ -1593,7 +1593,7 @@
   {
     "name": "xresources",
     "repository": "https://github.com/ValdezFOmar/tree-sitter-xresources",
-    "revision": "d5fa4f427d4828c2c2685b8bdad406cabc4e72a8"
+    "revision": "09ba29084c5806adde4208e71ebb5ed165afaf56"
   },
   {
     "name": "yaml",

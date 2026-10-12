@@ -336,7 +336,7 @@
   {
     "name": "fennel",
     "repository": "https://github.com/alexmozaidze/tree-sitter-fennel",
-    "revision": "3f0f6b24d599e92460b969aabc4f4c5a914d15a0"
+    "revision": "8c0d338cdb95285eb5d59a70b513ddaae374786c"
   },
   {
     "name": "fidl",

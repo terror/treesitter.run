@@ -1491,7 +1491,7 @@
   {
     "name": "unison",
     "repository": "https://github.com/kylegoetz/tree-sitter-unison",
-    "revision": "10365cc70ab2b2de85ea7ab35cf6b7636c36ce8b"
+    "revision": "bd385224a50baa039d0390fc749be0a0a3071b75"
   },
   {
     "name": "usd",

@@ -138,7 +138,7 @@
   {
     "name": "circom",
     "repository": "https://github.com/Decurity/tree-sitter-circom",
-    "revision": "02150524228b1e6afef96949f2d6b7cc0aaf999e"
+    "revision": "75f447fd955ec59082103f7e12fa46953d3f9484"
   },
   {
     "name": "clojure",

@@ -1002,7 +1002,7 @@
   {
     "name": "powershell",
     "repository": "https://github.com/airbus-cert/tree-sitter-powershell",
-    "revision": "e7bd348c49fdfd5c853a146a670965ba516a6239"
+    "revision": "c96b28ed405e3172e0a4b6a97fc132ce2e3b6304"
   },
   {
     "name": "printf",

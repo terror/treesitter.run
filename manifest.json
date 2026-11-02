@@ -618,7 +618,7 @@
   {
     "name": "idris",
     "repository": "https://github.com/kayhide/tree-sitter-idris",
-    "revision": "9fe334fb603fdce0e84349ed78f41ae3d2f7036b"
+    "revision": "5104c80fda9cb767f8d8000452c38ddf09ecb382"
   },
   {
     "name": "ini",

@@ -88,7 +88,7 @@
   {
     "name": "bpftrace",
     "repository": "https://github.com/sgruszka/tree-sitter-bpftrace",
-    "revision": "8269e497af01ef26edea3283bc21ed71ada61f44"
+    "revision": "75d72c276910304b19cd76a990fe6ba7beebb59b"
   },
   {
     "name": "brightscript",

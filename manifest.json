@@ -1362,7 +1362,7 @@
   {
     "name": "systemverilog",
     "repository": "https://github.com/gmlarumbe/tree-sitter-systemverilog",
-    "revision": "d6be6119fe4d04c65c567e7b79625aa6280fea34"
+    "revision": "08c5e379b9b6022d4c433a9249e6d54dedd051ba"
   },
   {
     "name": "t32",

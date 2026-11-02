@@ -648,7 +648,7 @@
   {
     "name": "javadoc",
     "repository": "https://github.com/rmuir/tree-sitter-javadoc",
-    "revision": "c760949aa76745f9f6f7b023cccfe5f01679ae90"
+    "revision": "d2b4d375f354aa70cd61fad28c62e80dd84e3ad2"
   },
   {
     "name": "javascript",

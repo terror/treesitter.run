@@ -1527,7 +1527,7 @@
   {
     "name": "vhdl",
     "repository": "https://github.com/jpt13653903/tree-sitter-vhdl",
-    "revision": "9be8e45c3ae7e7a4373a943a5c81ff92ce3656f8"
+    "revision": "0d5d60b269c7f9861c2bada7cef58fe62e6e7879"
   },
   {
     "name": "vhs",

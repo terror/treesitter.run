@@ -1327,7 +1327,7 @@
     "name": "superhtml",
     "path": "tree-sitter-superhtml",
     "repository": "https://github.com/kristoff-it/superhtml",
-    "revision": "f0deee80ae422938d5cdc43a5598c417670db38b"
+    "revision": "b00f3d25e7e8103d18c08961ca39be7c282923ed"
   },
   {
     "name": "surface",

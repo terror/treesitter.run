@@ -858,7 +858,7 @@
   {
     "name": "mlir",
     "repository": "https://github.com/artagnon/tree-sitter-mlir",
-    "revision": "103d1d89836cf07d986ad7c0aeca5f154e4574d7"
+    "revision": "a07be11d7689880d6ad867c0dbe1d68e34ddc626"
   },
   {
     "name": "move",

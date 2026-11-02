@@ -366,7 +366,7 @@
   {
     "name": "fortran",
     "repository": "https://github.com/stadelmanma/tree-sitter-fortran",
-    "revision": "2bc0220f34ca660ec9571c54ea57ed5363338de1"
+    "revision": "72f8759dea28ff6671e0868a9ed5ad4a18413917"
   },
   {
     "name": "fsh",

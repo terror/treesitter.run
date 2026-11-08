@@ -1547,7 +1547,7 @@
   {
     "name": "vrl",
     "repository": "https://github.com/belltoy/tree-sitter-vrl",
-    "revision": "274b3ce63f72aa8ffea18e7fc280d3062d28f0ba"
+    "revision": "8cf3be35891e366087c01bef55d3fe96750997a5"
   },
   {
     "name": "vue",

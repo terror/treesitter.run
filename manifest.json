@@ -628,7 +628,7 @@
   {
     "name": "inko",
     "repository": "https://github.com/inko-lang/tree-sitter-inko",
-    "revision": "8fc8f6cd1abddc3279f63e062e8c706cbe39c9f0"
+    "revision": "a2bef1fc87e64adbf65f353b86e10275e693b5fe"
   },
   {
     "name": "ispc",

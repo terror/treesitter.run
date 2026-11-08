@@ -1271,7 +1271,7 @@
     "name": "sosl",
     "path": "sosl",
     "repository": "https://github.com/aheber/tree-sitter-sfapex",
-    "revision": "da568eee10ce4724a40f368b2b7e795dacb4f1ba"
+    "revision": "218083d5ddd8d8614e9e31a6c203807f61f43348"
   },
   {
     "name": "sourcepawn",

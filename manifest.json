@@ -462,7 +462,7 @@
   {
     "name": "gnuplot",
     "repository": "https://github.com/dpezto/tree-sitter-gnuplot",
-    "revision": "49082c8a328812290c813b500ec82abe058efb6c"
+    "revision": "8344b33e6b6a3b81bf780ab5b286ca6d95e60027"
   },
   {
     "name": "go",

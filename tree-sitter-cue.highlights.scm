@@ -25,6 +25,8 @@
 [
   "if"
   "else"
+  "otherwise"
+  "fallback"
 ] @conditional
 
 ; Repeats
@@ -41,6 +43,8 @@
   "let"
   "try"
 ] @keyword
+
+"func" @keyword.function
 
 [
   "in"
@@ -68,7 +72,13 @@
   "!"
   "="
   "~"
+  "->"
 ] @operator
+
+; Variables, which the more specific patterns below override, since a
+; later pattern takes precedence
+
+(identifier) @variable
 
 ; Fields & Properties
 
@@ -93,9 +103,22 @@
 
 (builtin_function) @function.builtin
 
-; Variables
+; Parameters
 
-(identifier) @variable
+(parameter
+  name: (identifier) @parameter)
+
+(labeled_argument
+  label: (identifier) @parameter)
+
+; Builtin variables
+
+((identifier) @variable.builtin
+  (#any-of? @variable.builtin "self" "__self"))
+
+(call_expression
+  function: (identifier) @function.builtin
+  (#eq? @function.builtin "validator"))
 
 ; Types
 
@@ -130,6 +153,12 @@
   "!"
 ] @punctuation.special
 
+(list_lit "#" @punctuation.special)
+
+(struct_lit "#" @punctuation.special)
+
+(spread_expression "..." @operator)
+
 ; Literals
 
 (string) @string
@@ -143,9 +172,7 @@
 
 (float) @float
 
-(si_unit
-  (float)
-  (_) @symbol)
+(multiplier) @symbol
 
 (boolean) @boolean
 

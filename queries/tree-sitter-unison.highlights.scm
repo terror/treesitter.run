@@ -10,19 +10,20 @@
 
 (literal_boolean) @boolean
 
-(type_kw) @keyword.type
+"type" @keyword.type
 
 [
-  (kw_forall)
-  (do)
-  (kw_let)
-  (ability)
-  (where)
+  "forall"
+  "∀"
+  "do"
+  "let"
+  "ability"
+  "where"
 ] @keyword
 
-(structural) @keyword.modifier
+"structural" @keyword.modifier
 
-(unique) @keyword.modifier
+"unique" @keyword.modifier
 
 (type_constructor) @constructor
 
@@ -31,19 +32,19 @@
 
 [
   (operator)
-  (pipe)
-  (arrow_symbol)
+  "|"
+  "->"
   (or)
-  (kw_equals)
+  "="
 ] @operator
 
 [
   "if"
   "else"
   "then"
-  (match)
-  (with)
-  (cases)
+  "match"
+  "with"
+  "cases"
 ] @keyword.conditional
 
 (blank_pattern) @variable.builtin
@@ -100,10 +101,7 @@
 (term_definition
   param: (regular_identifier) @variable.parameter)
 
-[
-  (type_signature_colon)
-  ":"
-] @punctuation.delimiter
+":" @punctuation.delimiter
 
 [
   "("

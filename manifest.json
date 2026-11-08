@@ -1619,7 +1619,7 @@
     "name": "ziggy",
     "path": "tree-sitter-ziggy",
     "repository": "https://github.com/kristoff-it/ziggy",
-    "revision": "a170fe892d29087344244dec24888710f507f490"
+    "revision": "7fc62a537ba3e3a84287025b5b794e0cfaadef2f"
   },
   {
     "name": "ziggy-schema",

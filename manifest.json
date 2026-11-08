@@ -827,7 +827,7 @@
     "name": "markdown",
     "path": "tree-sitter-markdown",
     "repository": "https://github.com/tree-sitter-grammars/tree-sitter-markdown",
-    "revision": "a0a00f817d02412bd92c54d316f164d827b57b5c"
+    "revision": "41ff24a6c775492c543b09228aeb98d1cd2b3a0f"
   },
   {
     "name": "markdown-inline",

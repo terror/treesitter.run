@@ -1542,7 +1542,7 @@
   {
     "name": "vimdoc",
     "repository": "https://github.com/neovim/tree-sitter-vimdoc",
-    "revision": "23daa416c1ff5d15f59a1aa648f031d6e3ee15c5"
+    "revision": "a13c5c7e09aa2ec2f724ac5c0fdb91a4a7eeabba"
   },
   {
     "name": "vrl",

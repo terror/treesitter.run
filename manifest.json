@@ -1507,7 +1507,7 @@
     "name": "v",
     "path": "tree_sitter_v",
     "repository": "https://github.com/vlang/v-analyzer",
-    "revision": "925d4570d1668746762a2cdf0ecb9a25be704a67"
+    "revision": "7801a67d0583371265c2b50258ee3641c14dfdaf"
   },
   {
     "name": "vala",

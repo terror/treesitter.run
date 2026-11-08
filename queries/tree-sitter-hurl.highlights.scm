@@ -29,7 +29,6 @@
 (key_string_escaped_char) @string.escape
 (value_string_escaped_char) @string.escape
 (oneline_string_escaped_char) @string.escape
-(multiline_string_escaped_char) @string.escape
 (filename_escaped_char) @string.escape
 (json_string_escaped_char) @string.escape
 

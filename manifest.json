@@ -603,7 +603,7 @@
   {
     "name": "hurl",
     "repository": "https://github.com/pfeiferj/tree-sitter-hurl",
-    "revision": "597efbd7ce9a814bb058f48eabd055b1d1e12145"
+    "revision": "83defb6c6577442ffdf313f0e464e1524094ea01"
   },
   {
     "name": "hyprlang",

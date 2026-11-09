@@ -1168,7 +1168,7 @@
   {
     "name": "roc",
     "repository": "https://github.com/faldor20/tree-sitter-roc",
-    "revision": "7f9ae855ba7819c5d9279853691fd072e233226b"
+    "revision": "19cc6243c82b2f706810ea71fb8d89000b68b335"
   },
   {
     "name": "ron",

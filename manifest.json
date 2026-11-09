@@ -83,7 +83,7 @@
   {
     "name": "bp",
     "repository": "https://github.com/ambroisie/tree-sitter-bp",
-    "revision": "ee641d15390183d7535777947ce0f2f1fbcee69f"
+    "revision": "7fcdf705e70651ac4e767a88a6977f639ecad73a"
   },
   {
     "name": "bpftrace",

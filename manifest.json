@@ -838,7 +838,7 @@
   {
     "name": "matlab",
     "repository": "https://github.com/acristoffers/tree-sitter-matlab",
-    "revision": "f03d0347acd8bb05d4edd8c845ac1718729e1fad"
+    "revision": "ff2f83da49bb06128c4cfd055e7c95c05c77cded"
   },
   {
     "name": "menhir",

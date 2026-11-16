@@ -786,7 +786,7 @@
   {
     "name": "liquidsoap",
     "repository": "https://github.com/savonet/tree-sitter-liquidsoap",
-    "revision": "087fc44803a167ded3494ae2b38594dff18d4e50"
+    "revision": "91ac373040bf680ece3e2eea69735b3c38a3766c"
   },
   {
     "name": "llvm",

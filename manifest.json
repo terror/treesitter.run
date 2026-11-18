@@ -1148,7 +1148,7 @@
   {
     "name": "rescript",
     "repository": "https://github.com/rescript-lang/tree-sitter-rescript",
-    "revision": "cc6a15ee6297d493089134cb661a54fc7a13e376"
+    "revision": "d93f5cb4187bc233e8d76d2b19f4a2fe3084bce7"
   },
   {
     "name": "rifleconf",

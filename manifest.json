@@ -58,7 +58,7 @@
   {
     "name": "beancount",
     "repository": "https://github.com/polarmutex/tree-sitter-beancount",
-    "revision": "c8a9780610dbe8ade4888045b1f2caa7a0a9d8aa"
+    "revision": "97e38a1f9a20ec3d34ea9381bb45f2ba988c0de0"
   },
   {
     "name": "bibtex",

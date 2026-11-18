@@ -706,7 +706,7 @@
     "name": "just",
     "path": "vendor/tree-sitter-just",
     "repository": "https://github.com/terror/just-lsp",
-    "revision": "db9f80bd4ba648c35f9157fda9542d5780b495bf"
+    "revision": "8ec0e8fdcd7a25031b28ff6c353255b06384c89d"
   },
   {
     "name": "kcl",

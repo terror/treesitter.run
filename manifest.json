@@ -321,7 +321,7 @@
   {
     "name": "erlang",
     "repository": "https://github.com/WhatsApp/tree-sitter-erlang",
-    "revision": "62c82e67b73e13f3ef06e4c8c07ff035a8235d30"
+    "revision": "d40106aa0d6077beea08c5e14b901d98ab79d224"
   },
   {
     "name": "facility",

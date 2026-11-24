@@ -1198,7 +1198,7 @@
   {
     "name": "scala",
     "repository": "https://github.com/tree-sitter/tree-sitter-scala",
-    "revision": "91cdff7829b1e49567379aa0c2200cf2366faed1"
+    "revision": "c73ee9d3c89f5c93e407eef3e11ee610be2ec831"
   },
   {
     "name": "scfg",

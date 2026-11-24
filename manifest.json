@@ -1512,7 +1512,7 @@
   {
     "name": "vala",
     "repository": "https://github.com/vala-lang/tree-sitter-vala",
-    "revision": "97e6db3c8c73b15a9541a458d8e797a07f588ef4"
+    "revision": "dff1b1cf0c80ce625902b90359dbd50be6bfdbde"
   },
   {
     "name": "vento",
